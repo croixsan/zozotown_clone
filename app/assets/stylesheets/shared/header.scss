@@ -1,6 +1,161 @@
-.header{
-  .header__Wrapper{
-    height: 200px;
-    background-color: black;
+.header {
+  background-color: $header-color;
+  width: 100%;
+
+  &__wrapper {
+    width: 980px;
+    height: $header-height;
+    margin: 0 auto;
+
+    &__left {
+      height: $header-height;
+      line-height: $header-height;
+      float: left;
+
+      &__logo {
+        width: $header-logo-width;
+        margin-right: 18px;
+        float: left;
+
+        a {
+          font-size: 25px;
+          color: white;
+          text-decoration: none;
+        }
+      }
+
+      &__search {
+        height: $header-height;
+        float: left;
+
+        &__textfield {
+          float: left;
+          width: $header-search-field-width;
+          height: $header-height;
+          position: relative;
+
+          .search-field {
+            height: $header-search-height;
+            width: $header-search-field-width;
+            display: block;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            border: 0;
+          }
+        }
+
+        &__btn {
+          float: left;
+          height: $header-height;
+          width: $header-search-btn-width;
+
+          line-height: $header-height;
+          position: relative;
+          text-align: center;
+
+          #search-btn {
+            height: $header-search-height;
+            line-height: $header-search-height;
+            width: $header-search-btn-width;
+            display: block;
+            background: $header-search-btn-color;
+            cursor: pointer;
+            border-radius: 0 2px 2px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+          }
+        }
+      }
+    }
+
+    &__right {
+      float: right;
+
+      &__contents {
+        list-style: none;
+        height: $header-height;
+        line-height: $header-height;
+        text-align: center;
+        margin: 0;
+        color: $white;
+        text-decoration: none;
+        cursor: pointer;
+
+        &__user_name {
+          height: $header-height;
+          width: $header-login-width;
+          display: block;
+          float: left;
+          color: white;
+
+          #login-btn {
+            width: $header-login-width;
+            height: $header-height;
+            display: block;
+
+            span {
+              font-size: 13px;
+              text-decoration: none;
+              color: $white;
+            }
+          }
+        }
+
+        &__favorite {
+          height: $header-height;
+          width: $header-list-width;
+          display: block;
+          color: $white;
+          float: left;
+        }
+
+        &__cart {
+          height: $header-height;
+          width: $header-list-width;
+          display: block;
+          float: left;
+        }
+
+        &__menu {
+          height: $header-height;
+          width: $header-list-width;
+          display: block;
+          float: left;
+        }
+      }
+    }
   }
+}
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.h-list-btn {
+  width: $header-list-width;
+  height: $header-height;
+  display: block;
+}
+
+.fa-heart {
+  color: $white;
+}
+
+.fa-shopping-cart {
+  color: $white;
+}
+
+.fa-bars {
+  color: $white;
 }
