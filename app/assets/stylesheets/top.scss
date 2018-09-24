@@ -43,6 +43,7 @@ article {
 
         &__list {
           li {
+            width: $top-left-width;
             float: left;
             margin-top: 10px;
           }
@@ -50,10 +51,16 @@ article {
       }
 
       &__shop {
-        background-color: red;
         width: 100%;
-        height: $top-brand-field-height;
-        padding: 37px, 0, 12px, 0;
+        padding: 37px 0 12px;
+
+        &__list {
+          li {
+            width: $top-left-width;
+            float: left;
+            margin-top: 10px;
+          }
+        }
       }
     }
 

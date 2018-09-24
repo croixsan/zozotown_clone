@@ -42,6 +42,7 @@
             = link_to "ブランド", "#", class: "list-title"
           %li.category-btn
             = link_to "ショップ", "#", class: "list-title"
+      //--------- ブランド--------------
       %section#top__left__brand.clearfix
         %h2.head-title ブランド
         %ul#top__left__search__list.clearfix
@@ -72,8 +73,37 @@
             = link_to "UNITED ARROWS", "#", class: "list-title link-list"
           %p.more-list.link-list
             = link_to "ブランド一覧", "#"
-
+      //--------- ショップ--------------
       %section#top__left__shop.clearfix
+        %h2.head-title ショップ
+        %ul#top__left__shop__list.clearfix
+          %li
+            .circle-rank-num.rank-first
+              %i.fa.fa-circle.rank-circle
+                %i.rank-num 1
+            = link_to "nano univese", "#", class: "list-title link-list"
+          %li
+            .circle-rank-num.rank-second
+              %i.fa.fa-circle.rank-circle
+                %i.rank-num 2
+            = link_to "BEAMS MEN", "#", class: "list-title link-list"
+          %li
+            .circle-rank-num.rank-third
+              %i.fa.fa-circle.rank-circle
+                %i.rank-num 3
+            = link_to "adidas", "#", class: "list-title link-list"
+          %li
+            .circle-rank-num.rank-normal
+              %i.far.fa-circle.rank-circle
+                %i.rank-num-normal 4
+            = link_to "Nike", "#", class: "list-title link-list"
+          %li
+            .circle-rank-num.rank-normal
+              %i.far.fa-circle.rank-circle
+                %i.rank-num-normal 5
+            = link_to "URBAN RESEARCH", "#", class: "list-title link-list"
+        %p.more-list.link-list
+          = link_to "ショップ一覧", "#"
     #top__center
       %section#top__center__zozoitem
       %section#top__center__couponitem
