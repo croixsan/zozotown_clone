@@ -1,1 +1,5 @@
-@import "shared/header"
+@import "shared/common";
+@import "./variables";
+@import "shared/mixin";
+@import "font-awesome";
+@import "shared/header";
