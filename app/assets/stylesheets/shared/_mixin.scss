@@ -10,8 +10,12 @@
   height: $height;
   width: $width;
 }
-@mixin set_btn_size($height, $width) {
+@mixin set_btn($height, $width) {
   height: $height;
   width: $width;
   display: block;
+  line-height: $height;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
 }
