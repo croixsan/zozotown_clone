@@ -30,7 +30,8 @@ article {
 
       &__favorite {
         width: 100%;
-        padding: 22px 0 12px 0;
+        padding: 22px 0 12px;
+
         &__list {
           border-top: solid 1px $top-category-border-color;
           margin-top: 17px;
@@ -65,32 +66,129 @@ article {
     }
 
     &__center {
-      background-color: gray;
       width: $top-center-width;
       height: 3000px;
       margin-left: 15px;
       float: left;
 
       &__zozoitem {
-        background-color: blue;
+        border-bottom: solid 1px $top-center-border-color;
         height: $top-zozoitem-height;
         width: 100%;
         margin-top: 25px;
         padding-bottom: 10px;
+
+        &__contents {
+          &__item {
+            width: 170px;
+            float: left;
+            margin-right: 10px;
+
+            &__info {
+
+              &__brand {
+                color: $top-name-color;
+                font-size: 12px;
+              }
+
+              &__price {
+                height: 25px;
+                line-height: 25px;
+
+                &__num {
+                  float: left;
+                  font-size: 15px;
+                }
+
+                &__tax {
+                  float: left;
+                  color: $top-name-color;
+                  font-size: 10px;
+                  padding-left: 5px;
+                }
+              }
+            }
+          }
+        }
       }
 
       &__couponitem {
-        background-color: red;
-        height: $top-couponitem-height;
+        border-bottom: solid 1px $top-center-border-color;
+        height: $top-zozoitem-height;
         width: 100%;
-        padding: 22px, 0, 25px, 0;
+        margin-top: 25px;
+        padding-bottom: 10px;
+
+        &__contents {
+          &__item {
+            width: 170px;
+            float: left;
+            margin-right: 10px;
+
+            &__info {
+
+              &__brand {
+                color: $top-name-color;
+                font-size: 12px;
+              }
+
+              &__price {
+                height: 25px;
+                line-height: 25px;
+
+                &__num {
+                  float: left;
+                  font-size: 15px;
+                }
+
+                &__tax {
+                  float: left;
+                  color: $top-name-color;
+                  font-size: 10px;
+                  padding-left: 5px;
+                }
+              }
+            }
+          }
+
+          &__small-item {
+            margin-top: 25px;
+            float: left;
+            margin-right: 10px;
+
+            &__info {
+
+              &__brand {
+                color: $top-name-color;
+                font-size: 12px;
+              }
+
+              &__price {
+                height: 25px;
+                line-height: 25px;
+
+                &__num {
+                  float: left;
+                  font-size: 15px;
+                }
+
+                &__tax {
+                  float: left;
+                  color: $top-name-color;
+                  font-size: 10px;
+                  padding-left: 5px;
+                }
+              }
+            }
+          }
+        }
       }
 
       &__rankingitem {
         background-color: skyblue;
         height: $top-rankingitem-height;
         width: 100%;
-        padding: 23px, 0, 25px, 0;
+        padding: 22px 0 25px 0;
       }
     }
 
@@ -131,6 +229,7 @@ article {
 .more-list {
   margin-top: 18px;
   text-align: right;
+
   a {
     color: #007ebe;
     text-decoration: none;
@@ -142,12 +241,14 @@ article {
   padding-right: 5px;
   width: 20px;
   height: 20px;
+
   .fa-circle {
     font-size: 20px;
     position: relative;
     border: none;
   }
 }
+
 .rank-num {
   @include set_rank_num($white);
 }
@@ -170,4 +271,25 @@ article {
 
 .rank-normal {
   color: $top-rank-normal-color;
+}
+
+.item-image{
+  height: $top-item-image-height;
+  width: $top-item-image-width;
+}
+
+.item-small-image{
+  height: $top-item-small-image-height;
+  width: $top-item-small-image-width;
+}
+
+.zozo-item-link {
+  margin: 15px 0 15px 0;
+}
+
+.section-header {
+  h2 {
+    font-size: 18px;
+    margin-bottom: 11px;
+  }
 }
