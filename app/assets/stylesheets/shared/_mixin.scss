@@ -1,0 +1,17 @@
+@mixin fit_to_center {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+@mixin set_size($height, $width) {
+  height: $height;
+  width: $width;
+}
+@mixin set_btn_size($height, $width) {
+  height: $height;
+  width: $width;
+  display: block;
+}
