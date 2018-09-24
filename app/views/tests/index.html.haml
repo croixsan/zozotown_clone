@@ -5,11 +5,11 @@
         %h2.head-title 探す
         %ul#top__left__search__list
           %li
-            = link_to "ブランドから探す", "#", class: "list-title"
+            = link_to "ブランドから探す", "#", class: "list-title search-list"
           %li
-            = link_to "ショップから探す", "#", class: "list-title"
+            = link_to "ショップから探す", "#", class: "list-title search-list"
           %li
-            = link_to "ランキングから探す", "#", class: "list-title"
+            = link_to "ランキングから探す", "#", class: "list-title search-list"
       %section#top__left__category
         %h2.head-title カテゴリー
         %ul#top__left__category__list
@@ -31,8 +31,17 @@
             = link_to "バッグ", "#", class: "list-title"
           %li.category-btn
             = link_to "シューズ", "#", class: "list-title"
-
+          %p
+            = link_to "カテゴリ一覧", "#"
       %section#top__left__favorite
+        %h2.head-title お気に入り
+        %ul#top__left__favorite__list
+          %li.category-btn
+            = link_to "アイテム", "#", class: "list-title"
+          %li.category-btn
+            = link_to "ブランド", "#", class: "list-title"
+          %li.category-btn
+            = link_to "ショップ", "#", class: "list-title"
       %section#top__left__brand.clearfix
       %section#top__left__shop.clearfix
     #top__center

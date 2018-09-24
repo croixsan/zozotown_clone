@@ -21,17 +21,28 @@ article {
       &__category {
         width: 100%;
         padding: 22px 0 12px;
+
         &__list {
           border-top: solid 1px $top-category-border-color;
           margin-top: 17px;
         }
+        p {
+          margin-top: 18px;
+          text-align: right;
+          a {
+            color: #007ebe;
+            text-decoration: none;
+          }
+        }
       }
 
       &__favorite {
-        background-color: blue;
         width: 100%;
-        height: $top-favorite-field-height;
-        padding: 22px, 0, 12px, 0;
+        padding: 22px 0 12px 0;
+        &__list {
+          border-top: solid 1px $top-category-border-color;
+          margin-top: 17px;
+        }
       }
 
       &__brand {
@@ -103,7 +114,12 @@ article {
   padding: 10px 2px 8px 5px;
   border-bottom: solid 1px $top-category-border-color;
 }
-.category-btn:hover{
+
+.category-btn:hover {
   background-color: #e6e6e6;
-  transition: background-color .5s;
+  transition: background-color 0.5s;
+}
+
+.search-list:hover {
+  text-decoration-line: underline;
 }
