@@ -1,0 +1,32 @@
+article {
+  #top {
+    background: yellow;
+    width: $inner-width;
+    margin: 0 auto;
+    &__left {
+      background-color: skyblue;
+      width: $top-left-width;
+      height: 1000px;
+      float: left;
+
+      &__search {
+
+      }
+    }
+
+    &__center {
+      background-color: gray;
+      width: $top-center-width;
+      height: 1000px;
+      margin-left: 15px;
+      float: left;
+    }
+
+    &__right {
+      background-color: black;
+      width: $top-right-width;
+      height: 1000px;
+      float: left;
+    }
+  }
+}
