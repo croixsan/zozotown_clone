@@ -2,42 +2,31 @@ article {
   #top {
     width: $inner-width;
     margin: 0 auto;
+
     &__left {
       width: $top-left-width;
       float: left;
 
       &__search {
         width: 100%;
-        padding: 22px 0 12px 0;
-        h2{
-          font-size: 18px;
-          font-color: $top-head-font-color;
-        }
+        padding: 22px 0 12px;
 
-        &__list{
-          li{
+        &__list {
+          li {
             margin-top: 10px;
-            a{
-              text-decoration: none;
-              color: $top-list-font-color;
-            }
           }
         }
       }
-      &__category {
-        background-color: orange;
-        width: 100%;
-        height: $top-category-field-height;
-        position: relative;
 
-        &__list{
-          background-color: pink;
-          width: 100%;
-          height: $top-category-field-list-height;
-          @include fit_to_center;
-          position: absolute;
+      &__category {
+        width: 100%;
+        padding: 22px 0 12px;
+        &__list {
+          border-top: solid 1px $top-category-border-color;
+          margin-top: 17px;
         }
       }
+
       &__favorite {
         background-color: blue;
         width: 100%;
@@ -51,6 +40,7 @@ article {
         height: $top-brand-field-height;
         padding: 22px, 0, 12px, 0;
       }
+
       &__shop {
         background-color: red;
         width: 100%;
@@ -65,20 +55,23 @@ article {
       height: 3000px;
       margin-left: 15px;
       float: left;
-      &__zozoitem{
+
+      &__zozoitem {
         background-color: blue;
         height: $top-zozoitem-height;
         width: 100%;
         margin-top: 25px;
         padding-bottom: 10px;
       }
-      &__couponitem{
+
+      &__couponitem {
         background-color: red;
         height: $top-couponitem-height;
         width: 100%;
         padding: 22px, 0, 25px, 0;
       }
-      &__rankingitem{
+
+      &__rankingitem {
         background-color: skyblue;
         height: $top-rankingitem-height;
         width: 100%;
@@ -93,4 +86,24 @@ article {
       float: left;
     }
   }
+}
+
+.head-title {
+  font-size: 18px;
+  font-color: $top-head-font-color;
+}
+
+.list-title {
+  text-decoration: none;
+  color: $top-list-font-color;
+}
+
+.category-btn {
+  @include set_btn($top-category-btn-height, $top-category-btn-width);
+  padding: 10px 2px 8px 5px;
+  border-bottom: solid 1px $top-category-border-color;
+}
+.category-btn:hover{
+  background-color: #e6e6e6;
+  transition: background-color .5s;
 }

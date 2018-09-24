@@ -1,17 +1,37 @@
 %article
   #top.clearfix
     #top__left
-      %section#top__left__search.clearfix
-        %h2 探す
+      %section#top__left__search
+        %h2.head-title 探す
         %ul#top__left__search__list
           %li
-            = link_to "ブランドから探す", "#"
+            = link_to "ブランドから探す", "#", class: "list-title"
           %li
-            = link_to "ショップから探す", "#"
+            = link_to "ショップから探す", "#", class: "list-title"
           %li
-            = link_to "ランキングから探す", "#"
-      %section#top__left__category.clearfix
-        #top__left__category__list
+            = link_to "ランキングから探す", "#", class: "list-title"
+      %section#top__left__category
+        %h2.head-title カテゴリー
+        %ul#top__left__category__list
+          %li.category-btn
+            = link_to "トップス", "#", class: "list-title"
+          %li.category-btn
+            = link_to "ジャケット/アウター", "#", class: "list-title"
+          %li.category-btn
+            = link_to "パンツ", "#", class: "list-title"
+          %li.category-btn
+            = link_to "オールインワン", "#", class: "list-title"
+          %li.category-btn
+            = link_to "スカート", "#", class: "list-title"
+          %li.category-btn
+            = link_to "ワンピース", "#", class: "list-title"
+          %li.category-btn
+            = link_to "スーツ/ネクタイ", "#", class: "list-title"
+          %li.category-btn
+            = link_to "バッグ", "#", class: "list-title"
+          %li.category-btn
+            = link_to "シューズ", "#", class: "list-title"
+
       %section#top__left__favorite
       %section#top__left__brand.clearfix
       %section#top__left__shop.clearfix
