@@ -48,6 +48,7 @@
             @include fit_to_center;
             border-radius: 0 2px 2px 0;
             background-color: $header-search-btn-color;
+            text-align: center;
           }
         }
       }
@@ -67,6 +68,7 @@
           #login-btn {
             @include set_btn($header-height, $header-login-width);
             color: $white;
+            text-align: center;
           }
         }
 
@@ -104,6 +106,7 @@
 
 .h-list-btn {
   @include set_btn($header-height, $header-list-width);
+  text-align: center;
 }
 
 .h-list-btn:hover {
