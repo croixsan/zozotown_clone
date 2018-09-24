@@ -40,3 +40,11 @@
   @include set_btn($c-header-height, $c-header-tab-ladies-width);
   color: $c-header-tab-font-color;
 }
+.tabs-btn:hover{
+  background-color: #e6e6e6;
+  transition: background-color .5s;
+}
+.tabs-btn-ladies:hover{
+  background-color: #e6e6e6;
+  transition: background-color .5s;
+}

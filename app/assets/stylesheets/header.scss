@@ -71,17 +71,14 @@
         }
 
         &__favorite {
-          @include set_btn($header-height, $header-list-width);
           float: left;
         }
 
         &__cart {
-          @include set_btn($header-height, $header-list-width);
           float: left;
         }
 
         &__menu {
-          @include set_btn($header-height, $header-list-width);
           float: left;
         }
       }
@@ -103,4 +100,18 @@
 
 .fa-bars {
   color: $white;
+}
+
+.h-list-btn {
+  @include set_btn($header-height, $header-list-width);
+}
+
+.h-list-btn:hover {
+  background-color: black;
+  transition: background-color 0.5s;
+}
+
+#login-btn:hover {
+  background-color: black;
+  transition: background-color 0.5s;
 }
