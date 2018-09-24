@@ -1,3 +1,5 @@
+//---------- common ----------//
+$inner-width: 980px;
 //---------- header ----------//
 $header-color: #323232;
 $white: #fff;
@@ -11,3 +13,10 @@ $header-search-btn-width: 40px;
 // ボタン
 $header-list-width: 55px;
 $header-login-width: 105px;
+
+//---------- content_header ----------//
+$c-header-color: #f0f0f0;
+$c-header-tab-font-color: #808080;
+$c-header-height: 40px;
+$c-header-tab-width: 80px;
+$c-header-tab-ladies-width: 105px;
