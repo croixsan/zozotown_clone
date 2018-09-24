@@ -34,7 +34,6 @@
           .search-field {
             @include set_size($header-search-height, $header-search-field-width);
             @include fit_to_center;
-            padding: 0;
             border: 0;
           }
         }
