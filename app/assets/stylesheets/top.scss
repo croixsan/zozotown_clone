@@ -26,14 +26,6 @@ article {
           border-top: solid 1px $top-category-border-color;
           margin-top: 17px;
         }
-        p {
-          margin-top: 18px;
-          text-align: right;
-          a {
-            color: #007ebe;
-            text-decoration: none;
-          }
-        }
       }
 
       &__favorite {
@@ -46,10 +38,15 @@ article {
       }
 
       &__brand {
-        background-color: orange;
         width: 100%;
-        height: $top-brand-field-height;
-        padding: 22px, 0, 12px, 0;
+        padding: 22px 0 12px;
+
+        &__list {
+          li {
+            float: left;
+            margin-top: 10px;
+          }
+        }
       }
 
       &__shop {
@@ -120,6 +117,50 @@ article {
   transition: background-color 0.5s;
 }
 
-.search-list:hover {
+.link-list:hover {
   text-decoration-line: underline;
+}
+
+.more-list {
+  margin-top: 18px;
+  text-align: right;
+  a {
+    color: #007ebe;
+    text-decoration: none;
+  }
+}
+
+.circle-rank-num {
+  float: left;
+  padding-right: 5px;
+  width: 20px;
+  height: 20px;
+  .fa-circle {
+    font-size: 20px;
+    position: relative;
+    border: none;
+  }
+}
+.rank-num {
+  @include set_rank_num($white);
+}
+
+.rank-num-normal {
+  @include set_rank_num($top-rank-normal-num-color);
+}
+
+.rank-first {
+  color: $top-rank-first-color;
+}
+
+.rank-second {
+  color: $top-rank-second-color;
+}
+
+.rank-third {
+  color: $top-rank-third-color;
+}
+
+.rank-normal {
+  color: $top-rank-normal-color;
 }

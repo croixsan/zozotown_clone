@@ -18,3 +18,14 @@
   text-decoration: none;
   cursor: pointer;
 }
+@mixin set_rank_num($color) {
+  font-size: 13px;
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  bottom: 0;
+  right: 0;
+  font-family: helvetica;
+  font-style: normal;
+  color: $color;
+}
