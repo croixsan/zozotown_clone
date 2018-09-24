@@ -1,0 +1,50 @@
+#content_header {
+  background-color: $c-header-color;
+
+  &__inner {
+    height: $c-header-height;
+    width: $inner-width;
+    margin: auto;
+
+    &__tabs {
+
+      &__all {
+        @include set_size($c-header-height, $c-header-tab-width);
+        float: left;
+      }
+
+      &__mens {
+        @include set_size($c-header-height, $c-header-tab-width);
+        float: left;
+      }
+
+      &__ladies {
+        @include set_size($c-header-height, $c-header-tab-ladies-width);
+        float: left;
+      }
+
+      &__kids {
+        @include set_size($c-header-height, $c-header-tab-width);
+        float: left;
+      }
+    }
+  }
+}
+
+.tabs-btn {
+  @include set_btn($c-header-height, $c-header-tab-width);
+  color: $c-header-tab-font-color;
+}
+
+.tabs-btn-ladies {
+  @include set_btn($c-header-height, $c-header-tab-ladies-width);
+  color: $c-header-tab-font-color;
+}
+.tabs-btn:hover{
+  background-color: #e6e6e6;
+  transition: background-color .5s;
+}
+.tabs-btn-ladies:hover{
+  background-color: #e6e6e6;
+  transition: background-color .5s;
+}
