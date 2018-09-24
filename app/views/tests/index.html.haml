@@ -1,7 +1,23 @@
 %article
   #top.clearfix
     #top__left
-      %section.top__left__search
+      %section#top__left__search.clearfix
         %h2 探す
+        %ul#top__left__search__list
+          %li
+            = link_to "ブランドから探す", "#"
+          %li
+            = link_to "ショップから探す", "#"
+          %li
+            = link_to "ランキングから探す", "#"
+      %section#top__left__category.clearfix
+        #top__left__category__list
+      %section#top__left__favorite
+      %section#top__left__brand.clearfix
+      %section#top__left__shop.clearfix
     #top__center
+      %section#top__center__zozoitem
+      %section#top__center__couponitem
+      %section#top__center__rankingitem
+
     #top__right

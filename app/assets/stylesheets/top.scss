@@ -1,25 +1,89 @@
 article {
   #top {
-    background: yellow;
     width: $inner-width;
     margin: 0 auto;
     &__left {
-      background-color: skyblue;
       width: $top-left-width;
-      height: 1000px;
       float: left;
 
       &__search {
+        width: 100%;
+        padding: 22px 0 12px 0;
+        h2{
+          font-size: 18px;
+          font-color: $top-head-font-color;
+        }
 
+        &__list{
+          li{
+            margin-top: 10px;
+            a{
+              text-decoration: none;
+              color: $top-list-font-color;
+            }
+          }
+        }
+      }
+      &__category {
+        background-color: orange;
+        width: 100%;
+        height: $top-category-field-height;
+        position: relative;
+
+        &__list{
+          background-color: pink;
+          width: 100%;
+          height: $top-category-field-list-height;
+          @include fit_to_center;
+          position: absolute;
+        }
+      }
+      &__favorite {
+        background-color: blue;
+        width: 100%;
+        height: $top-favorite-field-height;
+        padding: 22px, 0, 12px, 0;
+      }
+
+      &__brand {
+        background-color: orange;
+        width: 100%;
+        height: $top-brand-field-height;
+        padding: 22px, 0, 12px, 0;
+      }
+      &__shop {
+        background-color: red;
+        width: 100%;
+        height: $top-brand-field-height;
+        padding: 37px, 0, 12px, 0;
       }
     }
 
     &__center {
       background-color: gray;
       width: $top-center-width;
-      height: 1000px;
+      height: 3000px;
       margin-left: 15px;
       float: left;
+      &__zozoitem{
+        background-color: blue;
+        height: $top-zozoitem-height;
+        width: 100%;
+        margin-top: 25px;
+        padding-bottom: 10px;
+      }
+      &__couponitem{
+        background-color: red;
+        height: $top-couponitem-height;
+        width: 100%;
+        padding: 22px, 0, 25px, 0;
+      }
+      &__rankingitem{
+        background-color: skyblue;
+        height: $top-rankingitem-height;
+        width: 100%;
+        padding: 23px, 0, 25px, 0;
+      }
     }
 
     &__right {
