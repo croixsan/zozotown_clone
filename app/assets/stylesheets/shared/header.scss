@@ -1,10 +1,8 @@
-.header {
+#header {
   background-color: $header-color;
-  width: 100%;
 
   &__wrapper {
-    width: 980px;
-    height: $header-height;
+    @include set_size($header-height, 980px);
     margin: 0 auto;
 
     &__left {
@@ -19,7 +17,7 @@
 
         a {
           font-size: 25px;
-          color: white;
+          color: $white;
           text-decoration: none;
         }
       }
@@ -30,48 +28,31 @@
 
         &__textfield {
           float: left;
-          width: $header-search-field-width;
-          height: $header-height;
+          @include set_size($header-height, $header-search-field-width);
           position: relative;
 
           .search-field {
-            height: $header-search-height;
-            width: $header-search-field-width;
-            display: block;
+            @include set_size($header-search-height, $header-search-field-width);
+            @include fit_to_center;
             padding: 0;
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            margin: auto;
             border: 0;
           }
         }
 
         &__btn {
-          float: left;
-          height: $header-height;
-          width: $header-search-btn-width;
-
+          @include set_size($header-height, $header-search-btn-width);
           line-height: $header-height;
+          float: left;
           position: relative;
           text-align: center;
 
           #search-btn {
-            height: $header-search-height;
+            @include set_btn_size($header-search-height, $header-search-btn-width);
+            @include fit_to_center;
             line-height: $header-search-height;
-            width: $header-search-btn-width;
-            display: block;
             background: $header-search-btn-color;
             cursor: pointer;
             border-radius: 0 2px 2px 0;
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            margin: auto;
           }
         }
       }
@@ -91,16 +72,11 @@
         cursor: pointer;
 
         &__user_name {
-          height: $header-height;
-          width: $header-login-width;
-          display: block;
+          @include set_size($header-height, $header-login-width);
           float: left;
-          color: white;
 
           #login-btn {
-            width: $header-login-width;
-            height: $header-height;
-            display: block;
+            @include set_btn_size($header-height, $header-login-width);
 
             span {
               font-size: 13px;
@@ -111,24 +87,17 @@
         }
 
         &__favorite {
-          height: $header-height;
-          width: $header-list-width;
-          display: block;
-          color: $white;
+          @include set_btn_size($header-height, $header-list-width);
           float: left;
         }
 
         &__cart {
-          height: $header-height;
-          width: $header-list-width;
-          display: block;
+          @include set_btn_size($header-height, $header-list-width);
           float: left;
         }
 
         &__menu {
-          height: $header-height;
-          width: $header-list-width;
-          display: block;
+          @include set_btn_size($header-height, $header-list-width);
           float: left;
         }
       }
@@ -136,16 +105,8 @@
   }
 }
 
-.clearfix:after {
-  content: "";
-  clear: both;
-  display: block;
-}
-
-.h-list-btn {
-  width: $header-list-width;
-  height: $header-height;
-  display: block;
+.fa-search {
+  color: gray;
 }
 
 .fa-heart {
