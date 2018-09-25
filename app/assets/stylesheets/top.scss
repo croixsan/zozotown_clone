@@ -5,10 +5,10 @@ article {
 
     &__left {
       width: $top-left-width;
+      margin-right: 10px;
       float: left;
 
       &__search {
-        width: 100%;
         padding: 22px 0 12px;
 
         &__list {
@@ -19,7 +19,6 @@ article {
       }
 
       &__category {
-        width: 100%;
         padding: 22px 0 12px;
 
         &__list {
@@ -29,7 +28,6 @@ article {
       }
 
       &__favorite {
-        width: 100%;
         padding: 22px 0 12px;
 
         &__list {
@@ -39,7 +37,6 @@ article {
       }
 
       &__brand {
-        width: 100%;
         padding: 22px 0 12px;
 
         &__list {
@@ -52,7 +49,6 @@ article {
       }
 
       &__shop {
-        width: 100%;
         padding: 37px 0 12px;
 
         &__list {
@@ -91,22 +87,11 @@ article {
     }
 
     &__right {
-      background-color: black;
       width: $top-right-width;
       height: 1000px;
       float: left;
     }
   }
-}
-
-.head-title {
-  font-size: 18px;
-  font-color: $top-head-font-color;
-}
-
-.list-title {
-  text-decoration: none;
-  color: $top-list-font-color;
 }
 
 .category-btn {
@@ -120,19 +105,6 @@ article {
   transition: background-color 0.5s;
 }
 
-.link-list:hover {
-  text-decoration-line: underline;
-}
-
-.more-list {
-  margin-top: 18px;
-  text-align: right;
-
-  a {
-    color: #007ebe;
-    text-decoration: none;
-  }
-}
 /*-- Ranking style --------------------------------------*/
 /*-- ランキングアイコンの数字を生成 -----*/
 .rank-num {
@@ -172,7 +144,7 @@ article {
     border: none;
   }
 }
-/*-- ランキングアイコンのcircle色を指定 -----*/
+/*-- ランキングアイコンのcircleの色を指定 -----*/
 .first-color {
   color: $top-rank-first-color;
 }
@@ -189,14 +161,31 @@ article {
   color: $top-rank-normal-color;
 }
 
-.item-image {
-  height: $top-item-image-height;
-  width: $top-item-image-width;
+/*-- image size --------------------------------------*/
+.image-size-large {
+  height: $large-image-height;
+  width: $large-image-width;
 }
 
-.item-small-image {
-  height: $top-item-small-image-height;
-  width: $top-item-small-image-width;
+.image-size-middle {
+  height: $middle-image-height;
+  width: $middle-image-width;
+}
+
+.image-size-small {
+  height: $small-image-height;
+  width: $small-image-width;
+}
+
+/*-- list style --------------------------------------*/
+.head-title {
+  font-size: 18px;
+  font-color: $top-head-font-color;
+}
+
+.list-title {
+  text-decoration: none;
+  color: $top-list-font-color;
 }
 
 .zozo-item-link {
@@ -210,6 +199,21 @@ article {
   }
 }
 
+.link-list:hover {
+  text-decoration-line: underline;
+}
+
+.more-list {
+  margin-top: 18px;
+  text-align: right;
+
+  a {
+    color: #007ebe;
+    text-decoration: none;
+  }
+}
+
+/*-- item style --------------------------------------*/
 .item {
   float: left;
   margin-right: 10px;
@@ -232,12 +236,9 @@ article {
     }
 
     &__price {
-      height: 25px;
-      line-height: 25px;
 
       &__num {
         float: left;
-        font-size: 15px;
       }
 
       &__tax {
@@ -248,4 +249,23 @@ article {
       }
     }
   }
+}
+
+/*-- itemに表示する文字の大きさを指定 -----*/
+.price-block-large {
+  height: 25px;
+  line-height: 25px;
+}
+
+.price-block-small {
+  height: 17px;
+  line-height: 17px;
+}
+
+.price-font-large {
+  font-size: 15px;
+}
+
+.price-font-small {
+  font-size: 11px;
 }
