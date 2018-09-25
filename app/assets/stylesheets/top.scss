@@ -104,6 +104,10 @@ article {
   transition: background-color 0.5s;
 }
 
+.hover-link:hover {
+  text-decoration: underline;
+}
+
 /*-- Ranking style --------------------------------------*/
 /*-- ランキングアイコンの数字を生成 -----*/
 .rank-num {
