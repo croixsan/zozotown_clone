@@ -1,19 +1,17 @@
-.popup {
+.popup{
   position: relative;
   visibility: hidden;
-  &__tops {
-    @include create_category_popup;
-
-    &__inner {
-      width: 180px;
-      margin: 0 auto;
-
-      &__list {
-
-        li {
-          padding: 10px 2px 8px 5px;
-        }
-      }
+  &__inner {
+    width: 180px;
+    margin: 0 auto;
+    li {
+      padding: 10px 2px 8px 5px;
     }
   }
+}
+.category-tops {
+  @include create_category_popup;
+}
+.category-jacket{
+  @include create_category_popup;
 }
