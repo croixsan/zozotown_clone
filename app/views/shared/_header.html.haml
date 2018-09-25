@@ -21,16 +21,33 @@
               %i.fav-notify
                 New
         %li#header__wrapper__right__contents__cart
-          = link_to "#", class: "h-list-btn" do
+          = link_to "#", class: "h-list-btn", id: "cart-btn" do
             %i.fas.fa-lg.fa-shopping-cart
             %i.fas.fa-circle
               %i.cart-notify
                 1
         %li#header__wrapper__right__contents__menu
-          = link_to "#", class: "h-list-btn" do
+          = link_to "#", class: "h-list-btn", id: "menu-btn" do
             %i.fas.fa-lg.fa-bars
       #header__wrapper__right__popup
         #header__wrapper__right__popup__inner
           #header__wrapper__right__popup__inner__favorite
             %i.far.fa-heart
             %span 会員でない方でも「お気に入り」が使えるようになりました。
+          #header__wrapper__right__popup__inner__cart
+            %i.fas.fa-shopping-cart
+            %span カートに商品が1件あります。
+            .look-cart-btn
+              = link_to "ショッピングカートを見る", "#"
+          #header__wrapper__right__popup__inner__menu
+            %ul.menu-list
+              %li
+                %p 探す
+              %li
+                = link_to "カテゴリー一覧", "#"
+              %li
+                = link_to "ブランド一覧", "#"
+              %li
+                = link_to "ショップ一覧", "#"
+              %li
+                = link_to "ランキング一覧", "#"
