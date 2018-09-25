@@ -15,6 +15,14 @@
         %ul#top__left__category__list
           %li.category-btn
             = link_to "トップス", "#", class: "list-title"
+            .popup
+              .popup__tops
+                .popup__tops__inner
+                  %ul.popup__tops__inner__list
+                    - @tops.each do |tops|
+                      %li.hover-link
+                        = link_to tops, "#", class: "list-title"
+
           %li.category-btn
             = link_to "ジャケット/アウター", "#", class: "list-title"
           %li.category-btn
