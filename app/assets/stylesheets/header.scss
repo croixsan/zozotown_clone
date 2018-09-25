@@ -90,6 +90,21 @@
 
         &__cart {
           float: left;
+          position: relative;
+          .fa-circle{
+            color: #e73656;
+            font-size: 1.5em;
+            position: absolute;
+            top: 2px;
+            .cart-notify{
+              position: absolute;
+              font-size: 8px;
+              color: white;
+              font-style: normal;
+              top: 4px;
+              right: 6px;
+            }
+          }
         }
 
         &__menu {
