@@ -18,8 +18,6 @@
             .popup__login__inner
               %ul.popup__login__inner__list
                 %li
-                  %h3 探す
-                %li
                   = link_to "登録情報", "#"
                 %li
                   = link_to "注文履歴・発送状況", "#"
@@ -31,6 +29,7 @@
             %i.fas.fa-comment.fa-2x
               %i.fav-notify
                 New
+          = if @is_login == true
           .popup.clearfix
             .popup__favorite
               .popup__favorite__inner

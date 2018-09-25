@@ -123,13 +123,13 @@
         &__login {
           visibility: hidden;
           position: absolute;
-          right: 325px;
+          right: 350px;
           float: left;
           z-index: 1;
-          @include create_popup(175px, 175px);
+          @include create_popup(125px, 175px);
 
           &__inner {
-            @include set_size(175px, 125px);
+            @include set_size(125px, 125px);
             margin: 0 auto;
             position: relative;
 
