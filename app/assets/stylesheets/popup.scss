@@ -1,14 +1,8 @@
 .popup {
   position: relative;
+  visibility: hidden;
   &__tops {
-    padding: 12px 10px 15px 10px;
-    z-index: 2;
-    box-shadow: 0 0 5px rgba(77,77,77,0.2);
-    border-radius: 0 0 4px 4px;
-    background-color: $white;
-    position: absolute;
-    top: -30px;
-    left: 175px;
+    @include create_category_popup;
 
     &__inner {
       width: 180px;

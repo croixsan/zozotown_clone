@@ -56,4 +56,18 @@ $(function(){
   $('.popup__login').on('mouseout', function(){
     $(".popup__login").css("visibility","hidden")
   })
+
+  //---- トップスボタン---------------------------
+  $('#tops-btn').on('mouseover', function(){
+    $(".popup__tops").css("visibility","visible")
+  })
+  $('#tops-btn').on('mouseout', function(){
+    $(".popup__tops").css("visibility","hidden")
+  })
+  $('.popup__tops').on('mouseover', function(){
+    $(".popup__tops").css("visibility","visible")
+  })
+  $('.popup__tops').on('mouseout', function(){
+    $(".popup__tops").css("visibility","hidden")
+  })
 })
