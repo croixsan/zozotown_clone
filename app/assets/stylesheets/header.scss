@@ -116,7 +116,7 @@
         }
       }
 
-      &__popup {
+      .popup {
         width: 270px;
         height: 205px;
         z-index: 1;
@@ -135,6 +135,7 @@
             visibility: hidden;
             position: relative;
             text-align: center;
+            z-index: 2;
 
             .fa-heart {
               color: #3bb4d7;
@@ -144,6 +145,7 @@
               bottom: 0;
               right: 0;
               font-size: 5.0em;
+
             }
 
             span {
@@ -160,8 +162,10 @@
             visibility: hidden;
             position: relative;
             text-align: center;
+            z-index: 3;
 
             .fa-shopping-cart {
+              display: block;
               color: #3bb4d7;
               position: absolute;
               top: 50px;
@@ -179,10 +183,37 @@
               bottom: 0;
               right: 0;
             }
+
+            .look-cart-btn {
+              position: absolute;
+              top: 150px;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              margin: 0 auto;
+              width: 195px;
+              height: 20px;
+              padding: 11px 0 8px;
+              background-color: #2490D0;
+              border-radius: 2px;
+              cursor: pointer;
+              text-align: center;
+
+              a {
+                text-decoration: none;
+                color: $white;
+                display: block;
+              }
+            }
+
           }
 
           &__menu {
+            visibility: hidden;
+            height: 100%;
             padding-top: 30px;
+            z-index: 4;
+
             p {
               font-size: 15px;
               font-weight: normal;
@@ -231,26 +262,4 @@
 #login-btn:hover {
   background-color: black;
   transition: background-color 0.5s;
-}
-
-.look-cart-btn {
-  position: absolute;
-  top: 150px;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  width: 195px;
-  height: 20px;
-  padding: 11px 0 8px;
-  background-color: #2490D0;
-  border-radius: 2px;
-  cursor: pointer;
-  text-align: center;
-
-  a {
-    text-decoration: none;
-    color: $white;
-    display: block;
-  }
 }
