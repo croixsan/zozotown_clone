@@ -14,17 +14,23 @@
         %h2.head-title カテゴリー
         %ul#top__left__category__list
           %li.category-btn{id: "tops-btn"}
-            = link_to "トップス", "#", class: "list-title popup-btn tops-btn"
+            = link_to "トップス", "#", class: "list-title"
             .popup
-              .popup__tops
-                .popup__tops__inner
-                  %ul.popup__tops__inner__list
+              .popup.category-tops
+                .popup__inner
+                  %ul.popup__inner__list
                     - @tops.each do |tops|
                       %li.hover-link
                         = link_to tops, "#", class: "list-title"
-
-          %li.category-btn
+          %li.category-btn{id: "jacket-btn"}
             = link_to "ジャケット/アウター", "#", class: "list-title"
+            .popup
+              .popup.category-jacket
+                .popup__inner
+                  %ul.popup__inner__list
+                    - @jackets.each do |jacket|
+                      %li.hover-link
+                        = link_to jacket, "#", class: "list-title"
           %li.category-btn
             = link_to "パンツ", "#", class: "list-title"
           %li.category-btn
