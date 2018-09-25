@@ -14,44 +14,56 @@
         %li#header__wrapper__right__contents__user_name
           = link_to "#", id: "login-btn" do
             %span ログイン
+          .popup__login
+            .popup__login__inner
+              %ul.popup__login__inner__list
+                %li
+                  %h3 探す
+                %li
+                  = link_to "登録情報", "#"
+                %li
+                  = link_to "注文履歴・発送状況", "#"
+                %li
+                  = link_to "ログアウト", "#"
         %li#header__wrapper__right__contents__favorite
           = link_to "#", class: "h-list-btn", id: "favorite-btn" do
             %i.far.fa-lg.fa-heart
             %i.fas.fa-comment.fa-2x
               %i.fav-notify
                 New
+          .popup.clearfix
+            .popup__favorite
+              .popup__favorite__inner
+                .popup__favorite__inner__contents
+                  %i.far.fa-heart
+                  %span 会員でない方でも「お気に入り」が使えるようになりました。
         %li#header__wrapper__right__contents__cart
           = link_to "#", class: "h-list-btn", id: "cart-btn" do
             %i.fas.fa-lg.fa-shopping-cart
             %i.fas.fa-circle
               %i.cart-notify
                 1
+          .popup__cart
+            .popup__cart__inner
+              .popup__cart__inner__contents
+                %i.fas.fa-shopping-cart
+                %span カートに商品が1件あります。
+                .look-cart-btn
+                  = link_to "ショッピングカートを見る", "#"
+
         %li#header__wrapper__right__contents__menu
           = link_to "#", class: "h-list-btn", id: "menu-btn" do
             %i.fas.fa-lg.fa-bars
-      %ul.popup.clearfix
-        %li.popup__favorite
-          .popup__favorite__inner
-            .popup__favorite__inner__contents
-              %i.far.fa-heart
-              %span 会員でない方でも「お気に入り」が使えるようになりました。
-        %li.popup__cart
-          .popup__cart__inner
-            .popup__cart__inner__contents
-              %i.fas.fa-shopping-cart
-              %span カートに商品が1件あります。
-              .look-cart-btn
-                = link_to "ショッピングカートを見る", "#"
-        %li.popup__menu
-          .popup__menu__inner
-            %ul.popup__menu__inner__list
-              %li
-                %h3 探す
-              %li
-                = link_to "カテゴリー一覧", "#"
-              %li
-                = link_to "ブランド一覧", "#"
-              %li
-                = link_to "ショップ一覧", "#"
-              %li
-                = link_to "ランキング一覧", "#"
+          .popup__menu
+            .popup__menu__inner
+              %ul.popup__menu__inner__list
+                %li
+                  %h3 探す
+                %li
+                  = link_to "カテゴリー一覧", "#"
+                %li
+                  = link_to "ブランド一覧", "#"
+                %li
+                  = link_to "ショップ一覧", "#"
+                %li
+                  = link_to "ランキング一覧", "#"

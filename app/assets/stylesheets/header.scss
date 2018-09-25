@@ -71,6 +71,7 @@
         }
 
         &__favorite {
+          @include set_size(55px, 50px);
           float: left;
           position: relative;
 
@@ -91,6 +92,7 @@
         }
 
         &__cart {
+          @include set_size(55px, 50px);
           float: left;
           position: relative;
 
@@ -113,13 +115,55 @@
 
         &__menu {
           float: left;
+          @include set_size(55px, 50px);
         }
       }
 
       .popup {
-        &__favorite {
+        &__login {
+          visibility: hidden;
+          position: absolute;
+          right: 325px;
           float: left;
-          z-index: -1;
+          z-index: 1;
+          @include create_popup(175px, 175px);
+
+          &__inner {
+            @include set_size(175px, 125px);
+            margin: 0 auto;
+            position: relative;
+
+            &__list {
+              position: absolute;
+              top: 30px;
+              right: 0;
+              bottom: 0;
+              left: 0;
+
+              h3 {
+                font-size: 15px;
+                font-weight: normal;
+                padding-bottom: 13px;
+              }
+
+              li {
+                padding-bottom: 7px;
+
+                a {
+                  text-decoration: none;
+                  color: #646464;
+                }
+              }
+            }
+          }
+        }
+
+        &__favorite {
+          visibility: hidden;
+          position: absolute;
+          right: -100px;
+          float: left;
+          z-index: 1;
           @include create_popup(205px, 270px);
 
           &__inner {
@@ -148,6 +192,9 @@
         }
 
         &__cart {
+          visibility: hidden;
+          position: absolute;
+          right: -50px;
           float: left;
           z-index: 1;
           @include create_popup(205px, 270px);
@@ -196,6 +243,9 @@
         }
 
         &__menu {
+          visibility: hidden;
+          position: absolute;
+          right: 200px;
           float: left;
           z-index: 1;
           @include create_popup(205px, 200px);
@@ -211,6 +261,7 @@
               right: 0;
               bottom: 0;
               left: 0;
+
               h3 {
                 font-size: 15px;
                 font-weight: normal;
