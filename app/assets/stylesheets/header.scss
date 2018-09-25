@@ -111,6 +111,42 @@
           float: left;
         }
       }
+      &__popup {
+        width: 270px;
+        height: 205px;
+        z-index: 1;
+        box-shadow: 0 0 5px rgba(77,77,77,0.2);
+        border-radius: 0 0 4px 4px;
+        background-color: $white;
+        visibility: hidden;
+        &__inner{
+          width: 220px;
+          height: 205px;
+          margin: 0 auto;
+          text-align: center;
+          position: relative;
+          &__favorite{
+            position: relative;
+            .fa-heart{
+              color: #3bb4d7;
+              position: absolute;
+              top: 30px;
+              left: 0;
+              bottom: 0;
+              right: 0;
+              font-size: 5.0em;
+            }
+            span {
+              color: #808080;
+              position: absolute;
+              top: 120px;
+              left: 0;
+              bottom: 0;
+              right: 0;
+            }
+          }
+        }
+      }
     }
   }
 }

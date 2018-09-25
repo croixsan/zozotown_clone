@@ -15,7 +15,7 @@
           = link_to "#", id: "login-btn" do
             %span ログイン
         %li#header__wrapper__right__contents__favorite
-          = link_to "#", class: "h-list-btn" do
+          = link_to "#", class: "h-list-btn", id: "favorite-btn" do
             %i.fas.fa-lg.fa-heart
             %i.fas.fa-comment.fa-2x
               %i.fav-notify
@@ -29,3 +29,8 @@
         %li#header__wrapper__right__contents__menu
           = link_to "#", class: "h-list-btn" do
             %i.fas.fa-lg.fa-bars
+      #header__wrapper__right__popup
+        #header__wrapper__right__popup__inner
+          #header__wrapper__right__popup__inner__favorite
+            %i.far.fa-heart
+            %span 会員でない方でも「お気に入り」が使えるようになりました。
