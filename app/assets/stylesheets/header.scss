@@ -117,114 +117,113 @@
       }
 
       .popup {
-        width: 270px;
-        height: 205px;
-        z-index: 1;
-        box-shadow: 0 0 5px rgba(77,77,77,0.2);
-        border-radius: 0 0 4px 4px;
-        background-color: $white;
-        visibility: hidden;
+        &__favorite {
+          float: left;
+          z-index: -1;
+          @include create_popup(205px, 270px);
 
-        &__inner {
-          width: 220px;
-          height: 205px;
-          margin: 0 auto;
-          position: relative;
-
-          &__favorite {
-            visibility: hidden;
+          &__inner {
+            @include set_size(205px, 220px);
+            margin: 0 auto;
             position: relative;
-            text-align: center;
-            z-index: 2;
 
-            .fa-heart {
-              color: #3bb4d7;
-              position: absolute;
-              top: 30px;
-              left: 0;
-              bottom: 0;
-              right: 0;
-              font-size: 5.0em;
-
-            }
-
-            span {
-              color: #808080;
-              position: absolute;
-              top: 120px;
-              left: 0;
-              bottom: 0;
-              right: 0;
-            }
-          }
-
-          &__cart {
-            visibility: hidden;
-            position: relative;
-            text-align: center;
-            z-index: 3;
-
-            .fa-shopping-cart {
-              display: block;
-              color: #3bb4d7;
-              position: absolute;
-              top: 50px;
-              left: 0;
-              bottom: 0;
-              right: 0;
-              font-size: 4.0em;
-            }
-
-            span {
-              color: #808080;
-              position: absolute;
-              top: 120px;
-              left: 0;
-              bottom: 0;
-              right: 0;
-            }
-
-            .look-cart-btn {
-              position: absolute;
-              top: 150px;
-              right: 0;
-              bottom: 0;
-              left: 0;
-              margin: 0 auto;
-              width: 195px;
-              height: 20px;
-              padding: 11px 0 8px;
-              background-color: #2490D0;
-              border-radius: 2px;
-              cursor: pointer;
+            &__contents {
               text-align: center;
+              position: absolute;
+              top: 40px;
 
-              a {
-                text-decoration: none;
-                color: $white;
+              .fa-heart {
                 display: block;
+                color: #3bb4d7;
+                font-size: 5.0em;
+              }
+
+              span {
+                display: block;
+                padding-top: 20px;
+                color: #808080;
               }
             }
-
           }
+        }
 
-          &__menu {
-            visibility: hidden;
-            height: 100%;
-            padding-top: 30px;
-            z-index: 4;
+        &__cart {
+          float: left;
+          z-index: 1;
+          @include create_popup(205px, 270px);
 
-            p {
-              font-size: 15px;
-              font-weight: normal;
-              padding-bottom: 13px;
+          &__inner {
+            @include set_size(205px, 220px);
+            margin: 0 auto;
+            position: relative;
+
+            &__contents {
+              text-align: center;
+              position: absolute;
+              top: 40px;
+              left: 0;
+              bottom: 0;
+              right: 0;
+
+              .fa-shopping-cart {
+                display: block;
+                color: #3bb4d7;
+                font-size: 4.0em;
+              }
+
+              span {
+                margin-top: 10px;
+                display: block;
+                color: #808080;
+              }
+
+              .look-cart-btn {
+                margin: 14px auto 0;
+                @include set_btn(20px, 195px);
+                padding: 11px 0 8px;
+                background-color: #2490D0;
+                border-radius: 2px;
+                text-align: center;
+
+                a {
+                  text-decoration: none;
+                  color: $white;
+                  display: block;
+                }
+              }
             }
+          }
+        }
 
-            li {
-              padding-bottom: 7px;
-              a {
-                text-decoration: none;
-                color: #646464;
+        &__menu {
+          float: left;
+          z-index: 1;
+          @include create_popup(205px, 200px);
+
+          &__inner {
+            @include set_size(205px, 150px);
+            margin: 0 auto;
+            position: relative;
+
+            &__list {
+              position: absolute;
+              top: 30px;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              h3 {
+                font-size: 15px;
+                font-weight: normal;
+                padding-bottom: 13px;
+              }
+
+              li {
+                padding-bottom: 7px;
+
+                a {
+                  text-decoration: none;
+                  color: #646464;
+                }
               }
             }
           }

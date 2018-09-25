@@ -29,20 +29,24 @@
         %li#header__wrapper__right__contents__menu
           = link_to "#", class: "h-list-btn", id: "menu-btn" do
             %i.fas.fa-lg.fa-bars
-      .popup
-        .popup__inner
-          .popup__inner__favorite
-            %i.far.fa-heart
-            %span 会員でない方でも「お気に入り」が使えるようになりました。
-          .popup__inner__cart
-            %i.fas.fa-shopping-cart
-            %span カートに商品が1件あります。
-            .look-cart-btn
-              = link_to "ショッピングカートを見る", "#"
-          .popup__inner__menu
-            %ul.menu-list
+      %ul.popup.clearfix
+        %li.popup__favorite
+          .popup__favorite__inner
+            .popup__favorite__inner__contents
+              %i.far.fa-heart
+              %span 会員でない方でも「お気に入り」が使えるようになりました。
+        %li.popup__cart
+          .popup__cart__inner
+            .popup__cart__inner__contents
+              %i.fas.fa-shopping-cart
+              %span カートに商品が1件あります。
+              .look-cart-btn
+                = link_to "ショッピングカートを見る", "#"
+        %li.popup__menu
+          .popup__menu__inner
+            %ul.popup__menu__inner__list
               %li
-                %p 探す
+                %h3 探す
               %li
                 = link_to "カテゴリー一覧", "#"
               %li
