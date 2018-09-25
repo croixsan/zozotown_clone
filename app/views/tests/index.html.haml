@@ -47,27 +47,27 @@
         %h2.head-title ブランド
         %ul#top__left__search__list.clearfix
           %li
-            .circle-rank-num.rank-first
+            .rank-icon.first-color
               %i.fa.fa-circle.rank-circle
                 %i.rank-num 1
             = link_to "nano univese", "#", class: "list-title link-list"
           %li
-            .circle-rank-num.rank-second
+            .rank-icon.second-color
               %i.fa.fa-circle.rank-circle
                 %i.rank-num 2
             = link_to "green label relaxing", "#", class: "list-title link-list"
           %li
-            .circle-rank-num.rank-third
+            .rank-icon.third-color
               %i.fa.fa-circle.rank-circle
                 %i.rank-num 3
             = link_to "A BATHING APE", "#", class: "list-title link-list"
           %li
-            .circle-rank-num.rank-normal
+            .rank-icon.normal-color
               %i.far.fa-circle.rank-circle
                 %i.rank-num-normal 4
             = link_to "Champion", "#", class: "list-title link-list"
           %li
-            .circle-rank-num.rank-normal
+            .rank-icon.normal-color
               %i.far.fa-circle.rank-circle
                 %i.rank-num-normal 5
             = link_to "UNITED ARROWS", "#", class: "list-title link-list"
@@ -78,236 +78,76 @@
         %h2.head-title ショップ
         %ul#top__left__shop__list.clearfix
           %li
-            .circle-rank-num.rank-first
+            .rank-icon.first-color
               %i.fa.fa-circle.rank-circle
                 %i.rank-num 1
             = link_to "nano univese", "#", class: "list-title link-list"
           %li
-            .circle-rank-num.rank-second
+            .rank-icon.second-color
               %i.fa.fa-circle.rank-circle
                 %i.rank-num 2
             = link_to "BEAMS MEN", "#", class: "list-title link-list"
           %li
-            .circle-rank-num.rank-third
+            .rank-icon.third-color
               %i.fa.fa-circle.rank-circle
                 %i.rank-num 3
             = link_to "adidas", "#", class: "list-title link-list"
           %li
-            .circle-rank-num.rank-normal
+            .rank-icon.normal-color
               %i.far.fa-circle.rank-circle
                 %i.rank-num-normal 4
             = link_to "Nike", "#", class: "list-title link-list"
           %li
-            .circle-rank-num.rank-normal
+            .rank-icon.normal-color
               %i.far.fa-circle.rank-circle
                 %i.rank-num-normal 5
             = link_to "URBAN RESEARCH", "#", class: "list-title link-list"
         %p.more-list.link-list
           = link_to "ショップ一覧", "#"
+
+    //-------- センターページ ---------//
     #top__center
-      %section#top__center__zozoitem
-        %ul#top__center__zozoitem__contents.clearfix
-          %li#top__center__zozoitem__contents__item
-            #top__center__zozoitem__contents__item__image
-              = image_tag "https://c.imgz.jp/884/32988884/32988884_236_D_215.jpg", class: "item-image"
-            #top__center__zozoitem__contents__item__info
-              #top__center__zozoitem__contents__item__info__brand
-                ZOZO
-              #top__center__zozoitem__contents__item__info__price.clearfix
-                #top__center__zozoitem__contents__item__info__price__num
-                  ¥4,900
-                #top__center__zozoitem__contents__item__info__price__tax
-                  税込
-          %li#top__center__zozoitem__contents__item
-            #top__center__zozoitem__contents__item__image
-              = image_tag "https://c.imgz.jp/942/31652942/31652942_165_D_215.jpg", class: "item-image"
-            #top__center__zozoitem__contents__item__info
-              #top__center__zozoitem__contents__item__info__brand
-                ZOZO
-              #top__center__zozoitem__contents__item__info__price.clearfix
-                #top__center__zozoitem__contents__item__info__price__num
-                  ¥4,900
-                #top__center__zozoitem__contents__item__info__price__tax
-                  税込
-          %li#top__center__zozoitem__contents__item
-            #top__center__zozoitem__contents__item__image
-              = image_tag "https://c.imgz.jp/943/31652943/31652943_33_D_215.jpg", class: "item-image"
-            #top__center__zozoitem__contents__item__info
-              #top__center__zozoitem__contents__item__info__brand
-                ZOZO
-              #top__center__zozoitem__contents__item__info__price.clearfix
-                #top__center__zozoitem__contents__item__info__price__num
-                  ¥4,900
-                #top__center__zozoitem__contents__item__info__price__tax
-                  税込
+      %section#top__center__zozo
+        %ul#top__center__zozo__contents.clearfix
+          - 3.times.each do |i|
+            = render partial: 'item', locals: {small_image: false, ranking: false, rank_num: i}
         %p.more-list.link-list.zozo-item-link
           = link_to "ZOZOアイテム一覧", "#"
-      //-------- クーポン対象アイテム ---------
-      %section#top__center__couponitem
+
+      //-------- クーポン対象アイテム ---------//
+      %section#top__center__coupon
         .section-header
           %h2 クーポン対象アイテム
-        %ul#top__center__couponitem__contents.clearfix
-          %li#top__center__couponitem__contents__item
-            #top__center__couponitem__contents__item__image
-              = image_tag "https://c.imgz.jp/085/14650085/14650085B_24_D_215.jpg", class: "item-image"
-            #top__center__couponitem__contents__item__info
-              #top__center__couponitem__contents__item__info__brand
-                ZOZO
-              #top__center__couponitem__contents__item__info__price.clearfix
-                #top__center__couponitem__contents__item__info__price__num
-                  ¥4,900
-                #top__center__couponitem__contents__item__info__price__tax
-                  税込
-          %li#top__center__couponitem__contents__item
-            #top__center__couponitem__contents__item__image
-              = image_tag "https://c.imgz.jp/194/33418194/33418194B_20_D_215.jpg", class: "item-image"
-            #top__center__couponitem__contents__item__info
-              #top__center__couponitem__contents__item__info__brand
-                ZOZO
-              #top__center__couponitem__contents__item__info__price.clearfix
-                #top__center__couponitem__contents__item__info__price__num
-                  ¥4,900
-                #top__center__couponitem__contents__item__info__price__tax
-                  税込
-          %li#top__center__couponitem__contents__item
-            #top__center__couponitem__contents__item__image
-              = image_tag "https://c.imgz.jp/086/34551086/34551086B_19_D_215.jpg", class: "item-image"
-            #top__center__couponitem__contents__item__info
-              #top__center__couponitem__contents__item__info__brand
-                ZOZO
-              #top__center__couponitem__contents__item__info__price.clearfix
-                #top__center__couponitem__contents__item__info__price__num
-                  ¥4,900
-                #top__center__couponitem__contents__item__info__price__tax
-                  税込
-          %li#top__center__couponitem__contents__small-item
-            #top__center__couponitem__contents__small-item__image
-              = image_tag "https://c.imgz.jp/129/35101129/35101129B_8_D_215.jpg", class: "item-small-image"
-            #top__center__couponitem__contents__small-item__info
-              #top__center__couponitem__contents__small-item__info__brand
-                ZOZO
-              #top__center__couponitem__contents__small-item__info__price.clearfix
-                #top__center__couponitem__contents__small-item__info__price__num
-                  ¥4,900
-                #top__center__couponitem__contents__small-item__info__price__tax
-                  税込
-          %li#top__center__couponitem__contents__small__item
-            %li#top__center__couponitem__contents__small-item
-              #top__center__couponitem__contents__small-item__image
-                = image_tag "https://c.imgz.jp/201/33418201/33418201B_18_D_215.jpg", class: "item-small-image"
-              #top__center__couponitem__contents__small-item__info
-                #top__center__couponitem__contents__small-item__info__brand
-                  ZOZO
-                #top__center__couponitem__contents__small-item__info__price.clearfix
-                  #top__center__couponitem__contents__small-item__info__price__num
-                    ¥4,900
-                  #top__center__couponitem__contents__small-item__info__price__tax
-                    税込
-          %li#top__center__couponitem__contents__small-item
-            #top__center__couponitem__contents__small-item__image
-              = image_tag "https://c.imgz.jp/480/25954480/25954480B_8_D_215.jpg", class: "item-small-image"
-            #top__center__couponitem__contents__small-item__info
-              #top__center__couponitem__contents__small-item__info__brand
-                ZOZO
-              #top__center__couponitem__contents__small-item__info__price.clearfix
-                #top__center__couponitem__contents__small-item__info__price__num
-                  ¥4,900
-                #top__center__couponitem__contents__small-item__info__price__tax
-                  税込
-          %li#top__center__couponitem__contents__small-item
-            #top__center__couponitem__contents__small-item__image
-              = image_tag "https://c.imgz.jp/414/35024414/35024414B_26_D_215.jpg", class: "item-small-image"
-            #top__center__couponitem__contents__small-item__info
-              #top__center__couponitem__contents__small-item__info__brand
-                ZOZO
-              #top__center__couponitem__contents__small-item__info__price.clearfix
-                #top__center__couponitem__contents__small-item__info__price__num
-                  ¥4,900
-                #top__center__couponitem__contents__small-item__info__price__tax
-                  税込
-            //-------- 人気アイテムランキング ---------
-            %section#top__center__couponitem
-              .section-header
-                %h2 人気アイテムランキング
-              %ul#top__center__couponitem__contents.clearfix
-                %li#top__center__couponitem__contents__item
-                  #top__center__couponitem__contents__item__image
-                    = image_tag "https://c.imgz.jp/085/14650085/14650085B_24_D_215.jpg", class: "item-image"
-                  #top__center__couponitem__contents__item__info
-                    #top__center__couponitem__contents__item__info__brand
-                      ZOZO
-                    #top__center__couponitem__contents__item__info__price.clearfix
-                      #top__center__couponitem__contents__item__info__price__num
-                        ¥4,900
-                      #top__center__couponitem__contents__item__info__price__tax
-                        税込
-                %li#top__center__couponitem__contents__item
-                  #top__center__couponitem__contents__item__image
-                    = image_tag "https://c.imgz.jp/194/33418194/33418194B_20_D_215.jpg", class: "item-image"
-                  #top__center__couponitem__contents__item__info
-                    #top__center__couponitem__contents__item__info__brand
-                      ZOZO
-                    #top__center__couponitem__contents__item__info__price.clearfix
-                      #top__center__couponitem__contents__item__info__price__num
-                        ¥4,900
-                      #top__center__couponitem__contents__item__info__price__tax
-                        税込
-                %li#top__center__couponitem__contents__item
-                  #top__center__couponitem__contents__item__image
-                    = image_tag "https://c.imgz.jp/086/34551086/34551086B_19_D_215.jpg", class: "item-image"
-                  #top__center__couponitem__contents__item__info
-                    #top__center__couponitem__contents__item__info__brand
-                      ZOZO
-                    #top__center__couponitem__contents__item__info__price.clearfix
-                      #top__center__couponitem__contents__item__info__price__num
-                        ¥4,900
-                      #top__center__couponitem__contents__item__info__price__tax
-                        税込
-                %li#top__center__couponitem__contents__small-item
-                  #top__center__couponitem__contents__small-item__image
-                    = image_tag "https://c.imgz.jp/129/35101129/35101129B_8_D_215.jpg", class: "item-small-image"
-                  #top__center__couponitem__contents__small-item__info
-                    #top__center__couponitem__contents__small-item__info__brand
-                      ZOZO
-                    #top__center__couponitem__contents__small-item__info__price.clearfix
-                      #top__center__couponitem__contents__small-item__info__price__num
-                        ¥4,900
-                      #top__center__couponitem__contents__small-item__info__price__tax
-                        税込
-                %li#top__center__couponitem__contents__small__item
-                  %li#top__center__couponitem__contents__small-item
-                    #top__center__couponitem__contents__small-item__image
-                      = image_tag "https://c.imgz.jp/201/33418201/33418201B_18_D_215.jpg", class: "item-small-image"
-                    #top__center__couponitem__contents__small-item__info
-                      #top__center__couponitem__contents__small-item__info__brand
-                        ZOZO
-                      #top__center__couponitem__contents__small-item__info__price.clearfix
-                        #top__center__couponitem__contents__small-item__info__price__num
-                          ¥4,900
-                        #top__center__couponitem__contents__small-item__info__price__tax
-                          税込
-                %li#top__center__couponitem__contents__small-item
-                  #top__center__couponitem__contents__small-item__image
-                    = image_tag "https://c.imgz.jp/480/25954480/25954480B_8_D_215.jpg", class: "item-small-image"
-                  #top__center__couponitem__contents__small-item__info
-                    #top__center__couponitem__contents__small-item__info__brand
-                      ZOZO
-                    #top__center__couponitem__contents__small-item__info__price.clearfix
-                      #top__center__couponitem__contents__small-item__info__price__num
-                        ¥4,900
-                      #top__center__couponitem__contents__small-item__info__price__tax
-                        税込
-                %li#top__center__couponitem__contents__small-item
-                  #top__center__couponitem__contents__small-item__image
-                    = image_tag "https://c.imgz.jp/414/35024414/35024414B_26_D_215.jpg", class: "item-small-image"
-                  #top__center__couponitem__contents__small-item__info
-                    #top__center__couponitem__contents__small-item__info__brand
-                      ZOZO
-                    #top__center__couponitem__contents__small-item__info__price.clearfix
-                      #top__center__couponitem__contents__small-item__info__price__num
-                        ¥4,900
-                      #top__center__couponitem__contents__small-item__info__price__tax
-                        税込
-      %section#top__center__rankingitem
+        %ul#top__center__coupon__contents.clearfix
+          - 3.times.each do |i|
+            = render partial: 'item', locals: {small_image: false, ranking: false, rank_num: i}
+        %ul#top__center__coupon__contents.clearfix
+          - 4.times.each do |i|
+            = render partial: 'item', locals: {small_image: true, ranking: false, rank_num: i}
+        %p.more-list.link-list.zozo-item-link
+          = link_to "クーポン対象アイテム一覧", "#"
 
+      //-------- 人気アイテムランキング ---------//
+      %section#top__center__ranking
+        .section-header
+          %h2 人気アイテムランキング
+        %ul#top__center__ranking__contents.clearfix
+          - 3.times.each do |i|
+            #top__center__ranking__contents__item
+              = render partial: 'item', locals: {small_image: false, ranking: true, rank_num: i}
+        %ul#top__center__ranking__contents.clearfix
+          - 4.times.each do |i|
+            = render partial: 'item', locals: {small_image: true, ranking: true, rank_num: i}
+        %p.more-list.link-list.zozo-item-link
+          = link_to "ランキング一覧", "#"
+      //-------- チェックしたアイテム ---------//
+      %section#top__center__pickup
+        .section-header
+          %h2 チェックしたアイテム
+        %ul#top__center__pickup__contents.clearfix
+          - 3.times.each do |i|
+            #top__center__pickup__contents__item
+              = render partial: 'item', locals: {small_image: false, ranking: true, rank_num: i}
+        %p.more-list.link-list.zozo-item-link
+          = link_to "ランキング一覧", "#"
     #top__right

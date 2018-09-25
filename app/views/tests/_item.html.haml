@@ -1,0 +1,26 @@
+%li.item
+  .item__images
+    - if small_image == false
+      = image_tag "https://c.imgz.jp/884/32988884/32988884_236_D_215.jpg", class: "item-image"
+      - if ranking == true
+        .rank-icon-wrapper
+          .rank-icon-large.first-color
+            %i.fa.fa-circle
+              %i.rank-num-large
+                = rank_num + 1
+    - else
+      = image_tag "https://c.imgz.jp/884/32988884/32988884_236_D_215.jpg", class: "item-small-image"
+      - if ranking == true
+        .rank-icon-wrapper
+          .rank-icon.normal-color
+            %i.far.fa-circle.rank-circle
+              %i.rank-num-normal
+                = rank_num + 4
+  .item__info
+    .item__info__brand
+      ZOZO
+      .item__info__price.clearfix
+        .item__info__price__num
+          ¥4,900
+          .item__info__price__tax
+          税込
