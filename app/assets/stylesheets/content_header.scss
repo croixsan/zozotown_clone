@@ -34,11 +34,13 @@
 .tabs-btn {
   @include set_btn($c-header-height, $c-header-tab-width);
   color: $c-header-tab-font-color;
+  text-align: center;
 }
 
 .tabs-btn-ladies {
   @include set_btn($c-header-height, $c-header-tab-ladies-width);
   color: $c-header-tab-font-color;
+  text-align: center;
 }
 .tabs-btn:hover{
   background-color: #e6e6e6;

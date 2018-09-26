@@ -1,4 +1,5 @@
 $(function(){
+  var popup_selecter;
   //---------------------- header ----------------------------
   //---- お気に入りボタン---------------------------
   $('#favorite-btn').on('mouseover', function(){
@@ -55,5 +56,22 @@ $(function(){
   })
   $('.popup__login').on('mouseout', function(){
     $(".popup__login").css("visibility","hidden")
+  })
+
+  $(".category-btn").on('mouseover', function(){
+    // ボタンからカテゴリー名を取得
+    if (category = $(this).attr("id")){
+      popup_selecter = "#" + category.split('-')[0] + "-popup";
+      $(popup_selecter).css("visibility", "visible");
+    }
+  })
+  $(".category-btn").on('mouseout', function(){
+    $(popup_selecter).css("visibility","hidden")
+  })
+  $(popup_selecter).on('mouseover', function(){
+    $(popup_selecter).css("visibility","visible")
+  })
+  $(popup_selecter).on('mouseout', function(){
+    $(popup_selecter).css("visibility","hidden")
   })
 })
