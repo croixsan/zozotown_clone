@@ -75,12 +75,12 @@ article {
       }
 
       &__coupon {
-        padding: 22px 0 25px 0;
+        padding: 22px 0 25px;
         border-bottom: solid 1px $top-center-border-color;
       }
 
       &__ranking {
-        padding: 22px 0 25px 0;
+        padding: 22px 0 25px;
         border-bottom: solid 1px $top-center-border-color;
       }
     }
@@ -107,7 +107,6 @@ article {
 .hover-link:hover {
   text-decoration: underline;
 }
-
 /*-- Ranking style --------------------------------------*/
 /*-- ランキングアイコンの数字を生成 -----*/
 .rank-num {
@@ -163,7 +162,6 @@ article {
 .normal-color {
   color: $top-rank-normal-color;
 }
-
 /*-- image size --------------------------------------*/
 .image-size-large {
   height: $large-image-height;
@@ -179,7 +177,6 @@ article {
   height: $small-image-height;
   width: $small-image-width;
 }
-
 /*-- list style --------------------------------------*/
 .head-title {
   font-size: 18px;
@@ -215,7 +212,6 @@ article {
     text-decoration: none;
   }
 }
-
 /*-- item style --------------------------------------*/
 .item {
   float: left;
@@ -239,7 +235,6 @@ article {
     }
 
     &__price {
-
       &__num {
         float: left;
       }
@@ -253,7 +248,6 @@ article {
     }
   }
 }
-
 /*-- itemに表示する文字の大きさを指定 -----*/
 .price-block-large {
   height: 25px;
