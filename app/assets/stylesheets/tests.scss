@@ -1,3 +1,36 @@
-// Place all the styles related to the tests controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper {
+
+  .img {
+    height: 46px;
+    background-color: #007ebe;
+  }
+
+    .headNavi {
+
+      .center {
+        height: 70px;
+        width: 980px;
+        margin: 0 auto;
+        position: relative;
+
+        .linktag {
+          height: 20px;
+          width: 980px;
+          @include fit_to_center();
+
+          ul {
+
+            li {
+              float: left;
+
+              a {
+                font-size: 13px;
+                color: #007ebe;
+              }
+            }
+          }
+        }
+      }
+    }
+
+
