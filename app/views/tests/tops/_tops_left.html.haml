@@ -13,16 +13,9 @@
     = render 'tests/tops/category'
     %p.more-list.link-list
       = link_to "カテゴリ一覧", "#"
-%section#top__left__favorite
-  %h2.head-title お気に入り
-  %ul#top__left__favorite__list
-    %li.category-btn
-      = link_to "アイテム", "#", class: "list-title"
-    %li.category-btn
-      = link_to "ブランド", "#", class: "list-title"
-    %li.category-btn
-      = link_to "ショップ", "#", class: "list-title"
-//--------- ブランド--------------
+//--------- お気に入りリスト--------------
+= render "tests/tops/favorite_list"
+//--------- ブランドリスト--------------
 = render "tests/tops/brand_list"
-//--------- ショップ--------------
+//--------- ショップリスト--------------
 = render "tests/tops/shop_list"
