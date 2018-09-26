@@ -33,4 +33,80 @@
       }
     }
 
+  .main-content {
+    height: 100%;
+    width: 980px;
+    margin: 0 auto;
 
+    .left-content {
+      width: 560px;
+
+      .main-image-content {
+        height: 600px;
+        width: 560px;
+
+        .left-button {
+          height: 600px;
+          width: 30px;
+          position: relative;
+          float: left;
+
+          .button-left {
+            height: 138px;
+            width: 20px;
+            @include fit_to_center();
+            text-align: center;
+            line-height: 138px;
+            font-size: 20px;
+            float: left;
+          }
+        }
+
+        .main-image {
+          height: 600px;
+          width: 500px;
+          background-color: red;
+          float: left;
+        }
+
+        .right-button {
+          height: 600px;
+          width: 30px;
+          position: relative;
+          float: left;
+
+          .button-right {
+            height: 138px;
+            width: 20px;
+            @include fit_to_center();
+            text-align: center;
+            line-height: 138px;
+            font-size: 20px;
+            float: left;
+          }
+        }
+      }
+      .sub-image-content {
+        height:161px;
+        width: 560px;
+
+        .sub-image-content-mini {
+          height: 80px;
+          width: 70px;
+          float: left;
+
+          img {
+            margin: 0 0 0 17.5px;
+          }
+
+          p {
+            height: 35px;
+            width: 35px;
+            font-size: 1vh;
+            margin: 0 0 0 17.5px;
+          }
+        }
+      }
+    }
+  }
+}
