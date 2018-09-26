@@ -40,6 +40,7 @@
 
     .left-content {
       width: 560px;
+      float: left;
 
       .main-image-content {
         height: 600px;
@@ -161,7 +162,68 @@
           }
         }
       }
-
     }
+
+    .right-content {
+      width: 400px;
+      float: right;
+
+      .item-intro {
+        height: 250px;
+        width:400px;
+        background-color: yellow;
+
+        .namelist {
+          height: 40px;
+          width: 400px;
+
+          .shop-brand {
+            height: 20px;
+            width: 400px;
+            color: #2d2d2d;
+
+            a {
+              color: #646464;
+              font-size: 13px;
+            }
+          }
+        }
+
+        h1 {
+          height: 56px;
+          width: 400px;
+          margin-top: 14px;
+          font-size: 18px;
+        }
+
+        .proper {
+          height: 50px;
+          width: 400px;
+          margin-top: 10px;
+          background-color: green;
+          position: relative;
+
+          .price-content {
+
+            .price {
+              background-color: red;
+              position: absolute;
+              bottom: 0px;
+              font-size: 34px;
+              line-height: 38px;
+              float: left;
+
+              .tax {
+                height: 100%;
+                color: #808080;
+                font-size: 12px;
+                float: right;
+              }
+            }
+          }
+        }
+      }
+    }
+
   }
 }
