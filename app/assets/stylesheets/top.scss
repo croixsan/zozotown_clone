@@ -24,15 +24,31 @@ article {
         &__list {
           border-top: solid 1px $top-category-border-color;
           margin-top: 17px;
+
+          li {
+            position: relative;
+
+            .angle-icon {
+              position: absolute;
+              top: 10px;
+              right: 0;
+              bottom: 0;
+
+              .fa-angle-right {
+                color: #DCDCDC;
+                font-size: 20px;
+              }
+            }
+          }
         }
-      }
 
-      &__favorite {
-        padding: 22px 0 12px;
+        &__favorite {
+          padding: 22px 0 12px;
 
-        &__list {
-          border-top: solid 1px $top-category-border-color;
-          margin-top: 17px;
+          &__list {
+            border-top: solid 1px $top-category-border-color;
+            margin-top: 17px;
+          }
         }
       }
 
