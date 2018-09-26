@@ -1,18 +1,7 @@
-%section#top__left__search
-  %h2.head-title 探す
-  %ul#top__left__search__list
-    %li
-      = link_to "ブランドから探す", "#", class: "list-title link-list"
-    %li
-      = link_to "ショップから探す", "#", class: "list-title link-list"
-    %li
-      = link_to "ランキングから探す", "#", class: "list-title link-list"
-%section#top__left__category
-  %h2.head-title カテゴリー
-  %ul#top__left__category__list
-    = render 'tests/tops/category'
-    %p.more-list.link-list
-      = link_to "カテゴリ一覧", "#"
+//--------- 「探す」リスト--------------
+= render "tests/tops/search_list"
+//--------- カテゴリーリスト--------------
+= render "tests/tops/category_list"
 //--------- お気に入りリスト--------------
 = render "tests/tops/favorite_list"
 //--------- ブランドリスト--------------
