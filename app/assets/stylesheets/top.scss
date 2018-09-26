@@ -63,7 +63,6 @@ article {
 
     &__center {
       width: $top-center-width;
-      height: 3000px;
       margin-left: 15px;
       float: left;
 
@@ -71,7 +70,7 @@ article {
         border-bottom: solid 1px $top-center-border-color;
         width: 100%;
         margin-top: 25px;
-        padding-bottom: 10px;
+        padding: 22px 0 25px;
       }
 
       &__coupon {
@@ -188,10 +187,6 @@ article {
   color: $top-list-font-color;
 }
 
-.zozo-item-link {
-  margin: 15px 0;
-}
-
 .section-header {
   h2 {
     font-size: 18px;
@@ -204,7 +199,7 @@ article {
 }
 
 .more-list {
-  margin-top: 18px;
+  margin-top: 15px;
   text-align: right;
 
   a {
@@ -216,6 +211,7 @@ article {
 .item {
   float: left;
   margin-right: 10px;
+  padding-bottom: 20px;
 
   &__images {
     position: relative;

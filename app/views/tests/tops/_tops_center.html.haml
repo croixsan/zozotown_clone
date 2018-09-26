@@ -2,7 +2,7 @@
   %ul#top__center__zozo__contents.clearfix
     - 3.times.each do |i|
       = render partial: 'item', locals: {image_size: "large", rank_num: 0, coupon: 0}
-  %p.more-list.link-list.zozo-item-link
+  %p.more-list.link-list
     = link_to "ZOZOアイテム一覧", "#"
 
 //-------- クーポン対象アイテム ---------//
@@ -36,6 +36,6 @@
   .section-header
     %h2 チェックしたアイテム
   %ul#top__center__pickup__contents.clearfix
-    - 20.times.each do |i|
+    - 15.times.each do |i|
       #top__center__pickup__contents__item
         = render partial: 'item', locals: {image_size: "small", rank_num: 0, coupon: 0}
