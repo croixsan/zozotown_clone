@@ -11,10 +11,10 @@
     %h2 クーポン対象アイテム
   %ul#top__center__coupon__contents.clearfix
     - 3.times.each do |i|
-      = render partial: 'item', locals: {image_size: "large", rank_num: 0, coupon: 0, shop_image: false}
+      = render partial: 'item', locals: {image_size: "large", rank_num: 0, coupon: 2000, shop_image: false}
   %ul#top__center__coupon__contents.clearfix
     - 4.times.each do |i|
-      = render partial: 'item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+      = render partial: 'item', locals: {image_size: "middle", rank_num: 0, coupon: 2000, shop_image: false}
   %p.more-list.link-list.zozo-item-link
     = link_to "クーポン対象アイテム一覧", "#"
 
