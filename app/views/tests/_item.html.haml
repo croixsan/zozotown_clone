@@ -1,5 +1,9 @@
-// テスト用
-- img_url = @images.sample
+// テスト用 後で削除
+- if shop_image == true
+  - img_url = @shop_images.sample
+- else
+  - img_url = @images.sample
+
 %li.item
   .item__images
     - case image_size
@@ -31,8 +35,9 @@
         .item__info__price__tax
           税込
     - else
-      .item__info__price.price-block-small.clearfix
-        .item__info__price__num.price-font-small
-          ¥4,900
-        .item__info__price__tax
-          税込
+      - if shop_image == false
+        .item__info__price.price-block-small.clearfix
+          .item__info__price__num.price-font-small
+            ¥4,900
+          .item__info__price__tax
+            税込
