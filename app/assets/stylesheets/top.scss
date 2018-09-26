@@ -237,8 +237,8 @@ article {
       text-align: center;
       width: 95px;
 
-      .coupon-price{
-        span{
+      .coupon-price {
+        span {
           color: $white;
           font-size: 11px;
         }
@@ -248,8 +248,7 @@ article {
 
   &__info {
     &__brand {
-
-      a{
+      a {
         text-decoration: none;
         color: $top-name-color;
         font-size: 12px;
@@ -288,9 +287,7 @@ article {
 .price-font-small {
   font-size: 11px;
 }
-
 /*-- coupon style --------------------------------------*/
-
 .coupon-color-one {
   background-color: red;
 }

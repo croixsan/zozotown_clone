@@ -24,19 +24,7 @@
                 %i.fa.fa-circle
                   %i.rank-num-large
                     = rank_num
-        - case coupon
-        - when 1000
-          .coupon-tag.coupon-color-one
-            .coupon-price
-              %span ¥1,000クーポン
-        - when 2000
-          .coupon-tag.coupon-color-two
-            .coupon-price
-              %span ¥2,000クーポン
-        - when 3000
-          .coupon-tag.coupon-color-three
-            .coupon-price
-              %span ¥3,000クーポン
+        = render partial: "tests/tops/coupon", locals: {coupon: coupon}
     - when "middle"
       = link_to "#" do
         = image_tag img_url, class: "image-size-middle"
@@ -46,19 +34,7 @@
               %i.far.fa-circle.rank-circle
                 %i.rank-num-normal
                   = rank_num + 3
-        - case coupon
-        - when 1000
-          .coupon-tag.coupon-color-one
-            .coupon-price
-              %span ¥1,000クーポン
-        - when 2000
-          .coupon-tag.coupon-color-two
-            .coupon-price
-              %span ¥2,000クーポン
-        - when 3000
-          .coupon-tag.coupon-color-three
-            .coupon-price
-              %span ¥3,000クーポン
+        = render partial: "tests/tops/coupon", locals: {coupon: coupon}
     - when "small"
       = link_to "#" do
         = image_tag img_url, class: "image-size-small"
