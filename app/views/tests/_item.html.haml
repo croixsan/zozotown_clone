@@ -1,0 +1,43 @@
+// テスト用 後で削除
+- if shop_image == true
+  - img_url = @shop_images.sample
+- else
+  - img_url = @images.sample
+
+%li.item
+  .item__images
+    - case image_size
+    - when "large"
+      = link_to "#" do
+        = image_tag img_url, class: "image-size-large"
+        - if rank_num > 0
+          = render partial: "tests/tops/center/ranking", locals: {rank_num: rank_num}
+        - if coupon > 0
+          = render partial: "tests/tops/center/coupon", locals: {coupon: coupon}
+    - when "middle"
+      = link_to "#" do
+        = image_tag img_url, class: "image-size-middle"
+        - if rank_num > 0
+          = render partial: "tests/tops/center/ranking", locals: {rank_num: rank_num}
+        - if coupon > 0
+          = render partial: "tests/tops/center/coupon", locals: {coupon: coupon}
+    - when "small"
+      = link_to "#" do
+        = image_tag img_url, class: "image-size-small"
+
+  .item__info
+    - if image_size == "large" || image_size == "middle"
+      .item__info__brand
+        = link_to "ZOZO", "#"
+      .item__info__price.price-block-large.clearfix
+        .item__info__price__num.price-font-large
+          ¥4,900
+        .item__info__price__tax
+          税込
+    - else
+      - if shop_image == false
+        .item__info__price.price-block-small.clearfix
+          .item__info__price__num.price-font-small
+            ¥4,900
+          .item__info__price__tax
+            税込

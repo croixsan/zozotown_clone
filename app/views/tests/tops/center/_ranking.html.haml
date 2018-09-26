@@ -1,0 +1,22 @@
+.rank-icon-wrapper
+  - case rank_num
+  - when 1
+    .rank-icon-large.first-color
+      %i.fa.fa-circle
+        %i.rank-num-large
+          = rank_num
+  - when 2
+    .rank-icon-large.second-color
+      %i.fa.fa-circle
+        %i.rank-num-large
+          = rank_num
+  - when 3
+    .rank-icon-large.third-color
+      %i.fa.fa-circle
+        %i.rank-num-large
+          = rank_num
+  - else
+    .rank-icon.normal-color
+      %i.fa.fa-circle.rank-circle
+        %i.rank-num-normal
+          = rank_num
