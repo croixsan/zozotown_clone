@@ -25,33 +25,4 @@
 //--------- ブランド--------------
 = render "tests/tops/brand_list"
 //--------- ショップ--------------
-%section#top__left__shop.clearfix
-  %h2.head-title ショップ
-  %ul#top__left__shop__list.clearfix
-    %li
-      .rank-icon.first-color
-        %i.fa.fa-circle.rank-circle
-          %i.rank-num 1
-      = link_to "nano univese", "#", class: "list-title link-list"
-    %li
-      .rank-icon.second-color
-        %i.fa.fa-circle.rank-circle
-          %i.rank-num 2
-      = link_to "BEAMS MEN", "#", class: "list-title link-list"
-    %li
-      .rank-icon.third-color
-        %i.fa.fa-circle.rank-circle
-          %i.rank-num 3
-      = link_to "adidas", "#", class: "list-title link-list"
-    %li
-      .rank-icon.normal-color
-        %i.far.fa-circle.rank-circle
-          %i.rank-num-normal 4
-      = link_to "Nike", "#", class: "list-title link-list"
-    %li
-      .rank-icon.normal-color
-        %i.far.fa-circle.rank-circle
-          %i.rank-num-normal 5
-      = link_to "URBAN RESEARCH", "#", class: "list-title link-list"
-  %p.more-list.link-list
-    = link_to "ショップ一覧", "#"
+= render "tests/tops/shop_list"
