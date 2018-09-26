@@ -62,3 +62,8 @@
   top: -30px;
   left: 160px;
 }
+
+@mixin top_set_border{
+  padding: 22px 0 25px;
+  border-bottom: solid 1px $top-center-border-color;
+}

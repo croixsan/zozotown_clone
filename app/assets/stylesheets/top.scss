@@ -67,20 +67,25 @@ article {
       float: left;
 
       &__zozo {
-        border-bottom: solid 1px $top-center-border-color;
+        @include top_set_border;
         width: 100%;
         margin-top: 25px;
-        padding: 22px 0 25px;
       }
 
       &__coupon {
-        padding: 22px 0 25px;
-        border-bottom: solid 1px $top-center-border-color;
+        @include top_set_border;
       }
 
       &__ranking {
-        padding: 22px 0 25px;
-        border-bottom: solid 1px $top-center-border-color;
+        @include top_set_border;
+      }
+
+      &__pickup {
+        @include top_set_border;
+      }
+
+      &__shops {
+        @include top_set_border;
       }
     }
 
