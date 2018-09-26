@@ -60,8 +60,8 @@ $(function(){
 
   $(".category-btn").on('mouseover', function(){
     // ボタンからカテゴリー名を取得
-    if (category = $(this).attr("id").split('-')){
-      popup_selecter = "#" + category + "-popup";
+    if (category = $(this).attr("id")){
+      popup_selecter = "#" + category.split('-')[0] + "-popup";
       $(popup_selecter).css("visibility", "visible");
     }
   })
