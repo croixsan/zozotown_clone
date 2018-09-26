@@ -1,0 +1,41 @@
+%section#top__center__zozo
+  %ul#top__center__zozo__contents.clearfix
+    - 3.times.each do |i|
+      = render partial: 'item', locals: {image_size: "large", ranking: false, rank_num: i+1}
+  %p.more-list.link-list.zozo-item-link
+    = link_to "ZOZOアイテム一覧", "#"
+
+//-------- クーポン対象アイテム ---------//
+%section#top__center__coupon
+  .section-header
+    %h2 クーポン対象アイテム
+  %ul#top__center__coupon__contents.clearfix
+    - 3.times.each do |i|
+      = render partial: 'item', locals: {image_size: "large", ranking: false, rank_num: i+1}
+  %ul#top__center__coupon__contents.clearfix
+    - 4.times.each do |i|
+      = render partial: 'item', locals: {image_size: "middle", ranking: false, rank_num: i+1}
+  %p.more-list.link-list.zozo-item-link
+    = link_to "クーポン対象アイテム一覧", "#"
+
+//-------- 人気アイテムランキング ---------//
+%section#top__center__ranking
+  .section-header
+    %h2 人気アイテムランキング
+  %ul#top__center__ranking__contents.clearfix
+    - 3.times.each do |i|
+      #top__center__ranking__contents__item
+        = render partial: 'item', locals: {image_size: "large", ranking: true, rank_num: i+1}
+  %ul#top__center__ranking__contents.clearfix
+    - 4.times.each do |i|
+      = render partial: 'item', locals: {image_size: "middle", ranking: true, rank_num: i+1}
+  %p.more-list.link-list.zozo-item-link
+    = link_to "ランキング一覧", "#"
+//-------- チェックしたアイテム ---------//
+%section#top__center__pickup
+  .section-header
+    %h2 チェックしたアイテム
+  %ul#top__center__pickup__contents.clearfix
+    - 20.times.each do |i|
+      #top__center__pickup__contents__item
+        = render partial: 'item', locals: {image_size: "small", ranking: true, rank_num: i+1}

@@ -1,8 +1,10 @@
+// テスト用
+- img_url = @images.sample
 %li.item
   .item__images
     - case image_size
     - when "large"
-      = image_tag "https://c.imgz.jp/884/32988884/32988884_236_D_215.jpg", class: "image-size-large"
+      = image_tag img_url, class: "image-size-large"
       - if ranking == true
         .rank-icon-wrapper
           - case rank_num
@@ -23,7 +25,7 @@
                   = rank_num
 
     - when "middle"
-      = image_tag "https://c.imgz.jp/884/32988884/32988884_236_D_215.jpg", class: "image-size-middle"
+      = image_tag img_url, class: "image-size-middle"
       - if ranking == true
         .rank-icon-wrapper
           .rank-icon.normal-color
@@ -31,7 +33,7 @@
               %i.rank-num-normal
                 = rank_num + 3
     - when "small"
-      = image_tag "https://c.imgz.jp/884/32988884/32988884_236_D_215.jpg", class: "image-size-small"
+      = image_tag img_url, class: "image-size-small"
 
   .item__info
     - if image_size == "large" || image_size == "middle"
