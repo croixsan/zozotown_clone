@@ -1,0 +1,318 @@
+article {
+  #top {
+    width: $inner-width;
+    margin: 0 auto;
+
+    &__left {
+      width: $top-left-width;
+      margin-right: 10px;
+      float: left;
+
+      &__search {
+        padding: 22px 0 12px;
+
+        &__list {
+          li {
+            margin-top: 10px;
+          }
+        }
+      }
+
+      &__category {
+        padding: 22px 0 12px;
+
+        &__list {
+          border-top: solid 1px $top-category-border-color;
+          margin-top: 17px;
+
+          li {
+            position: relative;
+
+            .angle-icon {
+              position: absolute;
+              top: 10px;
+              right: 0;
+              bottom: 0;
+
+              .fa-angle-right {
+                color: #DCDCDC;
+                font-size: 20px;
+              }
+            }
+          }
+        }
+
+        &__favorite {
+          padding: 22px 0 12px;
+
+          &__list {
+            border-top: solid 1px $top-category-border-color;
+            margin-top: 17px;
+          }
+        }
+      }
+
+      &__brand {
+        padding: 22px 0 12px;
+
+        &__list {
+          li {
+            width: $top-left-width;
+            float: left;
+            margin-top: 10px;
+          }
+        }
+      }
+
+      &__shop {
+        padding: 37px 0 12px;
+
+        &__list {
+          li {
+            width: $top-left-width;
+            float: left;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+
+    &__center {
+      width: $top-center-width;
+      margin-left: 15px;
+      float: left;
+
+      &__zozo {
+        @include top_set_border;
+        width: 100%;
+        margin-top: 25px;
+      }
+
+      &__coupon {
+        @include top_set_border;
+      }
+
+      &__ranking {
+        @include top_set_border;
+      }
+
+      &__pickup {
+        @include top_set_border;
+      }
+
+      &__shops {
+        @include top_set_border;
+      }
+    }
+
+    &__right {
+      width: $top-right-width;
+      height: 1000px;
+      float: left;
+    }
+  }
+}
+
+.category-btn {
+  @include set_btn($top-category-btn-height, $top-category-btn-width);
+  padding: 10px 2px 8px 5px;
+  border-bottom: solid 1px $top-category-border-color;
+}
+
+.category-btn:hover {
+  background-color: #e6e6e6;
+  transition: background-color 0.5s;
+}
+
+.hover-link:hover {
+  text-decoration: underline;
+}
+/*-- Ranking style --------------------------------------*/
+/*-- ランキングアイコンの数字を生成 -----*/
+.rank-num {
+  @include set_rank_num($white);
+}
+
+.rank-num-normal {
+  @include set_rank_num($top-rank-normal-num-color);
+}
+
+.rank-num-large {
+  @include set_rank_num_large($white);
+}
+/*-- ランキングアイコンを生成 -----*/
+.rank-icon {
+  float: left;
+  padding-right: 5px;
+  width: 20px;
+  height: 20px;
+
+  .fa-circle {
+    font-size: 20px;
+    position: relative;
+    border: none;
+  }
+}
+
+.rank-icon-large {
+  float: left;
+  padding-right: 5px;
+  width: 30px;
+  height: 30px;
+
+  .fa-circle {
+    font-size: 30px;
+    position: relative;
+    border: none;
+  }
+}
+/*-- ランキングアイコンのcircleの色を指定 -----*/
+.first-color {
+  color: $top-rank-first-color;
+}
+
+.second-color {
+  color: $top-rank-second-color;
+}
+
+.third-color {
+  color: $top-rank-third-color;
+}
+
+.normal-color {
+  color: $top-rank-normal-color;
+}
+/*-- image size --------------------------------------*/
+.image-size-large {
+  height: $large-image-height;
+  width: $large-image-width;
+}
+
+.image-size-middle {
+  height: $middle-image-height;
+  width: $middle-image-width;
+}
+
+.image-size-small {
+  height: $small-image-height;
+  width: $small-image-width;
+}
+/*-- list style --------------------------------------*/
+.head-title {
+  font-size: 18px;
+  font-color: $top-head-font-color;
+}
+
+.list-title {
+  text-decoration: none;
+  color: $top-list-font-color;
+}
+
+.section-header {
+  h2 {
+    font-size: 18px;
+    margin-bottom: 11px;
+  }
+}
+
+.link-list:hover {
+  text-decoration-line: underline;
+}
+
+.more-list {
+  margin-top: 15px;
+  text-align: right;
+
+  a {
+    color: #007ebe;
+    text-decoration: none;
+  }
+}
+/*-- item style --------------------------------------*/
+.item {
+  float: left;
+  margin-right: 10px;
+  padding-bottom: 20px;
+
+  &__images {
+    position: relative;
+
+    .rank-icon-wrapper {
+      height: 30px;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+    }
+
+    .coupon-tag {
+      position: absolute;
+      right: 0;
+      bottom: 5px;
+      left: 0;
+      line-height: 20px;
+      text-overflow: ellipsis;
+      text-align: center;
+      width: 95px;
+
+      .coupon-price {
+        span {
+          color: $white;
+          font-size: 11px;
+        }
+      }
+    }
+  }
+
+  &__info {
+    &__brand {
+      a {
+        text-decoration: none;
+        color: $top-name-color;
+        font-size: 12px;
+      }
+    }
+
+    &__price {
+      &__num {
+        float: left;
+      }
+
+      &__tax {
+        float: left;
+        color: $top-name-color;
+        font-size: 10px;
+        padding-left: 5px;
+      }
+    }
+  }
+}
+/*-- itemに表示する文字の大きさを指定 -----*/
+.price-block-large {
+  height: 25px;
+  line-height: 25px;
+}
+
+.price-block-small {
+  height: 17px;
+  line-height: 17px;
+}
+
+.price-font-large {
+  font-size: 15px;
+}
+
+.price-font-small {
+  font-size: 11px;
+}
+/*-- coupon style --------------------------------------*/
+.coupon-color-one {
+  background-color: red;
+}
+
+.coupon-color-two {
+  background-color: rgba(127, 153, 16, 0.9);
+}
+
+.coupon-color-three {
+  background-color: blue;
+}

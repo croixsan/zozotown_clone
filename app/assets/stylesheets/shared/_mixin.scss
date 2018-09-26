@@ -16,13 +16,54 @@
   display: block;
   line-height: $height;
   text-decoration: none;
-  text-align: center;
   cursor: pointer;
 }
+
+@mixin set_rank_num($color) {
+  font-size: 13px;
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  bottom: 0;
+  right: 0;
+  font-family: helvetica;
+  font-style: normal;
+  color: $color;
+}
+
+@mixin set_rank_num_large($color) {
+  font-size: 20px;
+  position: absolute;
+  top: 6px;
+  left: 9px;
+  bottom: 0;
+  right: 0;
+  font-family: helvetica;
+  font-style: normal;
+  color: $color;
+}
+
 @mixin create_popup($height, $width) {
   height: $height;
   width: $width;
   box-shadow: 0 0 5px rgba(77,77,77,0.2);
   border-radius: 0 0 4px 4px;
   background-color: $white;
+
+}
+
+@mixin create_category_popup{
+  padding: 12px 10px 15px 10px;
+  z-index: 2;
+  box-shadow: 0 0 5px rgba(77,77,77,0.2);
+  border-radius: 0 0 4px 4px;
+  background-color: $white;
+  position: absolute;
+  top: -30px;
+  left: 160px;
+}
+
+@mixin top_set_border{
+  padding: 22px 0 25px;
+  border-bottom: solid 1px $top-center-border-color;
 }

@@ -1,0 +1,14 @@
+.popup{
+  position: relative;
+  visibility: hidden;
+  &__inner {
+    width: 180px;
+    margin: 0 auto;
+    li {
+      padding: 10px 2px 8px 5px;
+    }
+  }
+}
+.category-popup{
+  @include create_category_popup;
+}
