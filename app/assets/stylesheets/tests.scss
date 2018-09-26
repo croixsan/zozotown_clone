@@ -171,7 +171,6 @@
       .item-intro {
         height: 250px;
         width:400px;
-        background-color: yellow;
 
         .namelist {
           height: 40px;
@@ -198,15 +197,13 @@
 
         .proper {
           height: 50px;
-          width: 400px;
+          width: 100%;
           margin-top: 10px;
-          background-color: green;
           position: relative;
 
           .price-content {
 
             .price {
-              background-color: red;
               position: absolute;
               bottom: 0px;
               font-size: 34px;
@@ -218,6 +215,23 @@
                 color: #808080;
                 font-size: 12px;
                 float: right;
+              }
+            }
+
+            .late-pay {
+              height: 30px;
+              width: 130px;
+              background-color: #EEEEEE;
+              margin: 0 -20px 0 165px;
+              padding: 10px 10px 10px 10px;
+
+              .text {
+                height: 30px;
+
+                p {
+                  font-size: 10px;
+                }
+
               }
             }
           }
