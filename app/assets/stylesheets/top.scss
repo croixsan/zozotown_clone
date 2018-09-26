@@ -226,6 +226,25 @@ article {
       top: 3px;
       left: 3px;
     }
+
+    .coupon-tag {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 0 5px;
+      height: 20px;
+      line-height: 20px;
+      text-overflow: ellipsis;
+      width: 85px;
+      text-align: center;
+      .coupon-price{
+        span{
+          color: $white;
+          font-size: 11px;
+        }
+      }
+    }
   }
 
   &__info {
@@ -269,4 +288,18 @@ article {
 
 .price-font-small {
   font-size: 11px;
+}
+
+/*-- coupon style --------------------------------------*/
+
+.coupon-color-one {
+  background-color: red;
+}
+
+.coupon-color-two {
+  background-color: rgba(127, 153, 16, 0.9);
+}
+
+.coupon-color-three {
+  background-color: blue;
 }
