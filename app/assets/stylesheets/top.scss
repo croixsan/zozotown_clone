@@ -230,14 +230,13 @@ article {
     .coupon-tag {
       position: absolute;
       right: 0;
-      bottom: 0;
+      bottom: 5px;
       left: 0;
-      padding: 0 5px;
-      height: 20px;
       line-height: 20px;
       text-overflow: ellipsis;
-      width: 85px;
       text-align: center;
+      width: 95px;
+
       .coupon-price{
         span{
           color: $white;
