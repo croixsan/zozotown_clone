@@ -230,8 +230,12 @@ article {
 
   &__info {
     &__brand {
-      color: $top-name-color;
-      font-size: 12px;
+
+      a{
+        text-decoration: none;
+        color: $top-name-color;
+        font-size: 12px;
+      }
     }
 
     &__price {
