@@ -1,0 +1,82 @@
+%li.category-btn{id: "tops-btn"}
+  = link_to "トップス", "#", class: "list-title"
+  .popup
+    .popup.category-tops
+      .popup__inner
+        %ul.popup__inner__list
+          - @tops.each do |item|
+            %li.hover-link
+              = link_to item, "#", class: "list-title"
+%li.category-btn{id: "jacket-btn"}
+  = link_to "ジャケット/アウター", "#", class: "list-title"
+  .popup
+    .popup.category-jacket
+      .popup__inner
+        %ul.popup__inner__list
+          - @jackets.each do |item|
+            %li.hover-link
+              = link_to item, "#", class: "list-title"
+%li.category-btn{id: "pants-btn"}
+  = link_to "パンツ", "#", class: "list-title"
+  .popup
+    .popup.category-pants
+      .popup__inner
+        %ul.popup__inner__list
+          - @pants.each do |item|
+            %li.hover-link
+              = link_to item, "#", class: "list-title"
+%li.category-btn{id: "allin-btn"}
+  = link_to "オールインワン", "#", class: "list-title"
+  .popup
+    .popup.category-allin
+      .popup__inner
+        %ul.popup__inner__list
+          - @all_in_one.each do |item|
+            %li.hover-link
+              = link_to item, "#", class: "list-title"
+%li.category-btn{id: "skirt"}
+  = link_to "スカート", "#", class: "list-title"
+  .popup
+    .popup.category-skirt
+      .popup__inner
+        %ul.popup__inner__list
+          - @skirt.each do |item|
+            %li.hover-link
+              = link_to item, "#", class: "list-title"
+
+%li.category-btn{id: "onepiece"}
+  = link_to "ワンピース", "#", class: "list-title"
+  .popup
+    .popup.category-onepiece
+      .popup__inner
+        %ul.popup__inner__list
+          - @onepiece.each do |item|
+            %li.hover-link
+              = link_to item, "#", class: "list-title"
+%li.category-btn{id: "suits"}
+  = link_to "スーツ/ネクタイ", "#", class: "list-title"
+  .popup
+    .popup.category-suits
+      .popup__inner
+        %ul.popup__inner__list
+          - @suits.each do |item|
+            %li.hover-link
+              = link_to item, "#", class: "list-title"
+%li.category-btn{id: "bag"}
+  = link_to "バッグ", "#", class: "list-title"
+  .popup
+    .popup.category-bag
+      .popup__inner
+        %ul.popup__inner__list
+          - @bag.each do |item|
+            %li.hover-link
+              = link_to item, "#", class: "list-title"
+%li.category-btn{id: "shoes"}
+  = link_to "シューズ", "#", class: "list-title"
+  .popup
+    .popup.category-shoes
+      .popup__inner
+        %ul.popup__inner__list
+          - @shoes.each do |item|
+            %li.hover-link
+              = link_to item, "#", class: "list-title"
