@@ -29,12 +29,13 @@
             %i.fas.fa-comment.fa-2x
               %i.fav-notify
                 New
-          .popup.clearfix
-            .popup__favorite
-              .popup__favorite__inner
-                .popup__favorite__inner__contents
-                  %i.far.fa-heart
-                  %span 会員でない方でも「お気に入り」が使えるようになりました。
+          = if @is_login == true
+            .popup.clearfix
+              .popup__favorite
+                .popup__favorite__inner
+                  .popup__favorite__inner__contents
+                    %i.far.fa-heart
+                    %span 会員でない方でも「お気に入り」が使えるようになりました。
         %li#header__wrapper__right__contents__cart
           = link_to "#", class: "h-list-btn", id: "cart-btn" do
             %i.fas.fa-lg.fa-shopping-cart
