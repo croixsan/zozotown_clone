@@ -16,23 +16,14 @@ Things you may want to cover:
 | Column     | Type        | Options                                |
 |:-----------|------------:|:--------------------------------------:|
 | item_num   | integer     | null: false, unique: true              |
-|:-----------|------------:|:--------------------------------------:|
 | name       | string      | null: false, index: true               |
-|:-----------|------------:|:--------------------------------------:|
 | price      | integer     | null: false                            |
-|:-----------|------------:|:--------------------------------------:|
 | stock      | integer     | null: false                            |
-|:-----------|------------:|:--------------------------------------:|
 | gender_id  | foreign_key | null: false                            |
-|:-----------|------------:|:--------------------------------------:|
 | size_id    | foreign_key | null: false,                           |
-|:-----------|------------:|:--------------------------------------:|
 | category_id| foreign_key | null: false                            |
-|:-----------|------------:|:--------------------------------------:|
 | coupon_id  | foreign_key | null: false,                           |
-|:-----------|------------:|:--------------------------------------:|
 | brand_id   | foreign_key | null: false                            |
-|:-----------|------------:|:--------------------------------------:|
 | shop_id    | foreign_key | null: false,                           |
 
 ### Association
@@ -83,7 +74,6 @@ Things you may want to cover:
 | Column     | Type        | Options                                |
 |:-----------|------------:|:--------------------------------------:|
 | name       | string      | null: false, index: true, unique: true              |
-|:-----------|------------:|:--------------------------------------:|
 | url        | string      |                                        |
 
 ### Association
@@ -97,9 +87,7 @@ Things you may want to cover:
 | Column     | Type        | Options                                |
 |:-----------|------------:|:--------------------------------------:|
 | name       | string      | null: false, index: true, unique: true              |
-|:-----------|------------:|:--------------------------------------:|
 | concept    | text        |                                        |
-|:-----------|------------:|:--------------------------------------:|
 | logo       | string      |    
 
 ### Association
@@ -113,7 +101,6 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | user_id     | foreign_key | null: false, index: true, unique: true              |
-|:------------|------------:|:--------------------------------------:|
 | total_price | integer     |                                        |
 
 
@@ -130,7 +117,6 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | item_id     | foreign_key | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | cart_id     | foreign_key | null: false                            |
 
 ### Association
@@ -141,7 +127,6 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | brand_id     | foreign_key| null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | cart_id     | foreign_key | null: false                            |
 
 ### Association
@@ -152,7 +137,6 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | shop_id     | foreign_key | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | cart_id     | foreign_key | null: false                            |
 
 ### Association
@@ -163,17 +147,11 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | member_num  | integer     | null: false, index: true, unique: true          |
-|:------------|------------:|:--------------------------------------:|
 | name        | string      | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | post_num    | integer     | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | address     | string      | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | phone_num   | integer     | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | point       | integer     | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | gender_id   | foreign_key | null: false                            |
 
 ### Association
@@ -189,11 +167,8 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | user_id     | foreign_key | null: false, unique: true              |
-|:------------|------------:|:--------------------------------------:|
 | year        | integer     | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | month       | integer     | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | day         | integer     | null: false                            |
 
 ### Association
@@ -203,9 +178,7 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | order_num   | integer     | null: false, unique: true              |
-|:------------|------------:|:--------------------------------------:|
 | user_id     | foreign_key | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | cart_id     | foreign_key | null: false                            |
 
 ### Association
@@ -222,7 +195,6 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | item_id     | foreign_key | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | order_id    | foreign_key | null: false                            |
 
 ### Association
@@ -233,7 +205,6 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | brand_id    | foreign_key | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | order_id    | foreign_key | null: false                            |
 
 ### Association
@@ -244,7 +215,6 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | shop_id     | foreign_key | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | order_id    | foreign_key | null: false                            |
 
 ### Association
@@ -255,7 +225,6 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | user_id     | foreign_key | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | item_id     | foreign_key | null: false                            |
 
 ### Association
@@ -266,7 +235,6 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | user_id     | foreign_key | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | shop_id     | foreign_key | null: false                            |
 
 ### Association
@@ -277,7 +245,6 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | user_id     | foreign_key | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | brand_id    | foreign_key | null: false                            |
 
 ### Association
@@ -288,7 +255,6 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | user_id     | foreign_key | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | shop_id     | foreign_key | null: false                            |
 
 ### Association
@@ -299,7 +265,6 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | user_id     | foreign_key | null: false                            |
-|:------------|------------:|:--------------------------------------:|
 | item_id     | foreign_key | null: false                            |
 
 ### Association
