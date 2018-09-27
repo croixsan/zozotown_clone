@@ -16,4 +16,6 @@ class TestsController < ApplicationController
     "https://img4.zozo.jp/common/shop/shop_100.jpg", "https://img4.zozo.jp/common/shop/shop_1889.jpg", "https://img4.zozo.jp/common/shop/shop_71.jpg", "https://img4.zozo.jp/common/shop/shop_197.jpg", "https://img4.zozo.jp/common/shop/shop_1144.jpg", "https://img4.zozo.jp/common/shop/shop_72.jpg"]
 
   end
+  def signup
+  end
 end
