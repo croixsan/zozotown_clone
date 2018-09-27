@@ -19,8 +19,7 @@ Things you may want to cover:
 | name       | string      | null: false, index: true               |
 | price      | integer     | null: false                            |
 | stock      | integer     | null: false                            |
-| gender_id  | integer     | null: false, foreign_key: true         |
-| size_id    | integer     | null: false, foreign_key: true         |
+| description| text        |                                        |
 | category_id| integer     | null: false, foreign_key: true         |
 | coupon_id  | integer     | null: false, foreign_key: true         |
 | brand_id   | integer     | null: false, foreign_key: true         |
