@@ -19,5 +19,9 @@ class TestsController < ApplicationController
 
     @shop_images = ["https://img4.zozo.jp/common/shop/shop_1982.jpg", "https://img4.zozo.jp/common/shop/shop_752.jpg", "https://img4.zozo.jp/common/shop/shop_361.jpg", "https://img4.zozo.jp/common/shop/shop_273.jpg", "https://img4.zozo.jp/common/shop/shop_1320.jpg",
     "https://img4.zozo.jp/common/shop/shop_100.jpg", "https://img4.zozo.jp/common/shop/shop_1889.jpg", "https://img4.zozo.jp/common/shop/shop_71.jpg", "https://img4.zozo.jp/common/shop/shop_197.jpg", "https://img4.zozo.jp/common/shop/shop_1144.jpg", "https://img4.zozo.jp/common/shop/shop_72.jpg"]
-end
+
+
+  end
+  def signup
+  end
 end
