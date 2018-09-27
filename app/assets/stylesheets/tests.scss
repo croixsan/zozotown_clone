@@ -505,10 +505,94 @@
             color: #007ebe;
             font-size: 13px;
             float: left;
-
           }
         }
     }
+  }
 
+  .row-content {
+    height: 100%;
+    width: 980px;
+    clear: both;
+
+    .recommend {
+      height: 100%;
+      width: 980px;
+      padding-top: 30px;
+      border-top: solid 1px rgb(235, 235, 235);
+
+      p {
+        font-size: 18px;
+      }
+
+      .items {
+        height: 100%;
+        width: 980px;
+        padding-top: 14px;
+      }
+    }
+
+    .keyword {
+      height: 100%;
+      width: 980px;
+      padding-top: 30px;
+      border-top: solid 1px rgb(235, 235, 235);
+
+      p {
+        font-size: 18px;
+      }
+
+      ul {
+        margin-top: 15px;
+        height: 40px;
+        width: 980px;
+
+        a{
+          height: 30px;
+          padding: 5px 5px 5px 5px;
+          border-top: solid 1px rgb(235, 235, 235);
+          border-right: solid 1px rgb(235, 235, 235);
+          border-left: solid 1px rgb(235, 235, 235);
+          border-bottom: solid 1px rgb(235, 235, 235);
+          text-decoration: none;
+          color: #808080;
+          background-color: rgb(245, 245, 245);
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .other {
+      height: 100%;
+      width: 980px;
+      padding-top: 30px;
+      border-top: solid 1px rgb(235, 235, 235);
+
+      p {
+        font-size: 18px;
+      }
+
+      .text-box {
+        height: 40px;
+        width: 980px;
+        color: #808080;
+        margin-top: 10px;
+      }
+
+      .shops {
+        margin: 15px 0 15px 0;
+        height: 60px;
+        width: 980px;
+
+        a{
+          height: 25px;
+          width: 230px;
+          padding: 5px 0 5px 0;
+          text-decoration: none;
+          color: #646464;
+          float: left;
+        }
+      }
+    }
   }
 }

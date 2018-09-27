@@ -67,7 +67,7 @@
         %ul#top__center__pickup__contents.clearfix
           - 15.times.each do |i|
             #top__center__pickup__contents__item
-              = render partial: 'item', locals: {image_size: "small", rank_num: 0, coupon: 0, shop_image: false}
+              = render partial: 'item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
 
     .right-content
       .item-intro
@@ -188,3 +188,64 @@
       .brand-box
         %i.far.fa-heart
         %p このブランドをお気に入りに登録
+    .row-content
+      .recommend
+        %p このアイテムを見ている人は、こんなアイテムも見ています
+        .items
+          %ul#top__center__pickup__contents.clearfix
+            - 15.times.each do |i|
+              #top__center__pickup__contents__item
+                = render partial: 'item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+      .recommend
+        %p このアイテムを見ている人にオススメ
+        .items
+          %ul#top__center__pickup__contents.clearfix
+            - 15.times.each do |i|
+              #top__center__pickup__contents__item
+                = render partial: 'item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+
+      .recommend
+        %p 人気のデニムパンツランキング
+        .items
+          %ul#top__center__pickup__contents.clearfix
+            - 15.times.each do |i|
+              #top__center__pickup__contents__item
+                = render partial: 'item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+
+      .recommend
+        %p 最近チェックしたアイテム
+        .items
+          %ul#top__center__pickup__contents.clearfix
+            - 15.times.each do |i|
+              #top__center__pickup__contents__item
+                = render partial: 'item', locals: {image_size: "small", rank_num: 0, coupon: 0, shop_image: false}
+
+      .keyword
+        %p このアイテムのキーワード
+        %ul
+          %a{ :href => 'http://google.co.jp' }フルレングス
+          %a{ :href => 'http://google.co.jp' }無地
+          %a{ :href => 'http://google.co.jp' }スタンダード
+          %a{ :href => 'http://google.co.jp' }ストレート
+          %a{ :href => 'http://google.co.jp' }ヴィンテージ
+          %a{ :href => 'http://google.co.jp' }レギュラー
+
+      .other
+        %p 他のショップのデニムパンツを見る
+        .shops
+          %a{ :href => 'http://google.co.jp' }ALLSAINTS
+          %a{ :href => 'http://google.co.jp' }SOPH.
+          %a{ :href => 'http://google.co.jp' }SOPH.GRAMICCI / WILDTHINGS
+          %a{ :href => 'http://google.co.jp' }CALVIN KLEIN
+          %a{ :href => 'http://google.co.jp' }anlio
+          %a{ :href => 'http://google.co.jp' }S size ONWARD（小さいサイズ）
+          %a{ :href => 'http://google.co.jp' }Eimee Law ＆ WASH
+          %a{ :href => 'http://google.co.jp' }eYe COMME des GARCONS JUNYA
+
+
+      .other
+        %p ZOZOTOWN（ゾゾタウン）のご紹介
+        .text-box
+          ZOZOTOWNはZOZO（ゾゾ）のデニムパンツなど、人気ブランドのアイテムを多数取り揃えるファッション通販サイトです。デニムパンツなど、6879ブランドの最新アイテムをオンラインでご購入いただけます。
+
+
