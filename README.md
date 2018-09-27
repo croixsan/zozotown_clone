@@ -38,22 +38,6 @@ Things you may want to cover:
 - has_many :checked_items
 - has_many :like_items
 
-## genders table
-| Column     | Type        | Options                                |
-|:-----------|------------:|:--------------------------------------:|
-| type       | string      | null: false, unique: true              |
-
-### Association
-- has_many :items
-
-## sizes table
-| Column     | Type        | Options                                |
-|:-----------|------------:|:--------------------------------------:|
-| type       | string      | null: false, unique: true              |
-
-### Association
-- has_many :items
-
 ## coupons table
 | Column     | Type        | Options                                |
 |:-----------|------------:|:--------------------------------------:|
