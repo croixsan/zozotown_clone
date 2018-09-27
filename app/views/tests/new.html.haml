@@ -1,15 +1,12 @@
 .wrapper
-  .img
-    ゾゾタウンのマークが入る
   .headNavi
     .center
       .linktag
         %ul
-          %li
-            %a{ :href => 'http://google.co.jp' }ZOZOTOWN
-            >
-          %li
-            %a ZOZO
+          %a{ :href => 'http://google.co.jp' }ZOZOTOWN
+          >
+        %ul
+          %a ZOZO
   .main-content
     .left-content
       .main-image-content
@@ -22,45 +19,10 @@
           .button-right
             >
       .sub-image-content
-        .sub-image-content-mini
-          %img{alt: "商品写真", height: "35", src: "https://c.imgz.jp/719/32560719/32560719_33_D_500.jpg", width: "35px"}
-          %p ダークデニム
-
-        .sub-image-content-mini
-          %img{alt: "商品写真", height: "35", src: "https://c.imgz.jp/719/32560719/32560719_33_D_500.jpg", width: "35px"}
-          %p ダークデニム
-
-        .sub-image-content-mini
-          %img{alt: "商品写真", height: "35", src: "https://c.imgz.jp/719/32560719/32560719_33_D_500.jpg", width: "35px"}
-          %p ダークデニム
-
-        .sub-image-content-mini
-          %img{alt: "商品写真", height: "35", src: "https://c.imgz.jp/719/32560719/32560719_33_D_500.jpg", width: "35px"}
-          %p ダークデニム
-
-        .sub-image-content-mini
-          %img{alt: "商品写真", height: "35", src: "https://c.imgz.jp/719/32560719/32560719_33_D_500.jpg", width: "35px"}
-          %p ダークデニム
-
-        .sub-image-content-mini
-          %img{alt: "商品写真", height: "35", src: "https://c.imgz.jp/719/32560719/32560719_33_D_500.jpg", width: "35px"}
-          %p ダークデニム
-
-        .sub-image-content-mini
-          %img{alt: "商品写真", height: "35", src: "https://c.imgz.jp/719/32560719/32560719_33_D_500.jpg", width: "35px"}
-          %p ダークデニム
-
-        .sub-image-content-mini
-          %img{alt: "商品写真", height: "35", src: "https://c.imgz.jp/719/32560719/32560719_33_D_500.jpg", width: "35px"}
-          %p ダークデニム
-
-        .sub-image-content-mini
-          %img{alt: "商品写真", height: "35", src: "https://c.imgz.jp/719/32560719/32560719_33_D_500.jpg", width: "35px"}
-          %p ダークデニム
-
-        .sub-image-content-mini
-          %img{alt: "商品写真", height: "35", src: "https://c.imgz.jp/719/32560719/32560719_33_D_500.jpg", width: "35px"}
-          %p ダークデニム
+        - 15.times.each do |i|
+          .sub-image-content-mini
+            %img{alt: "商品写真", height: "35", src: "https://c.imgz.jp/719/32560719/32560719_33_D_500.jpg", width: "35px"}
+            %p ダークデニム
 
       .item-content
         %h3 関連アイテム

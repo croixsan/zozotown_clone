@@ -1,54 +1,45 @@
 .wrapper {
 
-  .img {
-    height: 46px;
-    background-color: #007ebe;
-  }
+  .headNavi {
+    .center {
+      height: 70px;
+      width: $width-show-main;
+      margin: 0 auto;
+      position: relative;
 
-    .headNavi {
+      .linktag {
+        height: 20px;
+        width: $width-show-main;
+        @include fit_to_center();
 
-      .center {
-        height: 70px;
-        width: 980px;
-        margin: 0 auto;
-        position: relative;
+        ul {
+          float: left;
 
-        .linktag {
-          height: 20px;
-          width: 980px;
-          @include fit_to_center();
-
-          ul {
-
-            li {
-              float: left;
-
-              a {
-                font-size: 13px;
-                color: #007ebe;
-              }
-            }
+          a {
+            font-size: 13px;
+            color: #007ebe;
           }
         }
       }
     }
+  }
 
   .main-content {
     height: 100%;
-    width: 980px;
+    width: $width-show-main;
     margin: 0 auto;
 
     .left-content {
-      width: 560px;
+      width: $width-show-left;
       float: left;
 
       .main-image-content {
-        height: 600px;
-        width: 560px;
+        height: $height-main-content;
+        width: $width-show-left;
         margin-bottom: 25px;
 
         .left-button {
-          height: 600px;
+          height: $height-main-content;
           width: 30px;
           position: relative;
           float: left;
@@ -65,14 +56,13 @@
         }
 
         .main-image {
-          height: 600px;
+          height: $height-main-content;
           width: 500px;
-          background-color: red;
           float: left;
         }
 
         .right-button {
-          height: 600px;
+          height: $height-main-content;
           width: 30px;
           position: relative;
           float: left;
@@ -90,7 +80,7 @@
       }
       .sub-image-content {
         height:161px;
-        width: 560px;
+        width: $width-show-left;
         padding: 0 0 25px 0;
 
         .sub-image-content-mini {
@@ -113,11 +103,9 @@
 
       .item-content {
         height: 965px;
-        width: 560px;
+        width: $width-show-left;
         margin-top: 25px;
-        border-top: solid;
-        border-top-color:rgb(235, 235, 235);
-        border-top-width: 1px;
+        border-top: $border-gray;
 
         h3 {
           font-size: 18px;
@@ -126,7 +114,7 @@
 
         .item-content-mini {
           height: 900px;
-          width: 560px;
+          width: $width-show-left;
 
           .items {
             height: 194px;
@@ -165,20 +153,20 @@
     }
 
     .right-content {
-      width: 400px;
+      width: $width-show-right;
       float: right;
 
       .item-intro {
         height: 250px;
-        width:400px;
+        width: $width-show-right;
 
         .namelist {
           height: 40px;
-          width: 400px;
+          width: $width-show-right;
 
           .shop-brand {
             height: 20px;
-            width: 400px;
+            width: $width-show-right;
             color: #2d2d2d;
 
             a {
@@ -190,7 +178,7 @@
 
         h1 {
           height: 56px;
-          width: 400px;
+          width: $width-show-right;
           margin-top: 14px;
           font-size: 18px;
         }
@@ -239,7 +227,7 @@
 
         .point-fav {
           height: 45px;
-          widows: 400px;
+          widows: $width-show-right;
           margin-top: 12px;
 
           p {
@@ -255,13 +243,9 @@
 
       .cart-area {
         height: 100px;
-        width: 400px;
-        border-top: solid;
-        border-bottom: solid;
-        border-top-color:rgb(235, 235, 235);
-        border-top-width: 1px;
-        border-bottom-color:rgb(235, 235, 235);
-        border-bottom-width: 1px;
+        width: $width-show-right;
+        border-top: $border-gray;
+        border-bottom: $border-gray;
 
         .item {
           height: 80px;
@@ -324,15 +308,15 @@
 
       .condition-tab {
         height: 60px;
-        width: 400px;
+        width: $width-show-right;
         margin-top: 30px;
 
         .left-tab {
           height: 60px;
           width: 125px;
-          border-top: solid 1px rgb(235, 235, 235);
-          border-right: solid 1px rgb(235, 235, 235);
-          border-left: solid 1px rgb(235, 235, 235);
+          border-top: $border-gray;
+          border-right: $border-gray;
+          border-left: $border-gray;
           float: left;
 
           a {
@@ -348,7 +332,7 @@
         .right-tab {
           height: 60px;
           width: 273px;
-          border-bottom: solid 1px rgb(235, 235, 235);
+          border-bottom: $border-gray;
           float: left;
           margin-bottom: 20px;
 
@@ -371,7 +355,7 @@
 
       .text-area {
         height: 100%;
-        width: 400px;
+        width: $width-show-right;
 
         p {
           height:20px;
@@ -382,12 +366,9 @@
 
       .action-nav{
         height: 50px;
-        width: 400px;
+        width: $width-show-right;
         margin-top: 10px;
-        border-top: solid 1px rgb(36, 144, 208);
-        border-right: solid 1px rgb(36, 144, 208);
-        border-left: solid 1px rgb(36, 144, 208);
-        border-bottom: solid 1px rgb(36, 144, 208);
+        border: $border-blue;
         text-align: center;
 
         a {
@@ -447,16 +428,15 @@
 
       .detail-link {
         height: 20px;
-        width: 400px;
+        width: $width-show-right;
         margin-top: 7px;
         padding-bottom: 7px;
-        border-bottom: solid 1px rgb(235, 235, 235);
+        border-bottom: $border-gray;
 
         a {
           color: rgb(36, 144, 208);
           text-decoration: none;
           font-size: 13px;
-
         }
 
         span {
@@ -468,7 +448,7 @@
 
       .icons {
         height: 65px;
-        width: 400px;
+        width: $width-show-right;
 
         i {
           height: 65px;
@@ -485,10 +465,7 @@
           height: 30px;
           width: 250px;
           margin-top: 10px;
-          border-top: solid 1px rgb(36, 144, 208);
-          border-right: solid 1px rgb(36, 144, 208);
-          border-left: solid 1px rgb(36, 144, 208);
-          border-bottom: solid 1px rgb(36, 144, 208);
+          border: $border-blue;
 
           i {
             height: 30px;
@@ -512,14 +489,14 @@
 
   .row-content {
     height: 100%;
-    width: 980px;
+    width: $width-show-main;
     clear: both;
 
     .recommend {
       height: 100%;
-      width: 980px;
+      width: $width-show-main;
       padding-top: 30px;
-      border-top: solid 1px rgb(235, 235, 235);
+      border-top: $border-gray;
 
       p {
         font-size: 18px;
@@ -527,16 +504,16 @@
 
       .items {
         height: 100%;
-        width: 980px;
+        width: $width-show-main;
         padding-top: 14px;
       }
     }
 
     .keyword {
       height: 100%;
-      width: 980px;
+      width: $width-show-main;
       padding-top: 30px;
-      border-top: solid 1px rgb(235, 235, 235);
+      border-top: $border-gray;
 
       p {
         font-size: 18px;
@@ -545,15 +522,15 @@
       ul {
         margin-top: 15px;
         height: 40px;
-        width: 980px;
+        width: $width-show-main;
 
         a{
           height: 30px;
           padding: 5px 5px 5px 5px;
-          border-top: solid 1px rgb(235, 235, 235);
-          border-right: solid 1px rgb(235, 235, 235);
-          border-left: solid 1px rgb(235, 235, 235);
-          border-bottom: solid 1px rgb(235, 235, 235);
+          border-top: $border-gray;
+          border-right: $border-gray;
+          border-left: $border-gray;
+          border-bottom: $border-gray;
           text-decoration: none;
           color: #808080;
           background-color: rgb(245, 245, 245);
@@ -564,9 +541,9 @@
 
     .other {
       height: 100%;
-      width: 980px;
+      width: $width-show-main;
       padding-top: 30px;
-      border-top: solid 1px rgb(235, 235, 235);
+      border-top: $border-gray;
 
       p {
         font-size: 18px;
@@ -574,7 +551,7 @@
 
       .text-box {
         height: 40px;
-        width: 980px;
+        width: $width-show-main;
         color: #808080;
         margin-top: 10px;
       }
@@ -582,7 +559,7 @@
       .shops {
         margin: 15px 0 15px 0;
         height: 60px;
-        width: 980px;
+        width: $width-show-main;
 
         a{
           height: 25px;
