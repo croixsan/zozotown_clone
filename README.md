@@ -19,12 +19,12 @@ Things you may want to cover:
 | name       | string      | null: false, index: true               |
 | price      | integer     | null: false                            |
 | stock      | integer     | null: false                            |
-| gender_id  | foreign_key | null: false                            |
-| size_id    | foreign_key | null: false,                           |
-| category_id| foreign_key | null: false                            |
-| coupon_id  | foreign_key | null: false,                           |
-| brand_id   | foreign_key | null: false                            |
-| shop_id    | foreign_key | null: false,                           |
+| gender_id  | integer     | null: false, foreign_key: true         |
+| size_id    | integer     | null: false, foreign_key: true         |
+| category_id| integer     | null: false, foreign_key: true         |
+| coupon_id  | integer     | null: false, foreign_key: true         |
+| brand_id   | integer     | null: false, foreign_key: true         |
+| shop_id    | integer     | null: false, foreign_key: true         |
 
 ### Association
 - belongs_to :size
@@ -65,7 +65,7 @@ Things you may want to cover:
 ## categories table
 | Column     | Type        | Options                                |
 |:-----------|------------:|:--------------------------------------:|
-| name       | string      | null: false, index: true, unique: true              |
+| name       | string      | null: false, index: true, unique: true |
 
 ### Association
 - has_many :items
@@ -73,7 +73,7 @@ Things you may want to cover:
 ## brands table
 | Column     | Type        | Options                                |
 |:-----------|------------:|:--------------------------------------:|
-| name       | string      | null: false, index: true, unique: true              |
+| name       | string      | null: false, index: true, unique: true |
 | url        | string      |                                        |
 
 ### Association
@@ -86,9 +86,10 @@ Things you may want to cover:
 ## shops table
 | Column     | Type        | Options                                |
 |:-----------|------------:|:--------------------------------------:|
-| name       | string      | null: false, index: true, unique: true              |
+| name       | string      | null: false, index: true, unique: true |
 | concept    | text        |                                        |
-| logo       | string      |    
+| url        | string      |                                        |
+| logo       | string      |                                        |    
 
 ### Association
 - has_many :shops_carts
@@ -100,7 +101,7 @@ Things you may want to cover:
 ## carts table
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
-| user_id     | foreign_key | null: false, index: true, unique: true              |
+| user_id     | integer     | null: false, foreign_key: true         |
 | total_price | integer     |                                        |
 
 
@@ -116,8 +117,8 @@ Things you may want to cover:
 ## items_carts table
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
-| item_id     | foreign_key | null: false                            |
-| cart_id     | foreign_key | null: false                            |
+| item_id     | integer     | null: false, foreign_key: true         |
+| cart_id     | integer     | null: false, foreign_key: true         |
 
 ### Association
 - belongs_to :item
@@ -126,8 +127,8 @@ Things you may want to cover:
 ## brands_carts table
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
-| brand_id     | foreign_key| null: false                            |
-| cart_id     | foreign_key | null: false                            |
+| brand_id    | integer     | null: false, foreign_key: true         |
+| cart_id     | integer     | null: false, foreign_key: true         |
 
 ### Association
 - belongs_to :brand
@@ -136,8 +137,8 @@ Things you may want to cover:
 ## shops_carts table
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
-| shop_id     | foreign_key | null: false                            |
-| cart_id     | foreign_key | null: false                            |
+| shop_id     | integer     | null: false, foreign_key: true         |
+| cart_id     | integer     | null: false, foreign_key: true         |
 
 ### Association
 - belongs_to :shop
@@ -152,7 +153,7 @@ Things you may want to cover:
 | address     | string      | null: false                            |
 | phone_num   | integer     | null: false                            |
 | point       | integer     | null: false                            |
-| gender_id   | foreign_key | null: false                            |
+| gender_id   | integer     | null: false, foreign_key: true         |
 
 ### Association
 - belongs_to :birthday
@@ -166,7 +167,7 @@ Things you may want to cover:
 ## birthdays table
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
-| user_id     | foreign_key | null: false, unique: true              |
+| user_id     | integer     | null: false, foreign_key: true         |
 | year        | integer     | null: false                            |
 | month       | integer     | null: false                            |
 | day         | integer     | null: false                            |
@@ -178,8 +179,8 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | order_num   | integer     | null: false, unique: true              |
-| user_id     | foreign_key | null: false                            |
-| cart_id     | foreign_key | null: false                            |
+| user_id     | integer     | null: false, foreign_key: true         |
+| cart_id     | integer     | null: false, foreign_key: true         |
 
 ### Association
 - has_many :items_orders
@@ -194,8 +195,8 @@ Things you may want to cover:
 ## items_orders table
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
-| item_id     | foreign_key | null: false                            |
-| order_id    | foreign_key | null: false                            |
+| item_id     | integer     | null: false, foreign_key: true         |
+| order_id    | integer     | null: false, foreign_key: true         |
 
 ### Association
 - belongs_to :item
@@ -204,8 +205,8 @@ Things you may want to cover:
 ## brands_orders table
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
-| brand_id    | foreign_key | null: false                            |
-| order_id    | foreign_key | null: false                            |
+| brand_id    | integer     | null: false, foreign_key: true         |
+| order_id    | integer     | null: false, foreign_key: true         |
 
 ### Association
 - belongs_to :brand
@@ -214,18 +215,28 @@ Things you may want to cover:
 ## shops_orders table
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
-| shop_id     | foreign_key | null: false                            |
-| order_id    | foreign_key | null: false                            |
+| shop_id     | integer     | null: false, foreign_key: true         |
+| order_id    | integer     | null: false, foreign_key: true         |
 
 ### Association
 - belongs_to :shop
 - belongs_to :order
 
+## users_orders table
+| Column      | Type        | Options                                |
+|:------------|------------:|:--------------------------------------:|
+| user_id     | integer     | null: false, foreign_key: true         |
+| order_id    | integer     | null: false, foreign_key: true         |
+
+### Association
+- belongs_to :user
+- belongs_to :order
+
 ## checked_items table
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
-| user_id     | foreign_key | null: false                            |
-| item_id     | foreign_key | null: false                            |
+| user_id     | integer     | null: false, foreign_key: true         |
+| item_id     | integer     | null: false, foreign_key: true         |
 
 ### Association
 - belongs_to :user
@@ -234,8 +245,8 @@ Things you may want to cover:
 ## checked_shops table
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
-| user_id     | foreign_key | null: false                            |
-| shop_id     | foreign_key | null: false                            |
+| user_id     | integer     | null: false, foreign_key: true         |
+| shop_id     | integer     | null: false, foreign_key: true         |
 
 ### Association
 - belongs_to :user
@@ -244,8 +255,8 @@ Things you may want to cover:
 ## brand_likes table
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
-| user_id     | foreign_key | null: false                            |
-| brand_id    | foreign_key | null: false                            |
+| user_id     | integer     | null: false, foreign_key: true         |
+| brand_id    | integer     | null: false, foreign_key: true         |
 
 ### Association
 - belongs_to :user
@@ -254,8 +265,8 @@ Things you may want to cover:
 ## shop_likes table
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
-| user_id     | foreign_key | null: false                            |
-| shop_id     | foreign_key | null: false                            |
+| user_id     | integer     | null: false, foreign_key: true         |
+| shop_id     | integer     | null: false, foreign_key: true         |
 
 ### Association
 - belongs_to :user
@@ -264,8 +275,8 @@ Things you may want to cover:
 ## item_likes table
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
-| user_id     | foreign_key | null: false                            |
-| item_id     | foreign_key | null: false                            |
+| user_id     | integer     | null: false, foreign_key: true         |
+| item_id     | integer     | null: false, foreign_key: true         |
 
 ### Association
 - belongs_to :user
