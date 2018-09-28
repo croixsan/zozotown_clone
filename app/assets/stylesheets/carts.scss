@@ -1,3 +1,253 @@
-// Place all the styles related to the carts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper {
+  width: $width-show-main;
+  margin: 0 auto;
+
+  .header {
+    height: 84px;
+    width: $width-show-main;
+    padding-top: 36px;
+
+    i {
+      width: 40px;
+      color: rgb(36, 144, 208);
+      font-size: 30px;
+      float: left;
+      margin-top: 35px;
+    }
+
+    h1 {
+      font-size: 23px;
+      float: left;
+      margin-top: 35px;
+
+    }
+
+    img {
+      float: right;
+    }
+  }
+
+  .main-content {
+    width: $width-show-main;
+
+    .left-content {
+      width: $width-carts-index-leftcontent;
+      margin-top: 20px;
+
+      .items {
+        height: 150px;
+        width: $width-carts-index-leftcontent;
+        margin-top: 13px;
+        padding: 40px 0 40px 0;
+        border-top: $border-gray;
+        border-bottom: $border-gray;
+
+        a {
+          margin-right: 10px;
+          float: left;
+        }
+
+        .name {
+          height: 140px;
+          width: 225px;
+          float: left;
+          padding-top: 10px;
+
+          .red-text {
+            color: red;
+            font-size: 13px;
+          }
+        }
+
+        .price {
+          height: 150px;
+          line-height: 150px;
+          width: 80px;
+          color: red;
+          float: left;
+        }
+
+        .number-area {
+          height: 150px;
+          width: 90px;
+          float: left;
+
+          .number-box {
+            height: 30px;
+            width: 90px;
+            margin-top: 60px;
+
+            .number {
+              height: 18px;
+              width: 18px;
+              border: $border-gray;
+              padding: 5px 1px 5px 9px;
+              float: left;
+            }
+
+            .btn {
+              height: 24px;
+              width: 16px;
+              float: left;
+              padding: 2px 1px 2px 5px;
+              border-top: $border-gray;
+              border-bottom: $border-gray;
+              border-right: $border-gray;
+
+              a {
+                text-decoration: none;
+              }
+            }
+          }
+        }
+
+        .delete-box {
+          height: 150px;
+          width: 70px;
+          float: left;
+
+          a{
+            height: 150px;
+            line-height: 150px;
+            width: 35px;
+            margin-left: 40px;
+          }
+        }
+      }
+
+      .total {
+        height: 25px;
+        width: $width-carts-index-leftcontent;
+        margin-top: 25px;
+        float: left;
+
+        .total-right {
+          height: 25px;
+          width: 220px;
+          float: right;
+
+          p {
+            font-size: 15px;
+            float: left;
+          }
+
+          .price {
+            color: red;
+            font-size: 15px;
+            float: right;
+          }
+        }
+      }
+
+      .payment {
+        height: 40px;
+        width: $width-carts-index-leftcontent;
+        margin-top: 25px;
+        float: left;
+
+        p {
+          height: 20px;
+          background-color: rgb(240, 240, 240);
+          float: right;
+          padding: 10px 18px 10px 18px;
+          font-size: 14px;
+
+          span {
+            color: red;
+          }
+
+          a {
+            color: rgb(36, 144, 208);
+            text-decoration: none;
+          }
+        }
+      }
+
+      .cart-in-item {
+        width: $width-carts-index-leftcontent;
+        padding-top: 35px;
+        clear: both;
+
+        h2 {
+          font-size: 18px;
+          padding-bottom: 13px;
+        }
+
+        .item-list {
+          height: 180px;
+          width: $width-carts-index-leftcontent;
+
+          a {
+            height: 150px;
+            width: 145px;
+            float: left;
+          }
+
+          .name {
+            height: 145px;
+            width: 300px;
+            float: left;
+            padding-top: 10px;
+            float: left;
+
+            .price {
+              float: left
+            }
+
+            span {
+              font-size: 10px;
+              margin-left: 5px;
+              color: #808080;
+            }
+
+            .other-text {
+              font-size: 10px;
+              color: #808080;
+              margin-top: 5px;
+            }
+          }
+
+          .cart-btn {
+            height: 180px;
+            width: 155px;
+            float: right;
+
+            a {
+              @include set_btn(40px, 155px);
+              background-color: rgb(36, 144, 208);
+              text-align: center;
+              color: white;
+              margin-top: 60px;
+            }
+          }
+        }
+      }
+
+      .item-ranking {
+        border: $border-gray;
+        padding: 25px;
+        margin-bottom: 40px;
+
+        h3 {
+          font-size: 18px;
+          padding: 0 0 25px 0;
+        }
+      }
+
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
