@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'tops#index'
+  root 'tops#all'
   get 'tests/new' => 'tests#new'
   get 'carts/index' => 'carts#index'
 
