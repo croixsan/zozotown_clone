@@ -1,0 +1,2 @@
+class CheckedShop < ApplicationRecord
+end
