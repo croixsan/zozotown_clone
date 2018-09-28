@@ -1,0 +1,2 @@
+class TopCategory < ApplicationRecord
+end
