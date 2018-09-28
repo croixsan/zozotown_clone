@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   root 'tops#all'
+=======
+  devise_for :users
+  root 'tests#index'
+  resources :users
+>>>>>>> master
   get 'tests/new' => 'tests#new'
   get 'carts/index' => 'carts#index'
 
