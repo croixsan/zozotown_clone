@@ -1,0 +1,2 @@
+class Shopping < ApplicationRecord
+end
