@@ -11,16 +11,16 @@
       = link_to "#" do
         = image_tag img_url, class: "image-size-large"
         - if rank_num > 0
-          = render partial: "tests/tops/center/ranking", locals: {rank_num: rank_num}
+          = render partial: "tops/center/ranking", locals: {rank_num: rank_num}
         - if coupon > 0
-          = render partial: "tests/tops/center/coupon", locals: {coupon: coupon}
+          = render partial: "tops/center/coupon", locals: {coupon: coupon}
     - when "middle"
       = link_to "#" do
         = image_tag img_url, class: "image-size-middle"
         - if rank_num > 0
-          = render partial: "tests/tops/center/ranking", locals: {rank_num: rank_num}
+          = render partial: "tops/center/ranking", locals: {rank_num: rank_num}
         - if coupon > 0
-          = render partial: "tests/tops/center/coupon", locals: {coupon: coupon}
+          = render partial: "tops/center/coupon", locals: {coupon: coupon}
     - when "small"
       = link_to "#" do
         = image_tag img_url, class: "image-size-small"
