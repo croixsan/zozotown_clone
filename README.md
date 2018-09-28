@@ -86,7 +86,6 @@ Things you may want to cover:
 | url        | string      |                                        |
 | gender     | string      | null: false                       |
 | logo       | string      |                                        |    
-| gender     | string      | null: false                       |
 
 ### Association
 - has_many :items
