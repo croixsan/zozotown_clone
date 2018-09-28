@@ -85,6 +85,12 @@
           width:180px;
           line-height:80px;
         }
+        &_form {
+          height:35px;
+          width:300px;
+          background-color:#f0e68c;
+          border: solid 3px #f0e68c;
+        }
       }
       &_adless {
         height:80px;
@@ -97,6 +103,12 @@
         }
         &_input {
           float:right;
+          &_form {
+            height:35px;
+            width:300px;
+            background-color:#f0e68c;
+            border: solid 3px #f0e68c;
+          }
         }
       }
       &_password {
@@ -110,28 +122,32 @@
         }
         &_form {
           float:right;
+          height:35px;
+          width:300px;
+          background-color:#f0e68c;
+          border: solid 3px #f0e68c;
+        }
+        &_agreement {
+          height:80px;
+          font-size:15px;
+          text-align: center;
+          margin:0 auto;
+        }
+        &_send {
+          height:25px;
+          width:270px;
+          background-color: #2490D0;
+          color: #ffffff !important;
+          display: block;
+          text-align: center;
+          border-radius: 2px;
+          padding: 11px 0 8px;
+          margin:0 auto;
+          border: solid 1px #2490D0;
+          border-radius: 3px;
         }
       }
-      &_agreement {
-        height:80px;
-        font-size:15px;
-        text-align: center;
-        margin:0 auto;
-      }
-      &_send {
-        height:25px;
-        width:270px;
-        background-color: #2490D0;
-        color: #ffffff !important;
-        display: block;
-        text-align: center;
-        border-radius: 2px;
-        padding: 11px 0 8px;
-        margin:0 auto;
-        border: solid 1px #2490D0;
-        border-radius: 3px;
-      }
-
     }
   }
 }
+

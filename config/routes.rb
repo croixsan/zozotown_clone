@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'tests#index'
+  root 'tests#signup'
   resources :users
 end
