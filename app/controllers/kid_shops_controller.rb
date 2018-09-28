@@ -1,0 +1,2 @@
+class KidShopsController < ApplicationController
+end
