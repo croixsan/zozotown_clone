@@ -32,7 +32,6 @@
 
     .left-content {
       width: $width-carts-index-leftcontent;
-      margin-top: 20px;
 
       .items {
         height: 150px;
@@ -233,7 +232,105 @@
           padding: 0 0 25px 0;
         }
       }
+    }
 
+    .cart-next {
+      height: 320px;
+      width: 320px;
+      background-color: rgb(246, 246, 246);
+      float: right;
+      position: relative;
+
+      .form {
+        height: 250px;
+        width: 250px;
+        @include fit_to_center();
+
+        a {
+          @include set_btn(40px, 250px);
+          background-color: rgb(36, 144, 208);
+          text-align: center;
+          color: white;
+          font-size: 18px;
+        }
+
+        .postage {
+          height: 60px;
+          width: 250px;
+          background-color: rgb(230, 230, 230);
+          margin: 20px 0 20px 0;
+          padding-top: 5px;
+
+          .postage-text {
+            height: 40px;
+            margin: 8px 0 10px 5px;
+
+            i {
+              font-size: 30px;
+              color: rgb(36, 144, 208);
+              float: left;
+            }
+
+            .text {
+              float: left;
+              margin-left: 5px;
+
+              p {
+                font-size: 11px;
+                float: left;
+              }
+
+              .more {
+                font-size: 8px;
+                color: rgb(36, 144, 208);
+                text-decoration: none;
+              }
+            }
+
+          }
+        }
+
+        .rapping {
+          height: 65px;
+          padding: 10px 0 5px 5px;
+          background-color: rgb(230, 230, 230);
+
+          .rapping-text {
+            height: 60px;
+
+            i {
+              height: 60px;
+              font-size: 15px;
+              float: left;
+            }
+
+            .text-box {
+              height: 60px;
+              width: 145px;
+              float: left;
+
+              span {
+                font-size: 11px;
+              }
+              .tax {
+                height: 20px;
+                width: 20px;
+                font-size: 8px;
+                color: #808080;
+              }
+            }
+            img {
+              float: left;
+            }
+          }
+        }
+      }
+
+      .continuation {
+        text-align: center;
+        margin-top: 20px;
+        color: rgb(36, 144, 208);
+      }
     }
   }
 }

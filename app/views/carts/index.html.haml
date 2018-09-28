@@ -63,6 +63,26 @@
           - 15.times.each do |i|
             #top__center__pickup__contents__item
               = render partial: 'tests/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+    .cart-next
+      .form
+        %a{ :href => 'http://google.co.jp' }レジへ進む
+        .postage
+          .postage-text
+            %i.fas.fa-exclamation-circle
+            .text
+              %p 送料は一律200円になりました。
+              .more 詳細はこちら
+        .rapping
+          .rapping-text
+            %i.far.fa-check-circle
+            .text-box
+              %span ラッピングをご希望の方はこちらにチェックしてください
+              %span.tax (有料)
+              %span
+                詳細
+            %img{alt: "商品イメージ", height: "50", width: "70", src: "http://img4.zozo.jp/giftwrapping/pc/cart_giftgray.png"}
+        .continuation ショッピングを続ける
+
     .row-content
       .recommend
         %p カートに入れたアイテムからのお知らせ
