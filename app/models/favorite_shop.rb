@@ -1,0 +1,2 @@
+class FavoriteShop < ApplicationRecord
+end
