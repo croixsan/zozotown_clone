@@ -1,0 +1,213 @@
+.wrapper
+  .headNavi
+    .center
+      .linktag
+        %ul
+          %a{ :href => 'http://google.co.jp' }ZOZOTOWN
+          >
+        %ul
+          %a ZOZO
+  .main-content
+    .left-content
+      .main-image-content
+        .left-button
+          .button-left
+            <
+        .main-image
+          %img{alt: "商品写真", height: "600", src: "https://c.imgz.jp/719/32560719/32560719_33_D_500.jpg", width: "500px"}
+        .right-button
+          .button-right
+            >
+      .sub-image-content
+        - 15.times.each do |i|
+          .sub-image-content-mini
+            %img{alt: "商品写真", height: "35", src: "https://c.imgz.jp/719/32560719/32560719_33_D_500.jpg", width: "35px"}
+            %p ダークデニム
+
+      .item-content
+        %h3 関連アイテム
+        %ul#top__center__pickup__contents.clearfix
+          - 15.times.each do |i|
+            #top__center__pickup__contents__item
+              = render partial: 'item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+
+    .right-content
+      .item-intro
+        .namelist
+          .shop-brand
+            ショップ：
+            %a{ :href => 'http://google.co.jp' }ZOZO
+          .shop-brand
+            ブランド：
+            %a{ :href => 'http://google.co.jp' }ZOZO
+        %h1
+          スリムテーパードデニムパンツ（パターンオーダー）／ダークインディゴブルー［MEN］
+        .proper
+          .price-content
+            .price
+              ¥3,800
+              .tax
+                税別
+            .late-pay
+              .text
+                %p
+                  %b ツケ払いできます
+                  %a{ :href => 'http://google.co.jp' }詳細
+                %p
+                  %b お支払いは11月26日でok
+          .point-fav
+            %p.fas.fa-database 35ポイント還元（ZOZOCARD：70ポイント還元）
+            %p.far.fa-heart お気に入りアイテム登録数：6304人
+      .cart-area
+        .item
+          %img{alt: "商品写真", height: "35", src: "https://c.imgz.jp/719/32560719/32560719_33_D_500.jpg", width: "35px"}
+          %p ダークデニム
+        .cart-box
+          .cart
+            %i.fas.fa-shopping-cart
+            %p カートに入れる
+          .heart
+            %p.far.fa-heart
+      .condition-tab
+        .left-tab
+          %a{ :href => 'http://google.co.jp' }アイテム説明
+        .right-tab
+          .right-tab-mini
+            %a{ :href => 'http://google.co.jp' }サイズ詳細
+      .text-area
+        %p
+          %b 【30日間お試しキャンペーン実施中】
+        %div
+          デニムランキング堂々のNO.1を獲得したZOZOデニムが今すぐ試せる30日間お試しキャンペーン実施中！
+        %div
+          万が一、お気に召さない場合は、商品をご返品いただければ全額返金いたします。
+        %p
+          %b 【裾上げもベルトもいらない、あなたサイズのデニムパンツ】
+        %div
+          この商品はシルエットや素材、フィット感に極限までこだわった、あなた専用のデニムパンツです。
+          %br
+          %br
+          高品質・低価格でかつ最短で翌日に商品をお届けいたします。
+          %br
+          %br
+          そんな「ZOZO」ならではの、あなた専用のデニムパンツをどうぞお楽しみください。
+          %br
+          %br
+          ※こちらの商品はダメージ加工を施しています。
+          %br 1点1点手作業のため、色味・ダメージ加工の具合に個体差がございます。
+          %br
+          このアイテムは「パターンオーダー」です。
+          %br
+          %br
+          【パターンオーダーとは】
+          %br あらかじめ大量のサイズパターンを用意しております。その中から、お客様の体型にもっとも相応しいパターンを選びます。事前に商品の作り置きがある場合は最短即日お届けとなり、作り置きがない場合はお客様用に製造するためにお時間をいただきます。
+        %p
+          %b 【ZOZOデニム30日間お試しキャンペーンについて】
+        %div
+          ご購入後30日間お試しいただき、お気に召さなければ全額返金いたします。商品をご使用いただいた場合でも、30日以内に返品いただければ、商品代金に加え、ご購入に際して必要となった送料、および決済手数料を全額ご返金いたします。破損・汚損・においの付着など、商品に使用感が見受けられる場合でも全額ご返金を保証いたしますので、安心してご購入ください。
+          %br※30日間お試しキャンペーンは、ZOZOオリジナル商品のスリムテーパードデニム、ストレートデニム、スキニーデニムを対象にした期間限定のサービスです。
+          ※このキャンペーンは予告なく終了する場合がございます。
+      .action-nav
+        %a{ :href => 'http://google.co.jp' }主な特徴を見る
+      .item-info
+        .text-box
+          .text
+            %dt 性別タイプ
+            %span :
+            %dd
+              %a{ :href => 'http://google.co.jp' }メンズ
+          .text
+            %dt カテゴリ
+            %span :
+            %dd
+              %a{ :href => 'http://google.co.jp' }パンツ
+          .text
+            %dt 素材
+            %span :
+            %dd コット
+          .text
+            %dt 送料
+            %span :
+            %dd 購入金額に関わらず一律200円
+          .text
+            %dt 送料
+            %span :
+            %dd ラッピング不可
+          .text
+            %dt お問い合わせ番号
+            %span :
+            %dd 31652941（ZOZO）
+      .detail-link
+        %a{ :href => 'http://google.co.jp' }返品の詳細
+        %span :
+        %a{ :href => 'http://google.co.jp' }ポイントの詳細
+      .icons
+        %i.far.fa-envelope
+        %i.fab.fa-twitter
+        %i.fab.fa-facebook
+        %i.fab.fa-google
+      %p このブランド「ZOZO」はお好きですか？
+      .brand-box
+        %i.far.fa-heart
+        %p このブランドをお気に入りに登録
+    .row-content
+      .recommend
+        %p このアイテムを見ている人は、こんなアイテムも見ています
+        .items
+          %ul#top__center__pickup__contents.clearfix
+            - 15.times.each do |i|
+              #top__center__pickup__contents__item
+                = render partial: 'item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+      .recommend
+        %p このアイテムを見ている人にオススメ
+        .items
+          %ul#top__center__pickup__contents.clearfix
+            - 15.times.each do |i|
+              #top__center__pickup__contents__item
+                = render partial: 'item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+
+      .recommend
+        %p 人気のデニムパンツランキング
+        .items
+          %ul#top__center__pickup__contents.clearfix
+            - 15.times.each do |i|
+              #top__center__pickup__contents__item
+                = render partial: 'item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+
+      .recommend
+        %p 最近チェックしたアイテム
+        .items
+          %ul#top__center__pickup__contents.clearfix
+            - 15.times.each do |i|
+              #top__center__pickup__contents__item
+                = render partial: 'item', locals: {image_size: "small", rank_num: 0, coupon: 0, shop_image: false}
+
+      .keyword
+        %p このアイテムのキーワード
+        %ul
+          %a{ :href => 'http://google.co.jp' }フルレングス
+          %a{ :href => 'http://google.co.jp' }無地
+          %a{ :href => 'http://google.co.jp' }スタンダード
+          %a{ :href => 'http://google.co.jp' }ストレート
+          %a{ :href => 'http://google.co.jp' }ヴィンテージ
+          %a{ :href => 'http://google.co.jp' }レギュラー
+
+      .other
+        %p 他のショップのデニムパンツを見る
+        .shops
+          %a{ :href => 'http://google.co.jp' }ALLSAINTS
+          %a{ :href => 'http://google.co.jp' }SOPH.
+          %a{ :href => 'http://google.co.jp' }SOPH.GRAMICCI / WILDTHINGS
+          %a{ :href => 'http://google.co.jp' }CALVIN KLEIN
+          %a{ :href => 'http://google.co.jp' }anlio
+          %a{ :href => 'http://google.co.jp' }S size ONWARD（小さいサイズ）
+          %a{ :href => 'http://google.co.jp' }Eimee Law ＆ WASH
+          %a{ :href => 'http://google.co.jp' }eYe COMME des GARCONS JUNYA
+
+
+      .other
+        %p ZOZOTOWN（ゾゾタウン）のご紹介
+        .text-box
+          ZOZOTOWNはZOZO（ゾゾ）のデニムパンツなど、人気ブランドのアイテムを多数取り揃えるファッション通販サイトです。デニムパンツなど、6879ブランドの最新アイテムをオンラインでご購入いただけます。
+
+
