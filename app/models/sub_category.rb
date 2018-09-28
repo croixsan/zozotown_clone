@@ -1,0 +1,2 @@
+class SubCategory < ApplicationRecord
+end
