@@ -23,7 +23,6 @@ class TestsController < ApplicationController
 
   end
   def signup
-    render layout: false
   end
   def favorite
   end
