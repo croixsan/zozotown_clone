@@ -12,7 +12,7 @@
     #header__wrapper__right
       %ul#header__wrapper__right__contents.clearfix
         %li#header__wrapper__right__contents__user_name
-          = link_to "#", id: "login-btn" do
+          = link_to new_user_session_path , id: "login-btn" do
             %span ログイン
           .popup__login
             .popup__login__inner
