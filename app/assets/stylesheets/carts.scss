@@ -9,7 +9,7 @@
 
     i {
       width: 40px;
-      color: rgb(36, 144, 208);
+      color: $main-blue-color;
       font-size: 30px;
       float: left;
       margin-top: 35px;
@@ -156,7 +156,7 @@
           }
 
           a {
-            color: rgb(36, 144, 208);
+            color: $main-blue-color;
             text-decoration: none;
           }
         }
@@ -213,7 +213,7 @@
 
             a {
               @include set_btn(40px, 155px);
-              background-color: rgb(36, 144, 208);
+              background-color: $main-blue-color;
               text-align: center;
               color: white;
               margin-top: 60px;
@@ -248,7 +248,7 @@
 
         a {
           @include set_btn(40px, 250px);
-          background-color: rgb(36, 144, 208);
+          background-color: $main-blue-color;
           text-align: center;
           color: white;
           font-size: 18px;
@@ -267,7 +267,7 @@
 
             i {
               font-size: 30px;
-              color: rgb(36, 144, 208);
+              color: $main-blue-color;
               float: left;
             }
 
@@ -282,7 +282,7 @@
 
               .more {
                 font-size: 8px;
-                color: rgb(36, 144, 208);
+                color: $main-blue-color;
                 text-decoration: none;
               }
             }
@@ -329,7 +329,7 @@
       .continuation {
         text-align: center;
         margin-top: 20px;
-        color: rgb(36, 144, 208);
+        color: $main-blue-color;
       }
     }
   }
