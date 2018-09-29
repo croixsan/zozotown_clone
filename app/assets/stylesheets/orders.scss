@@ -2,7 +2,6 @@
   height: 1000px;
   // ↑削除する
   width: $width-show-main;
-  background-color: yellow;
 
   .o.header {
     height: 26px;
@@ -35,8 +34,48 @@
       margin-top: 24px;
 
       .o.left-content {
-        width: carts_order_left_content_width;
-        border-top: $border-gray;
+        width: carts_orders_left_content_width;
+
+        .o.address {
+          height: 213px;
+          width: $carts_orders_left_content_width;
+          border-top: $border-gray;
+          border-bottom: $border-gray;
+          background-color: yellow;
+
+          .o.address-top {
+            width: $carts_orders_left_content_width;
+            height: 114px;
+            background-color: orange;
+          }
+
+            .o.addressee {
+              height: 213px;
+              line-height: 213px;
+              width: 120px;
+              padding-left: 20px;
+              float: left;
+              background-color: red;
+            }
+
+            .o.name {
+              height: 80px;
+              width: 441px;
+              padding: 17px 0;
+              background-color: blue;
+
+              div {
+                height: 80px;
+                width: 441px;
+
+                .o.name {
+                  height: 20px;
+                  width: 100%;
+                  background-color:green;
+                }
+              }
+            }
+        }
       }
     }
   }
