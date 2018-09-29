@@ -1,3 +1,26 @@
-// Place all the styles related to the orders controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.o.wrapper {
+  height: 1000px;
+  // ↑削除する
+  width: $width-show-main;
+  background-color: yellow;
+
+  .o.header {
+    height: 26px;
+    width: 184px;
+    padding-top: 16px;
+  }
+
+  .o.content {
+    width: $width-show-main;
+    margin-top: 24px;
+
+    .o.content-header {
+      height: 45px;
+      width: $width-show-main;
+
+      h1 {
+        font-size: 21px;
+      }
+    }
+  }
+}
