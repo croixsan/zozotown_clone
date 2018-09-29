@@ -33,6 +33,7 @@ Things you may want to cover:
 - belongs_to :coupon
 
 - has_many :stocks
+- has_many :images
 - has_many :shoppings, dependent: destroy
 - has_many :carts, through :shoppings
 - has_many :ordered_items

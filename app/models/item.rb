@@ -5,6 +5,8 @@ class Item < ApplicationRecord
   belongs_to :sub_category
   belongs_to :coupon
 
+  has_many :stocks
+  has_many :items
   has_many :shoppings, dependent: :destroy
   has_many :carts, through: :shoppings
   has_many :ordered_items
