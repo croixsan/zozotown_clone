@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root 'tests#index'
   resources :users
   get 'tests/new' => 'tests#new'
-  get 'carts/index' => 'carts#index' do
-    get 'order/index' => 'orders#index'
-  end
+  get 'carts/index' => 'carts#index'
+    get 'order/index' => 'orders#index' #←ネストする
 end
