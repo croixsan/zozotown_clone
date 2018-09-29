@@ -17,8 +17,6 @@ Things you may want to cover:
 |:----------------|------------:|:---------------------------------:|
 | name            | string      | null: false, index: true          |
 | price           | integer     | null: false                       |
-| stock           | integer     | null: false                       |
-| size            | string      | null: false                       |
 | gender          | string      | null: false                       |
 | description     | text        |                                   |
 | top_category_id | integer     | null: false, foreign_key: true    |
@@ -34,12 +32,33 @@ Things you may want to cover:
 - belongs_to :sub_category
 - belongs_to :coupon
 
+- has_many :stocks
 - has_many :shoppings, dependent: destroy
 - has_many :carts, through :shoppings
 - has_many :ordered_items
 - has_many :orders, through :ordered_items
 - has_many :checked_items
 - has_many :favorite_items
+
+## stocks table
+| Column          | Type        | Options                           |
+|:----------------|------------:|:---------------------------------:|
+| item_id         | integer     | null: false, foreign_key: true    |
+| stock           | integer     | null: false                       |
+| size            | integer     | null: false                       |
+| color           | string      | null: false                       |
+
+### Association
+- belongs_to :item
+
+## images table
+| Column          | Type        | Options                           |
+|:----------------|------------:|:---------------------------------:|
+| item_id         | integer     | null: false, foreign_key: true    |
+| url             | string      | null: false                       |
+
+### Association
+- belongs_to :item
 
 ## coupons table
 | Column     | Type        | Options                                |
