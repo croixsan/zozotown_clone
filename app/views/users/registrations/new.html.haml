@@ -13,20 +13,54 @@
     .signup_body_main_format
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = devise_error_messages!
-        .field
-          = f.label :email
-          %br/
-          = f.email_field :email, autofocus: true, autocomplete: "email"
-        .field
-          = f.label :password
-          - if @minimum_password_length
-            %em
-              (#{@minimum_password_length} characters minimum)
-          %br/
-          = f.password_field :password, autocomplete: "new-password"
-        .field
-          = f.label :password_confirmation
-          %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password"
-        .actions
-          = f.submit "Sign up"
+        = f.label :uphead, "基本情報"
+        .signup_body_main_format_gender
+        = f.label :gender, "性別"
+          = f.radio_button :test, :foo, label: "男性", inline: true
+          = f.radio_button :test, :bar, label: "女性", inline: true
+          = f.radio_button :test, :piyo, label: "その他", inline: true
+        .signup_body_main_format_birthday
+        = f.label :birthday,"生年月日"
+        = form.date_select :birthday, start_year: 1940, end_year: Time.current.year, use_month_numbers: true
+        .signup_body_main_format_postalcode
+        = f.label :post_num,"郵便番号"
+        = f.text :post_num, placeholder: '○○○○○○○'
+        .signup_body_main_format_adless
+        = f.label :email
+        = f.email_field :email, autofocus: true, autocomplete: "メールアドレス"
+        .signup_body_main_format_password
+        = f.label :password
+        - if @minimum_password_length
+        %em
+        (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: "new-password""パスワードを入力して下さい"
+        .signup_body_main_format_Agreement
+        =link_to "#" do
+        %span.TermsOfService 利用規約
+        =link_to "#" do
+        %span.PrivacyPolicy 個人情報保護方針
+        %span.title に同意する
+
+        = f.submit '会員登録をする', class: "signup_body_main_format_send"
+
+
+      / = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      /   = devise_error_messages!
+      /   .field
+      /     = f.label :email
+      /     %br/
+      /     = f.email_field :email, autofocus: true, autocomplete: "email"
+      /   .field
+      /     = f.label :password
+      /     - if @minimum_password_length
+      /       %em
+      /         (#{@minimum_password_length} characters minimum)
+      /     %br/
+      /     = f.password_field :password, autocomplete: "new-password"
+      /   .field
+      /     = f.label :password_confirmation
+      /     %br/
+      /     = f.password_field :password_confirmation, autocomplete: "new-password"
+      /   .actions
+      /     = f.submit "Sign up"
