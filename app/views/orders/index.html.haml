@@ -9,10 +9,41 @@
     .o.main-content
       .o.left-content
         .o.address
-          .o.address-top
+          .o.adress-top-content
             .o.addressee お届け先
-            .o.name
-              %div
-                %p.o.name
-                  %span#selectedName 山田太郎 様
+            .o.address-top
+              .o.name
+                %div
+                  %p.o.in-name
+                    %span#selectedName 山田太郎 様
+                  %p.o.add
+                    住所:
+                  %span#selectedAdd
+                    %span#addmark 〒
+                    %span#zipCode 2720021
+                    %span#prefName 千葉県
+                    %span#address1 市川市八幡3丁目5－28
+                    %span#address2 ソリッドリファイン八幡202号室
+                  %p.tel
+                    電話:
+                    %span#telNum 080-1234-5678
+            .o.change
+              %a.btn-change{ :href => 'http://google.co.jp' } 変更
+          .o.store-locker
+            %p.o.icon
+              %img{alt: "storeロゴ", height: "50", width: "50", src: "https://img4.zozo.jp/pc/_cart/locker_cart/ico_cnv.png"}
+            .store-locker-text
+              %p.txt14
+                24時間いつでも・どこでもお受取り可能
+              %p.txt12
+                店舗・ロッカー受取りなら、ご都合のいい時間・場所で受取り可能です。
+                %span
+                  詳細
+            %a.o.btn-store-select{ :href => 'http://google.co.jp' }店舗選択
+        .o.payment-area
+          .o.pay-method 支払い方法
+          .o.credit クレジットカード ************5208（一括払い）
+          .o.price ¥0
+          .o.btn-box
+            %a.btn-change{ :href => 'http://google.co.jp' } 変更
 

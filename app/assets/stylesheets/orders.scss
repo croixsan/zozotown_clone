@@ -37,17 +37,14 @@
         width: carts_orders_left_content_width;
 
         .o.address {
-          height: 213px;
+          height: 230px;
           width: $carts_orders_left_content_width;
           border-top: $border-gray;
           border-bottom: $border-gray;
-          background-color: yellow;
 
-          .o.address-top {
-            width: $carts_orders_left_content_width;
+          .o.adress-top-content {
             height: 114px;
-            background-color: orange;
-          }
+            width: 645px;
 
             .o.addressee {
               height: 213px;
@@ -55,26 +52,151 @@
               width: 120px;
               padding-left: 20px;
               float: left;
-              background-color: red;
             }
 
-            .o.name {
-              height: 80px;
+            .o.address-top {
               width: 441px;
-              padding: 17px 0;
-              background-color: blue;
+              height: 114px;
+              float: left;
 
-              div {
+              .o.name {
                 height: 80px;
                 width: 441px;
+                padding: 17px 0;
 
-                .o.name {
-                  height: 20px;
-                  width: 100%;
-                  background-color:green;
+
+                div {
+                  height: 80px;
+                  width: 441px;
+
+                  .o.in-name {
+                    height: 20px;
+                    width: 100%;
+                  }
+
+                  .o.add {
+                    height: 40px;
+                    width: 39px;
+                    float: left;
+
+                    #selectAdd {
+                      height: 40px;
+                      width: 402px;
+                    }
+                  }
                 }
               }
             }
+
+              .o.change {
+                height: 114px;
+                width: 64px;
+                float: right;
+                position: relative;
+
+                .btn-change {
+                  height: 25px;
+                  line-height: 25px;
+                  width: 50px;
+                  text-align: center;
+                  border: $border-blue;
+                  @include fit_to_center();
+                  color: $main-blue-color;
+                  text-decoration: none;
+                }
+              }
+            }
+
+            .o.store-locker {
+              height: 69px;
+              width: 485px;
+              margin: 0 0 17px 140px;
+              padding: 15px 10px;
+              background-color: rgb(240, 240, 240);
+
+              .o.icon {
+                height: 50px;
+                width: 60px;
+                float: left;
+              }
+
+              .store-locker-text {
+                height: 56px;
+                width: 330px;
+                float: left;
+
+                .txt14 {
+                  font-size: 14px;
+                  font-weight: bold;
+                }
+
+                .txt12 {
+                  height: 34px;
+                  width: 330px;
+                  margin-top: 4px;
+                  font-size: 12px;
+                }
+              }
+
+              .o.btn-store-select {
+                @include set_btn(30px, 82px);
+                line-height: 30px;
+                text-align: center;
+                background-color: $main-blue-color;
+                color: white;
+                margin-top: 14px;
+                float: right;
+              }
+            }
+        }
+
+        .o.payment-area {
+          height: 59px;
+          width: $carts_orders_left_content_width;
+          border-bottom: $border-gray;
+
+          .o.pay-method {
+            height: 58px;
+            line-height: 58px;
+            width: 125px;
+            padding-left: 20px;
+            float: left;
+          }
+
+          .o.credit {
+            height: 58px;
+            line-height: 58px;
+            width: 316px;
+            float: left;
+          }
+
+          .o.price {
+            height: 58px;
+            line-height: 58px;
+            width: 118px;
+            float: left;
+          }
+
+          .o.btn-box {
+            height: 58px;
+            width: 66px;
+            float: left;
+            position: relative;
+
+            .btn-change {
+            height: 27px;
+            line-height: 27px;
+            width: 50px;
+            font-size: 13px;
+            text-align: center;
+            border: $border-blue;
+            color: $main-blue-color;
+            text-decoration: none;
+            @include fit_to_center();
+
+            }
+          }
+
         }
       }
     }
