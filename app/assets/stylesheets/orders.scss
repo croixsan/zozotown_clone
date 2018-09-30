@@ -223,14 +223,88 @@
           height: 469px;
           width: $carts_orders_left_content_width;
           padding: 20px 0 20px 20px;
-          background-color: yellow;
 
           .o.delivery-items-more {
             height:429px;
             width: 623px;
             margin-top: 20px;
             border: $border-gray;
-            background-color: orange;
+
+            .o.delivery-date-area {
+              height: 62px;
+              width: 623px;
+              border-bottom: $border-gray;
+
+              .o.delivery-date {
+                height: 62px;
+                line-height: 62px;
+                width: 95px;
+                padding-left: 20px;
+                float: left;
+
+
+                .o.checkbox {
+                  font-size: 15px;
+                  color: $main-blue-color;
+                  margin-left: 20px;
+                }
+              }
+
+              .o.period {
+                height: 62px;
+                line-height: 62px;
+                width: 442px;
+                float: left;
+
+                .o.piriod-price {
+                  margin-left: 200px;
+                }
+              }
+
+              .delivery-change {
+                height:100%;
+                line-height: 100%;
+                width: 66px;
+                float: right;
+                position: relative;
+
+                .btn-change {
+                  height: 27px;
+                  line-height: 27px;
+                  width: 50px;
+                  font-size: 13px;
+                  text-align: center;
+                  border: $border-blue;
+                  color: $main-blue-color;
+                  text-decoration: none;
+                  @include fit_to_center();
+                }
+              }
+            }
+
+            .o.item-area {
+              height: 134px;
+              width: 623px;
+              background-color: orange;
+
+              .o.item-category {
+                height: 134px;
+                line-height: 134px;
+                width: 100px;
+                padding-left: 20px;
+                float: left;
+              }
+
+              .o.item-image {
+                height: 134px;
+                width: 83px;
+                float: left;
+
+                .o.image-content {
+                  padding: 25px 0;
+                }
+              }
+            }
           }
         }
       }
