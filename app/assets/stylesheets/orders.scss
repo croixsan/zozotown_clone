@@ -196,7 +196,42 @@
 
             }
           }
+        }
 
+        .o.point-area {
+          height: 59px;
+          width: $carts_orders_left_content_width;
+          border-bottom: $border-gray;
+
+          .o.zozo-point {
+            height: 58px;
+            line-height: 58px;
+            width: 120px;
+            padding-left: 20px;
+            float: left;
+          }
+
+          .o.point-description {
+            height: 58px;
+            line-height: 58px;
+            width: 505px;
+            float: left;
+          }
+        }
+
+        .o.delivery-items {
+          height: 469px;
+          width: $carts_orders_left_content_width;
+          padding: 20px 0 20px 20px;
+          background-color: yellow;
+
+          .o.delivery-items-more {
+            height:429px;
+            width: 623px;
+            margin-top: 20px;
+            border: $border-gray;
+            background-color: orange;
+          }
         }
       }
     }
