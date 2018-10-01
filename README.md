@@ -44,6 +44,7 @@ Things you may want to cover:
 ## stocks table
 | Column          | Type        | Options                           |
 |:----------------|------------:|:---------------------------------:|
+| item_num        | string      | null: false,                      |
 | item_id         | integer     | null: false, foreign_key: true    |
 | stock           | integer     | null: false                       |
 | size            | integer     | null: false                       |
@@ -57,6 +58,7 @@ Things you may want to cover:
 |:----------------|------------:|:---------------------------------:|
 | item_id         | integer     | null: false, foreign_key: true    |
 | url             | string      | null: false                       |
+| color           | string      | null: false                       |
 
 ### Association
 - belongs_to :item
@@ -79,9 +81,10 @@ Things you may want to cover:
 - has_many :sub_categories
 
 ## sub_categories table
-| Column     | Type        | Options                                |
-|:-----------|------------:|:--------------------------------------:|
-| name       | string      | null: false, index: true, unique: true |
+| Column          | Type        | Options                                |
+|:----------------|------------:|:--------------------------------------:|
+| name            | string      | null: false, index: true, unique: true |
+| top_category_id | integer     | null: false, foreign_key: true         |
 
 ### Association
 - belongs_to :top_category
