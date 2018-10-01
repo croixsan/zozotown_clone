@@ -2,7 +2,6 @@
   .search_side_bar {
     float: left;
     width: $side-bar-width;
-    height: 1000px;
 
     .search_side_bar_inner {
       width: $side-bar-width - 20px;
@@ -80,7 +79,6 @@
 
   .search_result {
     float: left;
-    height: 1000px;
     width: $search-content-width;
   }
 }
@@ -109,6 +107,9 @@
       font-size: 12px;
       color: $link-color;
       padding-left: 5px;
+    }
+    .fa-heart {
+      color: $link-color;
     }
   }
 }
@@ -183,8 +184,79 @@
   }
 }
 
+.color_select {
+  li {
+    padding: 6px 0 0 8px;
+    width: 26px;
+    height: 26px;
+    float: left;
+  }
+  .fa-square {
+    font-size: 20px;
+  }
+}
+
 .select-btn {
   @include set_btn($top-category-btn-height, $top-category-btn-width);
   padding: 7px 5px 6px;
   border-bottom: solid 1px $top-category-border-color;
+}
+
+.color_select {
+  cursor: pointer;
+  padding: 4px 0 20px 0;
+}
+.square-white {
+  color: $white;
+}
+.square-black {
+  color: black;
+}
+
+.square-gray {
+  color: gray;
+}
+
+.square-brawn {
+  color: #800000;
+}
+
+.square-bage{
+  color: #FFFFAA;
+}
+
+.square-green{
+  color: green;
+}
+
+.square-blue{
+  color: blue;
+}
+
+.square-purple{
+  color: purple;
+}
+
+.square-yellow{
+  color: yellow;
+}
+
+.square-pink{
+  color: pink;
+}
+
+.square-red{
+  color: red;
+}
+
+.square-orange{
+  color: orange;
+}
+
+.square-silver{
+  color: silver;
+}
+
+.square-gold{
+  color: #DAA520;
 }
