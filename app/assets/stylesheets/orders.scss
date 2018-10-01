@@ -488,7 +488,42 @@
             margin-top: 10px;
             padding: 6px 0 5px 12px;
             border-top: solid 1px rgb(206, 206, 206);
+
+            .o.discount-box {
+              margin-top: 5px;
+              height: 18px;
+              width: 251px;
+
+              .goods-title {
+                float: left;
+              }
+
+              .goods-price {
+                float: right;
+              }
+            }
+
+            .o.discount-box-point {
+              margin-top: 5px;
+              height: 18px;
+              width: 251px;
+
+              .point-title {
+                float: left;
+              }
+
+              .point-price {
+                float: right;
+                color: red;
+              }
+            }
           }
+        }
+
+        .o.payment-option {
+          height: 89px;
+          width: 303px;
+          padding-left: 5px 20px 0 20px;
         }
       }
     }
