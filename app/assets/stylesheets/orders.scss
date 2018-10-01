@@ -414,6 +414,22 @@
           }
         }
       }
+
+      .o.right-content {
+        height: 600px;
+        // height100%にする
+        width: 303px;
+        border: $border-gray;
+        background-color: rgb(246, 246, 246);
+
+        .o.purchase-area {
+          height: 84px;
+          width: 303px;
+          background-color: red;
+          position: relative;
+        }
+
+      }
     }
   }
 }
