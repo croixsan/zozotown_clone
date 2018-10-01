@@ -144,6 +144,7 @@
   .nallow_list {
     float: left;
     padding: 5px 35px 9px 13px;
+    position: relative;
 
     .fa-angle-down {
       padding-left: 5px;
@@ -153,6 +154,31 @@
     a {
       text-decoration: none;
       color: #646464;
+    }
+    .pulldown_parent {
+      height: 30px;
+    }
+
+    .pulldown_child {
+      position: absolute;
+      top: 25px;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 5;
+      @include create_popup(50px, 185px);
+      visibility: hidden;
+      ul {
+        background-color: $white;
+      li {
+        a {
+            padding: 6px 20px 5px 20px;
+            display: block;
+            color: #646464;
+            font-size: 12px;
+        }
+      }
+    }
     }
   }
 
@@ -259,4 +285,8 @@
 
 .square-gold{
   color: #DAA520;
+}
+
+.selected {
+  background: #e6e6e6;
 }
