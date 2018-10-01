@@ -15,14 +15,50 @@
 .search_content
   .inner.clearfix
     .search_side_bar
-      %section
-        .search_result_inner
+      .search_side_bar_inner
+        %section.search_result_contents
+          %i.fas.fa-caret-right.fa-2x
           .search_result_num
             %h2 対象商品
             .result_count
               10,000
               %span 件
-
+        .search_side_bar_lists
+          %section.select_lists
+            %h2.select_lists_element
+              性別
+            %ul
+              %li.select_lists_element
+                = link_to "#", class: "select-btn" do
+                  メンズ
+                  .angle-icon
+                    %i.fas.fa-angle-right
+              %li.select_lists_element
+                = link_to "#", class: "select-btn" do
+                  レディース
+                  .angle-icon
+                    %i.fas.fa-angle-right
+              %li.select_lists_element
+                = link_to "#", class: "select-btn" do
+                  キッズ
+                  .angle-icon
+                    %i.fas.fa-angle-right
+          %section.select_lists
+            %h2.select_lists_element 価格タイプ
+            %ul
+              %li.select_lists_element
+                = link_to "#", class: "select-btn" do
+                  通常価格
+                  .angle-icon
+                    %i.fas.fa-angle-right
+              %li.select_lists_element
+                = link_to "#", class: "select-btn" do
+                  セール価格
+                  .angle-icon
+                    %i.fas.fa-angle-right
+          %section.select_lists
+            %h2.head-title.select_lists_element カテゴリー
+            = render "tops/left/category_list"
     %article.search_result
       .result_header
         .brand_title
