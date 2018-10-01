@@ -1,0 +1,66 @@
+.category_var
+  .inner
+    %ul.nest_list.clearfix
+      %li.nest_path
+        = link_to "ZOZOTOWN", ""
+      %li.nest_icon
+        %i.fas.fa-angle-right
+      %li.nest_path
+        = link_to "nano・universe", ""
+      %li.nest_icon
+        %i.fas.fa-angle-right
+      %li.nest_item
+        %a 対象商品
+
+.search_content
+  .inner.clearfix
+    .search_side_bar
+    %article.search_result
+      .result_header
+        .brand_title
+          %h1.brand_name
+            nano・universe
+          .brand_name_kana
+            ナノユニバース
+          .favorite_link
+            %i.far.fa-lg.fa-heart
+            = link_to "お気に入りブランドに追加", ""
+      .result_content
+        %ul.hot_keyword.clearfix
+          %li
+            =link_to "Tシャツ/カットソー", "#"
+          %li
+            =link_to "ワンピース", "#"
+          %li
+            =link_to "シャツ/ブラウス", "#"
+          %li
+            =link_to "パンツ", "#"
+          %li
+            =link_to "スカート", "#"
+          %li
+            =link_to "ショルダーバッグ", "#"
+          %li
+            =link_to "ニット/セーター", "#"
+        .result_items.clearfix
+          %ul.guide_list.clearfix
+            %li.nallow_list
+              = link_to "#" do
+                在庫商品＋予約商品
+                %i.fas.fa-angle-down.fa-lg
+            %li.nallow_list
+              = link_to "#" do
+                在庫順
+                %i.fas.fa-angle-down.fa-lg
+            %li.nallow_list
+              = link_to "#" do
+                人気順
+                %i.fas.fa-angle-down.fa-lg
+            %li.switch_img
+              %ul.switch_icons.clearfix
+                %li.switch_nine
+                  %i.fas.fa-th.fa-lg
+                %li.switch_four
+                  %i.fas.fa-th-large.fa-lg
+          .result_items_list
+            - 20.times.each do |item|
+              = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}

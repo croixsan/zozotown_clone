@@ -1,0 +1,111 @@
+.search_content {
+  .search_side_bar {
+    float: left;
+    width: $side-bar-width;
+    height: 1000px;
+    background-color: gray;
+  }
+
+  .search_result {
+    float: left;
+    height: 1000px;
+    width: $search-content-width;
+  }
+}
+
+.result_header {
+  margin-top: 25px;
+}
+
+.brand_title {
+  text-align: center;
+
+  .brand_name {
+    font-size: 22px;
+  }
+
+  .brand_name_kana {
+    font-size: 11px;
+  }
+
+  .favorite_link {
+    margin-top: 17px;
+    padding-bottom: 50px;
+
+    a {
+      text-decoration: none;
+      font-size: 12px;
+      color: $link-color;
+      padding-left: 5px;
+    }
+  }
+}
+
+.result_content {
+  .hot_keyword {
+    padding: 24px 0;
+    border-top: solid 1px #ebebeb;
+
+    li {
+      float: left;
+      margin-left: 20px;
+
+      a {
+        color: $link-color;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.result_items {
+  border-top: 1px solid #ededed;
+}
+
+.guide_list {
+  padding: 10px 0 10px 0;
+  float: left;
+  margin-top: 10px;
+  width: $search-content-width;
+
+  .nallow_list {
+    float: left;
+    padding: 5px 35px 9px 13px;
+
+    .fa-angle-down {
+      padding-left: 5px;
+      color: $angle-icon-color;
+    }
+
+    a {
+      text-decoration: none;
+      color: #646464;
+    }
+  }
+  .switch_img {
+    float: right;
+    line-height: 35px;
+
+    .switch_icons {
+
+      .switch_nine {
+        float: left;
+        padding-right: 15px;
+      }
+
+      .switch_four {
+        float: left;
+        padding-left: 15px;
+      }
+    }
+  }
+}
+
+.result_items_list {
+  list-style: none;
+  li {
+    padding-top: 12px;
+    margin-left: 15px;
+    padding-bottom: 30px;
+  }
+}
