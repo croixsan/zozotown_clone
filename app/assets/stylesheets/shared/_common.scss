@@ -3,3 +3,34 @@
   clear: both;
   display: block;
 }
+
+.inner {
+  width: $inner-width;
+  margin: 0 auto;
+}
+
+.nest_list {
+  padding: 25px 0;
+  .nest_path {
+    float: left;
+    a {
+      text-decoration: none;
+      color: #007ebe;
+    }
+  }
+  .nest_icon {
+    float: left;
+    .fa-angle-right {
+      color: $angle-icon-color;
+      font-size: 20px;
+      padding: 0 10px;
+    }
+  }
+  .nest_item {
+    float: left;
+    a {
+      text-decoration: none;
+      color: $link-color;
+    }
+  }
+}
