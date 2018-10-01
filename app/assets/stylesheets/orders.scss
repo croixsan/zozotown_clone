@@ -425,10 +425,43 @@
         .o.purchase-area {
           height: 84px;
           width: 303px;
-          background-color: red;
           position: relative;
+
+          .o.purchase-btn {
+            @include fit_to_center();
+          }
         }
 
+        .o.payment-total {
+          height: 23px;
+          width: 263px;
+          padding: 5px 20px 0 20px;
+
+          .o.payment-total-title {
+            float: left;
+          }
+
+          .o.payment-total-num {
+            float: right;
+          }
+        }
+
+        .o.point-option {
+          height: 219px;
+          // height100%にする
+          width: 263px;
+          margin-top: 10px;
+          padding: 10px 20px 9px 20px;
+          background-color: rgb(234, 234, 234);
+
+          .o.trade-area {
+            height: 85px;
+            width: 263px;
+            margin-top: 9px;
+            padding-bottom: 8px;
+
+          }
+        }
       }
     }
   }
