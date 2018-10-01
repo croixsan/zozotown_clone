@@ -1,12 +1,13 @@
-@import "shared/common";
 @import "shared/variables";
 @import "shared/reset";
 @import "shared/mixin";
 @import "font-awesome";
+@import "shared/common";
 @import "header";
 @import "content_header";
 @import "popup";
 @import "top";
 @import "signup";
 @import "tests";
-@import "carts"
+@import "carts";
+@import "search";

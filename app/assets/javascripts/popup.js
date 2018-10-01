@@ -1,5 +1,6 @@
 $(function(){
   var popup_selecter;
+  var pulldown_selecter;
   //---------------------- header ----------------------------
   //---- お気に入りボタン---------------------------
   $('#favorite-btn').on('mouseover', function(){
@@ -58,6 +59,7 @@ $(function(){
     $(".popup__login").css("visibility","hidden")
   })
 
+  //---- カテゴリーボタン---------------------------
   $(".category-btn").on('mouseover', function(){
     // ボタンからカテゴリー名を取得
     if (category = $(this).attr("id")){
@@ -73,5 +75,23 @@ $(function(){
   })
   $(popup_selecter).on('mouseout', function(){
     $(popup_selecter).css("visibility","hidden")
+  })
+
+  //----プルダウン---------------------------
+  $(".pulldown_parent").on('mouseover', function(){
+    if (category = $(this).attr("id")){
+      pulldown_selecter = "#" + category.split('-')[0] + "-pulldown";
+      $(pulldown_selecter).css("visibility", "visible");
+    }
+  })
+  $(".pulldown_parent").on('mouseout', function(){
+    $(pulldown_selecter).css("visibility","hidden")
+
+  })
+  $(".pulldown").on('mouseover', pulldown_selecter, function(){
+    $(pulldown_selecter).css("visibility","visible")
+  })
+  $(".pulldown").on('mouseout', pulldown_selecter, function(){
+    $(pulldown_selecter).css("visibility","hidden")
   })
 })
