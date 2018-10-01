@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180929034752) do
+ActiveRecord::Schema.define(version: 20180930092352) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -74,14 +74,13 @@ ActiveRecord::Schema.define(version: 20180929034752) do
     t.string   "url",        null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "color"
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                          null: false
     t.integer  "price",                         null: false
-    t.integer  "stock",                         null: false
-    t.string   "size",                          null: false
-    t.string   "gender",                        null: false
+    t.integer  "gender",                        null: false
     t.text     "description",     limit: 65535
     t.integer  "top_category_id",               null: false
     t.integer  "sub_category_id",               null: false
@@ -131,12 +130,14 @@ ActiveRecord::Schema.define(version: 20180929034752) do
     t.string   "color",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "item_num"
   end
 
   create_table "sub_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",            null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "top_category_id"
     t.index ["name"], name: "index_sub_categories_on_name", using: :btree
   end
 
