@@ -460,6 +460,34 @@
             margin-top: 9px;
             padding-bottom: 8px;
 
+            .o.trade-btn {
+              margin-top: 5;
+            }
+          }
+
+          .point-use-area {
+            height: 44px;
+            width: 263px;
+
+            p {
+              margin-top: 5px;
+            }
+
+            .o.point-use-possible {
+              height: 16px;
+              width: 239px;
+              margin: 3px 0 0 24px;
+              padding-bottom: 5px;
+              font-size: 12px;
+            }
+          }
+
+          .o.discount-area {
+            height: 46px;
+            width: 251px;
+            margin-top: 10px;
+            padding: 6px 0 5px 12px;
+            border-top: solid 1px rgb(206, 206, 206);
           }
         }
       }
