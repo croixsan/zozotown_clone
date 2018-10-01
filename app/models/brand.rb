@@ -1,5 +1,5 @@
 class Brand < ApplicationRecord
   has_many :items
   has_many :favorite_brands
-  enum gender: {all: 1, mens: 2, ladies: 3, kids: 4}
+  enum gender: {mens: 1, ladies: 2, kids: 3, all: 4}
 end
