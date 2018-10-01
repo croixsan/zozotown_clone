@@ -3,7 +3,25 @@
     float: left;
     width: $side-bar-width;
     height: 1000px;
-    background-color: gray;
+    background-color: yellow;
+    .search_result_inner {
+      width: 181px;
+      .search_result_num {
+        background: $side-bar-color;
+        color: $white;
+        border-radius: 4px 4px 0 0;
+        padding: 14px 15px 8px 15px;
+        .result_count {
+          font-weight: normal;
+          line-height: 1.1;
+          font-family: helvetica;
+          font-size: 35px;
+          span {
+            font-size: 13px;
+          }
+        }
+      }
+    }
   }
 
   .search_result {
