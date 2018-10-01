@@ -63,6 +63,7 @@ gem 'erb2haml'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
 gem "devise"
+gem 'mechanize'
 
 group :production do
   gem 'unicorn'
