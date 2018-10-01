@@ -59,13 +59,17 @@
           %section.select_lists
             %h2.head-title.select_lists_element カテゴリー
             = render "tops/left/category_list"
+          %section.select_lists
+            %h2.select_lists_element カラー
+            %ul.color_select.clearfix
+              = render "search/color_select"
     %article.search_result
       .result_header
         .brand_title
           %h1.brand_name
             nano・universe
-          .brand_name_kana
-            ナノユニバース
+          -# .brand_name_kana
+          -#   ナノユニバース
           .favorite_link
             %i.far.fa-lg.fa-heart
             = link_to "お気に入りブランドに追加", ""
@@ -106,5 +110,5 @@
                 %li.switch_four
                   %i.fas.fa-th-large.fa-lg
           .result_items_list
-            - 20.times.each do |item|
+            - 15.times.each do |item|
               = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
