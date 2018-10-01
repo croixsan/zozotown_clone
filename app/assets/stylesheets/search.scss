@@ -211,6 +211,8 @@
 }
 
 .color_select {
+  cursor: pointer;
+  padding: 4px 0 20px 0;
   li {
     padding: 6px 0 0 8px;
     width: 26px;
@@ -228,10 +230,6 @@
   border-bottom: solid 1px $top-category-border-color;
 }
 
-.color_select {
-  cursor: pointer;
-  padding: 4px 0 20px 0;
-}
 .square-white {
   color: $white;
 }
