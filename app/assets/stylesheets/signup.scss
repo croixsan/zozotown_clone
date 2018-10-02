@@ -1,10 +1,15 @@
 .nestbar {
-  height:20px;
+  background-color: #f0f0f0;
+  &_main {
+    color: $link-color;
+  }
+  &_content {
+    height:20px;
   padding:25px 0;
   margin:0 auto;
   width:980px;
   font-size:13px;
-  &_content {
+  background-color: #f0f0f0;
   }
 }
 .signup_body {

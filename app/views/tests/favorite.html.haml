@@ -1,0 +1,131 @@
+.nestbar.clearfix
+  .nestbar_content
+    =link_to "#" do
+      %span.nestbar_content_main ZOZOTOWN
+    %span.nestbar_content_spaece >
+    %span.nestbar_content_signup お気に入り商品
+.main
+  .main_body
+    .main_body_name
+      %h1
+        %span.main_body_name_icon
+          %i.far.fa-heart.fa-2x.fa-sky
+        %span
+          = @name
+        %span 様のお気に入り
+    .main_body_advertisementa
+      %span.app-bottun ZOZO
+      %span アプリのお知らせ通知なら、お気に入りアイテムの値下げ・再入荷・在庫1点などを随時お届けします。
+      %span app
+      %span goo
+    %ul.tab
+      %li#js-item.select アイテム
+      %li#js-bland ブランド
+      %li#js-shop ショップ
+      = link_to "#" do
+        .main_body_tab_delete 複数の削除
+
+
+    #js-item-content.content.hide
+      %ul#menu.main_body_guide
+        %li.main_body_guide_item.clearfix
+          %h2
+            %span アイテム :
+            %span#item-length{'data-id': @items}
+              = @items
+            %span 件
+        %li.main_body_guide_shop
+          全てのショップ
+          %ul.child
+            %li
+              = link_to "#" do
+                .shop 全てのショップ
+              = link_to "#" do
+                .shop ZOZO
+        %li.main_body_guide_category
+          全てのカテゴリ
+          %ul.child
+            %li
+              = link_to "#" do
+                .shop 全てのカテゴリ
+              = link_to "#" do
+                .shop zozo
+        %li.main_body_guide_others
+          全て
+          %ul.child
+            %li
+              = link_to "#" do
+                .shop 全て
+              = link_to "#" do
+                .shop zozo
+        %li.main_body_guide_check
+          %checkbox 販売終了を除く
+      .main_body_list
+        - 20.times.each do |i|
+          = render partial: 'item', locals: {image_size: "large", rank_num: 0, coupon: 0, shop_image: false}
+      .main_body_advertisement
+        .main_body_advertisement_icon line
+        .main_body_advertisement_icon mail
+        .main_body_advertisement_main
+          %h2 LINEとID連携やメルマガを購読すると、お気に入りの値下げ・再入荷情報などをピックアップしてお届けします。
+        = link_to "#" do
+          .main_body_advertisement_link LINEと提携
+        =link_to "#" do
+          .main_body_advertisement_link メルマガを購読
+      .main_body_advertisement
+        .main_body_advertisement_icon WEAR
+        .main_body_advertisement_main
+          %h2 WEARならお気に入りアイテムをフォルダごとに整理できます。今すぐZOZO IDで連携！
+        = link_to "#" do
+          .main_body_advertisement_link ZOZO IDでWEARと連携
+        = link_to "#" do
+          .main_body_advertisement_link WEARとは？
+
+
+    #js-item-none-content.content.hide
+      .icon
+        %i.far.fa-heart.fa-5x.fa-glay
+      %h1.noitem-1 お気に入りアイテムの登録はありません
+      %h3.noitem-2 気になるアイテムを登録しよう
+
+    #js-bland-content.content.hide
+      %h1.content_number.clarfix
+        %span ブランド :
+        %span#bland-length{'data-id': @blands}
+          = @blands
+        %span 件
+      .content_body.clarfix
+        .content_body_list
+          - 20.times.each do
+            .lcontent_body_list_content
+              = link_to "#" do
+                %h2 ZOZO
+
+
+    #js-bland-none-content.content.hide
+      .icon
+        %i.far.fa-heart.fa-5x.fa-glay
+      %h1.nobland-1 お気に入りブランドの登録はありません
+      %h3.nobland-2 気になるブランドを登録しよう
+
+
+    #js-shop-content.content.hide
+      %h1.content_number.clarfix
+        %span ショップ :
+        %span#shop-length{'data-id': @shops}
+          = @shops
+        %span 件
+      .content_body.clarfix
+        .content_body_list
+          - 3.times.each do
+            .list-content
+              = link_to "#" do
+                %h2 ZOZO
+
+
+    #js-shop-none-content.content.hide
+      .icon
+        %i.far.fa-heart.fa-5x.fa-glay
+      %h1.noshop-1 お気に入りのショップの登録はありません
+      %h3.noshop-2 気になるショップを登録しよう
+
