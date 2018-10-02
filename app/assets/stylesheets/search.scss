@@ -1,0 +1,290 @@
+.search_content {
+  .search_side_bar {
+    float: left;
+    width: $side-bar-width;
+
+    .search_side_bar_inner {
+      width: $side-bar-width - 20px;
+      margin: 0 auto;
+      background-color: #f0f0f0;
+
+      .search_result_contents {
+        padding-bottom: 4px;
+        background: $side-bar-color;
+        border-radius: 4px 4px 0 0;
+        position: relative;
+
+        .fa-caret-right {
+          color: $side-bar-color;
+          position: absolute;
+          top: 10px;
+          right: -9.5px;
+        }
+
+        .search_result_num {
+          color: $white;
+          padding: 14px 15px 8px;
+
+          .result_count {
+            font-weight: normal;
+            line-height: 1.1;
+            font-family: helvetica;
+            font-size: 35px;
+
+            span {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+
+      .search_side_bar_lists {
+        margin-top: 25px;
+
+        .search_lists {
+          margin-top: 25px;
+          padding-bottom: 13px;
+        }
+
+        h2 {
+          font-size: 18px;
+          padding-bottom: 6px;
+          border-bottom: 1px solid #e6e6e6;
+        }
+
+        li {
+          position: relative;
+          border-bottom: 1px solid #e6e6e6;
+
+          a {
+            text-decoration: none;
+            color: $top-list-font-color;
+          }
+
+          .angle-icon {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            bottom: 0;
+
+            .fa-angle-right {
+              color: #DCDCDC;
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .search_result {
+    float: left;
+    width: $search-content-width;
+  }
+}
+
+.result_header {
+  margin-top: 25px;
+}
+
+.brand_title {
+  text-align: center;
+
+  .brand_name {
+    font-size: 22px;
+  }
+
+  .brand_name_kana {
+    font-size: 11px;
+  }
+
+  .favorite_link {
+    margin-top: 17px;
+    padding-bottom: 50px;
+
+    a {
+      text-decoration: none;
+      font-size: 12px;
+      color: $link-color;
+      padding-left: 5px;
+    }
+    .fa-heart {
+      color: $link-color;
+    }
+  }
+}
+
+.result_content {
+  .hot_keyword {
+    padding: 24px 0;
+    border-top: solid 1px #ebebeb;
+
+    li {
+      float: left;
+      margin-left: 20px;
+
+      a {
+        color: $link-color;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.result_items {
+  border-top: 1px solid #ededed;
+}
+
+.guide_list {
+  padding: 10px 0;
+  float: left;
+  margin-top: 10px;
+  width: $search-content-width;
+
+  .nallow_list {
+    float: left;
+    padding: 5px 35px 9px 13px;
+    position: relative;
+
+    .fa-angle-down {
+      padding-left: 5px;
+      color: $angle-icon-color;
+    }
+
+    a {
+      text-decoration: none;
+      color: #646464;
+    }
+    .pulldown_parent {
+      height: 30px;
+    }
+
+    .pulldown_child {
+      position: absolute;
+      top: 25px;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 5;
+      @include create_popup(50px, 185px);
+      visibility: hidden;
+      ul {
+        background-color: $white;
+      li {
+        a {
+            padding: 6px 20px 5px 20px;
+            display: block;
+            color: #646464;
+            font-size: 12px;
+        }
+      }
+    }
+    }
+  }
+
+  .switch_img {
+    float: right;
+    line-height: 35px;
+
+    .switch_icons {
+      .switch_nine {
+        float: left;
+        padding-right: 15px;
+      }
+
+      .switch_four {
+        float: left;
+        padding-left: 15px;
+      }
+    }
+  }
+}
+
+.result_items_list {
+  list-style: none;
+
+  li {
+    padding-top: 12px;
+    margin-left: 15px;
+    padding-bottom: 30px;
+  }
+}
+
+.color_select {
+  cursor: pointer;
+  padding: 4px 0 20px 0;
+  li {
+    padding: 6px 0 0 8px;
+    width: 26px;
+    height: 26px;
+    float: left;
+  }
+  .fa-square {
+    font-size: 20px;
+  }
+}
+
+.select-btn {
+  @include set_btn($top-category-btn-height, $top-category-btn-width);
+  padding: 7px 5px 6px;
+  border-bottom: solid 1px $top-category-border-color;
+}
+
+.square-white {
+  color: $white;
+}
+.square-black {
+  color: black;
+}
+
+.square-gray {
+  color: gray;
+}
+
+.square-brawn {
+  color: #800000;
+}
+
+.square-bage{
+  color: #FFFFAA;
+}
+
+.square-green{
+  color: green;
+}
+
+.square-blue{
+  color: blue;
+}
+
+.square-purple{
+  color: purple;
+}
+
+.square-yellow{
+  color: yellow;
+}
+
+.square-pink{
+  color: pink;
+}
+
+.square-red{
+  color: red;
+}
+
+.square-orange{
+  color: orange;
+}
+
+.square-silver{
+  color: silver;
+}
+
+.square-gold{
+  color: #DAA520;
+}
+
+.selected {
+  background: #e6e6e6;
+}

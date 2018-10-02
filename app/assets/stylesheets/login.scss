@@ -1,0 +1,40 @@
+.login_form {
+  width: 330px;
+  height: 20px;
+  padding: 12px 7px 11px 19px;
+  margin-bottom: 7px;
+  border: 1px solid #c8c8c8;
+  border-radius: 2px;
+  color: #2d2d2d;
+  font-size: 13px;
+}
+
+.login_btn {
+  @include set_btn(40px, 125px);
+  background-color: #2490D0;
+  color: #ffffff;
+  border-radius: 2px;
+  border: solid 1px #2490D0;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.action_contents {
+  margin-top: 17px;
+
+  .login_wrapper {
+    float: left;
+  }
+}
+
+
+.devise_link {
+  display: block;
+  color: #007ebe;
+  text-decoration: none;
+  margin-bottom: 2px;
+}
+
+.devise_link:hover {
+  text-decoration-line: underline;
+}

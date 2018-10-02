@@ -1,0 +1,22 @@
+//--------- 「探す」リスト--------------
+%section#top__left__search.select_lists
+  %h2.head-title 探す
+  = render "/tops/left/search_list"
+//--------- カテゴリーリスト--------------
+%section.select_lists
+  %h2.head-title カテゴリー
+  = render "/tops/left/category_list"
+  %p.more-list.link-list
+    = link_to "カテゴリ一覧", "#"
+//--------- お気に入りリスト--------------
+%section#top__left__favorite.select_lists
+  %h2.head-title お気に入り
+  = render "/tops/left/favorite_list"
+//--------- ブランドリスト--------------
+%section#top__left__brand.clearfix.select_lists
+  %h2.head-title ブランド
+  = render "/tops/left/brand_list"
+//--------- ショップリスト--------------
+%section#top__left__shop.clearfix.select_lists
+  %h2.head-title ショップ
+  = render "/tops/left/shop_list"

@@ -1,0 +1,176 @@
+.o.wrapper
+  .o.header
+    %img{alt: "ZOZOロゴ", height: "26", width: "184", src: "http://www.fashionnetkorea.com/__boardstyle/FASHION/FPEOPLEBRAND/images/20171204203939_509500609.JPG"}
+  .o.content
+    .o.content-header
+      %h1 注文内容の確認
+      .o.navi
+        %img{alt: "ZOZOロゴ", height: "70", width: "295", src: "https://zozo.jp/_cart/order/img/step_02.gif"}
+    .o.main-content
+      .o.left-content
+        .o.address
+          .o.adress-top-content
+            .o.addressee お届け先
+            .o.address-top
+              .o.name
+                %div
+                  %p.o.in-name
+                    %span#selectedName 山田太郎 様
+                  %p.o.add
+                    住所:
+                  %span#selectedAdd
+                    %span#addmark 〒
+                    %span#zipCode 2720021
+                    %span#prefName 千葉県
+                    %span#address1 市川市八幡3丁目5－28
+                    %span#address2 ソリッドリファイン八幡202号室
+                  %p.tel
+                    電話:
+                    %span#telNum 080-1234-5678
+            .o.change
+              %a.btn-change{ :href => 'http://google.co.jp' } 変更
+          .o.store-locker
+            %p.o.icon
+              %img{alt: "storeロゴ", height: "50", width: "50", src: "https://img4.zozo.jp/pc/_cart/locker_cart/ico_cnv.png"}
+            .store-locker-text
+              %p.txt14
+                24時間いつでも・どこでもお受取り可能
+              %p.txt12
+                店舗・ロッカー受取りなら、ご都合のいい時間・場所で受取り可能です。
+                %span
+                  詳細
+            %a.o.btn-store-select{ :href => 'http://google.co.jp' }店舗選択
+        .o.payment-area
+          .o.pay-method 支払い方法
+          .o.credit クレジットカード ************5208（一括払い）
+          .o.price ¥0
+          .o.btn-box
+            %a.btn-change{ :href => 'http://google.co.jp' } 変更
+        .o.point-area
+          .o.zozo-point ZOZOポイント:
+          .o.point-description
+            ご利用可能ポイント
+            %span#usablePoint
+              46
+            ポイント
+            %span.o.line /
+            今回の還元ポイント:
+            %span#return
+              63
+            ポイント
+        .o.delivery-items
+          %div お届け商品
+          .o.delivery-items-more
+            .o.delivery-date-area
+              .o.delivery-date
+                お届け日
+                %span.o.checkbox
+                  %i.far.fa-check-circle
+              .o.period
+                %span 指定なし:
+                %span 1～21日以内に発送
+                %span.o.piriod-price ¥0
+              .o.delivery-change
+                %a.btn-change{ :href => 'http://google.co.jp' } 変更
+            .o.item-area
+              .o.item-category
+                商品
+              .o.item-image
+                %img.o.image-content{alt: "itemロゴ", height: "84", width: "70", src: "https://img4.zozo.jp/goodsimages/25052273/25052273B_1_D.jpg"}
+              .o.item-detail
+                %p MONO-MART
+                %p Champion
+                %p Champion Authentic T-SHIRTS/ チャンピオン コットン Tシャツ Long Sleeve T
+                %p カラー：ホワイト
+                %p サイズ：L
+                %p 数量：1
+              .o.item-price
+                %p ¥1,998
+              .o.item-btm-change
+                %a.btn-change{ :href => 'http://google.co.jp' } 変更
+            .o.postage-area
+              .o.postage 送料
+              .o.postage-price ¥200
+        .o.mail-magazine-area
+          .o.mail-magazine-title
+            メールマガジンの購読
+          .o.mail-magazine-right
+            %div
+              %p ブランド別新着メール
+              %p.brand-information ご購入ブランドのセール情報や新入荷情報をお届けします。
+            %div.brand-check
+              %span
+                %i.far.fa-check-circle
+              %span Champion
+            %div.mail-magazine-info
+              %p ZOZOメールマガジン
+              %p.sale セールやクーポン、キャンペーンなどのお得な情報をお届けします。
+            %div.subscription
+              %span
+                %i.far.fa-check-circle
+              %span 購読する
+      .o.right-content
+        .o.purchase-area
+          %img.o.purchase-btn{alt: "itemロゴ", height: "70", width: "265", src: "https://zozo.jp/_cart/order/img/btn_accrue.png"}
+        .o.payment-total
+          .o.payment-total-title 商品合計
+          .o.payment-total-num ¥2,970
+        .o.point-option
+          .o.trade-area
+            %p
+              %span
+                %i.far.fa-check-circle
+              %span 買い替え割を利用
+            %img.o.trade-btn{alt: "トレードボタン", height: "60", width: "263", src: "https://img4.zozo.jp/tradein/pc/confirm_banner.png"}
+          .o.point-use-area
+            %p
+              %span
+              %i.far.fa-check-circle
+              %span ZOZOポイントを利用
+            %p.o.point-use-possible
+              ご利用可能ポイント46ポイント
+          .o.discount-area
+            .o.discount-box
+              %span.goods-title 品代
+              %span.goods-price ¥2,970
+            .o.discount-box-point
+              %span.point-title クーポン・ポイント
+              %span.point-price -0pt
+        .o.payment-option
+          .o.payment-option-box
+            送料
+            %span.payment-option-delivery-date
+              （指定なし：2～4日以内に発送）
+            %span.payment-option-delivery-price
+              ¥200
+          .o.payment-comittion
+            支払い手数料
+            %span.o.payment-price
+              ¥0
+          .o.payment-option-total
+            合計
+            %span.payment-option-total-tax
+              (税込)
+            %span.payment-option-total-price
+              ¥3,170
+        .o.attention
+          .o.attention-delivery
+            ※送料は一律¥200です。
+          .o.returned
+            %p
+              ご注文完了前に必ずサイズ・カラー・価格・数量のご確認をお願いいたします。
+            %p
+              一部商品や、商品状態等により注文取り消し・返品をお受けできない場合がございます。
+            .o.returnde-about
+              %a{ :href => 'http://google.co.jp' }返品について
+
+
+
+
+
+
+
+
+
+
+

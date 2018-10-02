@@ -1,3 +1,4 @@
+
 .nestbar {
   background-color: #f0f0f0;
   &_main {
@@ -49,134 +50,122 @@
         font-size:18px;
         padding:20px 0;
 
+.regist {
+  height: 800px;
+  margin-top: 60px;
+
+  &_inner {
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    background: #f0f0f0;
+    padding: 36px 48px 40px;
+    width: 604px;
+    margin: 0 auto;
+
+
+    &_header {
+      h3 {
+        font-size: 18px;
+        padding: 0 0 10px;
       }
-      &_gender {
-        height:32px;
+    }
+
+    &_form {
+      tr {
+        display: block;
         border-bottom: 1px solid #dcdcdc;
-        font-size:15px;
-        padding:16px 0;
-        &_title {
-          height:32px;
-          width:180px;
-          line-height:32px;
-          float:left
+        width: 604px;
+
+        span {
+          font-size: 11px;
+          background-color: #dcdcdc;
+          margin: 0 0 0 8px;
+          padding: 5px;
         }
-        &
-        &_form {
-          font-size: 18px;
-        }
-      }
-      &_birthday {
-        height:40px;
-        border-bottom: 1px solid #dcdcdc;
-        font-size:15px;
-        padding:20px 0;
-        &_title {
-          height:40px;
-          width:180px;
-          line-height:40px;
-          float:left;
-        }
-        &_select {
-           float:left;
-           margin:0 auto;
-        }
-      }
-      &_postnum {
-        height:64px;
-        border-bottom: 1px solid #dcdcdc;
-        font-size:15px;
-        padding:32px 0;
-        &_title {
-          height:64px;
-          width:180px;
-          line-height:64px;
-          float:left;
-        }
-        &_form {
-          height:40px;
-          width:225px;
-          border: solid 1px #d3d3d3;
-        }
-      }
-      &_addless {
-        height:140px;
-        border-bottom: 1px solid #dcdcdc;
-        font-size:15px;
-        &_title{
-          height:70px;
-          width:180px;
-          float:left;
-          padding:35px 0;
-        }
-        &_form {
-          height:100px;
-          width:520px;
-          float:right;
-          padding:20px 0;
-          &_main {
-            height:40px;
-            width:400px;
-            border: solid 1px #d3d3d3;
-          }
-          &_sub {
-            color: #808080;
-            font-size: 10px;
-          }
-          &_checkbox {
-            color: #808080;
-            font-size: 10px;
-          }
-        }
-      }
-      &_password {
-        height:64px;
-        border-bottom: 1px solid #dcdcdc;
-        font-size:15px;
-        padding:32px 0;
-        &_title{
-          height:64px;
-          width:180px;
-          line-height:64px;
-          float:left;
-        }
-        &_form {
-          height:40px;
-          width:225px;
-          background-color:#f0e68c;
-          border: solid 1px #d3d3d3;
-        }
-        &_caution {
-          color: #808080;
-          font-size: 10px;
-        }
-      }
-      &_agreement {
-        height:40px;
-        font-size:15px;
-        text-align: center;
-        line-height:40px;
-        margin:0 auto;
-      }
-      &_send {
-        height:40px;
-        padding:10px 0;
-        &_bottun {
-          height:40px;
-          width:300px;
-          background-color: #2490D0;
-          color: #ffffff !important;
+
+        .gender_item {
+          padding: 20px 0;
           display: block;
-          text-align: center;
-          border-radius: 2px;
-          padding: 11px 0 8px;
-          margin:0 auto;
-          border: solid 1px #2490D0;
-          border-radius: 3px;
+          margin-right: 25px;
+          float: left;
+
+          .gender_label {
+            font-size: 13px;
+          }
+        }
+
+        .birth_form {
+          padding: 20px 0;
+          display: block;
+          margin-right: 20px;
+          float: left;
+
+          .birth_label {
+            font-size: 13px;
+          }
+        }
+
+        .post_form {
+          padding: 20px 0;
+          display: block;
+
+          p {
+            color: #808080;
+            font-size: 11px;
+            margin-top: 3px;
+          }
+        }
+
+        .post_num_form {
+          @include set_size(20px, 225px);
+          font-size: 13px;
+          padding: 12px 7px 11px 19px;
+        }
+
+        .email_form {
+          @include set_size(20px, 400px);
+          padding: 12px 7px 11px 19px;
+        }
+
+        .password_form {
+          @include set_size(20px, 225px);
+          padding: 12px 7px 11px 19px;
         }
       }
     }
   }
+
+  .agreement {
+    margin-top: 20px;
+    text-align: center;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .submit {
+    margin-top: 20px;
+
+    .register_btn {
+      @include set_btn(40px, 300px);
+      background-color: #2490D0;
+      color: #ffffff;
+      border-radius: 2px;
+      border: solid 1px #2490D0;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
 }
 
+.radio {
+  width: 18px;
+  height: 18px;
+}
 
+.form_title {
+  width: 180px;
+  color: #5a5a5a;
+  font-size: 15px;
+}
