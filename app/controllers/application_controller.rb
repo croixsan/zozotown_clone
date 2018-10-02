@@ -5,13 +5,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:gender])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:post_num])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:address])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:phone_num])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:birth_year])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:birth_month])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:birth_day])
+    keys =[[:gender], [:post_num], [:address], [:phone_num], [:name], [:birth_year], [:birth_month], [:birth_day]]
+    keys.each do |key|
+      devise_parameter_sanitizer.permit(:sign_up, keys: key)
+    end
   end
 end
