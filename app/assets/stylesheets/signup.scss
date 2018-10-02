@@ -1,5 +1,7 @@
 .regist {
   height: 800px;
+  margin-top: 60px;
+
   &_inner {
     border: 1px solid #dcdcdc;
     border-radius: 4px;
@@ -60,19 +62,21 @@
             margin-top: 3px;
           }
         }
+
         .post_num_form {
-          @include set_size(40px, 200px);
+          @include set_size(20px, 225px);
           font-size: 13px;
+          padding: 12px 7px 11px 19px;
         }
-        .address_form {
-          @include set_size(40px, 400px);
-          font-size: 13px;
-        }
+
         .email_form {
-          @include set_size(40px, 300px);
+          @include set_size(20px, 400px);
+          padding: 12px 7px 11px 19px;
         }
+
         .password_form {
-          @include set_size(40px, 200px);
+          @include set_size(20px, 225px);
+          padding: 12px 7px 11px 19px;
         }
       }
     }
@@ -109,7 +113,6 @@
 
 .form_title {
   width: 180px;
-  padding: 0;
   color: #5a5a5a;
   font-size: 15px;
 }
