@@ -35,8 +35,9 @@
     float: left;
 
     a {
+      font-size: 13px;
       text-decoration: none;
-      color: $link-color;
+      color: #808080;
     }
   }
 }
@@ -67,5 +68,23 @@
 }
 
 .select_lists_element {
-  padding-left: 10px; 
+  padding-left: 10px;
+}
+
+.status_title {
+  font-size: 20px;
+
+  &_wrapper {
+    h2 {
+      float: left;
+      padding-left: 10px;
+    }
+
+    .fa-user {
+      display: block;
+      float: left;
+      font-size: 30px;
+      color: #007ebe;
+    }
+  }
 }

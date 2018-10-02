@@ -1,0 +1,95 @@
+.category_var
+  .inner
+    %ul.nest_list.clearfix
+      %li.nest_path
+        = link_to "ZOZOTOWN", ""
+      %li.nest_icon
+        %i.fas.fa-angle-right
+      %li.nest_item
+        %i.far.fa-user
+        %a 新規会員登録
+.status_title
+  .inner.clearfix
+    .status_title_wrapper.clearfix
+      %i.far.fa-user
+      %h2 新規会員登録
+    = devise_error_messages!
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  .sign_up_content
+    .inner.clearfix
+      %section
+        .regist
+          .regist_inner
+            .regist_inner_header
+              %h3 基本登録情報
+            .regist_inner_form
+              %table
+                %tr
+                  %th.form_title 性別
+                  %td.clearfix
+                    %label.gender_item
+                      = f.radio_button :gender, 1, class: "radio"
+                      = f.label "男性", class: "gender_label"
+                    %label.gender_item
+                      = f.radio_button :gender, 2, class: "radio"
+                      = f.label "女性", class: "gender_label"
+                    %label.gender_item
+                      = f.radio_button :gender, 3, class: "radio"
+                      = f.label "その他", class: "gender_label"
+                %tr
+                  %th.form_title 生年月日
+                  %td.clearfix
+                    %label.birth_form
+                      - birth_year = [[]]
+                      - (1900..Date.today.year).each do |year|
+                        - birth_year << [year, year]
+                      = f.select :birth_year, birth_year, class: "select"
+                      = f.label :birth_year, "年", class: "birth_label"
+                    %label.birth_form
+                      - birth_month = [[]]
+                      - (1..12).each do |month|
+                        - birth_month << [month, month]
+                      = f.select :birth_month, birth_month, class: "select"
+                      = f.label :birth_month, "月", class: "birth_label"
+                    %label.birth_form
+                      - birth_day = [[]]
+                      - (1..31).each do |day|
+                        - birth_day << [day, day]
+                      = f.select :birth_day, birth_month, class: "select"
+                      = f.label :birth_day, "日", class: "birth_label"
+                %tr
+                  %th.form_title
+                    郵便番号
+                    %span 必須
+                  %td.clearfix
+                    .post_form
+                      = f.text_field :post_num, placeholder: "例：2617116", class: "post_num_form"
+                      %p ※　数字7ケタ、ハイフンなし
+                %tr
+                  %th.form_title
+                    %p メールアドレス
+                    (ZOZO ID)
+                    %span 必須
+                  %td.clearfix
+                    .post_form
+                      -# = f.label :email
+                      = f.email_field :email, autocomplete: "email", placeholder: "例：zozo@zozotown.jp", class: "email_form"
+                      %p ※　メールアドレスがZOZO IDとなります
+                %tr
+                  %th.form_title
+                    パスワード
+                    %span 必須
+                  %td.clearfix
+                    .post_form
+                      -# = f.label :password
+                      = f.password_field :password, autocomplete: "new-password", class: "password_form"
+                      %p ※ ZOZO IDに含まれない英数字混合 8～12 文字
+            .agreement
+              =link_to "#" do
+                %span 利用規約
+              =link_to "#" do
+                %span 個人情報保護方針
+              %span に同意する
+              .action
+                .submit
+                  = f.submit "会員登録する", class: "register_btn"
