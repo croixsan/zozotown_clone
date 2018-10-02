@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "men_top"    => "tops#men"
   get "women_top"  => "tops#women"
   get "kid_top"    => "tops#kid"
+  get "tests/search" => "tests#search"
 
   resources :men_shops, only: [:index, :show]
   resources :women_shops, only: [:index, :show]
