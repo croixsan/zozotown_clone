@@ -14,10 +14,8 @@
           = @name
         %span 様のお気に入り
     .main_body_advertisementa
-      %span.app-bottun ZOZO
+      %span.app-bottun
       %span アプリのお知らせ通知なら、お気に入りアイテムの値下げ・再入荷・在庫1点などを随時お届けします。
-      %span app
-      %span goo
     %ul.tab
       %li#js-item.select アイテム
       %li#js-bland ブランド
@@ -64,8 +62,6 @@
         - 20.times.each do |i|
           = render partial: 'item', locals: {image_size: "large", rank_num: 0, coupon: 0, shop_image: false}
       .main_body_advertisement
-        .main_body_advertisement_icon line
-        .main_body_advertisement_icon mail
         .main_body_advertisement_main
           %h2 LINEとID連携やメルマガを購読すると、お気に入りの値下げ・再入荷情報などをピックアップしてお届けします。
         = link_to "#" do
@@ -73,7 +69,6 @@
         =link_to "#" do
           .main_body_advertisement_link メルマガを購読
       .main_body_advertisement
-        .main_body_advertisement_icon WEAR
         .main_body_advertisement_main
           %h2 WEARならお気に入りアイテムをフォルダごとに整理できます。今すぐZOZO IDで連携！
         = link_to "#" do

@@ -3,7 +3,7 @@
   height:100%;
   &_body {
     height: 100%;
-    width: inner-width;
+    width: $inner-width;
     margin: 0 auto;
     &_name {
       height: 60px;
@@ -20,7 +20,7 @@
       &_app-bottun {
         height: 30px;
         width: 120px;
-        float:left;
+        float:right;
       }
     }
     .tab {
@@ -309,4 +309,7 @@
 }
 .fa-glay {
   color: $text-color;
+}
+.fa-black {
+  color: #000000;
 }
