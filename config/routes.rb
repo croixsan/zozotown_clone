@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   root "tops#all"
-  devise_for :users
-  resources :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+  }
   get 'carts/index' => 'carts#index'
+  get 'carts/register' => 'carts#register'
     get 'order/index' => 'orders#index' #←ネストする
-
   get "men_top"    => "tops#men"
   get "women_top"  => "tops#women"
   get "kid_top"    => "tops#kid"
