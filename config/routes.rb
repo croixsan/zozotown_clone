@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   resources :shops, only: [:index, :show] do
     resources :items, only: [:index, :show]
   end
+  resources :brands, only: [:index, :show]
 end
