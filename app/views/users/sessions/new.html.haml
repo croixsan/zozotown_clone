@@ -1,17 +1,40 @@
-%h2 Log in
+.category_var
+  .inner
+    %ul.nest_list.clearfix
+      %li.nest_path
+        = link_to "ZOZOTOWN", ""
+      %li.nest_icon
+        %i.fas.fa-angle-right
+      %li.nest_item
+        %i.far.fa-user
+        %a ログイン
+
+.status_title
+  .inner.clearfix
+    .status_title_wrapper.clearfix
+      %i.far.fa-user
+      %h2 ログイン
+    = devise_error_messages!
+
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "users/shared/links"
+  .sign_up_content
+    .inner.clearfix
+      %section
+        .regist
+          .regist_inner
+            .regist_inner_header
+              %h3.form_title ZOZO IDでログイン
+            .login_email
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: "login_form", placeholder: "メールアドレスまたはZOZO ID"
+            .login_password
+              = f.password_field :password, autocomplete: "current-password", class: "login_form", placeholder: "パスワード"
+            - if devise_mapping.rememberable?
+              .action_contents.clearfix
+                .actions.login_wrapper
+                  = f.submit "Log in", class: "login_btn"
+                %ul.field.login_wrapper
+                  %li
+                    = link_to "ID・パスワードをお忘れですか?", new_password_path(resource_name), class: "devise_link"
+                  %li
+                    = link_to "はじめてご利用の方（新規会員登録）", new_registration_path(resource_name), class: "devise_link"

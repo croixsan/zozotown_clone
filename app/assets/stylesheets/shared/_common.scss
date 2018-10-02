@@ -73,5 +73,18 @@
 
 .status_title {
   font-size: 20px;
-  padding: 20px 0;
+
+  &_wrapper {
+    h2 {
+      float: left;
+      padding-left: 10px;
+    }
+
+    .fa-user {
+      display: block;
+      float: left;
+      font-size: 30px;
+      color: #007ebe;
+    }
+  }
 }
