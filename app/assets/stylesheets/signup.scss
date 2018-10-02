@@ -1,6 +1,6 @@
-.regist_content {
+.regist {
   height: 800px;
-  .regest_inner {
+  &_inner {
     border: 1px solid #dcdcdc;
     border-radius: 4px;
     background: #f0f0f0;
@@ -8,14 +8,14 @@
     width: 604px;
     margin: 0 auto;
 
-    .regist_header {
+    &_header {
       h3 {
         font-size: 18px;
         padding: 0 0 10px;
       }
     }
 
-    .regist_form {
+    &_form {
       tr {
         display: block;
         border-bottom: 1px solid #dcdcdc;
