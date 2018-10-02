@@ -18,7 +18,7 @@ class CartsController < ApplicationController
   end
 
   def register
-    Cart.create(user_id: current_user.id, total_price: 0)
+    current_user.build_cart
     redirect_to :root
   end
 end
