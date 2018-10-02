@@ -41,7 +41,6 @@
       text-align: center;
       color: $c-header-tab-font-color;
       display: block;
-      text-align: center;
     }
     .tab li.select {
       background: #E6E6E6;
@@ -111,7 +110,7 @@
           color: #646464;
         }
         li a:hover{
-          background: $white;
+          background: $header-search-btn-color;
         }
       }
       &_category {
