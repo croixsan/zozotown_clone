@@ -4,7 +4,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
   get 'carts/index' => 'carts#index'
+
   get 'carts/register' => 'carts#register'
+
+    get 'order/index' => 'orders#index' #←ネストする
+
   get "men_top"    => "tops#men"
   get "women_top"  => "tops#women"
   get "kid_top"    => "tops#kid"
