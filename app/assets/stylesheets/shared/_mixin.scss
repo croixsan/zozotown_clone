@@ -67,3 +67,10 @@
   padding: 22px 0 25px;
   border-bottom: solid 1px $top-center-border-color;
 }
+
+@mixin set_status_icon {
+  display: block;
+  float: left;
+  font-size: 30px;
+  color: #007ebe;
+}

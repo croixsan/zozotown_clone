@@ -81,10 +81,11 @@
     }
 
     .fa-user {
-      display: block;
-      float: left;
-      font-size: 30px;
-      color: #007ebe;
+      @include set_status_icon;
+    }
+
+    .fa-tags {
+      @include set_status_icon;
     }
   }
 }

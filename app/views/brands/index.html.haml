@@ -1,0 +1,55 @@
+.category_var
+  .inner
+    %ul.nest_list.clearfix
+      %li.nest_path
+        = link_to "ZOZOTOWN", ""
+      %li.nest_icon
+        %i.fas.fa-angle-right
+      %li.nest_item
+        %a ブランドから探す
+.status_title
+  .inner.clearfix
+    .status_title_wrapper.clearfix
+      %i.fas.fa-tags
+      %h2 ブランド一覧
+.body
+  .inner
+    %ul.tabs.clearfix
+      %li
+        = link_to "#", class: "tabs-btn" do
+          %span すべて
+      %li
+        = link_to "#", class: "tabs-btn" do
+          %span メンズ
+      %li
+        = link_to "#", class: "tabs-btn-ladies" do
+          %span レディース
+      %li
+        = link_to "#", class: "tabs-btn" do
+          %span キッズ
+    .ctrl_bar
+      .search_area
+        %i.fas.fa-search
+        %input{type: "text", id: "quick_search", value: "", placeholder: "お探しのブランドは何ですか？"}
+      .initials
+        %ul.clearfix
+          - ("A".."Z").each do |initial|
+            %li
+              %span.initial_link{id: initial}
+                = initial
+          %li
+            = link_to "その他", "#"
+    %dl.index_block
+      - @brands.each do |brands|
+        .index_contents.clearfix
+          - ini = brands[0].name[0].upcase # ブランドの頭文字を取得
+          %dt{id: ini + "-link"}
+            = ini
+          - brands.each do |brand|
+            - if brand.items.length > 0
+              %dd
+                = link_to "#" do
+                  %span
+                    = brand.name
+                %span
+                  = "(#{brand.items.length})"
