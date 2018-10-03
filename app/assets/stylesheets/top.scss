@@ -93,7 +93,8 @@ article {
 }
 
 .category-btn {
-  @include set_btn($top-category-btn-height, $top-category-btn-width);
+  display: block;
+  text-decoration: none;
   padding: 10px 2px 8px 10px;
   border-bottom: solid 1px $top-category-border-color;
 }
