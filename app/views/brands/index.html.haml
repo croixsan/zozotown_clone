@@ -14,19 +14,7 @@
       %h2 ブランド一覧
 .body
   .inner
-    %ul.tabs.clearfix
-      %li
-        = link_to "#", class: "tabs-btn" do
-          %span すべて
-      %li
-        = link_to "#", class: "tabs-btn" do
-          %span メンズ
-      %li
-        = link_to "#", class: "tabs-btn-ladies" do
-          %span レディース
-      %li
-        = link_to "#", class: "tabs-btn" do
-          %span キッズ
+    = render "shared/gender_tab"
     .ctrl_bar
       .search_area
         %i.fas.fa-search
