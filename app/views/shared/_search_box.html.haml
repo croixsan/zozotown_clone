@@ -1,0 +1,12 @@
+.ctrl_bar
+  .search_area
+    %i.fas.fa-search
+    %input{type: "text", id: "quick_search", value: "", placeholder: "お探しの#{title}は何ですか？"}
+  .initials
+    %ul.clearfix
+      - ("A".."Z").each do |initial|
+        %li
+          %span.initial_link{id: initial}
+            = initial
+      %li
+        = link_to "その他", "#"

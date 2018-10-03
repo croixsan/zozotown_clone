@@ -1,0 +1,28 @@
+.category_var
+  .inner
+    %ul.nest_list.clearfix
+      %li.nest_path
+        = link_to "ZOZOTOWN", ""
+      %li.nest_icon
+        %i.fas.fa-angle-right
+      %li.nest_item
+        %a ショップから探す
+= render partial: "shared/status_title", locals: {title: "ショップ"}
+.body
+  .inner
+    = render "shared/gender_tab"
+    = render partial: "shared/search_box", locals: {title: "ショップ"}
+    %dl.index_block
+      - @shops.each do |shops|
+        .index_contents.clearfix
+          - ini = shops[0].name[0].upcase # ブランドの頭文字を取得
+          %dt{id: ini + "-link"}
+            = ini
+          - shops.each do |shop|
+            - if shop.items.length > 0
+              %dd
+                = link_to "#" do
+                  %span
+                    = shop.name
+                %span
+                  = "(#{shop.items.length})"
