@@ -78,7 +78,11 @@ class ScrapingItem
 
   def get_price(page)
     elements = page.search(".price")
-    return elements.inner_text.match(/\d+,\d+/)[0].gsub(",", "")
+    if elements.inner_text.match(/\d+,\d+/)
+      return elements.inner_text.match(/\d+,\d+/)[0].gsub(",", "").to_i
+    else
+      return 0
+    end
   end
 
   def get_image(page)
@@ -147,31 +151,30 @@ class ScrapingItem
     page = agent.get(url)
 
     brand = get_brand_name(page)          # ブランドの取得
-    shop = get_shop_name(page)            # ショップの取得
-    name = get_name(page)                 # 商品名の取得
-    description = get_description(page)   # 商品説明の取得
-    gender = get_gender(page)             # 性別の取得
-    top_category = get_top_category(page) # top_categoryの取得
-    sub_category = get_sub_category(page) # sub_categoryの取得
-    coupon = get_coupon(page)             # クーポン情報の取得
-    images = get_image(page)              # 画像の取得
-    price = get_price(page).to_i          # 価格の取得
-    colors = get_color(page)              # 色の取得
-    sizes = get_size(page)                # サイズの取得
-    stocks = get_stock(page)              # 在庫数の取得
-
     puts "brand: #{brand}"
+    shop = get_shop_name(page)            # ショップの取得
     puts "shop: #{shop}"
+    name = get_name(page)                 # 商品名の取得
     puts "name: #{name}"
+    description = get_description(page)   # 商品説明の取得
     puts "description: #{description}"
+    gender = get_gender(page)             # 性別の取得
     puts "gender: #{gender}"
+    top_category = get_top_category(page) # top_categoryの取得
     puts "top_category: #{top_category}"
+    sub_category = get_sub_category(page) # sub_categoryの取得
     puts "sub_category: #{sub_category}"
+    coupon = get_coupon(page)             # クーポン情報の取得
     puts "coupon: #{coupon}"
+    images = get_image(page)              # 画像の取得
     puts "images: #{images}"
+    price = get_price(page).to_i          # 価格の取得
     puts "price: #{price}"
+    colors = get_color(page)              # 色の取得
     puts "colors: #{colors}"
+    sizes = get_size(page)                # サイズの取得
     puts "sizes: #{sizes}"
+    stocks = get_stock(page)              # 在庫数の取得
     puts "stocks: #{stocks}"
 
     item = Item.new
