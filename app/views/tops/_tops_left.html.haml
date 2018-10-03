@@ -5,7 +5,8 @@
 //--------- カテゴリーリスト--------------
 %section.select_lists
   %h2.head-title カテゴリー
-  = render "/tops/left/category_list"
+  %ul.category_list
+    = render partial: "/tops/left/category_list", collection: @top_categories, as: "top_category"
   %p.more-list.link-list
     = link_to "カテゴリ一覧", "#"
 //--------- お気に入りリスト--------------
