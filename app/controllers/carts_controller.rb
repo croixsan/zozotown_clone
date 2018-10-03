@@ -1,5 +1,4 @@
 class CartsController < ApplicationController
-class CartsController < ApplicationController
 
   def index
     @cart = Cart.find_by(user_id: 1)
@@ -15,9 +14,6 @@ class CartsController < ApplicationController
   def cart_params
     params.permit(:item_id, :cart_id)
   end
-
-end
-
 
   def register
     current_user.build_cart
