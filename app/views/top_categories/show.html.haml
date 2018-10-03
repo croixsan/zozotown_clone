@@ -1,0 +1,76 @@
+= render partial: "shared/nest/nest_top_category", locals: {top_category: @top_category}
+
+.search_content
+  .inner.clearfix
+    = render partial: "search/side_bar", locals: {top_category: @top_category, sub_categories: @sub_categories}
+    %article.search_result
+      = render partial: "search/category_header", locals: {top_category: @top_category}
+      .result_content
+        %ul.hot_keyword.clearfix
+          %li
+            =link_to "Tシャツ/カットソー", "#", class: "hover-link"
+          %li
+            =link_to "ワンピース", "#", class: "hover-link"
+          %li
+            =link_to "シャツ/ブラウス", "#", class: "hover-link"
+          %li
+            =link_to "パンツ", "#", class: "hover-link"
+          %li
+            =link_to "スカート", "#", class: "hover-link"
+          %li
+            =link_to "ショルダーバッグ", "#", class: "hover-link"
+          %li
+            =link_to "ニット/セーター", "#", class: "hover-link"
+        .result_items.clearfix
+          %ul.guide_list.clearfix
+            %li.nallow_list
+              .pulldown
+                .pulldown_parent{id: "reserve-btn"}
+                  = link_to "#" do
+                    在庫商品＋予約商品
+                    %i.fas.fa-angle-down.fa-lg
+                .pulldown_child{id: "reserve-pulldown"}
+                  %ul
+                    %li.stock_and_reserve
+                      = link_to "在庫商品＋予約商品", "#"
+                    %li.stock.selected
+                      = link_to "在庫商品", "#"
+                    %li.reserve
+                      = link_to "予約商品", "#"
+            %li.nallow_list
+              .pulldown
+                .pulldown_parent{id: "stock-btn"}
+                  = link_to "#" do
+                    在庫あり
+                    %i.fas.fa-angle-down.fa-lg
+                .pulldown_child#stock-pulldown
+                  %ul
+                    %li.stock_and_reserve
+                      = link_to "在庫あり", "#"
+                    %li.stock.selected
+                      = link_to "在庫なし含む", "#"
+            %li.nallow_list
+              .pulldown
+                .pulldown_parent{id: "popular-btn"}
+                  = link_to "#" do
+                    人気順
+                    %i.fas.fa-angle-down.fa-lg
+                .pulldown_child{id: "popular-pulldown"}
+                  %ul
+                    %li.stock_and_reserve
+                      = link_to "人気順", "#"
+                    %li.stock
+                      = link_to "新着順", "#"
+                    %li.stock_and_reserve
+                      = link_to "価格が安い順", "#"
+                    %li.stock
+                      = link_to "価格が高い順", "#"
+            %li.switch_img
+              %ul.switch_icons.clearfix
+                %li.switch_nine
+                  %i.fas.fa-th.fa-lg
+                %li.switch_four
+                  %i.fas.fa-th-large.fa-lg
+          .result_items_list
+            - 15.times.each do |item|
+              = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
