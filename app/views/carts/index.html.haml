@@ -26,7 +26,8 @@
                   サイズ：
                   =item_num.size
                 .red-text 返品・交換対象外
-              .price ¥1,998
+              .price
+                = number_to_currency(item.price, :unit => "￥", :precision => 0)
               .number-area
                 .number-box
                   .number
