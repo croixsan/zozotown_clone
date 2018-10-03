@@ -42,7 +42,7 @@
     %dl.index_block
       - @brands.each do |brands|
         .index_contents.clearfix
-          - ini = brands[0].name[0] # ブランドの頭文字を取得
+          - ini = brands[0].name[0].upcase # ブランドの頭文字を取得
           %dt{id: ini + "-link"}
             = ini
           - brands.each do |brand|
