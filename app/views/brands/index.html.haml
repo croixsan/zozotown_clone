@@ -29,13 +29,27 @@
           %span キッズ
     .ctrl_bar
       .search_area
+        %i.fas.fa-search
+        %input{type: "text", id: "quick_search", value: "", placeholder: "お探しのブランドは何ですか？"}
       .initials
         %ul.clearfix
           - ("A".."Z").each do |initial|
             %li
-              %span
-                = link_to initial, "#"
+              %span.initial_link{id: initial}
+                = initial
           %li
             = link_to "その他", "#"
     %dl.index_block
-      %dt
+      - @brands.each do |brands|
+        .index_contents.clearfix
+          - ini = brands[0].name[0] # ブランドの頭文字を取得
+          %dt{id: ini + "-link"}
+            = ini
+          - brands.each do |brand|
+            - if brand.items.length > 0
+              %dd
+                = link_to "#" do
+                  %span
+                    = brand.name
+                %span
+                  = "(#{brand.items.length})"
