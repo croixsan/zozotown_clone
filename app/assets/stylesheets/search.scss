@@ -2,6 +2,7 @@
   .search_side_bar {
     float: left;
     width: $side-bar-width;
+    margin-right: 10px;
 
     .search_side_bar_inner {
       width: $side-bar-width - 20px;
@@ -111,6 +112,38 @@
     .fa-heart {
       color: $link-color;
     }
+  }
+}
+.category_header {
+  margin-top: 10px;
+  .category_title {
+    margin: 0 0 20px 0;
+    height: 30px;
+    line-height: 30px;
+    h1 {
+      padding-right: 10px;
+      font-size: 18px;
+      float: left;
+    }
+    p {
+      font-size: 12px;
+      font-size: 12px;
+      color: #808080;
+      float: left;
+    }
+  }
+}
+
+.later_payment {
+  background: #f0f0f0;
+  border: solid 1px #e9e9e9;
+  text-align: center;
+  color: #e73656;
+  margin: 10px 0 25px;
+  padding: 10px 10px 8px;
+  font-size: 17px;
+  span {
+    font-weight: bold;
   }
 }
 
