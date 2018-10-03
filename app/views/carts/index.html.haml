@@ -8,28 +8,31 @@
     .left-content
       %img{alt: "商品イメージ", src: "https://img4.zozo.jp/pc/zozoomake/201809/omake_pc_cart_men.jpg"}
         = @items.each do |item|
-          .items
-            %a{ :href => 'http://google.co.jp' }
-              %img{alt: "商品イメージ", height: "150", width: "125", src: "#{item.images[0].url}"}
-            .name
-              %p
-                =item.shop.name
-              %p
-                =item.brand.name
-              %p
-                =item.name
-              %p カラー：ホワイト
-              %p サイズ：L
-              .red-text 返品・交換対象外
-            .price ¥1,998
-            .number-area
-              .number-box
-                .number
-                  1
-                .btn
-                  %a{ :href => 'http://google.co.jp' }+
-            .delete-box
-              %a{ :href => 'http://google.co.jp' }削除
+          = @item_nums.each do |item_num|
+            .items
+              %a{ :href => 'http://google.co.jp' }
+                %img{alt: "商品イメージ", height: "150", width: "125", src: "#{item.images[0].url}"}
+              .name
+                %p
+                  =item.shop.name
+                %p
+                  =item.brand.name
+                %p
+                  =item.name
+                %p
+                  カラー：
+                  =item_num.color
+                %p サイズ：L
+                .red-text 返品・交換対象外
+              .price ¥1,998
+              .number-area
+                .number-box
+                  .number
+                    1
+                  .btn
+                    %a{ :href => 'http://google.co.jp' }+
+              .delete-box
+                %a{ :href => 'http://google.co.jp' }削除
         .total
           .total-right
             %p 商品合計
