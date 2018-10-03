@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'carts/register' => 'carts#register'
 
+  get 'carts/create' => 'carts#create'
+
     get 'order/index' => 'orders#index' #←ネストする
 
   get "men_top"    => "tops#men"
