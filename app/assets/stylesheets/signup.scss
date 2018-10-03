@@ -1,3 +1,59 @@
+
+.nestbar {
+  background-color: #f0f0f0;
+  &_main {
+    color: $link-color;
+  }
+  &_content {
+    height:20px;
+  padding:25px 0;
+  margin:0 auto;
+  width:980px;
+  font-size:13px;
+  background-color: #f0f0f0;
+  }
+}
+.signup_body {
+  height:839px;
+  width:980px;
+  margin:0 auto;
+  &_head {
+    height:40px;
+    margin:0 10px;
+    font-size:23px;
+    &_left {
+      height:40px;
+      width:40px;
+      float:left;
+    }
+    &_right {
+      height:40px;
+      width:900px;
+      float:left;
+    }
+  }
+  &_main {
+    height:718px;
+    width:702px;
+    padding:36px 48px 40px;
+    margin:34px 139px 0 139px;
+    background-color:#f0f0f0;
+    border: solid 1px #c0c0c0;
+    border-radius: 10px;
+    &_format {
+      height:716px;
+      width:700px;
+      color:#5a5a5a;
+      &_head {
+        height:40px;
+        border-bottom: 1px solid #dcdcdc;
+        font-size:18px;
+        padding:20px 0;
+      }
+    }
+  }
+}
+
 .regist {
   height: 800px;
   margin-top: 60px;
@@ -9,6 +65,7 @@
     padding: 36px 48px 40px;
     width: 604px;
     margin: 0 auto;
+
 
     &_header {
       h3 {
