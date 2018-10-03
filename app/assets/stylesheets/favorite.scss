@@ -64,7 +64,6 @@
       text-align: center;
       color: $link-color;
       display: block;
-      text-align: center;
 
     }
 
@@ -109,9 +108,6 @@
           display: block;
           color: #646464;
         }
-        li a:hover{
-          background: $header-search-btn-color;
-        }
       }
       &_category {
         height: 32px;
@@ -131,9 +127,6 @@
           display: block;
           color: #646464;
         }
-        li a:hover{
-          background: $header-search-btn-color;
-        }
       }
       &_others {
         height: 32px;
@@ -152,9 +145,6 @@
         ul.child li a{
           display: block;
           color: #646464;
-        }
-        li a:hover{
-          background: $header-search-btn-color;
         }
       }
       &_check {
@@ -311,4 +301,7 @@
 }
 .fa-black {
   color: #000000;
+}
+li a:hover{
+  background: $header-search-btn-color;
 }

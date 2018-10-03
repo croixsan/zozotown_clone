@@ -59,8 +59,8 @@
         %li.main_body_guide_check
           %checkbox 販売終了を除く
       .main_body_list
-        - 20.times.each do |i|
-          = render partial: 'item', locals: {image_size: "large", rank_num: 0, coupon: 0, shop_image: false}
+        / - 20.times.each do |i|
+        /   = render partial: 'item', locals: {image_size: "large", rank_num: 0, coupon: 0, shop_image: false}
       .main_body_advertisement
         .main_body_advertisement_main
           %h2 LINEとID連携やメルマガを購読すると、お気に入りの値下げ・再入荷情報などをピックアップしてお届けします。
