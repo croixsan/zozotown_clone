@@ -8,7 +8,7 @@
     .left-content
       %img{alt: "商品イメージ", src: "https://img4.zozo.jp/pc/zozoomake/201809/omake_pc_cart_men.jpg"}
         .c.items-content
-          = @item_nums.each do |item_num|
+          - @item_nums.each do |item_num|
             .items
               %a{ :href => 'http://google.co.jp' }
                 / shopsのコントローラが整い次第、商品詳細ページへのリンクをつける
