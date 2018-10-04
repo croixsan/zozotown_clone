@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181004024509) do
+ActiveRecord::Schema.define(version: 20181004103513) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
+    t.string   "name",        null: false
     t.string   "url"
-    t.string   "gender",     null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "gender",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "items_count"
     t.index ["name"], name: "index_brands_on_name", using: :btree
   end
 
@@ -130,13 +131,14 @@ ActiveRecord::Schema.define(version: 20181004024509) do
   end
 
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                     null: false
-    t.text     "concept",    limit: 65535
+    t.string   "name",                      null: false
+    t.text     "concept",     limit: 65535
     t.string   "url"
-    t.string   "gender",                   null: false
+    t.string   "gender",                    null: false
     t.string   "logo"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "items_count"
     t.index ["name"], name: "index_shops_on_name", using: :btree
   end
 

@@ -32,83 +32,88 @@
     .left-content {
       width: $width-carts-index-leftcontent;
 
-      .items {
-        height: 150px;
-        width: $width-carts-index-leftcontent;
-        margin-top: 13px;
-        padding: 40px 0;
+      .c.items-content {
         border-top: $border-gray;
         border-bottom: $border-gray;
+        margin-top: 10px;
 
-        a {
-          margin-right: 10px;
-          float: left;
-        }
+        .items {
+          height: 150px;
+          width: $width-carts-index-leftcontent;
+          margin-top: 13px;
+          padding: 40px 0;
 
-        .name {
-          height: 140px;
-          width: 225px;
-          float: left;
-          padding-top: 10px;
-
-          .red-text {
-            color: red;
-            font-size: 13px;
+          a {
+            margin-right: 10px;
+            float: left;
           }
-        }
 
-        .price {
-          height: 150px;
-          line-height: 150px;
-          width: 80px;
-          color: red;
-          float: left;
-        }
+          .name {
+            height: 140px;
+            width: 225px;
+            float: left;
+            padding-top: 10px;
 
-        .number-area {
-          height: 150px;
-          width: 90px;
-          float: left;
-
-          .number-box {
-            height: 30px;
-            width: 90px;
-            margin-top: 60px;
-
-            .number {
-              height: 18px;
-              width: 18px;
-              border: $border-gray;
-              padding: 5px 1px 5px 9px;
-              float: left;
+            .red-text {
+              color: red;
+              font-size: 13px;
             }
+          }
 
-            .btn {
-              height: 24px;
-              width: 16px;
-              float: left;
-              padding: 2px 1px 2px 5px;
-              border-top: $border-gray;
-              border-bottom: $border-gray;
-              border-right: $border-gray;
+          .price {
+            height: 150px;
+            line-height: 150px;
+            width: 80px;
+            color: red;
+            float: left;
+          }
 
-              a {
-                text-decoration: none;
+          .number-area {
+            height: 150px;
+            width: 90px;
+            float: left;
+
+            .number-box {
+              height: 30px;
+              width: 90px;
+              margin-top: 60px;
+
+              .number {
+                height: 18px;
+                width: 18px;
+                border-top: $border-gray;
+                border-bottom: $border-gray;
+                padding: 5px 1px 5px 9px;
+                float: left;
+              }
+
+              .btn {
+                height: 28px;
+                line-height: 28px;
+                width: 24px;
+                float: left;
+                border: $border-gray;
+
+                a {
+                  width: 24px;
+                  text-align: center;
+                  text-decoration: none;
+                }
               }
             }
           }
-        }
 
-        .delete-box {
-          height: 150px;
-          width: 70px;
-          float: left;
-
-          a {
+          .delete-box {
             height: 150px;
-            line-height: 150px;
-            width: 35px;
-            margin-left: 40px;
+            width: 70px;
+            float: left;
+
+            a {
+              height: 150px;
+              line-height: 150px;
+              width: 35px;
+              margin-left: 40px;
+            }
           }
         }
       }
