@@ -1,0 +1,14 @@
+-# - name1 = top_category.sub_categories[0].name
+-# - name2 = top_category.sub_categories[1].name
+.category_header
+  .category_title.clearfix
+    %h1
+      = category.name
+    %p
+      = "#{category.name}の一覧です。やなどご用意しております。"
+.later_payment.clearfix
+  %p
+    ツケ払いできます。ZOZOなら今日買ってもお支払いは
+    %span
+      = "#{Date.today.month + 2}月#{Date.today.day}日"
+    でOK

@@ -1,0 +1,7 @@
+%ul.category_list
+  %li.category-btn
+    .list-title
+      = top_category.name
+  - sub_categories.each do |sub_category|
+    %li
+      = link_to "・#{sub_category.name}", sub_category_path, class: "list-title category-btn"

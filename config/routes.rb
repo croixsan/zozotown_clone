@@ -21,4 +21,6 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show]
   end
   resources :brands, only: [:index, :show]
+  resources :top_categories, only: [:show]
+  resources :sub_categories, only: [:show]
 end

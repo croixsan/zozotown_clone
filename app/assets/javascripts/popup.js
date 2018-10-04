@@ -63,17 +63,17 @@ $(function(){
   $(".category-btn").on('mouseover', function(){
     // ボタンからカテゴリー名を取得
     if (category = $(this).attr("id")){
-      popup_selecter = "#" + category.split('-')[0] + "-popup";
+      popup_selecter = "#popup-" + category.split('_')[1];
       $(popup_selecter).css("visibility", "visible");
     }
   })
   $(".category-btn").on('mouseout', function(){
     $(popup_selecter).css("visibility","hidden")
   })
-  $(popup_selecter).on('mouseover', function(){
+  $(".popup").on('mouseover', popup_selecter, function(){
     $(popup_selecter).css("visibility","visible")
   })
-  $(popup_selecter).on('mouseout', function(){
+  $(".popup").on('mouseout', popup_selecter, function(){
     $(popup_selecter).css("visibility","hidden")
   })
 

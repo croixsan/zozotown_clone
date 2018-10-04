@@ -1,0 +1,18 @@
+.category_var
+  .inner
+    %ul.nest_list.clearfix
+      %li.nest_path
+        = link_to "ZOZOTOWN", root_path
+      %li.nest_icon
+        %i.fas.fa-angle-right
+      %li.nest_path
+        = link_to top_category.name, "/top_categories/#{top_category.id}"
+      - if sub_category != nil
+        %li.nest_icon
+          %i.fas.fa-angle-right
+        %li.nest_path
+          = link_to sub_category.name, sub_category_path(sub_category)
+        %li.nest_icon
+          %i.fas.fa-angle-right
+        %li.nest_item
+          %a 対象商品
