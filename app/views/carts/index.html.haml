@@ -11,6 +11,7 @@
           = @item_nums.each do |item_num|
             .items
               %a{ :href => 'http://google.co.jp' }
+                / shopsのコントローラが整い次第、商品詳細ページへのリンクをつける
                 %img{alt: "商品イメージ", height: "150", width: "125", src: "#{item_num.item.images[0].url}"}
               .name
                 %p
