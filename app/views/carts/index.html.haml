@@ -7,34 +7,38 @@
   .main-content
     .left-content
       %img{alt: "商品イメージ", src: "https://img4.zozo.jp/pc/zozoomake/201809/omake_pc_cart_men.jpg"}
-        = @item_nums.each do |item_num|
-          .items
-            %a{ :href => 'http://google.co.jp' }
-              %img{alt: "商品イメージ", height: "150", width: "125", src: "#{item_num.item.images[0].url}"}
-            .name
-              %p
-                = item_num.item.shop.name
-              %p
-                = item_num.item.brand.name
-              %p
-                = item_num.item.name
-              %p
-                カラー：
-                = item_num.stock.color
-              %p
-                サイズ：
-                =item_num.stock.size
-              .red-text 返品・交換対象外
-            .price
-              = number_to_currency(item_num.item.price, :unit => "￥", :precision => 0)
-            .number-area
-              .number-box
-                .number
-                  = @count[item_num.number]
-                .btn
-                  %a{ :href => 'http://google.co.jp' }+
-            .delete-box
-              = link_to "削除", carts_destroy_path(@items, params: {id: item_num.item.id}), method: :delete
+        .c.items-content
+          - @item_nums.each do |item_num|
+            .items
+              %a{ :href => 'http://google.co.jp' }
+                / shopsのコントローラが整い次第、商品詳細ページへのリンクをつける
+                %img{alt: "商品イメージ", height: "150", width: "125", src: "#{item_num.item.images[0].url}"}
+              .name
+                %p
+                  = item_num.item.shop.name
+                %p
+                  = item_num.item.brand.name
+                %p
+                  = item_num.item.name
+                %p
+                  カラー：
+                  = item_num.stock.color
+                %p
+                  サイズ：
+                  =item_num.stock.size
+                .red-text 返品・交換対象外
+              .price
+                = number_to_currency(item_num.item.price, :unit => "￥", :precision => 0)
+              .number-area
+                .number-box
+                  .btn
+                    = link_to "ー", carts_destroy_path(@items, params: {item_id: item_num.item.id}), method: :delete
+                  .number
+                    = @count[item_num.number]
+                  .btn
+                    = link_to "＋", carts_create_path(@items, params: {item_id: item_num.item.id, cart_id: @cart.id, item_num_id: item_num.id}), method: :get
+              .delete-box
+                = link_to "削除", carts_destroy_path(@items, params: {id: item_num.item.id}), method: :delete
         .total
           .total-right
             %p 商品合計
