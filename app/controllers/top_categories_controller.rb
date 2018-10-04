@@ -1,6 +1,7 @@
 class TopCategoriesController < ApplicationController
   def show
     @top_category = TopCategory.find(params[:id])
+    @top_categories = TopCategory.all
     @sub_categories = @top_category.sub_categories
     @items = @top_category.items
 
