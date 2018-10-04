@@ -35,7 +35,7 @@
                   .btn
                     %a{ :href => 'http://google.co.jp' }+
               .delete-box
-                %a{ :href => 'http://google.co.jp' }削除
+                = link_to "削除", carts_destroy_path(@items, params: {id: item.id}), method: :delete
         .total
           .total-right
             %p 商品合計
