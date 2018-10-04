@@ -2,7 +2,8 @@ class CartsController < ApplicationController
 
   def index
     @cart = Cart.find_by(user_id: 1)
-    @items = @cart.items
+    items = @cart.items
+    @items = items.uniq
     item_num = ShoppingsDetail.find_by(cart_id: @cart.id)
     @item_nums = Stock.where(item_num: item_num.item_num)
   end
