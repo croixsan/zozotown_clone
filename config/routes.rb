@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # root "tests#delivery"
-  root "tops#all"
+  root "tests#delivery"
+  # root "tops#all"
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }

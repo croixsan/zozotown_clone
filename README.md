@@ -141,10 +141,6 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | name        | string      | null: false                            |
-| post_num    | integer     | null: false                            |
-| main_address| string      | null: false                            |
-| sub_address | string      | null: false                            |
-| phone_num   | integer     | null: false                            |
 | point       | integer     | null: false                            |
 | gender      | string      | null: false                       |
 | birth_year  | integer     | null: false                       |
@@ -158,16 +154,18 @@ Things you may want to cover:
 - has_many :favorite_items
 - has_many :favorite_brands
 - has_many :favorite_shops
+- has_many :deliverys
 
 ## orders table
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | user_id     | integer     | null: false, foreign_key: true         |
-
+| cart_id     | integer     | null: false, foreign_key: true         |
 ### Association
 - belongs_to :user
 - has_many :ordered_items
 - has_many :items, through: ordered_items
+- has_one :delivery
 
 ## ordered_items table
 | Column      | Type        | Options                                |
@@ -228,6 +226,18 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :brand
+
+## delivery
+| Column      | Type        | Options                                |
+|:------------|------------:|:--------------------------------------:|
+| user_id     | strung      | null: false, foreign_key: true         |
+| kind        | integer     | null: false                            |
+| post_num    | integer     | null: false                            |
+| phone_num   | integer     | null: false                            |
+
+### Association
+- belongs_to :user
+- belongs_to :order
 
 * Database initialization
 
