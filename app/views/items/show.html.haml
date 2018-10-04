@@ -65,7 +65,7 @@
           .cart
             %i.fas.fa-shopping-cart
             %p
-              = link_to "カートに入れる", {controller: "carts", action: "create", method: :post, item_id: "#{@items.id}", cart_id: "#{@cart.id}"}, :style => "color:white;"
+              = link_to "カートに入れる", {controller: "carts", action: "create", method: :post, item_id: @item.id, cart_id: @cart.id, item_num_id: @item.item_nums[0].id, :style => "color:white;"}
           .heart
             %p.far.fa-heart
       .condition-tab
@@ -209,5 +209,3 @@
         %p ZOZOTOWN（ゾゾタウン）のご紹介
         .text-box
           ZOZOTOWNはZOZO（ゾゾ）のデニムパンツなど、人気ブランドのアイテムを多数取り揃えるファッション通販サイトです。デニムパンツなど、6879ブランドの最新アイテムをオンラインでご購入いただけます。
-
-

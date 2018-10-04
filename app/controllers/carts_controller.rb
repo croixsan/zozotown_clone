@@ -1,17 +1,17 @@
 class CartsController < ApplicationController
 
   def index
-    @cart = Cart.find_by(user_id: 1)
-    items = @cart.items
-    @items = items.uniq
-    item_num = ShoppingsDetail.find_by(cart_id: @cart.id)
-    @item_nums = Stock.where(item_num: item_num.item_num)
-    @shoppings = Shopping.group(:item_id).count
+    @cart = current_user.cart
+    @items = @cart.items
+    # カートに含まれる同じアイテムを
+    @item_nums = @cart.item_nums.group(:number)
+    @count = @item_nums.count
+    # @shoppings = Shopping.group(:item_id).count
   end
 
   def create
-    Shopping.create(item_id: cart_params[:item_id], cart_id: cart_params[:cart_id])
-    redirect_to :controller => 'carts', :action => 'index'
+    Shopping.create(cart_params)
+    redirect_to controller: 'carts', action: 'index'
   end
 
   def destroy
@@ -20,13 +20,15 @@ class CartsController < ApplicationController
     redirect_to :controller => 'carts', :action => 'index'
   end
 
-  private
-  def cart_params
-    params.permit(:item_id, :cart_id)
-  end
-
   def register
-    current_user.build_cart
+    Cart.create(user_id: current_user.id, total_price: 0)
     redirect_to :root
   end
+
+  private
+  def cart_params
+    params.permit(:item_id, :cart_id, :item_num_id)
+  end
+
+
 end
