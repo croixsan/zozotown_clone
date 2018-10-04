@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   end
   resources :brands, only: [:index, :show]
   resources :top_categories, only: [:show]
+  resources :sub_categories, only: [:show]
 end
