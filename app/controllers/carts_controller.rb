@@ -15,8 +15,8 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    shopping = Shopping.find_by(item_id: params[:id])
-    shopping.destroy
+    shopping = Shopping.where(item_id: params[:id])
+    shopping.destroy_all
     redirect_to :controller => 'carts', :action => 'index'
   end
 
