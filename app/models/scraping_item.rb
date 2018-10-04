@@ -219,7 +219,7 @@ class ScrapingItem
       color_index += 1
     end
 
-    # stockの登録
+    # stock, item_numの登録
     num_per_color = stocks.length / colors.length
     new_item = Item.find_by(name: item.name)
     i = 0
@@ -227,13 +227,26 @@ class ScrapingItem
     while i < colors.size
       k = 0;
       while k < num_per_color
-        item_num = "#{item.id}-#{n+k}"
-        stock = Stock.where(item_num: item_num).first_or_initialize
-        stock.item_num = item_num
+        # 商品番号の登録
+        number = "#{item.id}-#{n+k}"
+        item_num = ItemNum.where(number: number).first_or_initialize
+        item_num.number = number
+        item_num.item_id = new_item.id
+        item_num.save
+        # 在庫情報の登録
+        stock = Stock.where(item_num_id: item_num.id).first_or_initialize
+        stock.item_num_id = item_num.id
         stock.item_id = new_item.id
         stock.color = colors[i]
         stock.size = sizes[n+k]
         stock.stock = stocks[n+k]
+        puts "item_id: #{stock.item_id}"
+        puts "item_num_id: #{stock.item_num_id}"
+        puts "color: #{stock.color}"
+        puts "size: #{stock.size}"
+        puts "stock: #{stock.stock}"
+
+
         stock.save
         k += 1
       end

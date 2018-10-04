@@ -7,6 +7,7 @@ class Item < ApplicationRecord
 
   has_many :stocks
   has_many :images
+  has_many :item_nums
   # has_many :shoppings, dependent: :destroy
   has_many :carts, through: :shoppings
   # has_many :ordered_items
