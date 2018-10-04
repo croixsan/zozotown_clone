@@ -14,6 +14,12 @@ class CartsController < ApplicationController
     redirect_to :controller => 'carts', :action => 'index'
   end
 
+  def destroy
+    shopping = Shopping.find_by(item_id: params[:id])
+    shopping.destroy
+    redirect_to :controller => 'carts', :action => 'index'
+  end
+
   private
   def cart_params
     params.permit(:item_id, :cart_id)
