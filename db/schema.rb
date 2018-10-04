@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20181004024509) do
+=======
+ActiveRecord::Schema.define(version: 20181003103811) do
+>>>>>>> master
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -124,7 +128,7 @@ ActiveRecord::Schema.define(version: 20181004024509) do
 
   create_table "shoppings_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "cart_id"
-    t.integer  "item_num"
+    t.string   "item_num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
