@@ -1,10 +1,10 @@
-= render partial: "shared/nest/nest_top_category", locals: {top_category: @top_category}
+= render partial: "shared/nest/nest_category", locals: {top_category: @top_category, sub_category: nil}
 
 .search_content
   .inner.clearfix
-    = render partial: "search/side_bar", locals: {top_category: @top_category, sub_categories: @sub_categories}
+    = render partial: "search/side_bar", locals: {top_category: @top_category, sub_categories: @sub_categories, count: @items.length}
     %article.search_result
-      = render partial: "search/category_header", locals: {top_category: @top_category}
+      = render partial: "search/category_header", locals: {category: @top_category}
       .result_content
         %ul.hot_keyword.clearfix
           %li
@@ -72,5 +72,5 @@
                 %li.switch_four
                   %i.fas.fa-th-large.fa-lg
           .result_items_list
-            - 15.times.each do |item|
+            - @items.each do |item|
               = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
