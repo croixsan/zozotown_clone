@@ -5,7 +5,7 @@
       .search_result_num
         %h2 対象商品
         .result_count
-          = top_category.items.length
+          = count
           %span 件
     .search_side_bar_lists
       %section.select_lists
@@ -42,7 +42,7 @@
                 %i.fas.fa-angle-right
       %section.select_lists
         %h2.head-title.select_lists_element カテゴリー
-        = render partial: "search/sub_category_list", locals: {top_category: top_category, sub_categories: sub_categories}
+        = render partial: "search/sub_category_list", locals: {top_category: top_category, sub_categories: @sub_categories}
       %section.select_lists
         %h2.select_lists_element カラー
         %ul.color_select.clearfix
