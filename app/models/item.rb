@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
-  belongs_to :shop
-  belongs_to :brand
+  belongs_to :shop, counter_cache: :items_count
+  belongs_to :brand, counter_cache: :items_count
   belongs_to :top_category
   belongs_to :sub_category
   belongs_to :coupon
