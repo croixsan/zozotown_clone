@@ -27,9 +27,8 @@
       .item-content
         %h3 関連アイテム
         %ul#top__center__pickup__contents.clearfix
-          - 15.times.each do |i|
-            #top__center__pickup__contents__item
-              = render partial: 'item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+          #top__center__pickup__contents__item
+            = render partial: 'tops/item',  locals: {collection: @images, image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
 
     .right-content
       .item-intro
@@ -65,7 +64,8 @@
         .cart-box
           .cart
             %i.fas.fa-shopping-cart
-            %p カートに入れる
+            %p
+              = link_to "カートに入れる", {controller: "carts", action: "create", method: :post, item_id: "#{@items.id}", cart_id: "#{@cart.id}"}, :style => "color:white;"
           .heart
             %p.far.fa-heart
       .condition-tab
@@ -157,14 +157,14 @@
           %ul#top__center__pickup__contents.clearfix
             - 15.times.each do |i|
               #top__center__pickup__contents__item
-                = render partial: 'item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+                = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
       .recommend
         %p このアイテムを見ている人にオススメ
         .items
           %ul#top__center__pickup__contents.clearfix
             - 15.times.each do |i|
               #top__center__pickup__contents__item
-                = render partial: 'item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+                = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
 
       .recommend
         %p 人気のデニムパンツランキング
@@ -172,7 +172,7 @@
           %ul#top__center__pickup__contents.clearfix
             - 15.times.each do |i|
               #top__center__pickup__contents__item
-                = render partial: 'item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+                = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
 
       .recommend
         %p 最近チェックしたアイテム
@@ -180,7 +180,7 @@
           %ul#top__center__pickup__contents.clearfix
             - 15.times.each do |i|
               #top__center__pickup__contents__item
-                = render partial: 'item', locals: {image_size: "small", rank_num: 0, coupon: 0, shop_image: false}
+                = render partial: 'tops/item', locals: {image_size: "small", rank_num: 0, coupon: 0, shop_image: false}
 
       .keyword
         %p このアイテムのキーワード
