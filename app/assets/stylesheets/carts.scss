@@ -78,21 +78,22 @@
             .number {
               height: 18px;
               width: 18px;
-              border: $border-gray;
+              border-top: $border-gray;
+              border-bottom: $border-gray;
               padding: 5px 1px 5px 9px;
               float: left;
             }
 
             .btn {
-              height: 24px;
-              width: 16px;
+              height: 28px;
+              line-height: 28px;
+              width: 24px;
               float: left;
-              padding: 2px 1px 2px 5px;
-              border-top: $border-gray;
-              border-bottom: $border-gray;
-              border-right: $border-gray;
+              border: $border-gray;
 
               a {
+                width: 24px;
+                text-align: center;
                 text-decoration: none;
               }
             }

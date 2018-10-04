@@ -29,10 +29,12 @@
               = number_to_currency(item_num.item.price, :unit => "￥", :precision => 0)
             .number-area
               .number-box
+                .btn
+                  = link_to "ー", carts_create_path(@items, params: {item_id: item_num.item.id, cart_id: @cart.id, item_num_id: item_num.id}), method: :get
                 .number
                   = @count[item_num.number]
                 .btn
-                  = link_to "+", carts_create_path(@items, params: {item_id: item_num.item.id, cart_id: @cart.id, item_num_id: item_num.id}), method: :get
+                  = link_to "＋", carts_create_path(@items, params: {item_id: item_num.item.id, cart_id: @cart.id, item_num_id: item_num.id}), method: :get
             .delete-box
               = link_to "削除", carts_destroy_path(@items, params: {id: item_num.item.id}), method: :delete
         .total
