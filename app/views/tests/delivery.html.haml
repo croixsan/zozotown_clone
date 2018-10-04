@@ -1,0 +1,187 @@
+.delibody
+  .delibody_header
+    %h1 ZOZOTOWN
+  .delibody_content
+    .delibody_content_head
+      %h2 お届け先・配送方法・お支払い方法
+    .delibody_content_main
+      .delibody_content_main_destination.clearfix
+        %dl
+          %dt.delibody_content_main_destination_title お届け先
+          .delibody_content_main_destination_main
+            %input.delibody_content_main_destination_main_check{:name => "addless", :type => "radio", :value => "main"}
+            %dd
+              %span アイウエオ
+              %span 様
+            %dd
+              %span 〒
+              %span 1234567
+              %span.propriety 即日配達可能
+            %dd
+              %span 住所 :
+              %span 東京都千代田区丸の内1−1−１
+            %dd
+              %span 電話 :
+              %span 03-1234-5678
+          .delibody_content_main_destination_add.clearfix.hide
+            %input.delibody_content_main_destination_add_check{:name => "addless", :type => "radio", :value => "none"}
+            %dd 新しいお届け先を追加する
+          %dl.delibody_content_main_destination_form
+            .delibody_content_main_destination_form_check.clearfix
+              %input.delibody_content_main_destination_form_check_btn{:name => "addless", :type => "radio", :value => "new"}
+              %dd 新しいお届け先を追加する
+            .delibody_content_main_destination_form_kind
+              .delibody_content_main_destination_form_kind_title
+                %dd 種別
+              .delibody_content_main_destination_form_kind_form
+            .delibody_content_main_destination_form_name
+              .delibody_content_main_destination_form_name_title
+                %dd 名前
+              .delibody_content_main_destination_form_name_form
+            .delibody_content_main_destination_form_post-num
+              .delibody_content_main_destination_add_form_post-num_title
+                %dd 郵便番号
+              .delibody_content_main_destination_add_form_post-num_form
+            .delibody_content_main_destination_form_prefecture
+              .delibody_content_main_destination_form_prefecture_title
+                %dd 都道府県
+              .delibody_content_main_destination_form_prefecture_form
+            .delibody_content_main_destination_form_addless1
+              .delibody_content_main_destination_form_addless1_title
+                %dd 住所１
+              .delibody_content_main_destination_form_addless1_form
+            .delibody_content_main_destination_form_addless2
+              .delibody_content_main_destination_form_addless2_title
+                %dd 住所２
+              .delibody_content_main_destination_form_addless2_form
+            .delibody_content_main_destination_form_phone-num
+              .delibody_content_main_destination_form_phone-num_title
+                %dd 電話番号
+              .delibody_content_main_destination_form_phone-num_form
+      %dl.delibody_content_main_shipping
+        .delibody_content_main_shipping_title
+          %dt 配送方法
+          %dt お届け予定日
+        .delibody_content_main_shipping_main
+          .delibody_content_main_shipping_main_lecode
+            .delibody_content_main_shipping_main_lecode_designation
+              %dd 指定無し
+            .delibody_content_main_shipping_main_lecode_time
+              %dd 2〜4日以内で発送
+            .delibody_content_main_shipping_main_lecode_price
+              %dd
+                %span ¥
+                %span 200
+      %dl.delibody_content_main_payment.clearfix
+        .delibody_content_main_payment_title
+          %dt お支払い方法
+        .delibody_content_main_payment_main
+          %dd.delibody_content_main_payment_main_tuke
+            .delibody_content_main_payment_main_tuke_title
+              %span ツケ払い
+              %span#newmark NEW
+            .delibody_content_main_payment_main_tuke_points
+              %span ※今回のご注文ではご利用できません
+              %span#exclamation_tuke
+                %i.far.fa-exclamation-circle
+            .delibody_content_main_payment_main_tuke_price
+              %span ¥
+              %span 200
+          %dd.delibody_content_main_payment_main_zozo
+            .delibody_content_main_payment_main_zozo_title
+              %span ZOZOCARD
+            .delibody_content_main_payment_main_zozo_points
+              %span 72
+              %span ポイント還元
+            .delibody_content_main_payment_main_zozo_price
+              %span ¥
+              %span 0
+          %dd.delibody_content_main_payment_main_credit
+            .delibody_content_main_payment_main_credit_title
+              %span クレジットカード
+            .delibody_content_main_payment_main_credit_points
+              %span 36
+              %span ポイント還元
+            .delibody_content_main_payment_main_credit_price
+              %span ¥
+              %span 0
+          %dd.delibody_content_main_payment_main_cash
+            .delibody_content_main_payment_main_cash_title
+              %span 代金引換
+            .delibody_content_main_payment_main_cash_points
+              %span 36
+              %span ポイント還元
+            .delibody_content_main_payment_main_cash_exclamation
+            .delibody_content_main_payment_main_cash_price
+              %span ¥
+              %span 324
+          %dd.delibody_content_main_payment_main_line
+            .delibody_content_main_payment_main_line_title
+              %span LINE Pay
+            .delibody_content_main_payment_main_line_points
+              %span※今回のご注文ではご利用できません
+              %span#line_exclamation
+                %i.far.fa-exclamation-circle
+            .delibody_content_main_payment_main_line_price
+              %span ¥
+              %span 0
+          %dd.delibody_content_main_payment_main_blackcat
+            .delibody_content_main_payment_main_blackcat_title
+              %span クロネコ代金後払い
+            .delibody_content_main_payment_main_blackcat_points
+              %span ※今回のご注文ではご利用できません
+              %span#bkackcat_exclamation
+                %i.far.fa-exclamation-circle
+            .delibody_content_main_payment_main_blackcat_price
+              %span ¥
+              %span 0
+    .delibody_content_move
+      .delibody_content_move_content
+        .delibody_content_move_content_list
+          .delibody_content_move_content_list_button
+            %p 次に進む
+          %dl.delibody_content_move_content_list_price
+            .delibody_content_move_content_list_price_total
+              .delibody_content_move_content_list_price_total_title
+                %dt 商品合計
+              .delibody_content_move_content_list_price_total_price
+                %dd
+                  %span ¥
+                  %span 5500
+            %dl.delibody_content_move_content_list_price_postage
+              .delibody_content_move_content_list_price_postage_title
+                %dt 送料
+              .delibody_content_move_content_list_price_postage_price
+                %dd
+                  %span ¥
+                  %span 200
+            %dl.delibody_content_move_content_list_price_commission
+              .delibody_content_move_content_list_price_commission_title
+                %dt 支払い手数料
+              .delibody_content_move_content_list_price_commission_price
+                %dd
+                  %span ¥
+                  %span 0
+          %dl.delibody_content_move_content_list_total
+            .delibody_content_move_content_list_total_title
+              %dt
+                %span 合計
+                %span#tax-notation (税込)
+            .delibody_content_move_content_list_total_price
+              %dd
+                %span ¥
+                %span 5700
+  %ul.delibody_content_atention
+    %li.delibody_content_atention_first
+      %span ※
+      =link_to "#" do
+        %span ZOZOCARDとは？
+    %li.delibody_content_atention_second
+      %span ※デビット機能付きカード、カード会社発行のプリペイドカードのご利用はお控えください。詳しくは、
+      =link_to "#" do
+        %span 注意事項
+      %span をご確認ください。
+    %li.delibody_content_atention_third
+      ※コンビニを選択された場合、お支払いを確認後に配送方法「指定なし」でのお届けとなります。
+
+
