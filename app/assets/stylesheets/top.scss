@@ -21,13 +21,18 @@ article {
       &__category {
         padding: 22px 0 12px;
 
-        &__favorite {
-          padding: 22px 0 12px;
+        &__list {
+          border-top: solid 1px $top-category-border-color;
+          margin-top: 17px;
+        }
+      }
 
-          &__list {
-            border-top: solid 1px $top-category-border-color;
-            margin-top: 17px;
-          }
+      &__favorite {
+        padding: 22px 0 12px;
+
+        &__list {
+          border-top: solid 1px $top-category-border-color;
+          margin-top: 17px;
         }
       }
 
@@ -180,7 +185,8 @@ article {
 /*-- list style --------------------------------------*/
 .head-title {
   font-size: 18px;
-  font-color: $top-head-font-color;
+  color: $top-head-font-color;
+  margin-bottom: 17px;
 }
 
 .list-title {
