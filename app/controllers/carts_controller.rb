@@ -6,6 +6,7 @@ class CartsController < ApplicationController
     @items = items.uniq
     item_num = ShoppingsDetail.find_by(cart_id: @cart.id)
     @item_nums = Stock.where(item_num: item_num.item_num)
+    @shoppings = Shopping.group(:item_id).count
   end
 
   def create
