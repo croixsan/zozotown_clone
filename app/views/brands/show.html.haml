@@ -15,13 +15,7 @@
             = render "search/price_list"
           %section.select_lists
             %h2.head-title.select_lists_element カテゴリー
-            %ul.category_list
-              %li.category-btn
-                .list-title
-                  = @top_category.name
-              - @sub_categories.each do |sub_category|
-                %li
-                  = link_to "・#{sub_category.name}", sub_category_path(sub_category), class: "list-title category-btn"
+            = render partial: "search/top_category_list", collection: @top_categories, as: "top_category"
           %section.select_lists
             %h2.select_lists_element カラー
             = render "search/color_select"
