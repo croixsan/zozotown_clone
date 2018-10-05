@@ -7,7 +7,8 @@ class TopsController < ApplicationController
     @rank_items = Item.order("created_at DESC").limit(7).includes(:images)
     @checked_items = Item.order("created_at DESC").limit(15).includes(:images)
     @top_categories = TopCategory.all
-    @brands = Brand.order("created_at DESC").limit(10)
+    @brands = Brand.order("items_count DESC").limit(10)
+    @shops = Shop.order("items_count DESC").limit(10)
   end
 
   def men
