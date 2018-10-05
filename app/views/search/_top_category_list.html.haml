@@ -1,9 +1,9 @@
-// オールインワン・サロペットのみ表示名を変更
 - if top_category.name == "オールインワン・サロペット"
   - top_category.name = "オールインワン"
 
 %ul.category_list
   %li
-    = link_to top_category.name, top_category_path(top_category), class: "list-title category-btn"
+    - next_path = request.path_info + url_for(controller: :top_categories, action: :show, id: top_category.id)
+    = link_to top_category.name, next_path, class: "list-title category-btn"
     .angle-icon
       %i.fas.fa-angle-right
