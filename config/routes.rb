@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "tops#all"
+  root "tops#index"
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -18,13 +18,54 @@ Rails.application.routes.draw do
   get "kid_top"    => "tops#kid"
   get "tests/search" => "tests#search"
 
-  resources :men_shops, only: [:index, :show]
-  resources :women_shops, only: [:index, :show]
-  resources :kid_shops, only: [:index, :show]
-  resources :shops, only: [:index, :show] do
+  concern :categories do
+    resources :top_categories, only: [:index, :show] do
+      resources :sub_categories, only: [:index, :show]
+    end
+  end
+
+  resources :tops, only: [:index]
+  resources :brands, only: [:index, :show], concerns: :categories
+  resources :shops, only: [:index, :show], concerns: :categories do
     resources :items, only: [:index, :show]
   end
-  resources :brands, only: [:index, :show]
-  resources :top_categories, only: [:show]
-  resources :sub_categories, only: [:show]
+  resources :top_categories, only: [:index, :show] do
+    resources :sub_categories, only: [:index, :show]
+  end
+
+  scope :mens do
+    resources :tops, only: [:index]
+    resources :brands, only: [:index, :show], concerns: :categories
+    resources :shops, only: [:index, :show], concerns: :categories do
+      resources :items, only: [:index, :show]
+    end
+    resources :top_categories, only: [:index, :show] do
+      resources :sub_categories, only: [:index, :show]
+    end
+  end
+
+  scope :ladies do
+    resources :tops, only: [:index]
+    resources :brands, only: [:index, :show], concerns: :categories
+    resources :shops, only: [:index, :show], concerns: :categories do
+      resources :items, only: [:index, :show]
+    end
+    resources :top_categories, only: [:index, :show] do
+      resources :sub_categories, only: [:index, :show]
+    end
+  end
+
+  scope :kids do
+    resources :tops, only: [:index]
+    resources :brands, only: [:index, :show], concerns: :categories
+    resources :shops, only: [:index, :show], concerns: :categories do
+      resources :items, only: [:index, :show]
+    end
+    resources :top_categories, only: [:index, :show] do
+      resources :sub_categories, only: [:index, :show]
+    end
+  end
+
+
+
 end

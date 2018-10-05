@@ -16,7 +16,9 @@
 //--------- ブランドリスト--------------
 %section#top__left__brand.clearfix.select_lists
   %h2.head-title ブランド
-  = render "/tops/left/brand_list"
+  = render partial: "/tops/left/brand_list", locals: {brands: @brands}
+  %p.more-list.link-list
+    = link_to "ブランド一覧", "#"
 //--------- ショップリスト--------------
 %section#top__left__shop.clearfix.select_lists
   %h2.head-title ショップ

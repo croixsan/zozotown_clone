@@ -60,21 +60,23 @@ $(function(){
   })
 
   //---- カテゴリーボタン---------------------------
-  $(".category-btn").on('mouseover', function(){
+  $(".category_list").on('mouseover', ".category-btn", function(){
     // ボタンからカテゴリー名を取得
     if (category = $(this).attr("id")){
       popup_selecter = "#popup-" + category.split('_')[1];
       $(popup_selecter).css("visibility", "visible");
     }
   })
-  $(".category-btn").on('mouseout', function(){
+  $(".category_list").on('mouseout', ".category-btn", function(){
     $(popup_selecter).css("visibility","hidden")
+    $(".popup").css("visibility","hidden")
   })
   $(".popup").on('mouseover', popup_selecter, function(){
     $(popup_selecter).css("visibility","visible")
   })
   $(".popup").on('mouseout', popup_selecter, function(){
     $(popup_selecter).css("visibility","hidden")
+    $(".popup").css("visibility","hidden")
   })
 
   //----プルダウン---------------------------
