@@ -1,28 +1,17 @@
 %ul#top__left__search__list.clearfix
-  %li
-    .rank-icon.first-color
-      %i.fa.fa-circle.rank-circle
-        %i.rank-num 1
-    = link_to "nano univese", "#", class: "list-title link-list"
-  %li
-    .rank-icon.second-color
-      %i.fa.fa-circle.rank-circle
-        %i.rank-num 2
-    = link_to "green label relaxing", "#", class: "list-title link-list"
-  %li
-    .rank-icon.third-color
-      %i.fa.fa-circle.rank-circle
-        %i.rank-num 3
-    = link_to "A BATHING APE", "#", class: "list-title link-list"
-  %li
-    .rank-icon.normal-color
-      %i.far.fa-circle.rank-circle
-        %i.rank-num-normal 4
-    = link_to "Champion", "#", class: "list-title link-list"
-  %li
-    .rank-icon.normal-color
-      %i.far.fa-circle.rank-circle
-        %i.rank-num-normal 5
-    = link_to "UNITED ARROWS", "#", class: "list-title link-list"
-  %p.more-list.link-list
-    = link_to "ブランド一覧", "#"
+  - brands.each_with_index do |brand, i|
+    - case i
+    - when 0
+      - color = "first-color"
+    - when 1
+      - color = "second-color"
+    - when 2
+      - color = "third-color"
+    - else
+      - color = "normal-color"
+    %li
+      .rank-icon{class: color}
+        %i.fa.fa-circle.rank-circle
+          .rank-num
+            = i+1
+      = link_to brand.name, brand_path(brand), class: "list-title link-list"
