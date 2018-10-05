@@ -95,7 +95,7 @@ Things you may want to cover:
 |:-----------|------------:|:--------------------------------------:|
 | name       | string      | null: false, index: true, unique: true |
 | url        | string      |                                        |
-| gender     | string      | null: false                       |
+| gender     | string      | null: false                            |
 
 ### Association
 - has_many :items
@@ -107,7 +107,7 @@ Things you may want to cover:
 | name       | string      | null: false, index: true, unique: true |
 | concept    | text        |                                        |
 | url        | string      |                                        |
-| gender     | string      | null: false                       |
+| gender     | string      | null: false                            |
 | logo       | string      |                                        |    
 
 ### Association
@@ -126,6 +126,7 @@ Things you may want to cover:
 - belongs_to :user
 - has_many :shoppings
 - has many :items, through: shoppings
+- belongs_to :order
 
 ## shoppings table
 | Column      | Type        | Options                                |
@@ -141,10 +142,6 @@ Things you may want to cover:
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | name        | string      | null: false                            |
-| post_num    | integer     | null: false                            |
-| main_address| string      | null: false                            |
-| sub_address | string      | null: false                            |
-| phone_num   | integer     | null: false                            |
 | point       | integer     | null: false                            |
 | gender      | string      | null: false                       |
 | birth_year  | integer     | null: false                       |
@@ -158,16 +155,26 @@ Things you may want to cover:
 - has_many :favorite_items
 - has_many :favorite_brands
 - has_many :favorite_shops
+- has_many :deliverys
 
 ## orders table
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
 | user_id     | integer     | null: false, foreign_key: true         |
-
+| cart_id     | integer     | null: false, foreign_key: true         |
+| dlivery_id  | integer     | null: false                            |
+| buy_date    | datatime    | null: false                            |
+| delivery_date| datatime   | null: false                            |
+| payment     | string      | null: false                            |
+| payment_num | integer     | null: false                            |
+| card_id     | integer     |                                        |
 ### Association
 - belongs_to :user
 - has_many :ordered_items
 - has_many :items, through: ordered_items
+- has_one :delivery
+- has_one :card
+- has_one :cart
 
 ## ordered_items table
 | Column      | Type        | Options                                |
@@ -229,6 +236,32 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :brand
 
+## delivery
+| Column      | Type        | Options                                |
+|:------------|------------:|:--------------------------------------:|
+| user_id     | string      | null: false, foreign_key: true         |
+| kind        | integer     | null: false                            |
+| post_num    | integer     | null: false                            |
+| phone_num   | integer     | null: false                            |
+
+### Association
+- belongs_to :user
+- belongs_to :order
+
+## card
+| Column      | Type        | Options                                |
+|:------------|------------:|:--------------------------------------:|
+| user_id     | integer     | null: false                            |
+| name        | string      | null: false                            |
+| number      | string      | null: false,foreign_key: true          |
+| limit_year  | integer     | null: false                            |
+| limit_month | integer     | null: false                            |
+| security_code| integer    | null: false                            |
+
+### Association
+- belongs_to :order
+- belongs_to :user
+
 * Database initialization
 
 * How to run the test suite
@@ -238,3 +271,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
