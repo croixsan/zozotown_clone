@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181005030646) do
+ActiveRecord::Schema.define(version: 20181005100424) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",        null: false
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 20181005030646) do
     t.datetime "updated_at",  null: false
     t.integer  "items_count"
     t.index ["name"], name: "index_brands_on_name", using: :btree
+  end
+
+  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",       null: false
+    t.string   "name",          null: false
+    t.string   "number",        null: false
+    t.integer  "limit_year",    null: false
+    t.integer  "limit_month",   null: false
+    t.integer  "security_code", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -120,10 +131,16 @@ ActiveRecord::Schema.define(version: 20181005030646) do
   end
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "cart_id",    null: false
+    t.integer  "user_id",       null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "cart_id",       null: false
+    t.integer  "delivery_id",   null: false
+    t.datetime "buy_date"
+    t.datetime "delivery_date", null: false
+    t.string   "payment",       null: false
+    t.integer  "payment_num",   null: false
+    t.integer  "card_id",       null: false
   end
 
   create_table "shoppings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
