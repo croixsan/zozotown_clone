@@ -12,5 +12,7 @@ class User < ApplicationRecord
   has_many :favorite_brands
   has_many :favorite_shops
   has_many :deliverys
+  has_many :orders
+  has_one :user
 
 end
