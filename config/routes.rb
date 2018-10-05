@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "tests#delivery"
+  root "order#select"
   # root "tops#all"
   devise_for :users, controllers: {
     registrations: 'users/registrations',
