@@ -1,0 +1,9 @@
+- if top_category.name == "オールインワン・サロペット"
+  - top_category.name = "オールインワン"
+
+%ul.category_list
+  %li
+    - next_path = request.path_info + "/top_categories/#{top_category.id}"
+    = link_to top_category.name, next_path, class: "list-title category-btn"
+    .angle-icon
+      %i.fas.fa-angle-right
