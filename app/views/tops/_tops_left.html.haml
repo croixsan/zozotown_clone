@@ -22,4 +22,6 @@
 //--------- ショップリスト--------------
 %section#top__left__shop.clearfix.select_lists
   %h2.head-title ショップ
-  = render "/tops/left/shop_list"
+  = render partial: "/tops/left/shop_list", locals: {shops: @shops}
+  %p.more-list.link-list
+    = link_to "ショップ一覧",
