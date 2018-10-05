@@ -162,25 +162,19 @@ Things you may want to cover:
 |:------------|------------:|:--------------------------------------:|
 | user_id     | integer     | null: false, foreign_key: true         |
 | cart_id     | integer     | null: false, foreign_key: true         |
-<<<<<<< HEAD
-=======
 | delivery_id  | integer    | null: false, foreign_key: true         |
 | buy_date    | datetime    | null: false                            |
 | delivery_date| datetime   | null: false                            |
 | payment     | string      | null: false                            |
 | payment_num | integer     | null: false                            |
 | card_id     | integer     | null: false, foreign_key: true         |
->>>>>>> master
 ### Association
 - belongs_to :user
 - has_many :ordered_items
 - has_many :items, through: ordered_items
 - has_one :delivery
-<<<<<<< HEAD
-=======
 - has_one :card
 - has_one :cart
->>>>>>> master
 
 ## ordered_items table
 | Column      | Type        | Options                                |
@@ -245,11 +239,7 @@ Things you may want to cover:
 ## delivery
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
-<<<<<<< HEAD
-| user_id     | strung      | null: false, foreign_key: true         |
-=======
 | user_id     | string      | null: false, foreign_key: true         |
->>>>>>> master
 | kind        | integer     | null: false                            |
 | post_num    | integer     | null: false                            |
 | phone_num   | integer     | null: false                            |
@@ -258,8 +248,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :order
 
-<<<<<<< HEAD
-=======
+
 ## card
 | Column      | Type        | Options                                |
 |:------------|------------:|:--------------------------------------:|
@@ -274,7 +263,6 @@ Things you may want to cover:
 - belongs_to :order
 - belongs_to :user
 
->>>>>>> master
 * Database initialization
 
 * How to run the test suite
