@@ -1,4 +1,8 @@
 class TopCategoriesController < ApplicationController
+  def index
+    @top_categories = TopCategory.all.includes(:sub_categories)
+  end
+
   def show
     @top_category = TopCategory.find(params[:id])
     @top_categories = TopCategory.all

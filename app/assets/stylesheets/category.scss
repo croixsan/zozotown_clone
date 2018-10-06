@@ -1,0 +1,47 @@
+.anchor_lists {
+  margin: 13px;
+  li {
+    margin-left: 13px;
+    padding-top: 14px;
+    @include set_size(20px, 175px);
+    float: left;
+    a {
+      text-decoration: none;
+      color: #007ebe;
+    }
+  }
+}
+
+.thumbnail_list {
+  width: 1040px;
+  margin-top: 17px;
+  padding-bottom: 20px;
+  border-top: 1px solid #dcdcdc;
+
+  h2 {
+    padding-top: 35px;
+    font-size: 20px;
+    a {
+      text-decoration: none;
+      color: #007ebe;
+    }
+  }
+  ul {
+    li {
+      @include set_size(175px, 150px);
+      margin: 15px 58px 10px 0;
+      float: left;
+      img {
+        margin: 5px 0 7px 0;
+      }
+      a {
+        color: #808080;
+        text-decoration: none;
+        display: block;
+        font-size: 13px;
+        word-break: keep-all;
+        white-space: nowrap;
+      }
+    }
+  }
+}
