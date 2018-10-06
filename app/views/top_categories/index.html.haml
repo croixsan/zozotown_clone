@@ -1,0 +1,26 @@
+= render partial: "shared/nest/nest_search", locals: {keyword: "カテゴリーから探す"}
+
+.status_title
+  .inner.clearfix
+    .status_title_wrapper.clearfix
+      %i.fas.fa-tshirt
+      %h2
+        カテゴリー一覧
+.body
+  .inner
+    = render "shared/gender_tab"
+    %ul.anchor_lists.clearfix
+      - @top_categories.each do |top_category|
+        %li{class: "category_scroll", id: "#{top_category.id}"}
+          %a
+            = top_category.name
+    - @top_categories.each do |top_category|
+      %section.thumbnail_list
+        %h2.hover-link{id: "link-#{top_category.id}"}
+          = link_to top_category.name, top_category_path(top_category)
+        %ul.clearfix
+          - top_category.sub_categories.each do |sub_category|
+            %li
+              = link_to top_category_sub_category_path(top_category, sub_category) do
+                = image_tag sub_category.image
+                = link_to sub_category.name, top_category_sub_category_path(top_category, sub_category)
