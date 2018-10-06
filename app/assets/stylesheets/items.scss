@@ -1,5 +1,4 @@
 .wrapper {
-
   .headNavi {
     .center {
       height: 70px;
@@ -78,14 +77,13 @@
           }
         }
       }
+
       .sub-image-content {
-        height:161px;
         width: $width-show-left;
-        padding: 0 0 25px 0;
 
         .sub-image-content-mini {
           height: 80px;
-          width: 70px;
+          width: 60px;
           float: left;
 
           img {
@@ -93,18 +91,14 @@
           }
 
           p {
-            height: 35px;
-            width: 35px;
             font-size: 1vh;
-            margin: 0 0 0 17.5px;
+            text-align: center;
           }
         }
       }
 
       .item-content {
-        height: 965px;
         width: $width-show-left;
-        margin-top: 25px;
         border-top: $border-gray;
 
         h3 {
@@ -190,10 +184,9 @@
           position: relative;
 
           .price-content {
-
             .price {
               position: absolute;
-              bottom: 0px;
+              bottom: 0;
               font-size: 34px;
               line-height: 38px;
               float: left;
@@ -211,7 +204,7 @@
               width: 130px;
               background-color: #EEEEEE;
               margin: 0 -20px 0 165px;
-              padding: 10px 10px 10px 10px;
+              padding: 10px;
 
               .text {
                 height: 30px;
@@ -219,7 +212,6 @@
                 p {
                   font-size: 10px;
                 }
-
               }
             }
           }
@@ -235,71 +227,79 @@
             float: left;
             font-size: 13px;
             font-style: normal;
-            margin: 5px 0 0 0 ;
+            margin: 5px 0 0;
           }
-
         }
       }
 
       .cart-area {
-        height: 100px;
-        width: $width-show-right;
-        border-top: $border-gray;
-        border-bottom: $border-gray;
 
+        li {
+          border-top: $border-gray;
+          border-bottom: $border-gray;
+        }
         .item {
-          height: 80px;
-          width: 65px;
-          padding: 10px 0 10px 0;
+          width: 60px;
+          height: 60px;
+          padding: 10px 0;
           float: left;
 
           img {
-            margin: 0 15px 0 15px;
+            margin: 0 15px;
           }
 
           p {
             font-size: 10px;
-            margin: 0 15px 0 15px;
+            text-align: center;
+          }
+        }
+
+        .stock {
+          width: 80px;
+          float: left;
+          margin: 15px 15px 0 0;
+          .stock_info {
+            font-size: 12px;
+          }
+
+          .size_info {
+            font-size: 10px;
+            color: #808080;
           }
         }
 
         .cart-box {
-          height: 100px;
-          width:240px;
-          float: left;
-          position: relative;
+          .cart_btn {
+            background-color: #555;
+            @include set_btn(35px, 165px);
+            color: $white;
+            position: relative;
+            float: left;
+            border-radius: 4px;
+            margin: 15px 10px 0 0;
 
-          .cart {
-            height: 40px;
-            width: 230px;
-            @include fit_to_center();
-            background-color: #2d2d2d;
-
-            i {
-              height: 10px;
-              margin: 12px 10px 15px 50px;
+            .fa-shopping-cart {
               float: left;
-              font-size: 15px;
+              display: block;
+              margin: 8px 10px 0;
+              font-size: 18px;
             }
 
             p {
-              height: 10px;
-              margin: 9px 10px 15px 10px;
-              color: white;
+              float: left;
               font-size: 15px;
             }
           }
 
           .heart {
-            height: 100px;
-            width: 75px;
-            margin: 0 0 0 245px;
+            margin: 15px 0;
+            float: left;
 
             p {
               height: 10px;
               width: 10px;
               font-size: 25px;
-              margin: 37px 0 0 25px;
+              margin: 5px 0 0 10px;
               color: gray;
             }
           }
@@ -324,7 +324,7 @@
             color: #2d2d2d;
             font-size: 15px;
             line-height: 60px;
-            margin: 0 17.5px 0 17.5px;
+            margin: 0 17.5px;
             text-decoration: none;
           }
         }
@@ -340,15 +340,14 @@
             height: 60px;
             width: 125px;
 
-          a {
-            width: 25px;
-            color: #2d2d2d;
-            font-size: 15px;
-            line-height: 60px;
-            margin: 0 17.5px 0 17.5px;
-            text-decoration: none;
-          }
-
+            a {
+              width: 25px;
+              color: #2d2d2d;
+              font-size: 15px;
+              line-height: 60px;
+              margin: 0 17.5px;
+              text-decoration: none;
+            }
           }
         }
       }
@@ -358,13 +357,13 @@
         width: $width-show-right;
 
         p {
-          height:20px;
-          font-size:13px;
-          padding: 20px 0 20px 0;
+          height: 20px;
+          font-size: 13px;
+          padding: 20px 0;
         }
       }
 
-      .action-nav{
+      .action-nav {
         height: 50px;
         width: $width-show-right;
         margin-top: 10px;
@@ -376,7 +375,7 @@
           color: rgb(36, 144, 208);
           text-decoration: none;
           font-size: 15px;
-          line-height: 50px
+          line-height: 50px;
         }
       }
 
@@ -384,7 +383,7 @@
         height: 200px;
         width: 370px;
         margin-top: 20px;
-        padding: 15px 15px 13px 15px;
+        padding: 15px 15px 13px;
         background-color: rgb(240, 240, 240);
 
         .text-box {
@@ -410,7 +409,7 @@
 
             dd {
               height: 30px;
-              width:240px;
+              width: 240px;
               margin-left: 10px;
               float: left;
               line-height: 30px;
@@ -419,7 +418,7 @@
                 height: 30px;
                 color: rgb(36, 144, 208);
                 text-decoration: none;
-                line-height: 30px
+                line-height: 30px;
               }
             }
           }
@@ -442,7 +441,6 @@
         span {
           margin: 0 5px 0 5px 0;
           font-size: 13px;
-
         }
       }
 
@@ -461,29 +459,29 @@
         }
       }
 
-        .brand-box{
+      .brand-box {
+        height: 30px;
+        width: 250px;
+        margin-top: 10px;
+        border: $border-blue;
+
+        i {
           height: 30px;
-          width: 250px;
-          margin-top: 10px;
-          border: $border-blue;
-
-          i {
-            height: 30px;
-            line-height: 30px;
-            color: #007ebe;
-            font-size: 17px;
-            padding: 0 10px 0 10px;
-            float: left;
-          }
-
-          p {
-            height: 30px;
-            line-height: 30px;
-            color: #007ebe;
-            font-size: 13px;
-            float: left;
-          }
+          line-height: 30px;
+          color: #007ebe;
+          font-size: 17px;
+          padding: 0 10px;
+          float: left;
         }
+
+        p {
+          height: 30px;
+          line-height: 30px;
+          color: #007ebe;
+          font-size: 13px;
+          float: left;
+        }
+      }
     }
   }
 
@@ -524,9 +522,9 @@
         height: 40px;
         width: $width-show-main;
 
-        a{
+        a {
           height: 30px;
-          padding: 5px 5px 5px 5px;
+          padding: 5px;
           border-top: $border-gray;
           border-right: $border-gray;
           border-left: $border-gray;
@@ -557,14 +555,14 @@
       }
 
       .shops {
-        margin: 15px 0 15px 0;
+        margin: 15px 0;
         height: 60px;
         width: $width-show-main;
 
-        a{
+        a {
           height: 25px;
           width: 230px;
-          padding: 5px 0 5px 0;
+          padding: 5px 0;
           text-decoration: none;
           color: #646464;
           float: left;
@@ -572,4 +570,14 @@
       }
     }
   }
+}
+
+.top_image {
+  width: 500px;
+  height: 600px;
+}
+
+.sub_image {
+  width: 35px;
+  height: 42px;
 }

@@ -1,42 +1,43 @@
-// テスト用 後で削除
 - if shop_image == true
   - img_url = @shop_images.sample
 - else
-  - img_url = 'https://c.imgz.jp/940/31652940/31652940_236_D_215.jpg'
+  - img_url = item.images[0].url
 %li.item
   .item__images
     - case image_size
     - when "large"
-      = link_to "#" do
+      = link_to shop_item_path(item.shop.id, item.id) do
         = image_tag img_url, class: "image-size-large"
         - if rank_num > 0
           = render partial: "tops/center/ranking", locals: {rank_num: rank_num}
         - if coupon > 0
           = render partial: "tops/center/coupon", locals: {coupon: coupon}
     - when "middle"
-      = link_to "#" do
+      = link_to shop_item_path(item.shop.id, item.id) do
         = image_tag img_url, class: "image-size-middle"
         - if rank_num > 0
           = render partial: "tops/center/ranking", locals: {rank_num: rank_num}
         - if coupon > 0
           = render partial: "tops/center/coupon", locals: {coupon: coupon}
     - when "small"
-      = link_to "#" do
+      = link_to shop_item_path(item.shop.id, item.id) do
         = image_tag img_url, class: "image-size-small"
 
   .item__info
     - if image_size == "large" || image_size == "middle"
       .item__info__brand
-        = link_to "ZOZO", "#"
+        - if item.shop.name.length > 10
+          - item.shop.name = item.shop.name.slice(0..10) + "..."
+        = link_to item.shop.name, "#"
       .item__info__price.price-block-large.clearfix
         .item__info__price__num.price-font-large
-          ¥4,900
+          = "¥" + number_with_delimiter(item.price).to_s
         .item__info__price__tax
           税込
     - else
       - if shop_image == false
         .item__info__price.price-block-small.clearfix
           .item__info__price__num.price-font-small
-            ¥4,900
+            = "¥" + item.price.to_s
           .item__info__price__tax
             税込

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'carts/register' => 'carts#register'
 
-  get 'carts/create' => 'carts#create'
+  post 'carts/create' => 'carts#create'
 
   delete 'carts/destroy' => 'carts#destroy'
 
