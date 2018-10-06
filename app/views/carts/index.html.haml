@@ -42,7 +42,8 @@
         .total
           .total-right
             %p 商品合計
-            .price ¥1,998
+            .price
+              = number_to_currency(@total_price, unit: "￥", precision: 0)
         .payment
           %p
             %b ツケ払いできます。
@@ -69,13 +70,13 @@
           %ul#top__center__pickup__contents.clearfix
             - 15.times.each do |i|
               #top__center__pickup__contents__item
-                = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+                -# = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
         .item-ranking
           %h3 人気アイテムランキング
           %ul#top__center__pickup__contents.clearfix
             - 15.times.each do |i|
               #top__center__pickup__contents__item
-                = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+                -# = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
     .cart-next
       .form
         %a{ :href => 'http://google.co.jp' }レジへ進む
@@ -103,4 +104,4 @@
           %ul#top__center__pickup__contents.clearfix
             - 15.times.each do |i|
               #top__center__pickup__contents__item
-                = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+                -# = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
