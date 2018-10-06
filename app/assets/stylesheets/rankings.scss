@@ -1,10 +1,22 @@
-.wrapper{
+.r.wrapper{
   width: $width-show-main;
   margin: auto;
 
-  .header {
+  .r.header {
     width: $width-show-main;
     height: 70px;
     line-height: 70px;
+
+    li {
+      color: rgb(128, 128, 128);
+      float: left;
+      margin-right: 5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: $main-blue-color;
+      margin-right: 5px;
+    }
   }
-}
+
