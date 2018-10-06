@@ -8,6 +8,28 @@ class ScrapingCategory
     return categories
   end
 
+  def get_category_images()
+    agent = Mechanize.new
+    page = agent.get("http://zozo.jp/category/")
+    img_elements = page.search(".thumbList img")
+    images = []
+    img_elements.each do |ele|
+      images << ele.get_attribute("src")
+    end
+    return images
+  end
+
+  def get_category_names()
+    agent = Mechanize.new
+    page = agent.get("http://zozo.jp/category/")
+    name_elements = page.search(".thumbList p")
+    names = []
+    name_elements.each do |ele|
+      names << ele.inner_text
+    end
+    return names
+  end
+
   def register_database
     agent = Mechanize.new
     page = agent.get("http://zozo.jp/category/")
@@ -48,14 +70,20 @@ class ScrapingCategory
       new_top_category.save
     end
 
+    sub_category_images = get_category_images
+    sub_category_names = get_category_names
+
+    k = 0
     top_category_lists.each_with_index do |list, i|
       list.each do |s_name|
         item = top_category[i]
         t = TopCategory.find_by(name: item)
         sub_category = SubCategory.where(name: s_name).first_or_initialize
         sub_category.name = s_name
+        sub_category.image = get_category_images[k]
         sub_category.top_category_id = t.id
         sub_category.save
+        k += 1
       end
     end
   end
