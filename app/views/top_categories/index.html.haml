@@ -22,5 +22,4 @@
             %li
               = link_to top_category_sub_category_path(top_category, sub_category) do
                 = image_tag sub_category.image
-                %a
-                  = sub_category.name
+                = link_to sub_category.name, top_category_sub_category_path(top_category, sub_category)
