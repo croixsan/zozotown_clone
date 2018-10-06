@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
     get 'order/index' => 'orders#index' #←ネストする
 
-  get 'rankings/index' –≥ 'rankings#index'
+  get 'rankings/index' => 'rankings#index'
 
   get "men_top"    => "tops#men"
   get "women_top"  => "tops#women"
