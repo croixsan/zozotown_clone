@@ -2,4 +2,9 @@
   width: $width-show-main;
   margin: auto;
 
+  .header {
+    width: $width-show-main;
+    height: 70px;
+    line-height: 70px;
+  }
 }
