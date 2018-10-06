@@ -22,19 +22,97 @@
 
   .r.main-content {
     width: $width-show-main;
-  }
 
-  .r.title-area {
-    width: $width-show-main;
-    margin-top: 5px;
+    .r.title-area {
+      width: $width-show-main;
+      margin-top: 5px;
+      border-bottom: $border-gray;
 
-    h1 {
-      font-size: 23px;
+      h1 {
+        font-size: 23px;
 
-      i {
-        font-size: 27px;
-        color: $main-blue-color;
+        i {
+          font-size: 27px;
+          color: $main-blue-color;
+        }
       }
+
+      .r.main-tab {
+        height: 38px;
+        margin-top: 29px;
+
+        .r.current {
+          width: 93px;
+          height: 38px;
+          text-align: center;
+          background-color: rgb(240, 240, 240);
+          float: left;
+
+          a {
+            width: 93px;
+            height: 38px;
+            line-height: 38px;
+            color: #646464;
+          }
+        }
+
+        div {
+          width: 93px;
+          height: 38px;
+          text-align: center;
+          float: left;
+
+          a {
+            width: 93px;
+            height: 38px;
+            line-height: 38px;
+            color: #646464;
+          }
+        }
+
+        .r.other-ranking {
+          width: 208px;
+          height: 20px;
+          margin-top: 14px;
+          float: right;
+          color: $main-blue-color;
+        }
+      }
+    }
+
+    .r.brand-choice {
+      width: 973px;
+      height: 30px;
+      margin: 22px 0 0 7px;
+      padding-bottom: 20px;
+
+      .r.brand-label {
+        width:94px;
+        height: 22px;
+        padding: 2px 0 6px 0;
+        float: left;
+      }
+
+      .r.category-list-area {
+        width: 400px;
+        height: 30px;
+
+        .r.border {
+          color: #646464;
+        }
+
+        .r.category-list {
+          width: 200px;
+          height: 30px;
+          margin-left: 6px;
+          color: #646464;
+        }
+      }
+    }
+
+    .r.ranking-item-content {
+      width: $width-show-main;
     }
   }
 }
+
