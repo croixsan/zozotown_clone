@@ -20,3 +20,21 @@
     }
   }
 
+  .r.main-content {
+    width: $width-show-main;
+  }
+
+  .r.title-area {
+    width: $width-show-main;
+    margin-top: 5px;
+
+    h1 {
+      font-size: 23px;
+
+      i {
+        font-size: 27px;
+        color: $main-blue-color;
+      }
+    }
+  }
+}
