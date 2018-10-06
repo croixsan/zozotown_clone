@@ -3,7 +3,7 @@ class ChangeDeliveryDateToOrders < ActiveRecord::Migration[5.0]
     change_column :orders, :delivery_date, :datetime, null: false
     change_column :orders, :payment, :string, null: false
     change_column :orders, :payment_num, :integer, null: false
-    change_column :orders, :card_id, :integer, null: false
-    change_column :orders, :delivery_id, :integer, null: false
+    change_column :orders, :card_id, :integer, null: false, foreign_key: true
+    add_column :orders, :delivery_id, :integer, null: false, foreign_key: true
   end
 end
