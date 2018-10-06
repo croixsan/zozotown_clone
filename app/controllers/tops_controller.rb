@@ -11,9 +11,7 @@ class TopsController < ApplicationController
     @shops = Shop.order("items_count DESC").limit(10)
 
     # チェックしたアイテム
-    @checked_items = current_user.checked_items.order("created_at DESC").map do |checked_item|
-       Item.includes(:images).find_by(id: checked_item.item_id)
-    end
+    @checked_items = get_checked_items
   end
 
   def men
