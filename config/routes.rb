@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       resources :favorites, only: [:create, :destroy]
     end
   end
+  resources :favorites, only: [:index]
   resources :top_categories, only: [:index, :show] do
     resources :sub_categories, only: [:index, :show]
   end
