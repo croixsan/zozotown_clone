@@ -90,7 +90,8 @@
                 = link_to carts_create_path(item_id: @item.id, cart_id: @cart.id, item_num_id: @item.item_nums[i].id), method: :post, class: "cart_btn clearfix" do
                   %i.fas.fa-shopping-cart
                   %p カートへ入れる
-                = render partial: "favorite_icon", locals: {item: @item, shop: @shop, item_num: stock.item_num}
+                .favorite
+                  = render partial: "favorites/favorite_icon", locals: {item: @item, shop: @shop, item_num_id: stock.item_num.id}
       .condition-tab
         .left-tab
           %a{ :href => 'http://google.co.jp' }アイテム説明
