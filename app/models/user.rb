@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_one :cart, dependent: :destroy
   has_many :checked_items, dependent: :destroy
   has_many :checked_shops
-  has_many :favorite_items
+  has_many :favorite_items, dependent: :destroy
   has_many :favorite_brands
   has_many :favorite_shops
   has_many :deliverys
