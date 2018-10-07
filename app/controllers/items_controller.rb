@@ -11,11 +11,6 @@ class ItemsController < ApplicationController
     @stock_count = @item.stocks.length
 
     # 「チェックしたアイテム」機能
-    checked_item = current_user.checked_items.find_by(item_id: @item.id)
-    if checked_item
-      checked_item.save
-    else
-      current_user.checked_items.create(item_id: @item.id)
-    end
+    current_user.checked_items.where(item_id: @item.id).first_or_create.update(updated_at: Time.now)
   end
 end
