@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
-
+  include Checked
+  
   def index
     @cart = current_user.cart
     @items = @cart.items

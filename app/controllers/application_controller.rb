@@ -36,12 +36,4 @@ class ApplicationController < ActionController::Base
     end
     return @items
   end
-
-  # 以前チェックしたアイテムを取得する
-  def get_checked_items
-    checked_items = current_user.checked_items.order("created_at DESC").map do |checked_item|
-       Item.includes(:images).find_by(id: checked_item.item_id)
-    end
-    return checked_items
-  end
 end

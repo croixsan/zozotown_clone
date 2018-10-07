@@ -1,4 +1,6 @@
 class TopsController < ApplicationController
+  include Checked
+
   def index
     @zozo_brand = Brand.find_by(name: "ZOZO")
     @zozo_items = @zozo_brand.items.limit(3).includes(:images)
