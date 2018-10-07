@@ -11,6 +11,6 @@ class ItemsController < ApplicationController
     @stock_count = @item.stocks.length
 
     # 「チェックしたアイテム」機能
-    current_user.checked_items.where(item_id: @item.id).first_or_create.update(updated_at: Time.now)
+    current_user.checked_items.where(item_id: @item.id).first_or_create.update(updated_at: Time.current)
   end
 end
