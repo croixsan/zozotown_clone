@@ -11,6 +11,11 @@ class ItemsController < ApplicationController
     @stock_count = @item.stocks.length
 
     # 「チェックしたアイテム」機能
-    current_user.checked_items.create(item_id: @item.id)
+    checked_item = current_user.checked_items.find_by(item_id: @item.id)
+    if checked_item
+      checked_item.save
+    else
+      current_user.checked_items.create(item_id: @item.id)
+    end
   end
 end
