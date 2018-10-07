@@ -24,7 +24,7 @@ module Search
       if url.include?("shops")
         items = items.where(shop_id: params[:shop_id])
       end
-      return @items
+      return items
     end
   end
 end
