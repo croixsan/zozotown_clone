@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   has_many :carts, through: :shoppings
   # has_many :ordered_items
   # has_many :orders, through: :ordered_items
-  # has_many :checked_items
+  has_many :checked_items, dependent: :destroy
   # has_many :favorite_items
 
   # enum gender: {all: 1, mens: 2, ladies: 3, kids: 4}

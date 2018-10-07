@@ -1,4 +1,5 @@
 class ShopsController < ApplicationController
+  include Search
   def index
     @shops = []
     # アルファベットで始まるショップの検索
