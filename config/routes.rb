@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "order#select"
+  root "orders#select"
   # root "tops#index"
   devise_for :users, controllers: {
     registrations: 'users/registrations',

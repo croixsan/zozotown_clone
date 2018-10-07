@@ -6,16 +6,32 @@
     width: $width-wall-main;
     margin: 0 auto;
     font-size: 25px;
+    img {
+      height: 40px;
+      width: 300px;
+      // height: 26px;
+      // width: 186px;
+    }
   }
   &_content {
     width: $width-wall-main;
     min-height: 773px;
     margin: 0 auto;
     &_head {
-      height: 45px;
-      clear: both;
+      height: 80px;
+      line-height: 80px;
       border-bottom: 1px solid $header-search-btn-color;
       font-size: 21px;
+      h2 {
+        display: inline-block;
+      }
+      &_root {
+        float: right;
+        img {
+          height: 80px;
+
+        }
+      }
     }
     &_main {
       width: 645px;
@@ -23,11 +39,12 @@
       float: left;
       z-index: 999;
       &_destination {
-        min-height: 150px;
-        padding: 10px 0;
+        min-height: 160px;
+        padding: 20px 0;
         border-bottom: 1px solid $header-search-btn-color;
         &_title {
-          width: $width-payment-title;
+          height: 160px;
+          width: $width-title;
           float:left;
         }
         &_main {
@@ -39,6 +56,7 @@
             width: 30px;
             float: left;
             margin: auto 0;
+            border-bottom: 1px solid $header-search-btn-color;
           }
         }
         &_add {
@@ -47,26 +65,32 @@
           line-height: 80px;
           float: right;
           &_check {
-            height:80px;
-            width: 30px;
-            float: left;
-            margin: auto 0;
+            width: $width-form;
+            height: 80px;
+            line-height: 80px;
+            border-bottom: 1px solid $header-search-btn-color;
+            &_btn {
+              height:80px;
+              width: 30px;
+              float: left;
+              margin: auto 0;
+            }
           }
         }
         &_form {
           width: $width-form;
-          height: 480px;
+          height: 520px;
           float: right;
-          background-color: #f0f0f0;
+          background-color: $form-color;
           padding: 13px 20px;
           margin: 0 30px 0 0;
           &_check {
             width: $width-form;
-            height: 50px;
-            line-height: 50px;
+            height: 80px;
+            line-height: 80px;
             border-bottom: 1px solid $header-search-btn-color;
             &_btn {
-              height:50px;
+              height:80px;
               width: 30px;
               float: left;
               margin: auto 0;
@@ -76,43 +100,113 @@
             height: $height-newform;
             width: $width-newform;
             float: left;
-            padding: $paddinp-newform;
+            &_title {
+              height: $height-newform;
+              width: $width-form-title;
+              line-height: $height-newform;
+              float: left;
+            }
+            select {
+              margin:10px 0 0 0;
+              width: 250px;
+              height: 40px;
+            }
           }
           &_name {
             height: $height-newform;
             width: $width-newform;
             float: left;
-            padding: $paddinp-newform;
+            &_title {
+              height: $height-newform;
+              width: $width-form-title;
+              line-height: $height-newform;
+              float: left;
+            }
+            &_form {
+              height: $height-form-form;
+              width: $width-form-form;
+              margin:7px 0 0 0;
+            }
           }
           &_post-num {
             height: $height-newform;
             width: $width-newform;
             float: left;
-            padding: $paddinp-newform;
+            &_title {
+              height: $height-newform;
+              width: $width-form-title;
+              line-height: $height-newform;
+              float: left;
+            }
+            &_form {
+              height: $height-form-form;
+              width: $width-form-form;
+              margin:7px 0 0 0;
+            }
           }
           &_prefecture {
             height: $height-newform;
             width: $width-newform;
             float: left;
-            padding: $paddinp-newform;
+            &_title {
+              height: $height-newform;
+              width: $width-form-title;
+              line-height: $height-newform;
+              float: left;
+            }
+            &_form {
+              height: $height-form-form;
+              width: $width-form-form;
+              margin:7px 0 0 0;
+            }
           }
           &_addless1 {
             height: $height-newform;
             width: $width-newform;
             float: left;
-            padding: $paddinp-newform;
+            &_title {
+              height: $height-newform;
+              width: $width-form-title;
+              line-height: $height-newform;
+              float: left;
+            }
+            &_form {
+              height: $height-form-form;
+              width: $width-form-form;
+              margin:7px 0 0 0;
+            }
           }
           &_addless2 {
             height: $height-newform;
             width: $width-newform;
             float: left;
-            padding: $paddinp-newform;
+            &_title {
+              height: $height-newform;
+              width: $width-form-title;
+              line-height: $height-newform;
+              float: left;
+            }
+            &_form {
+              height: $height-form-form;
+              width: $width-form-form;
+              margin:7px 0 0 0;
+            }
           }
           &_phone-num {
             height: $height-newform;
             width: $width-newform;
             float: left;
-            padding: $paddinp-newform;
+            &_title {
+              height: $height-newform;
+              width: $width-form-title;
+              line-height: $height-newform;
+              float: left;
+            }
+            &_form {
+              height: $height-form-form;
+              width: $width-form-form;
+              margin:7px 0 0 0;
+            }
           }
         }
       }
@@ -121,7 +215,7 @@
         padding: 20px 0;
         border-bottom: 1px solid $header-search-btn-color;
         &_title {
-          width: $width-payment-title;
+          width: $width-title;
           height:80px;
           float: left;
         }
@@ -129,123 +223,669 @@
           width: $width-content-main;
           min-height: 50px;
           float: right;
-          &_lecode {
-            &_designation {
-              width: 150px;
+          &_none {
+            height: $height-sipping;
+            clear: both;
+            &_title {
+              width: $width-payment-title;
+              height: $height-radio;
+              line-height: $height-radio;
               float: left;
+              input {
+                height: $height-radio;
+                width: $width-radio;
+                float: left;
+                margin: auto 0;
+              }
             }
             &_time {
-              width: 150px;
+              width: $width-payment-points;
+              height: $height-radio;
+              line-height: $height-radio;
               float: left;
             }
             &_price {
-              width:136px;
+              width:$width-payment-price;
+              height: $height-radio;
+              line-height: $height-radio;
               float: right;
             }
+          }
+          &_specified {
+            height: $height-sipping;
+            clear: both;
+            &_title {
+              width: $width-payment-title;
+              height: $height-radio;
+              line-height: $height-radio;
+              float: left;
+              input {
+                height: $height-radio;
+                width: $width-radio;
+                float: left;
+                margin: auto 0;
+              }
+            }
+            &_time {
+              width: $width-payment-points;
+              height: $height-radio;
+              line-height: $height-radio;
+              float: left;
+            }
+            &_price {
+              width:$width-payment-price;
+              height: $height-radio;
+              line-height: $height-radio;
+              float: right;
+            }
+          }
+          &_same {
+            height: $height-sipping;
+            clear: both;
+            &_title {
+              width: $width-payment-title;
+              height: $height-radio;
+              line-height: $height-radio;
+              float: left;
+              input {
+                height: $height-radio;
+                width: $width-radio;
+                float: left;
+                margin: auto 0;
+              }
+            }
+            &_time {
+              width: $width-payment-points;
+              height: $height-radio;
+              line-height: $height-radio;
+              float: left;
+            }
+            &_price {
+              width:$width-payment-price;
+              height: $height-radio;
+              line-height: $height-radio;
+              float: right;
+            }
+          }
+          &_form {
+            width: $width-form;
+            height: 100px;
+            float: right;
+            background-color: $form-color;
+            padding: 13px 20px;
+            margin: 0 30px 0 0;
           }
         }
       }
       &_payment {
-        max-height: 370px;
+        min-height: 370px;
         padding: 20px 0;
         border-bottom: 1px solid $header-search-btn-color;
         &_title {
-          // width: $width-payment-title;
+          width: $width-title;
           height:80px;
           float: left;
           clear: both;
         }
         &_main {
           min-height: 60px;
-          // width: $width-content-main;
+          width: $width-content-main;
           float: right;
           &_tuke {
             height: $height-payment-lecode;
+            clear: both;
             &_title {
               width: $width-payment-title;
+              height: $height-radio;
+              line-height: $height-radio;
               float: left;
+              input {
+                height: $height-radio;
+                width: $width-radio;
+                float: left;
+                margin: auto 0;
+              }
             }
             &_points {
               width: $width-payment-points;
+              height: $height-radio;
+              line-height: $height-radio;
               float: left;
             }
             &_price {
               width:$width-payment-price;
+              height: $height-radio;
+              line-height: $height-radio;
               float: right;
+            }
+          }
+          #tukeform {
+            width: $width-form;
+            float: right;
+            background-color: $form-color;
+            padding: 13px 20px;
+            margin: 0 30px 0 0;
+            .atention p {
+              color: $cation;
+
             }
           }
           &_zozo {
             height: $height-payment-lecode;
+            clear: both;
             &_title {
               width: $width-payment-title;
+              height: $height-radio;
+              line-height: $height-radio;
               float: left;
+              input {
+                height: $height-radio;
+                width: $width-radio;
+                float: left;
+                margin: auto 0;
+              }
             }
             &_points {
               width: $width-payment-points;
+              height: $height-radio;
+              line-height: $height-radio;
               float: left;
             }
             &_price {
               width:$width-payment-price;
+              height: $height-radio;
+              line-height: $height-radio;
               float: right;
+            }
+          }
+          .zozocontent {
+            width: $width-form;
+            min-height: 200px;
+            float: right;
+            background-color: $form-color;
+            padding: 13px 20px;
+            margin: 0 30px 0 0;
+            &_number {
+              min-height: $height-newform;
+              width: $width-newform;
+              float: left;
+              clear: both;
+              &_title {
+                height: $height-newform;
+                width: $width-form-title;
+                line-height: $height-newform;
+                float: left;
+              }
+              &_form {
+                height: $height-form-form;
+                width: $width-form-form;
+                margin:7px 0 0 0;
+              }
+            }
+            &_limit {
+              min-height: $height-newform;
+              width: $width-newform;
+              float: left;
+              clear: both;
+              &_title {
+                height: $height-newform;
+                width: $width-form-title;
+                line-height: $height-newform;
+                float: left;
+              }
+              select {
+                height: 30px;
+                width: 100px;
+                margin:7px 0 0 0;
+                float: left;
+              }
+              &_year {
+                height: $height-form-form;
+                line-height: $height-form-form;
+                width: 120px;
+                margin:7px 0 0 0;
+                float: left;
+              }
+              &_month {
+                height: $height-form-form;
+                line-height: $height-form-form;
+                width: 120px;
+                margin:7px 0 0 0;
+                float: left;
+              }
+            }
+            &_meny {
+              min-height: $height-newform;
+              width: $width-newform;
+              float: left;
+              clear: both;
+              &_title {
+                height: $height-newform;
+                width: $width-form-title;
+                line-height: $height-newform;
+                float: left;
+              }
+              &_form {
+                height: $height-form-form;
+                width: $width-form-form;
+                margin:7px 0 0 0;
+              }
+              select {
+                margin:10px 0 0 0;
+                width: 250px;
+                height: 40px;
+              }
             }
           }
           &_credit {
             height: $height-payment-lecode;
+            clear: both;
             &_title {
               width: $width-payment-title;
+              height: $height-radio;
+              line-height: $height-radio;
               float: left;
+              input {
+                height: $height-radio;
+                width: $width-radio;
+                float: left;
+                margin: auto 0;
+              }
             }
             &_points {
               width: $width-payment-points;
+              height: $height-radio;
+              line-height: $height-radio;
               float: left;
             }
             &_price {
               width:$width-payment-price;
+              height: $height-radio;
+              line-height: $height-radio;
               float: right;
+            }
+          }
+          .crecontent {
+            width: $width-form;
+            min-height: 200px;
+            float: right;
+            background-color: $form-color;
+            padding: 13px 20px;
+            margin: 0 30px 0 0;
+            &_number {
+              min-height: $height-newform;
+              width: $width-newform;
+              float: left;
+              clear: both;
+              &_title {
+                height: $height-newform;
+                width: $width-form-title;
+                line-height: $height-newform;
+                float: left;
+              }
+              &_form {
+                height: $height-form-form;
+                width: $width-form-form;
+                margin:7px 0 0 0;
+              }
+            }
+            &_limit {
+              min-height: $height-newform;
+              width: $width-newform;
+              float: left;
+              clear: both;
+              &_title {
+                height: $height-newform;
+                width: $width-form-title;
+                line-height: $height-newform;
+                float: left;
+              }
+              select {
+                height: 30px;
+                width: 100px;
+                margin:7px 0 0 0;
+                float: left;
+              }
+              &_year {
+                height: $height-form-form;
+                line-height: $height-form-form;
+                width: 120px;
+                margin:7px 0 0 0;
+                float: left;
+              }
+              &_month {
+                height: $height-form-form;
+                line-height: $height-form-form;
+                width: 120px;
+                margin:7px 0 0 0;
+                float: left;
+              }
+            }
+            &_meny {
+              min-height: $height-newform;
+              width: $width-newform;
+              float: left;
+              clear: both;
+              &_title {
+                height: $height-newform;
+                width: $width-form-title;
+                line-height: $height-newform;
+                float: left;
+              }
+              &_form {
+                height: $height-form-form;
+                width: $width-form-form;
+                margin:7px 0 0 0;
+              }
+              select {
+                margin:10px 0 0 0;
+                width: 250px;
+                height: 40px;
+              }
             }
           }
           &_cash {
             height: $height-payment-lecode;
+            clear: both;
             &_title {
               width: $width-payment-title;
+              height: $height-radio;
+              line-height: $height-radio;
               float: left;
+              input {
+                height: $height-radio;
+                width: $width-radio;
+                float: left;
+                margin: auto 0;
+              }
             }
             &_points {
               width: $width-payment-points;
+              height: $height-radio;
+              line-height: $height-radio;
               float: left;
             }
             &_price {
               width:$width-payment-price;
+              height: $height-radio;
+              line-height: $height-radio;
               float: right;
             }
           }
           &_line {
             height: $height-payment-lecode;
+            clear: both;
             &_title {
               width: $width-payment-title;
+              height: $height-radio;
+              line-height: $height-radio;
               float: left;
+              input {
+                height: $height-radio;
+                width: $width-radio;
+                float: left;
+                margin: auto 0;
+              }
             }
             &_points {
               width: $width-payment-points;
+              height: $height-radio;
+              line-height: $height-radio;
               float: left;
             }
             &_price {
               width:$width-payment-price;
+              height: $height-radio;
+              line-height: $height-radio;
               float: right;
+            }
+          }
+          &_conbini {
+            height: $height-payment-lecode;
+            clear: both;
+            &_title {
+              width: $width-payment-title;
+              height: $height-radio;
+              line-height: $height-radio;
+              float: left;
+              input {
+                height: $height-radio;
+                width: $width-radio;
+                float: left;
+                margin: auto 0;
+              }
+            }
+            &_points {
+              width: $width-payment-points;
+              height: $height-radio;
+              line-height: $height-radio;
+              float: left;
+            }
+            &_price {
+              width:$width-payment-price;
+              height: $height-radio;
+              line-height: $height-radio;
+              float: right;
+            }
+          }
+          .concontent {
+            min-height: 400px;
+            width: $width-form;
+            float: right;
+            background-color: $form-color;
+            padding: 13px 20px;
+            &_check {
+              width: $width-form;
+              height: $height-conbini;
+            }
+            &_ca01 {
+              height: $height-conv;
+              clear: both;
+              padding: 0 20px;
+              &_title {
+                width: $width-conv;
+                height: $height-radio;
+                float: left;
+                input {
+                  height: 80px;
+                  width: $width-radio;
+                  float: left;
+                }
+                img {
+                  width: $width-conv-img;
+                  height: $height-conv-img;
+                  margin: 0 0 0 20px;
+                  float: left;
+                }
+              }
+              &_description {
+                width: 200px;
+                height: $height-radio;
+                float: left;
+              }
+            }
+            &_ca02 {
+              height: $height-conv;
+              clear: both;
+              padding: 0 20px;
+              &_title {
+                width: $width-conv;
+                height: $height-radio;
+                float: left;
+                input {
+                  height: 80px;
+                  width: $width-radio;
+                  float: left;
+                }
+                img {
+                  width: $width-conv-img;
+                  height: $height-conv-img;
+                  margin: 0 0 0 20px;
+                  float: left;
+                }
+              }
+              &_description {
+                width: 200px;
+                height: $height-radio;
+                float: left;
+              }
+            }
+            &_ca03 {
+              height: $height-conv;
+              clear: both;
+              padding: 0 20px;
+              &_title {
+                width: $width-conv;
+                height: $height-radio;
+                float: left;
+                input {
+                  height: 80px;
+                  width: $width-radio;
+                  float: left;
+                }
+                img {
+                  width: $width-conv-img;
+                  height: $height-conv-img;
+                  margin: 0 0 0 20px;
+                  float: left;
+                }
+              }
+              &_description {
+                width: 200px;
+                height: $height-radio;
+                float: left;
+              }
+            }
+            &_ca04 {
+              height: $height-conv;
+              clear: both;
+              padding: 0 20px;
+              &_title {
+                width: $width-conv;
+                height: $height-radio;
+                float: left;
+                input {
+                  height: 80px;
+                  width: $width-radio;
+                  float: left;
+                }
+                img {
+                  width: $width-conv-img;
+                  height: $height-conv-img;
+                  margin: 0 0 0 20px;
+                  float: left;
+                }
+              }
+              &_description {
+                width: 200px;
+                height: $height-radio;
+                float: left;
+              }
+            }
+            &_ca05 {
+              height: $height-conv;
+              clear: both;
+              padding: 0 20px;
+              &_title {
+                width: $width-conv;
+                height: $height-radio;
+                float: left;
+                input {
+                  height: 80px;
+                  width: $width-radio;
+                  float: left;
+                }
+                img {
+                  width: $width-conv-img;
+                  height: $height-conv-img;
+                  margin: 0 0 0 20px;
+                  float: left;
+                }
+              }
+              &_description {
+                width: 200px;
+                height: $height-radio;
+                float: left;
+              }
+            }
+            &_ca06 {
+              height: $height-conv;
+              clear: both;
+              padding: 0 20px;
+              &_title {
+                width: $width-conv;
+                height: $height-radio;
+                float: left;
+                input {
+                  height: 80px;
+                  width: $width-radio;
+                  float: left;
+                }
+                img {
+                  width: $width-conv-img;
+                  height: $height-conv-img;
+                  margin: 0 0 0 20px;
+                  float: left;
+                }
+              }
+              &_description {
+                width: 200px;
+                height: $height-radio;
+                float: left;
+              }
+            }
+            &_ca07 {
+              height: $height-conv;
+              clear: both;
+              padding: 0 20px;
+              &_title {
+                width: $width-conv;
+                height: $height-radio;
+                float: left;
+                input {
+                  height: 80px;
+                  width: $width-radio;
+                  float: left;
+                }
+                img {
+                  width: $width-conv-img;
+                  height: $height-conv-img;
+                  margin: 0 0 0 20px;
+                  float: left;
+                }
+              }
+              &_description {
+                width: 200px;
+                height: $height-radio;
+                float: left;
+              }
             }
           }
           &_blackcat {
             height: $height-payment-lecode;
+            clear: both;
             &_title {
               width: $width-payment-title;
+              height: $height-radio;
+              line-height: $height-radio;
               float: left;
+              input {
+                height: $height-radio;
+                width: $width-radio;
+                float: left;
+                margin: auto 0;
+              }
             }
             &_points {
               width: $width-payment-points;
+              height: $height-radio;
+              line-height: $height-radio;
               float: left;
             }
             &_price {
               width:$width-payment-price;
+              height: $height-radio;
+              line-height: $height-radio;
               float: right;
             }
           }
@@ -269,6 +909,7 @@
         &_list {
           &_button {
             height: 50px;
+            width: 268px;
             border-radius: 1px;
             background-color: $send-button;
             color: $white;
@@ -343,6 +984,10 @@
   display: block;
   clear: both;
 }
-.hide {
+// .hide {
+//   display:none;
+// }
+
+.hidedn {
   display:none;
 }
