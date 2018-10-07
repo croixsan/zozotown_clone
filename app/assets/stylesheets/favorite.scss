@@ -5,6 +5,9 @@
     height: 100%;
     width: $inner-width;
     margin: 0 auto;
+    &_list {
+      list-style: none;
+    }
     &_name {
       height: 60px;
       line-height: 60px;
