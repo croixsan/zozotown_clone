@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   def show
     @cart = current_user.cart
     @item = Item.find(params[:id])
+    @shop = @item.shop
     @images = @item.images
     @related_items = Item.where(shop_id: @item.shop.id)
     @color_count = @item.images.group(:color).length - 1 # -1: nilを除外

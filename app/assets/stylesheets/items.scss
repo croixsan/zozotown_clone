@@ -233,11 +233,11 @@
       }
 
       .cart-area {
-
         li {
           border-top: $border-gray;
           border-bottom: $border-gray;
         }
+
         .item {
           width: 60px;
           height: 60px;
@@ -258,6 +258,7 @@
           width: 80px;
           float: left;
           margin: 15px 15px 0 0;
+
           .stock_info {
             font-size: 12px;
           }
@@ -291,16 +292,26 @@
             }
           }
 
-          .heart {
+          .favorite {
             margin: 15px 0;
             float: left;
 
-            p {
-              height: 10px;
-              width: 10px;
-              font-size: 25px;
-              margin: 5px 0 0 10px;
-              color: gray;
+            &_icon {
+              text-decoration: none;
+
+              &_red {
+                color: red;
+              }
+
+              &_gray {
+                color: gray;
+              }
+
+              .fa-heart {
+                display: block;
+                font-size: 25px;
+                margin: 5px 0 0 10px;
+              }
             }
           }
         }
