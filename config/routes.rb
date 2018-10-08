@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   delete 'carts/destroy' => 'carts#destroy'
 
     get 'order/index' => 'orders#index' #←ネストする
+    get 'orders/select'
+    post 'orders/registration'
+
+  get 'rankings/index' => 'rankings#index'
 
   get 'rankings/index' => 'rankings#index'
 
@@ -74,3 +78,4 @@ Rails.application.routes.draw do
 
 
 end
+
