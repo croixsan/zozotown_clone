@@ -16,5 +16,8 @@ class ShopsController < ApplicationController
     # itemの絞り込み
     url = request.path_info
     @items = search_items_by_gender(url, @items)
+
+    # チェックしたショップ機能
+    current_user.checked_shops.where(shop_id: @shop.id).first_or_create.update(updated_at: Time.current)
   end
 end
