@@ -78,10 +78,11 @@
           %span 件
         .content_body.clarfix
           .content_body_list
-            - 20.times.each do
+            - @favorite_brands.each do |favorite_brand|
               .lcontent_body_list_content
-                = link_to "#" do
-                  %h2 ZOZO
+                = link_to  brand_path(favorite_brand.brand) do
+                  %h2
+                    = favorite_brand.brand.name
 
 
       #js-bland-none-content.content.hide
