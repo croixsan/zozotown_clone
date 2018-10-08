@@ -108,7 +108,7 @@ Things you may want to cover:
 | concept    | text        |                                        |
 | url        | string      |                                        |
 | gender     | string      | null: false                            |
-| logo       | string      |                                        |    
+| logo       | string      |                                        |
 
 ### Association
 - has_many :items
@@ -158,16 +158,17 @@ Things you may want to cover:
 - has_many :deliverys
 
 ## orders table
-| Column      | Type        | Options                                |
-|:------------|------------:|:--------------------------------------:|
-| user_id     | integer     | null: false, foreign_key: true         |
-| cart_id     | integer     | null: false, foreign_key: true         |
-| delivery_id | integer     | null: false, foreign_key: true         |
-| buy_date    | datetime    | null: false                            |
-| delivery_date| string     | null: false                            |
-| payment     | string      | null: false                            |
-| payment_num | integer     | null: false                            |
-| card_id     | integer     | foreign_key: true                      |
+| Column       | Type        | Options                                |
+|:-------------|------------:|:--------------------------------------:|
+| user_id      | integer     | null: false, foreign_key: true         |
+| cart_id      | integer     | null: false, foreign_key: true         |
+| delivery_id  | integer     | null: false, foreign_key: true         |
+| buy_date     | datetime    |                                        |
+| delivery_kind| integer     | null: false                            |
+| delivery_day | string      |                                        |
+| delivery_hour| string      |                                        |
+| payment_id   | integer     | null: false, foreign_key: true         |
+| card_id      | integer     | foreign_key: true                      |
 ### Association
 - belongs_to :user
 - has_many :ordered_items
@@ -175,6 +176,7 @@ Things you may want to cover:
 - has_one :delivery
 - has_one :card
 - has_one :cart
+- has_one :peyments
 
 ## ordered_items table
 | Column      | Type        | Options                                |
@@ -249,19 +251,29 @@ Things you may want to cover:
 - belongs_to :order
 
 ## card
-| Column      | Type        | Options                                |
-|:------------|------------:|:--------------------------------------:|
-| user_id     | integer     | null: false                            |
-| name        | string      | null: false                            |
-| number      | string      | null: false,foreign_key: true          |
-| limit_year  | integer     | null: false                            |
-| limit_month | integer     | null: false                            |
-| security_code| integer    | null: false                            |
+| Column       | Type        | Options                                |
+|:-------------|------------:|:--------------------------------------:|
+| user_id      | integer     | null: false                            |
+| name         | string      | null: false                            |
+| number       | string      | null: false,foreign_key: true          |
+| limit_year   | integer     | null: false                            |
+| limit_month  | integer     | null: false                            |
+| security_code| integer     | null: false                            |
+| payment_num  | integer     | null: false                            |
 
 ### Association
 - belongs_to :order
 - belongs_to :user
 
+## peyments
+| Column      | Type        | Options                                |
+|:------------|------------:|:--------------------------------------:|
+| method      | string      | null: false                            |
+| price       | integer     | null: false                            |
+| point_rate  | float       | null: false                            |
+
+### Association
+- belongs_to :order
 * Database initialization
 
 * How to run the test suite
