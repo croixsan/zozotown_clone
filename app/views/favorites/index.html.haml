@@ -100,10 +100,11 @@
           %span 件
         .content_body.clarfix
           .content_body_list
-            - 3.times.each do
+            - @favorite_shops.each do |favorite_shop|
               .list-content
-                = link_to "#" do
-                  %h2 ZOZO
+                = link_to shop_path(favorite_shop.shop) do
+                  %h2
+                    = favorite_shop.shop.name
 
 
       #js-shop-none-content.content.hide

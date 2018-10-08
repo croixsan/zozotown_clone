@@ -94,23 +94,34 @@
     font-size: 22px;
   }
 
-  .brand_name_kana {
-    font-size: 11px;
-  }
-
   .favorite_link {
+    width: 210px;
     margin-top: 17px;
     padding-bottom: 50px;
+    margin: 0 auto;
 
-    a {
-      text-decoration: none;
-      font-size: 12px;
-      color: $link-color;
-      padding-left: 5px;
-    }
+    .favorite_brand {
+      display: block;
+      margin-top: 20px;
+      .fa-heart {
+        float: left;
+        font-size: 18px;
+        margin-right: 5px;
+        width: 20px;
+        height: 20px;
+      }
 
-    .fa-heart {
-      color: $link-color;
+      p {
+        text-decoration: none;
+        float: left;
+      }
+
+      .color_red {
+        color: red;
+      }
+      .color_blue {
+        color: $link-color;
+      }
     }
   }
 }
