@@ -4,6 +4,15 @@ class ScrapingAllItem
   def search_item_links(url)
     agent = Mechanize.new
     page = agent.get(url)
+    # shopロゴの取得
+    if page.search("#shopMainVisual img")[0]
+      logo_url = page.search("#shopMainVisual img")[0].get_attribute("src")
+      shop_name = page.search("#breadCrumb a")[1].inner_text
+      shop = Shop.where(name: shop_name).first_or_initialize
+      shop.url = "http:" + logo_url
+      shop.save
+    end
+
     elements = page.search(".thumb a")
     item_numbers = []
     item_links = []
