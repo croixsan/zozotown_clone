@@ -12,6 +12,12 @@ class FavoritesController < ApplicationController
   def destroy
     favorite_items = current_user.favorite_items
     favorite_items.find_by(item_num_id: params[:item_num_id]).destroy()
+    respond_to do |format|
+      format.html{
+        redirect_to favorites_path
+      }
+      format.js{}
+    end
   end
 
   private
