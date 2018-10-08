@@ -136,11 +136,11 @@ ActiveRecord::Schema.define(version: 20181008084338) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "cart_id",       null: false
+    t.integer  "delivery_id",   null: false
     t.datetime "buy_date"
     t.string   "delivery_date", null: false
     t.string   "payment",       null: false
     t.integer  "card_id",       null: false
-    t.integer  "delivery_id",   null: false
   end
 
   create_table "shoppings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
