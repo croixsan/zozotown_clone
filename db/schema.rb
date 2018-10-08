@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181007122432) do
+ActiveRecord::Schema.define(version: 20181008073842) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",        null: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20181007122432) do
     t.integer  "security_code", null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "payment_num"
   end
 
   create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -137,9 +138,8 @@ ActiveRecord::Schema.define(version: 20181007122432) do
     t.integer  "cart_id",       null: false
     t.integer  "delivery_id",   null: false
     t.datetime "buy_date"
-    t.datetime "delivery_date", null: false
+    t.string   "delivery_date", null: false
     t.string   "payment",       null: false
-    t.integer  "payment_num",   null: false
     t.integer  "card_id",       null: false
   end
 
