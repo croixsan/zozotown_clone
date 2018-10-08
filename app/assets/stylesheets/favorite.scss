@@ -372,32 +372,3 @@
 .fa-black {
   color: #000000;
 }
-
-.favorite_link {
-  width: 200px;
-  margin: 0 auto;
-
-  .favorite_brand {
-    text-decoration: none;
-    .fa-heart {
-      float: left;
-      font-size: 18px;
-      margin-right: 5px;
-    }
-    p {
-      float: left;
-      color: red;
-    }
-  }
-
-  .un_favorite_brand {
-    .fa-heart {
-      float: left;
-      font-size: 18px;
-      margin-right: 5px;
-    }
-    p {
-      float: left;
-    }
-  }
-}
