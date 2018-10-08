@@ -34,14 +34,18 @@ Rails.application.routes.draw do
     end
   end
 
+  # -- お気に入り機能 --------------------
   resources :favorites, only: [:index] do
     collection do
       post :brand_create
+      post :shop_create
     end
     member do
       delete :brand_destroy
+      delete :shop_destroy
     end
   end
+
   resources :top_categories, only: [:index, :show] do
     resources :sub_categories, only: [:index, :show]
   end
@@ -78,7 +82,4 @@ Rails.application.routes.draw do
       resources :sub_categories, only: [:index, :show]
     end
   end
-
-
-
 end
