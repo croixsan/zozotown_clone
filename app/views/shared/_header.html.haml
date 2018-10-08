@@ -5,7 +5,8 @@
         = link_to "ZOZOTOWN", root_path
       #header__wrapper__left__search.clearfix
         #header__wrapper__left__search__textfield
-          %input{type: "text", placeholder: " 何かお探しですか？", class: "search-field", title: "検索フォーム"}
+          = form_tag('/searches/index', method: :get) do
+            %input{type: "text", placeholder: " 何かお探しですか？", name: "keyword", class: "search-field", title: "検索フォーム"}
         #header__wrapper__left__search__btn
           = link_to "#", title: "検索", id: "search-btn" do
             %i.fas.fa-search
