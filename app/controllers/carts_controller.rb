@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
-
+  include Checked
+  
   def index
     @cart = current_user.cart
     @items = @cart.items
@@ -7,6 +8,12 @@ class CartsController < ApplicationController
     @item_nums = @cart.item_nums.group(:number)
     @count = @item_nums.count
     @total_price = get_total_price(@items)
+<<<<<<< HEAD
+=======
+
+    # チェックしたアイテム
+    @checked_items = get_checked_items
+>>>>>>> master
   end
 
   def create

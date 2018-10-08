@@ -1,0 +1,7 @@
+- if user_signed_in?
+  - if favorite = favorite_item?(item_num_id)
+    = link_to shop_item_favorite_path(shop, item, favorite, item_num_id: item_num_id), method: :delete, class: "favorite_icon", id: "#{item_num_id}", remote: true do
+      %i.fas.fa-heart.favorite_icon_red
+  - else
+    = link_to shop_item_favorites_path(shop, item, item_num_id: item_num_id), method: :post, class: "favorite_icon", id: "#{item_num_id}", remote: true do
+      %i.fas.fa-heart.favorite_icon_gray

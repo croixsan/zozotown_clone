@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get 'rankings/index' => 'rankings#index'
 
+  get 'rankings/index' => 'rankings#index'
+
   get "men_top"    => "tops#men"
   get "women_top"  => "tops#women"
   get "kid_top"    => "tops#kid"
@@ -32,8 +34,11 @@ Rails.application.routes.draw do
   resources :tops, only: [:index]
   resources :brands, only: [:index, :show], concerns: :categories
   resources :shops, only: [:index, :show], concerns: :categories do
-    resources :items, only: [:index, :show]
+    resources :items, only: [:index, :show] do
+      resources :favorites, only: [:create, :destroy]
+    end
   end
+  resources :favorites, only: [:index]
   resources :top_categories, only: [:index, :show] do
     resources :sub_categories, only: [:index, :show]
   end

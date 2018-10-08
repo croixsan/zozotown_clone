@@ -38,7 +38,12 @@
   %ul#top__center__pickup__contents.clearfix
     - @checked_items.each do |item|
       #top__center__pickup__contents__item
+<<<<<<< HEAD
         = render partial: 'item', locals: {item: item, image_size: "small", rank_num: 0, coupon: 0, shop_image: false}
+=======
+        - if item.images[0]
+          = render partial: 'item', locals: {item: item, image_size: "small", rank_num: 0, coupon: 0, shop_image: false}
+>>>>>>> master
 %section#top__center__shops
   .section-header
     %h2 チェックしたショップ

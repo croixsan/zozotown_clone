@@ -1,4 +1,5 @@
 class SubCategoriesController < ApplicationController
+  include Search
   def show
     @sub_category = SubCategory.find(params[:id])
     @top_category = @sub_category.top_category

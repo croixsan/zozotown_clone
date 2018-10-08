@@ -1,4 +1,8 @@
 class TopCategoriesController < ApplicationController
+<<<<<<< HEAD
+=======
+  include Search
+>>>>>>> master
   def index
     @top_categories = TopCategory.all.includes(:sub_categories)
   end
