@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-before_action :setup_user
+  before_action :setup_user
   def index
   end
 
@@ -13,7 +13,7 @@ before_action :setup_user
   end
 
   def registration
-    # binding.pry
+    binding.pry
     @derivery = Delivery.new
     @delivery.create
     @orders = Order.new
