@@ -292,6 +292,9 @@
       }
     }
   }
+  li a:hover{
+    background: $header-search-btn-color;
+  }
 }
 .fa-sky {
   color: $link-color;
@@ -301,7 +304,4 @@
 }
 .fa-black {
   color: #000000;
-}
-li a:hover{
-  background: $header-search-btn-color;
 }

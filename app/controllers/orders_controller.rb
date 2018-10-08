@@ -4,18 +4,21 @@ class OrdersController < ApplicationController
   end
 
   def select
-    @derivery = Delivery.new
-    @orders = Order.new
-    @cards = Card.new
+    @delivery = Delivery.new
+    @order = Order.new
+    @card = Card.new
+    @itemprice = 5500
+    @totalprice = 5700
   end
 
   def registration
+    # binding.pry
     @derivery = Delivery.new
-    @delivery.save
+    @delivery.create
     @orders = Order.new
-    @orders.save
+    @orders.create
     @cards = Card.new
-    @card.save
+    @card.create
     redirect_to orders_select
   end
 

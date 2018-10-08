@@ -87,5 +87,9 @@
     .fa-tags {
       @include set_status_icon;
     }
+
+    .fa-tshirt {
+      @include set_status_icon;
+    }
   }
 }

@@ -14,4 +14,5 @@
         %i.fa.fa-circle.rank-circle
           .rank-num
             = i+1
-      = link_to brand.name, brand_path(brand), class: "list-title link-list"
+      - next_path = request.path_info.sub("tops", "") + "brands/#{brand.id}"
+      = link_to brand.name, next_path, class: "list-title link-list"

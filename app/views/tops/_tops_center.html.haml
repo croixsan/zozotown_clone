@@ -1,7 +1,7 @@
 %section#top__center__zozo
   %ul#top__center__zozo__contents.clearfix
-    - 3.times.each do |i|
-      = render partial: 'item', locals: {image_size: "large", rank_num: 0, coupon: 0, shop_image: false}
+    - @zozo_items.each do |item|
+      = render partial: 'item', locals: {item: item, image_size: "large", rank_num: 0, coupon: 0, shop_image: false}
   %p.more-list.link-list
     = link_to "ZOZOアイテム一覧", "#"
 
@@ -10,11 +10,11 @@
   .section-header
     %h2 クーポン対象アイテム
   %ul#top__center__coupon__contents.clearfix
-    - 3.times.each do |i|
-      = render partial: 'item', locals: {image_size: "large", rank_num: 0, coupon: 2000, shop_image: false}
-  %ul#top__center__coupon__contents.clearfix
-    - 4.times.each do |i|
-      = render partial: 'item', locals: {image_size: "middle", rank_num: 0, coupon: 2000, shop_image: false}
+    - @coupon_items.each_with_index do |item, i|
+      - if i < 3
+        = render partial: 'item', locals: {item: item, image_size: "large", rank_num: 0, coupon: 2000, shop_image: false}
+      - else
+        = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 2000, shop_image: false}
   %p.more-list.link-list.zozo-item-link
     = link_to "クーポン対象アイテム一覧", "#"
 
@@ -23,12 +23,12 @@
   .section-header
     %h2 人気アイテムランキング
   %ul#top__center__ranking__contents.clearfix
-    - 3.times.each do |i|
+    - @rank_items.each_with_index do |item, i|
       #top__center__ranking__contents__item
-        = render partial: 'item', locals: {image_size: "large", rank_num: i+1, coupon: 0, shop_image: false}
-  %ul#top__center__ranking__contents.clearfix
-    - 4.times.each do |i|
-      = render partial: 'item', locals: {image_size: "middle", rank_num: i+4, coupon: 0, shop_image: false}
+        - if i < 3
+          = render partial: 'item', locals: {item: item, image_size: "large", rank_num: i+1, coupon: 0, shop_image: false}
+        - else
+          = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: i+1, coupon: 0, shop_image: false}
   %p.more-list.link-list.zozo-item-link
     = link_to "ランキング一覧", "#"
 //-------- チェックしたアイテム ---------//
@@ -36,14 +36,14 @@
   .section-header
     %h2 チェックしたアイテム
   %ul#top__center__pickup__contents.clearfix
-    - 15.times.each do |i|
+    - @checked_items.each do |item|
       #top__center__pickup__contents__item
-        = render partial: 'item', locals: {image_size: "small", rank_num: 0, coupon: 0, shop_image: false}
+        = render partial: 'item', locals: {item: item, image_size: "small", rank_num: 0, coupon: 0, shop_image: false}
 %section#top__center__shops
   .section-header
     %h2 チェックしたショップ
   %ul#top__center__shops__contents.clearfix
-    - 5.times.each do |i|
-      #top__center__shops__contents__item
-      = link_to "#" do
-        = render partial: 'item', locals: {image_size: "small", rank_num: 0, coupon: 0, shop_image: true}
+    -# - 5.times.each do |item|
+    -#   #top__center__shops__contents__item
+    -#   = link_to "#" do
+    -#     = render partial: 'item', locals: {item: item, image_size: "small", rank_num: 0, coupon: 0, shop_image: true}

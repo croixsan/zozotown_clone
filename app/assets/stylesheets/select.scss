@@ -26,6 +26,8 @@
         display: inline-block;
       }
       &_root {
+        height:80px;
+        width: 320px;
         float: right;
         img {
           height: 80px;
@@ -42,7 +44,7 @@
         min-height: 160px;
         padding: 20px 0;
         border-bottom: 1px solid $header-search-btn-color;
-        &_title {
+        &_title{ 
           height: 160px;
           width: $width-title;
           float:left;
@@ -57,6 +59,12 @@
             float: left;
             margin: auto 0;
             border-bottom: 1px solid $header-search-btn-color;
+          }
+          #propriety {
+            display: inline-block;
+            background-color: #c2aa00;
+            border-radius: 3px;
+            color: $white;
           }
         }
         &_add {
@@ -512,6 +520,11 @@
             background-color: $form-color;
             padding: 13px 20px;
             margin: 0 30px 0 0;
+            img {
+              height: 35px;
+              width: 350px;
+              margin:0 0 0 40px;
+            }
             &_number {
               min-height: $height-newform;
               width: $width-newform;

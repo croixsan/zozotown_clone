@@ -162,12 +162,12 @@ Things you may want to cover:
 |:------------|------------:|:--------------------------------------:|
 | user_id     | integer     | null: false, foreign_key: true         |
 | cart_id     | integer     | null: false, foreign_key: true         |
-| delivery_id  | integer    | null: false, foreign_key: true         |
+| delivery_id | integer     | null: false, foreign_key: true         |
 | buy_date    | datetime    | null: false                            |
-| delivery_date| datetime   | null: false                            |
+| delivery_date| string     | null: false                            |
 | payment     | string      | null: false                            |
 | payment_num | integer     | null: false                            |
-| card_id     | integer     | null: false, foreign_key: true         |
+| card_id     | integer     | foreign_key: true                      |
 ### Association
 - belongs_to :user
 - has_many :ordered_items

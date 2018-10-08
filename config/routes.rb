@@ -8,13 +8,16 @@ Rails.application.routes.draw do
 
   get 'carts/register' => 'carts#register'
 
-  get 'carts/create' => 'carts#create'
+  post 'carts/create' => 'carts#create'
 
   delete 'carts/destroy' => 'carts#destroy'
 
     get 'order/index' => 'orders#index' #←ネストする
     get 'orders/select'
-    post 'order/registration'
+    post 'orders/registration'
+
+  get 'rankings/index' => 'rankings#index'
+
   get "men_top"    => "tops#men"
   get "women_top"  => "tops#women"
   get "kid_top"    => "tops#kid"

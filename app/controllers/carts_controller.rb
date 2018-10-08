@@ -3,10 +3,10 @@ class CartsController < ApplicationController
   def index
     @cart = current_user.cart
     @items = @cart.items
-    # カートに含まれる同じアイテムを
+    # カートに含まれる同じアイテムをアイテム番号毎にグループ化
     @item_nums = @cart.item_nums.group(:number)
     @count = @item_nums.count
-    # @shoppings = Shopping.group(:item_id).count
+    @total_price = get_total_price(@items)
   end
 
   def create
@@ -35,5 +35,11 @@ class CartsController < ApplicationController
     params.permit(:item_id, :cart_id, :item_num_id)
   end
 
-
+  def get_total_price(items)
+    total_price = 0
+    items.each do |item|
+      total_price += item.price
+    end
+    return total_price
+  end
 end
