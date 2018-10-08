@@ -44,7 +44,7 @@
   .section-header
     %h2 チェックしたショップ
   %ul#top__center__shops__contents.clearfix
-    -# - 5.times.each do |item|
-    -#   #top__center__shops__contents__item
-    -#   = link_to "#" do
-    -#     = render partial: 'item', locals: {item: item, image_size: "small", rank_num: 0, coupon: 0, shop_image: true}
+    - @checked_shops.each do |shop|
+      #top__center__pickup__contents__item
+        - if shop.url
+          = render partial: 'shop_image', locals: {shop: shop}
