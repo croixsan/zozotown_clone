@@ -1,0 +1,8 @@
+- if favorite = current_user.favorite_shops.find_by(shop_id: shop.id)
+  = link_to shop_destroy_favorite_path(favorite), method: :delete, remote: true, class: "favorite_brand clearfix" do
+    %i.fas.fa-heart.color_red
+    %p.color_red お気に入りショップに登録済み
+- else
+  = link_to shop_create_favorites_path(shop_id: shop.id), method: :post, remote: true, class: "favorite_brand clearfix" do
+    %i.far.fa-heart.color_blue
+    %p.color_blue お気に入りショップに追加

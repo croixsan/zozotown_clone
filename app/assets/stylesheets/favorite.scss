@@ -1,10 +1,12 @@
 .favorite_body {
   background-color: $wall-color;
 }
+
 .main {
   &_body {
     width: $inner-width;
     margin: 0 auto;
+
     &_list {
       list-style: none;
 
@@ -26,11 +28,13 @@
         position: absolute;
       }
     }
+
     &_name {
       height: 60px;
       line-height: 60px;
       font-size: 23px;
     }
+
     &_advertisementa {
       height: 60px;
       width: $inner-width;
@@ -38,22 +42,25 @@
       font-size: 14px;
       line-height: 60px;
       text-align: center;
+
       &_app-bottun {
         height: 30px;
         width: 120px;
-        float:right;
+        float: right;
       }
     }
+
     .tab {
-      overflow:hidden;
-      margin:30px 0 0 0;
+      overflow: hidden;
+      margin: 30px 0 0;
       border-bottom: 1px solid $header-search-btn-color;
     }
+
     .tab li {
-      background:#ccc;
-      padding:5px 25px;
-      float:left;
-      margin-right:1px;
+      background: #ccc;
+      padding: 5px 25px;
+      float: left;
+      margin-right: 1px;
       width: 94px;
       height: 40px;
       background-color: #f0f0f0;
@@ -63,20 +70,24 @@
       color: $c-header-tab-font-color;
       display: block;
     }
+
     .tab li.select {
       background: #E6E6E6;
     }
+
     .content li {
-      background:#f0f0f0;
+      background: #f0f0f0;
     }
+
     .hide {
-      display:none;
+      display: none;
     }
+
     .main_body_tab_delete {
-      background:#ccc;
-      padding:5px 25px;
-      float:right;
-      margin-right:1px;
+      background: #ccc;
+      padding: 5px 25px;
+      float: right;
+      margin-right: 1px;
       width: 94px;
       height: 40px;
       background-color: #f0f0f0;
@@ -85,7 +96,6 @@
       text-align: center;
       color: $link-color;
       display: block;
-
     }
 
     &_guide {
@@ -95,14 +105,17 @@
       padding: 10px;
       margin: 10px 0;
       color: #646464;
-      ul{
+
+      ul {
         list-style-type: none;
       }
-      ul#menu li{
+
+      ul#menu li {
         float: left;
         position: relative;
         display: block;
       }
+
       &_item {
         height: 32px;
         width: $tab-size;
@@ -111,13 +124,15 @@
         text-align: center;
         float: left;
       }
+
       &_shop {
         height: 32px;
         line-height: 32px;
         float: left;
         text-align: center;
         width: $tab-size;
-        ul.child{
+
+        ul.child {
           width: 210px;
           display: none;
           position: absolute;
@@ -125,37 +140,43 @@
           background: $white;
           box-shadow: 0 0 8px gray;
         }
-        ul.child li a{
+
+        ul.child li a {
           display: block;
           color: #646464;
         }
       }
+
       &_category {
         height: 32px;
         line-height: 32px;
         float: left;
         text-align: center;
         width: $tab-size;
-        ul.child{
+
+        ul.child {
           width: 210px;
           display: none;
           position: absolute;
           z-index: 3;
           box-shadow: 0 0 8px gray;
-           background: $white;
+          background: $white;
         }
-        ul.child li a{
+
+        ul.child li a {
           display: block;
           color: #646464;
         }
       }
+
       &_others {
         height: 32px;
         line-height: 32px;
         float: left;
         text-align: center;
         width: $tab-size;
-        ul.child{
+
+        ul.child {
           width: 210px;
           display: none;
           position: absolute;
@@ -163,11 +184,13 @@
           background: $white;
           box-shadow: 0 0 8px gray;
         }
-        ul.child li a{
+
+        ul.child li a {
           display: block;
           color: #646464;
         }
       }
+
       &_check {
         height: 32px;
         line-height: 32px;
@@ -185,45 +208,53 @@
       text-align: center;
       border: solid 1px $header-search-btn-color;
       border-radius: 5px;
-      margin:10px 0 0 0;
+      margin: 10px 0 0;
       padding: 0 10px;
+
       &_icon {
         height: 60px;
         width: 40px;
-        float:left;
+        float: left;
         margin: 0 0 0 10px;
       }
+
       &_main {
         height: 60px;
         display: inline-block;
         line-height: 60px;
         text-align: center;
       }
+
       &_link {
         color: $link-color;
         height: 60px;
         display: inline-block;
         margin: 0 0 0 10px;
       }
+
       &_line {
         height: 60px;
         display: inline-block;
       }
     }
+
     #js-bland-content {
       height: $fav-inner-height;
       overflow: hidden;
+
       .content_number {
         margin: 23px 0;
         font-size: 18px;
       }
+
       .content_body {
         background-color: $white;
         border: solid 1px $white;
         border-radius: 5px;
         padding: 20px;
+
         &_list {
-          &_content{
+          &_content {
             font-size: 16px;
             height: 40px;
             width: 290px;
@@ -232,21 +263,25 @@
         }
       }
     }
+
     #js-shop-content {
       height: $fav-inner-height;
       overflow: hidden;
+
       .content_number {
         height: 40px;
         margin: 23px 0;
         font-size: 18px;
       }
+
       .content_body {
         background-color: $white;
         border: solid 1px $white;
         border-radius: 5px;
         padding: 20px;
+
         &_list {
-          &_content{
+          &_content {
             font-size: 16px;
             height: 40px;
             width: 290px;
@@ -255,69 +290,85 @@
         }
       }
     }
+
     #js-bland-none-content {
       height: $fav-inner-height;
       color: $text-color;
       padding: 50px 0;
+
       .icon {
         font-size: 23px;
         text-align: center;
       }
+
       .nobland-1 {
         font-size: 20px;
         text-align: center;
       }
+
       .nobland-2 {
         font-size: 16px;
         text-align: center;
       }
     }
+
     #js-shop-none-content {
       height: $fav-inner-height;
       // true = 273px
       color: $text-color;
       padding: 50px 0;
+
       .icon {
         font-size: 23px;
         text-align: center;
       }
+
       .noshop-1 {
         font-size: 20px;
         text-align: center;
       }
+
       .noshop-2 {
         font-size: 16px;
         text-align: center;
       }
     }
+
     #js-item-none-content {
       height: $fav-inner-height;
       color: $text-color;
       padding: 50px 0;
+
       .icon {
         font-size: 23px;
         text-align: center;
       }
+
       .noitem-1 {
         font-size: 20px;
         text-align: center;
       }
+
       .noitem-2 {
         font-size: 16px;
         text-align: center;
       }
     }
   }
-  li a:hover{
+
+  li a:hover {
     background: $header-search-btn-color;
   }
 }
+
 .fa-sky {
   color: $link-color;
 }
+
 .fa-glay {
   color: $text-color;
 }
+
 .fa-black {
   color: #000000;
 }
