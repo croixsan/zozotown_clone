@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
-# before_action :setup_user
+before_action :setup_user
   def index
   end
 
   def select
+    
     @delivery = Delivery.new
     @order = Order.new
     @card = Card.new
@@ -27,7 +28,7 @@ class OrdersController < ApplicationController
     def delivery_params
     end
 
-    # def setup_user
-    #   @user = User.find(1)
-    # end
+    def setup_user
+      @user = User.find(1)
+    end
 end
