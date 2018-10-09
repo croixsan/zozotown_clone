@@ -1,0 +1,2 @@
+class PastCart < ApplicationRecord
+end
