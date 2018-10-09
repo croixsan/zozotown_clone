@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   include Checked
+  include SavedCart
 
   def index
     @cart = current_user.cart
@@ -10,6 +11,9 @@ class CartsController < ApplicationController
     @total_price = get_total_price(@items)
     # チェックしたアイテム
     @checked_items = get_checked_items
+
+    # 「以前カートに入れたアイテム」機能
+    @past_item_nums = get_past_item_nums
   end
 
   def create
