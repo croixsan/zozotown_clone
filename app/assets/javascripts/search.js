@@ -2,12 +2,12 @@ $(function() {
 
 var search_list = $("#header__wrapper__left__search__incremental__area");
 
-  function appendProduct(brand) {
+  function appendProduct(search) {
      var html = `<div id= "header__wrapper__left__search__incremental">
                    <ul>
                      <li>
                        <a>
-                         ${ brand.name }
+                         ${ search.name }
                        </a>
                      </li>
                    </ul>
@@ -23,14 +23,15 @@ var search_list = $("#header__wrapper__left__search__incremental__area");
       data: { keyword: input },
       dataType: 'json'
     })
-   .done(function(brands) {
+   .done(function(searches) {
+      console.log(searches)
       $("#header__wrapper__left__search__incremental__area").empty();
-        brands.forEach(function(brand){
-          appendProduct(brand);
+        searches.forEach(function(search){
+          appendProduct(search);
       });
     })
-    .fail(function() {
-      alert('映画検索に失敗しました');
-    })
+    // .fail(function() {
+    //   alert('映画検索に失敗しました');
+    // })
   });
 });
