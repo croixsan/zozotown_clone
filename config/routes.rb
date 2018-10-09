@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get 'rankings/index' => 'rankings#index'
 
+  get 'searches/index' => 'searches#index'
+
   get "men_top"    => "tops#men"
   get "women_top"  => "tops#women"
   get "kid_top"    => "tops#kid"
