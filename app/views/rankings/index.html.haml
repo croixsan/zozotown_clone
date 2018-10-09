@@ -2,7 +2,7 @@
   .r.header
     %ul
       %li
-        %a{ :href => 'http://google.co.jp' }ZOZOTOWN
+        = link_to "ZOZOTOWN", root_path
         >
       %li
         人気アイテムランキング
@@ -34,70 +34,12 @@
             すべてのカテゴリー
           %span
             ^
-    .r.ranking-item-content
-      .clearfix
-        .r.ranking-item-large
-          .r.ranking-number
-            1
-          .r.ranking-item-photo
-            %a{ :href => 'http://google.co.jp' }
-              %img{alt: "アイテム写真", height: "372", width: "310", src: "https://c.imgz.jp/481/31242481/31242481_8_D_500.jpg"}
-          .r.ranking-item-set
-            %p
-              ブランド名
-            %p
-              商品名
-            .r.ranking-price
-              ¥2,000
-              %span
-                税込
-        .r.ranking-item-large
-          .r.ranking-number2
-            2
-          .r.ranking-item-photo
-            %a{ :href => 'http://google.co.jp' }
-              %img{alt: "アイテム写真", height: "372", width: "310", src: "https://c.imgz.jp/214/33242214/33242214_385_d_500.jpg"}
-          .r.ranking-item-set
-            %p
-              ブランド名
-            %p
-              商品名
-            .r.ranking-price
-              ¥2,000
-              %span
-                税込
-        .r.ranking-item-large
-          .r.ranking-number3
-            3
-          .r.ranking-item-photo
-            %a{ :href => 'http://google.co.jp' }
-              %img{alt: "アイテム写真", height: "372", width: "310", src: "https://c.imgz.jp/212/33242212/33242212_16_d_500.jpg"}
-          .r.ranking-item-set
-            %p
-              ブランド名
-            %p
-              商品名
-            .r.ranking-price
-              ¥2,000
-              %span
-                税込
-      .r.ranking-sub
-        - 15.times.each do |i|
-          .r.ranking-sub-area
-            .r.ranking-sub-number
-              4
-            .r.ranking-sub-item-photo
-              %a{ :href => 'http://google.co.jp' }
-                %img{alt: "アイテム写真", height: "258", width: "215", src: "https://c.imgz.jp/825/19950825/19950825B_22_D_215.jpg"}
-            .r.ranking-sub-item-set
-              %p
-                ブランド名
-              %p
-                商品名
-              .r.sub-ranking-price
-                ¥2,000
-                %span
-                  税込
-
-
-
+    %ul
+      - @rankings.each_with_index do |ranking, i|
+        - item = ranking[0]
+        - if i < 3
+          %li.item
+            = render partial: 'tops/item', locals: {item: item, image_size: "super-large", rank_num: i + 1, coupon: 0}
+        - else
+          %li.item.sub_ranking
+            = render partial: 'tops/item', locals: {item: item, image_size: "high-large", rank_num: i + 1, coupon: 0}

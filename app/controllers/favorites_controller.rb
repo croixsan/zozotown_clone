@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    current_user.favorite_items.create(item_num_id: params[:item_num_id])
+    current_user.favorite_items.create(item_id: params[:item_id], item_num_id: params[:item_num_id])
   end
 
   def brand_create
