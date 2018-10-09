@@ -11,6 +11,8 @@ class TopsController < ApplicationController
     @shops = Shop.order("items_count DESC").limit(10)
     # チェックしたアイテム
     @checked_items = get_checked_items
+    # チェックしたショップ
+    @checked_shops = get_checked_shops
   end
 
   def men

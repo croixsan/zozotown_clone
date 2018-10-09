@@ -167,7 +167,7 @@ article {
 .normal-color {
   color: $top-rank-normal-color;
 }
-/*-- image size --------------------------------------*/
+/*-- image style --------------------------------------*/
 .image-size-large {
   height: $large-image-height;
   width: $large-image-width;
@@ -181,6 +181,11 @@ article {
 .image-size-small {
   height: $small-image-height;
   width: $small-image-width;
+}
+
+.shop-image {
+  width: 150px;
+  height: 50px;
 }
 /*-- list style --------------------------------------*/
 .head-title {
@@ -222,6 +227,7 @@ article {
 
   &__images {
     position: relative;
+    z-index: 1;
 
     .rank-icon-wrapper {
       height: 30px;

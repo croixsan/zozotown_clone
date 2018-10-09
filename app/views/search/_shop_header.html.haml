@@ -1,4 +1,6 @@
 .result_header
+  - if shop.url
+    = image_tag(shop.url)
   .brand_title
     %h1.brand_name
       = shop.name
