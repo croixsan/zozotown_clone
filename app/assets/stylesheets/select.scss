@@ -87,7 +87,7 @@
         }
         &_form {
           width: $width-form;
-          height: 520px;
+          height: 400px;
           float: right;
           background-color: $form-color;
           padding: 13px 20px;
@@ -152,39 +152,7 @@
               margin:7px 0 0 0;
             }
           }
-          &_prefecture {
-            height: $height-newform;
-            width: $width-newform;
-            float: left;
-            &_title {
-              height: $height-newform;
-              width: $width-form-title;
-              line-height: $height-newform;
-              float: left;
-            }
-            &_form {
-              height: $height-form-form;
-              width: $width-form-form;
-              margin:7px 0 0 0;
-            }
-          }
-          &_addless1 {
-            height: $height-newform;
-            width: $width-newform;
-            float: left;
-            &_title {
-              height: $height-newform;
-              width: $width-form-title;
-              line-height: $height-newform;
-              float: left;
-            }
-            &_form {
-              height: $height-form-form;
-              width: $width-form-form;
-              margin:7px 0 0 0;
-            }
-          }
-          &_addless2 {
+          &_addless {
             height: $height-newform;
             width: $width-newform;
             float: left;
@@ -287,6 +255,19 @@
               float: right;
             }
           }
+          &_formspecified {
+            width: $width-form;
+            float: right;
+            background-color: $form-color;
+            padding: 13px 20px;
+            margin: 0 30px 0 0;
+            select {
+              width: 200px;
+              height: 40px;
+              margin: 0 20px 0 0;
+              float: left;
+            }
+          }
           &_same {
             height: $height-sipping;
             clear: both;
@@ -315,13 +296,18 @@
               float: right;
             }
           }
-          &_form {
+          &_formsame {
             width: $width-form;
-            height: 100px;
             float: right;
             background-color: $form-color;
             padding: 13px 20px;
             margin: 0 30px 0 0;
+            select {
+              width: 400px;
+              height: 40px;
+              margin: 0 20px 0 0;
+              float: left;
+            }
           }
         }
       }

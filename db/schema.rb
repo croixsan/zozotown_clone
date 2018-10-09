@@ -136,9 +136,9 @@ ActiveRecord::Schema.define(version: 20181009033906) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "cart_id",       null: false
+    t.integer  "delivery_id",   null: false
     t.datetime "buy_date"
     t.integer  "card_id",       null: false
-    t.integer  "delivery_id",   null: false
     t.integer  "delivery_kind", null: false
     t.string   "delivery_day"
     t.string   "delivery_hour"
