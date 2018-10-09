@@ -3,7 +3,7 @@ $(function() {
 var search_list = $("#header__wrapper__left__search__incremental__area");
 
   function appendProduct(search) {
-     var html = `<div id= "header__wrapper__left__search__incremental">
+    var html = `<div id= "header__wrapper__left__search__incremental">
                    <ul>
                      <li>
                        <a>
@@ -25,8 +25,8 @@ var search_list = $("#header__wrapper__left__search__incremental__area");
     })
     .done(function(searches) {
       $("#header__wrapper__left__search__incremental__area").empty();
-        searches.forEach(function(search){
-          appendProduct(search);
+      searches.forEach(function(search){
+        appendProduct(search);
       });
     })
     .fail(function() {
