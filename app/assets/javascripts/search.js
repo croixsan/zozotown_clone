@@ -1,12 +1,14 @@
 $(function() {
 
-var search_list = $("#header__wrapper__left__search__textfield");
+var search_list = $("#header__wrapper__left__search.clearfix");
 
   function appendProduct(brand) {
-     var html = `<div class= "suggest">
+     var html = `<div id= "header__wrapper__left__search__incremental">
                    <ul>
                      <li>
-                       ${ brand.name }
+                       <a>
+                         ${ brand.name }
+                       </a>
                      </li>
                    </ul>
                  </div>`
@@ -22,7 +24,7 @@ var search_list = $("#header__wrapper__left__search__textfield");
       dataType: 'json'
     })
    .done(function(brands) {
-     console.log(brands)
+     $("#header__wrapper__left__search__incremental").remove();
      if (brands.length !== 0) {
        brands.forEach(function(brand){
          appendProduct(brand);
