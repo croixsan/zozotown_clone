@@ -5,7 +5,7 @@ module Ranking
       # 規定日数以上閲覧されていないものと閲覧数が０のものは足切りする
       @items = Item.where("(checked_items_count > ?) and (created_at > ?)", 0, 7.days.ago)
 
-      a = 1 # 閲覧数の重み付け...1pt
+      a = 0.1 # 閲覧数の重み付け...0.1pt
       b = 2 # お気に入り登録数の重み付け...2pt
       c = 3 # カートに入れられている数の重み付け...3pt
       d = 4 # 注文数の重み付け...4pt
