@@ -1,0 +1,16 @@
+.item-list
+  = link_to shop_item_path(item_num.item.shop, item_num.item) do
+    = image_tag item_num.item.images[0].url, class: "cart-image"
+  .name
+    %p
+      = item_num.item.shop.name
+    %p
+      = item_num.item.brand.name
+    .price
+      = number_to_currency(item_num.item.price, unit: "￥", precision: 0)
+    %span 税別
+    .other-text
+    .other-text
+      = "サイズ：" + item_num.stock.size
+  .cart-btn
+    = link_to "カートに入れる", carts_create_path(@cart)

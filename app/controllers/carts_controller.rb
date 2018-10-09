@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   include Checked
-  
+  include SavedCart
+
   def index
     @cart = current_user.cart
     @items = @cart.items
@@ -10,11 +11,17 @@ class CartsController < ApplicationController
     @total_price = get_total_price(@items)
     # チェックしたアイテム
     @checked_items = get_checked_items
+
+    # 「以前カートに入れたアイテム」機能
+    @past_item_nums = get_past_item_nums
   end
 
   def create
     Shopping.create(cart_params)
     redirect_to controller: 'carts', action: 'index'
+
+    # 「以前カートに入れたアイテム」機能
+    current_user.past_carts.where(item_num_id: params[:item_num_id]).first_or_create.update(updated_at: Time.current)
   end
 
   def destroy

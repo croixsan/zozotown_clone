@@ -53,18 +53,8 @@
             %a{ :href => 'http://google.co.jp' }詳細
         .cart-in-item
           %h2 以前カートに入れたアイテム
-          .item-list
-            %a{ :href => 'http://google.co.jp' }
-              %img{alt: "商品イメージ", height: "150", width: "125", src: "https://c.imgz.jp/837/35099837/35099837B_1_D_215.jpg"}
-            .name
-              %p MONO-MART
-              %p 【Champion】
-              .price ¥9,990
-              %span 税別
-              .other-text カラー：ホワイト
-              .other-text サイズ：38
-            .cart-btn
-              %a{ :href => 'http://google.co.jp' }カートに入れる
+          = render partial: "cart_item", collection: @past_item_nums, as: "item_num"
+
         .item-content
           %h3 チェックしたアイテム
           %ul#top__center__pickup__contents.clearfix
