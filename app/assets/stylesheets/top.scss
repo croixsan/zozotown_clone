@@ -222,6 +222,7 @@ article {
 
   &__images {
     position: relative;
+    z-index: 1;
 
     .rank-icon-wrapper {
       height: 30px;

@@ -1,6 +1,8 @@
 #header {
   background-color: $header-color;
   position: relative;
+          z-index: 2;
+
 
   &__wrapper {
     @include set_size($header-height, 980px);
@@ -61,7 +63,6 @@
           clear: both;
           padding: 6px 0 14px 0;
           background-color: white;
-          z-index: 2;
 
           ul {
             width: 410px;
