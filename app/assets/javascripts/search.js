@@ -1,6 +1,6 @@
 $(function() {
 
-var search_list = $("#header__wrapper__left__search.clearfix");
+var search_list = $("#header__wrapper__left__search__incremental__area");
 
   function appendProduct(brand) {
      var html = `<div id= "header__wrapper__left__search__incremental">
@@ -24,16 +24,13 @@ var search_list = $("#header__wrapper__left__search.clearfix");
       dataType: 'json'
     })
    .done(function(brands) {
-     $("#header__wrapper__left__search__incremental").remove();
-     if (brands.length !== 0) {
-       brands.forEach(function(brand){
-         appendProduct(brand);
-       });
-     }
-     else {
-       appendNoProduct("一致する映画はありません");
-     }
-   })
-
+      $("#header__wrapper__left__search__incremental__area").empty();
+        brands.forEach(function(brand){
+          appendProduct(brand);
+      });
+    })
+    .fail(function() {
+      alert('映画検索に失敗しました');
+    })
   });
 });
