@@ -1,7 +1,4 @@
-- if shop_image == true
-  - img_url = @shop_images.sample
-- else
-  - img_url = item.images[0].url
+- img_url = item.images[0].url
 %li.item
   .item__images
     - case image_size
@@ -28,16 +25,15 @@
       .item__info__brand
         - if item.shop.name.length > 10
           - item.shop.name = item.shop.name.slice(0..10) + "..."
-        = link_to item.shop.name, "#"
+        = link_to item.shop.name, shop_path(item.shop)
       .item__info__price.price-block-large.clearfix
         .item__info__price__num.price-font-large
           = "¥" + number_with_delimiter(item.price).to_s
         .item__info__price__tax
           税込
     - else
-      - if shop_image == false
-        .item__info__price.price-block-small.clearfix
-          .item__info__price__num.price-font-small
-            = "¥" + item.price.to_s
-          .item__info__price__tax
-            税込
+      .item__info__price.price-block-small.clearfix
+        .item__info__price__num.price-font-small
+          = "¥" + item.price.to_s
+        .item__info__price__tax
+          税込

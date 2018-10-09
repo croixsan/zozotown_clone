@@ -62,7 +62,7 @@
               - if favorite_item.item_num.item.images
                 = link_to  shop_item_favorite_path(favorite_item.item_num.item.shop, favorite_item.item_num.item, favorite_item, item_num_id: favorite_item.item_num.id), method: :delete do
                   %i.fas.fa-times
-                = render partial: 'tops/item', locals: {item: favorite_item.item_num.item, image_size: "large", rank_num: 0, coupon: 0, shop_image: false}
+                = render partial: 'tops/item', locals: {item: favorite_item.item_num.item, image_size: "large", rank_num: 0, coupon: 0}
 
       #js-item-none-content.content.hide
         .icon

@@ -1,7 +1,7 @@
 %section#top__center__zozo
   %ul#top__center__zozo__contents.clearfix
     - @zozo_items.each do |item|
-      = render partial: 'item', locals: {item: item, image_size: "large", rank_num: 0, coupon: 0, shop_image: false}
+      = render partial: 'item', locals: {item: item, image_size: "large", rank_num: 0, coupon: 0}
   %p.more-list.link-list
     = link_to "ZOZOアイテム一覧", "#"
 
@@ -12,9 +12,9 @@
   %ul#top__center__coupon__contents.clearfix
     - @coupon_items.each_with_index do |item, i|
       - if i < 3
-        = render partial: 'item', locals: {item: item, image_size: "large", rank_num: 0, coupon: 2000, shop_image: false}
+        = render partial: 'item', locals: {item: item, image_size: "large", rank_num: 0, coupon: 2000}
       - else
-        = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 2000, shop_image: false}
+        = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 2000}
   %p.more-list.link-list.zozo-item-link
     = link_to "クーポン対象アイテム一覧", "#"
 
@@ -26,9 +26,9 @@
     - @rank_items.each_with_index do |item, i|
       #top__center__ranking__contents__item
         - if i < 3
-          = render partial: 'item', locals: {item: item, image_size: "large", rank_num: i+1, coupon: 0, shop_image: false}
+          = render partial: 'item', locals: {item: item, image_size: "large", rank_num: i+1, coupon: 0}
         - else
-          = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: i+1, coupon: 0, shop_image: false}
+          = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: i+1, coupon: 0}
   %p.more-list.link-list.zozo-item-link
     = link_to "ランキング一覧", "#"
 //-------- チェックしたアイテム ---------//
@@ -39,7 +39,7 @@
     - @checked_items.each do |item|
       #top__center__pickup__contents__item
         - if item.images[0]
-          = render partial: 'item', locals: {item: item, image_size: "small", rank_num: 0, coupon: 0, shop_image: false}
+          = render partial: 'item', locals: {item: item, image_size: "small", rank_num: 0, coupon: 0}
 %section#top__center__shops
   .section-header
     %h2 チェックしたショップ
