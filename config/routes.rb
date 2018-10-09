@@ -15,9 +15,7 @@ Rails.application.routes.draw do
     get 'orders/select'
     post 'orders/registration'
 
-  get 'rankings/index' => 'rankings#index'
-
-  get 'rankings/index' => 'rankings#index'
+  resources :rankings, only: :index
 
   get "men_top"    => "tops#men"
   get "women_top"  => "tops#women"
@@ -87,4 +85,3 @@ Rails.application.routes.draw do
     end
   end
 end
-
