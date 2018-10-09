@@ -8,5 +8,13 @@ module Checked
       end
       return checked_items
     end
+
+    def get_checked_shops
+      # 以前閲覧したショップを取得する
+      checked_shops = current_user.checked_shops.order("updated_at DESC").map do |checked_shop|
+        Shop.find_by(id: checked_shop.shop_id)
+      end
+      return checked_shops
+    end
   end
 end
