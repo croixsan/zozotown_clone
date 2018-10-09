@@ -1,4 +1,4 @@
-json.array! @brands do |brand|
-  json.id brand.id
-  json.name brand.name
+json.array! @searches do |search|
+  json.id search.id
+  json.name search.name
 end
