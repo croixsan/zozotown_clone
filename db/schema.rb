@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20181008113750) do
-=======
 ActiveRecord::Schema.define(version: 20181009033906) do
->>>>>>> master
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",        null: false
@@ -140,15 +136,13 @@ ActiveRecord::Schema.define(version: 20181009033906) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "cart_id",       null: false
+    t.integer  "delivery_id",   null: false
     t.datetime "buy_date"
     t.integer  "card_id",       null: false
-    t.integer  "delivery_id",   null: false
     t.integer  "delivery_kind", null: false
     t.string   "delivery_day"
     t.string   "delivery_hour"
     t.integer  "payment_id",    null: false
-<<<<<<< HEAD
-=======
   end
 
   create_table "past_carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -157,7 +151,6 @@ ActiveRecord::Schema.define(version: 20181009033906) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_past_carts_on_user_id", using: :btree
->>>>>>> master
   end
 
   create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
