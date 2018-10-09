@@ -1,5 +1,6 @@
 #header {
   background-color: $header-color;
+  position: relative;
 
   &__wrapper {
     @include set_size($header-height, 980px);
@@ -23,25 +24,27 @@
       }
 
       &__search {
-        height: $header-height;
+        height: 28px;
         float: left;
 
         &__textfield {
           float: left;
-          @include set_size($header-height, $header-search-field-width);
+          @include set_size(28px, $header-search-field-width);
           position: relative;
+          margin-top: 11px;
 
           .search-field {
-            @include set_size($header-search-height, $header-search-field-width);
+            @include set_size(28px, $header-search-field-width);
             @include fit_to_center;
             border: 0;
           }
         }
 
         &__btn {
-          @include set_size($header-height, $header-search-btn-width);
+          @include set_size(28px, $header-search-btn-width);
           float: left;
           position: relative;
+          margin-top: 11px;
 
           #search-btn {
             @include set_btn($header-search-height, $header-search-btn-width);
@@ -51,6 +54,32 @@
             text-align: center;
           }
         }
+
+        &__incremental {
+          width: 450px;
+          border: $border-gray;
+          clear: both;
+          padding: 6px 0 14px 0;
+          background-color: white;
+          z-index: 2;
+
+          ul {
+            width: 410px;
+            margin: 0 20px;
+
+            li {
+              width: 410px;
+              height: 40px;
+
+              a {
+                width: 405px;
+                height: 22px;
+                padding: 10px 0 8px 5px;
+              }
+            }
+          }
+        }
+
       }
     }
 
