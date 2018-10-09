@@ -4,4 +4,5 @@ class ItemNum < ApplicationRecord
   has_many :shoppings
   has_many :carts, through: :shoppings
   has_many :favorite_items
+  has_many :past_carts, dependent: :destroy
 end
