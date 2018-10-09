@@ -14,5 +14,4 @@ class Item < ApplicationRecord
   # has_many :orders, through: :ordered_items
   has_many :checked_items, dependent: :destroy
   # enum gender: {all: 1, mens: 2, ladies: 3, kids: 4}
-  has_many :past_carts, dependent: :destroy
 end
