@@ -1,5 +1,6 @@
 #content_header {
   background-color: $c-header-color;
+  z-index: 1;
 
   &__inner {
     height: $c-header-height;
