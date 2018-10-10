@@ -54,13 +54,14 @@
           }
         }
 
-        .main-image {
+        .main-image:hover .imagegrass {
           height: $height-main-content;
           width: 500px;
           float: left;
           position: relative;
 
           .image-grass {
+            display: none;
             position: absolute;
             top: 50px; /* JSで適切な値を設定する */
             left: 30px; /* JSで適切な値を設定する */
@@ -81,8 +82,11 @@
           height: 520px;
           width: 520px;
           overflow: hidden;
-          background-color: red;
           z-index: 2;
+        }
+
+        .zoom-area.active {
+          display: block;
         }
 
         .right-button {
