@@ -9,6 +9,7 @@ class PreOrdersController < ApplicationController
     if current_user.pre_order == nil
       PreOrder.create(pre_order_params)
     end
+    redirect_to orders_path
   end
 
   private def pre_order_params
