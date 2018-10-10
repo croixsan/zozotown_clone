@@ -24,6 +24,11 @@ Rails.application.routes.draw do
   get "kid_top"    => "tops#kid"
   get "tests/search" => "tests#search"
 
+  resources :carts, only: [:index, :create, :destroy] do
+    collection do
+      get :register
+    end
+  end
   resources :orders, only: [:index, :create]
   resources :pre_orders, only: [:new, :create]
 
