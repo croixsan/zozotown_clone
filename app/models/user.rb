@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   # enum gender: { men: 1, women: 2, other: 3 }
+  has_one :pre_order
   has_one :cart, dependent: :destroy
   has_many :checked_items, dependent: :destroy
   has_many :checked_shops
@@ -11,6 +12,5 @@ class User < ApplicationRecord
   has_many :favorite_brands
   has_many :favorite_shops
   has_many :orders
-  has_many :pre_orders
   has_many :past_carts, dependent: :destroy
 end
