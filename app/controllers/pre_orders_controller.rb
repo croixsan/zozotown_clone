@@ -6,5 +6,12 @@ class PreOrdersController < ApplicationController
   end
 
   def create
+    if current_user.pre_order == nil
+      PreOrder.create(pre_order_params)
+    end
+  end
+
+  private def pre_order_params
+    params.require(:pre_order).permit(:payment_id, :delivery_id).merge(user_id: current_user.id)
   end
 end
