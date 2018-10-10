@@ -32,7 +32,8 @@
           #top__center__pickup__contents__item
             - @related_items.each_with_index do |item, i|
               - if item.images[0] && i < 8
-                = render partial: 'tops/item',  locals: {item: item, image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+                %li.item
+                  = render partial: 'tops/item',  locals: {item: item, image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
 
     .right-content
       .item-intro
@@ -86,12 +87,13 @@
                     = "#{stock.size} / 在庫なし"
                 %p.size_info
                   = "#{stock.size}サイズ相当"
-              .cart-box.clearfix
-                = link_to carts_create_path(item_id: @item.id, cart_id: @cart.id, item_num_id: @item.item_nums[i].id), method: :post, class: "cart_btn clearfix" do
-                  %i.fas.fa-shopping-cart
-                  %p カートへ入れる
-                .favorite
-                  = render partial: "favorites/favorite_icon", locals: {item: @item, shop: @shop, item_num_id: stock.item_num.id}
+              - if user_signed_in?
+                .cart-box.clearfix
+                  = link_to carts_create_path(item_id: @item.id, cart_id: @cart.id, item_num_id: @item.item_nums[i].id), method: :post, class: "cart_btn clearfix" do
+                    %i.fas.fa-shopping-cart
+                    %p カートへ入れる
+                  .favorite
+                    = render partial: "favorites/favorite_icon", locals: {item: @item, shop: @shop, item_num_id: stock.item_num.id}
       .condition-tab
         .left-tab
           %a{ :href => 'http://google.co.jp' }アイテム説明
