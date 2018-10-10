@@ -1,404 +1,70 @@
-.delibody
-  .delibody_header
-    = image_tag('zozo-logo-white.png')
-
-  .delibody_content
-    = form_for @order, url: orders_registration_path do |f|
-      .delibody_content_head
-        %h2 お届け先・配送方法・お支払い方法
-        .delibody_content_head_root
-          = image_tag('zozo-write.png')
-
-      .delibody_content_main
-
-        .deibody_content_main_destination.clearfix
-          %dl
-            %dt.delibody_content_main_destination_title お届け先
-            .delibody_content_main_destination_main
-              %input.delibody_content_main_destination_main_check{:name => "addless", :type => "radio"}
-              / %dd
-              /   %span
-              /     = @addless.name
-              /   %span 様
-              / %dd
-              /   %span 〒
-              /   %span
-              /     = @addless.post_num
-              /   %span#propriety 即日配達可能
-              / %dd
-              /   %span 住所 :
-              /   %span
-              /     = @addless.addless
-              / %dd
-              /   %span 電話 :
-              /   %span
-              /     = @addless.phone_num
-            .delibody_content_main_destination_add.clearfix
-              %input#destination_default.delibody_content_main_destination_add_check_btn{:name => "addless", :type => "radio"}
-                %dd 新しいお届け先を追加する
-            %dl.delibody_content_main_destination_form.hide
-              = f.fields_for :delivery,@delivery do |order|
-                .delibody_content_main_destination_form_check.clearfix
-                  %input.delibody_content_main_destination_form_check_btn{:name => "addless", :type => "radio", :value => "new"}
-                  %dd 新しいお届け先を追加する
-                .delibody_content_main_destination_form_kind
-                  = order.label "種別", class: "delibody_content_main_destination_form_kind_title"
-                  = order.select :kind, [[ "勤務先・職場", "勤務先・職場"], ["友人・知人宅", "友人・知人宅"], ["実家", "実家"], ["その他", "その他"]], class: "delibody_content_main_destination_form_kind_form", :include_blank => true
-                .delibody_content_main_destination_form_name
-                  = order.label "名前", class: "delibody_content_main_destination_form_name_title"
-                  = order.text_field :name, placeholder: "姓 名 (全角)", class: "delibody_content_main_destination_form_name_form"
-                .delibody_content_main_destination_form_post-num
-                  = order.label "郵便番号", class: "delibody_content_main_destination_form_post-num_title"
-                  = order.text_field :post_num, placeholder: "例：2617116", class: "delibody_content_main_destination_form_post-num_form"
-                .delibody_content_main_destination_form_addless
-                  = order.label "住所", class: "delibody_content_main_destination_form_addless_title"
-                  = order.text_field :addless, class: "delibody_content_main_destination_form_addless_form"
-                .delibody_content_main_destination_form_phone-num
-                  = order.label "電話番号", class: "delibody_content_main_destination_form_phone-num_title"
-                  = order.text_field :phone_num, placeholder: "例) 09012345678", class: "delibody_content_main_destination_form_phone-num_form"
-
-
-        .delibody_content_main_shipping.clearfix
-          .delibody_content_main_shipping_title
-            = f.label "配送方法"
-            = f.label "お届け予定日"
-          .delibody_content_main_shipping_main
-
-            .delibody_content_main_shipping_main_none
-              .delibody_content_main_shipping_main_none_title
-                = f.radio_button :delivery_kind, 0
-                = f.label "指定なし"
-              .delibody_content_main_shipping_main_none_time
-                = f.label "2〜4日以内で発送"
-              .delibody_content_main_shipping_main_none_price
-                %span ¥
-                %span 200
-
-            .delibody_content_main_shipping_main_specified
-              .delibody_content_main_shipping_main_specified_title
-                = f.radio_button :delivery_kind, 1
-                = f.label "日時指定"
-              .delibody_content_main_shipping_main_specified_time
-                = f.label "希望日時を選択してください"
-              .delibody_content_main_shipping_main_specified_price
-                %span ¥
-                %span 200
-
-            .delibody_content_main_shipping_main_formspecified.hide
-              / =if Time.now.day == 30 && Time.now.month  == [4, 6, 9, 11]
-              /   - days = 1
-              /   - month = Time.now.month + 1
-              / - elsif Time.now.day == 31 && Time.now.month == [1, 3, 5, 7, 8, 10]
-              /   - days = 1
-              /   - month = Time.now.month + 1
-              / - elsif Time.now.day == 31 && Time.now.month == 12
-              /   - days = 1
-              /   - month = 1
-              / - elsif Time.now.day == 28 && Time.now.month == 2
-              /   - days = 1
-              /   - month = 3
-              / - else
-              - days = Time.now.day
-              - month = Time.now.month
-              = f.select :delivery_day, [[ "#{month}月#{days}日", "#{month}月#{days}日"], ["#{month}月#{days + 1}日", "#{month}月#{days + 1}日"],["#{month}月#{days + 2}日", "#{month}月#{days + 2}日"], ["#{month}月#{days + 3}日", "#{month}月#{days + 3}日"], ["#{month}月#{days + 4}日", "#{month}月#{days + 4}日"]], :include_blank => true
-              = f.select :delivery_hour, [[ "午前中", "午前中"], ["14:00 ~ 16:00", "14:00 ~ 16:00"], ["16:00 ~ 18:00", "16:00 ~ 18:00"], ["18:00 ~ 20:00", "18:00 ~ 20:00"], ["19:00 ~ 21:00", "19:00 ~ 21:00"]], :include_blank => true
-            .delibody_content_main_shipping_main_same
-              .delibody_content_main_shipping_main_same_title
-                = f.radio_button :delivery_kind, 2
-                = f.label "即日配達"
-              .delibody_content_main_shipping_main_same_time
-                %span 最短
-                %span 10
-                %span 月
-                %span 7
-                %span 日
-                %span (
-                %span 日
-                %span )
-              .delibody_content_main_shipping_main_same_price
-                %span ¥
-                %span 200
-
-            / .delibody_content_main_shipping_main_formsame.hide
-            /   = f.select :delivery_day, [[ "10月9日(火) 午前中", "10月9日(火) 午前中"], ["10月9日(火) 14:00 ~ 16:00", "10月9日(火) 14:00 ~ 16:00"], ["10月9日(火) 16:00 ~ 18:00", "10月9日(火) 16:00 ~ 18:00"], ["10月9日(火) 18:00 ~ 20:00", "10月9日(火) 18:00 ~ 20:00"], ["10月9日(火) 19:00 ~ 21:00", "10月9日(火) 19:00 ~ 21:00"]], :include_blank => true
-
-
-
-        %dl.delibody_content_main_payment.clearfix
-          = f.label "お支払い方法",class: "delibody_content_main_payment_title"
-          .delibody_content_main_payment_main
-            .delibody_content_main_payment_main_tuke
-              .delibody_content_main_payment_main_tuke_title
-                = f.radio_button :payment_id, 1
-                %span
-                  = f.label "ツケ払い"
-                %span#newmark NEW
-              .delibody_content_main_payment_main_tuke_points
-                %span ※今回のご注文ではご利用できません
-                %span#exclamation_tuke
-                  %i.far.fa-exclamation-circle
-              .delibody_content_main_payment_main_tuke_price
-                %span ¥
-                %span 200
-
-            #tukeform.content.hide
-              .atention
+= form_for @pre_order, url: orders_registration_path do |f|
+  .body
+    .inner
+      .payment.clearfix
+        .payment_header
+          .payment_header_content
+            .payment_header_content_logo
+              = image_tag 'zozo-logo-white.png', class: "main_logo"
+            .payment_header_content_title
+              %p お届け先・配送方法・お支払い方法
+          .status_nav
+            = image_tag 'zozo-write.png', class: "status_nav"
+        .payment_inner
+          .regist_address
+            %dl.delivery_table.clearfix
+              %dt.address_title
+                お届け先
+              %dd.user_info
                 %p
-                  %span ※代金の請求、並びに請求に関してご連絡が必要となる場合、GMOペイメントサービスがおこないます。
-                  = link_to "#" do
-                    %span 詳細はこちら。
-                %p ※GMOペイメントサービスに対して与信・代金の回収等の目的で、安全が確保できる手段を用いて必要な情報を提供いたします。また、利用者はこれにご同意のうえ注文を確定してください。
-                %p ※当社はGMOペイメントサービス株式会社より支払い状況に関する情報等を受領いたします。当社は、当該情報等を利用し、利用者に対して別途指定する方法にて支払い状況にかかるご案内を差し上げます。
-                %p ※支払期限を過ぎてもお支払の確認ができない場合、それ以降のご利用が制限されます。
-                %p ※ご注文いただいた商品の配送先に請求書が送付されるため、配送先のご登録はご本人様とし、プレゼント等でのご利用はお控えください。
+                  = current_user.name
+                %p 〒232-0014
+                %p
+                  = "住所： #{current_user.address}"
+                %a 電話番号:
+                %a
+                  = current_user.phone_num
+          %dl.delivery_table.clearfix
+            %dt.delivery_title
+              = f.label "配送方法"
+              %p
+              = f.label "お届け予定日"
+            %dd
+              %dl.clearfix
+                %dt.table_left
+                  = f.radio_button :delivery_id, 0, class: "radio"
+                  = f.label "指定なし"
+                %dd.table_center
+                  %p 2～4日以内に発送
+                %dd.table_right
+                  %p ¥200
+            %dd
+              %dl.clearfix
+                %dt.table_left
+                  = f.radio_button :delivery_id, 1, class: "radio"
+                  = f.label "日時指定"
+                %dd.table_center
+                  %p 希望日時を選択してください
+                %dd.table_right
+                  %p ¥200
+            %dd
+              %dl.clearfix
+                %dt.table_left
+                  = f.radio_button :delivery_id, 2, class: "radio"
+                  = f.label "即日配送"
+                %dd.table_center
+                  %a 最短
+                  %a
+                    - delivery_day = Time.current.since(12.hours)
+                    = delivery_day.strftime("%m月%d日")
+                %dd.table_right
+                  %p ¥550
+          %dl.delivery_table.clearfix
+            %dt.delivery_title
+              = f.label "お支払い方法"
+            = render partial: "payment", locals:{f: f, type: "ツケ払い", price: 324, payment_id: 0}
+            = render partial: "payment", locals:{f: f, type: "クレジットカード", price: 0, payment_id: 1}
+            = render partial: "payment", locals:{f: f, type: "代金引換", price: 0, payment_id: 2}
 
-            / .delibody_content_main_payment_main_zozo
-            /   .delibody_content_main_payment_main_zozo_title
-            /     = f.radio_button :payment_id, 2
-            /     = f.label "ZOZOCARD"
-            /   .delibody_content_main_payment_main_zozo_points
-            /     %span 72
-            /     %span ポイント還元
-            /   .delibody_content_main_payment_main_zozo_price
-            /     %span ¥
-            /     %span 0
-
-            / #zozoform.zozocontent.hide.clearfix
-            /   = f.fields_for :cards, @card do |order|
-            /     .zozocontent_number
-            /       = order.label "カード番号", class: "zozocontent_number_title"
-            /       = order.text_field :number, placeholder: "カード番号", class: "zozocontent_number_form"
-            /     .zozocontent_limit
-            /       = order.label "有効期限", class: "zozocontent_limit_title"
-            /       .zozocontent_limit_year
-            /         - limit_years = [[]]
-            /         - (Time.now.year..Time.now.year+10).each do |year|
-            /           - limit_years << [year, year]
-            /         = order.select :limit_year, limit_years
-            /         / = order.date_select :limit_year, {:discard_month => true, :discard_day => true, :start_year => Time.now.year, :end_year => Time.now.year + 10, :include_blank => true, :default => ""}
-            /         = order.label :limit_year, "年"
-            /       .zozocontent_limit_month
-            /         - limit_months = [[]]
-            /         - (1..12).each do |month|
-            /           -limit_months << [month, month]
-            /         = order.select :limit_month, limit_months
-            /         / = order.date_select :limit_month, {:use_month_numbers => true, :discard_year => true, :discard_day => true, :include_blank => true, :default => ""}
-            /         = order.label :limit_month, "月"
-            /     .zozocontent_meny
-            /       = order.label "支払回数", class: "zozocontent_meny_title"
-            /       = order.select :payment_num, [[ "一括払い", "一括払い"], ["2回払い", "2回払い"], ["3回払い", "3回払い"], ["6回払い", "6回払い"], ["12回払い", "12回払い"], ["24回払い", "24回払い"], ["リボ払い", "リボ払い"], ["ボーナス払い", "ボーナス払い"]], :include_blank => true, class: "zozocontent_meny_form"
-
-
-            .delibody_content_main_payment_main_credit
-              .delibody_content_main_payment_main_credit_title
-                = f.radio_button :payment_id, 3
-                = f.label"クレジットカード"
-              .delibody_content_main_payment_main_credit_points
-                %span 36
-                %span ポイント還元
-              .delibody_content_main_payment_main_credit_price
-                %span ¥
-                %span 0
-
-            #creform.crecontent.hide.crearfix
-              = image_tag('zozo-credit.png')
-              = f.fields_for :cards,@card do |order|
-                .crecontent_number
-                  = order.label "カード番号", class: "crecontent_number_title"
-                  = order.text_field :number, placeholder: "カード番号", class: "crecontent_number_form"
-                .crecontent_limit
-                  = order.label "有効期限", class: "crecontent_limit_title"
-                  .crecontent_limit_year
-                    - limit_years = [[]]
-                    - (Time.now.year..Time.now.year+10).each do |year|
-                      - limit_years << [year, year]
-                    = order.select :limit_year, limit_years
-                    / = order.date_select :limit_year, {:discard_month => true, :discard_day => true, :start_year => Time.now.year, :end_year => Time.now.year + 10, :include_blank => true, :default => ""}
-                    = order.label :limit_year, "年"
-                  .crecontent_limit_month
-                    - limit_months = [[]]
-                    - (1..12).each do |month|
-                      -limit_months << [month, month]
-                    = order.select :limit_month, limit_months
-                    / = order.date_select :limit_month, {:use_month_numbers => true, :discard_year => true, :discard_day => true, :include_blank => true, :default => ""}
-                    = order.label :limit_month, "月"
-                .crecontent_meny
-                  = order.label "支払回数", class: "crecontent_meny_title"
-                  = order.select :payment_num, [[ "一括払い", "一括払い"], ["2回払い", "2回払い"], ["3回払い", "3回払い"], ["6回払い", "6回払い"], ["12回払い", "12回払い"], ["24回払い", "24回払い"], ["リボ払い", "リボ払い"], ["ボーナス払い", "ボーナス払い"]], :include_blank => true, class: "zozocontent_meny_form"
-
-            .delibody_content_main_payment_main_cash
-              .delibody_content_main_payment_main_cash_title
-                = f.radio_button :payment_id, 4
-                = f.label"代金引換"
-              .delibody_content_main_payment_main_cash_points
-                %span 36
-                %span ポイント還元
-              .delibody_content_main_payment_main_cash_exclamation
-              .delibody_content_main_payment_main_cash_price
-                %span ¥
-                %span 324
-
-            .delibody_content_main_payment_main_line
-              .delibody_content_main_payment_main_line_title
-                = f.radio_button :payment_id, 5
-                = f.label"LINE Pay"
-              .delibody_content_main_payment_main_line_points
-                %span※今回のご注文ではご利用できません
-                %span#line_exclamation
-                  %i.far.fa-exclamation-circle
-              .delibody_content_main_payment_main_line_price
-                %span ¥
-                %span 0
-
-            .delibody_content_main_payment_main_conbini
-              .delibody_content_main_payment_main_conbini_title
-                = f.radio_button :payment_id, 0
-                = f.label"コンビニ"
-              .delibody_content_main_payment_main_conbini_points
-                %span※今回のご注文ではご利用できません
-                %span#conbini_exclamation
-                  %i.far.fa-exclamation-circle
-              .delibody_content_main_payment_main_conbini_price
-                %span ¥
-                %span 324
-
-            #conbiniform.concontent.hide
-              / %input.concontent_check{:name => "conbini", :type => "radio",:checkd => true}
-              .concontent_ca01
-                .concontent_ca01_title
-                  = f.radio_button :payment_id, 6
-                  = image_tag('conv_01.gif')
-                %dl.concontent_ca01_description
-                  %dd Loppiのあるローソンで
-                  %dd ご利用いただけます。
-              .concontent_ca01
-                .concontent_ca01_title
-                  = f.radio_button :payment_id, 7
-                  = image_tag('conv_02.gif')
-                %dl.concontent_ca01_description
-                  %dd Famiポートのある
-                  %dd ファミリーマートで
-                  %dd ご利用いただけます
-              .concontent_ca01
-                .concontent_ca01_title
-                  = f.radio_button :payment_id, 8
-                  = image_tag('conv_03.gif')
-                %dl.concontent_ca01_description
-                  %dd Ｋステーションのある
-                  %dd サンクスでご利用いただけます。
-              .concontent_ca01
-                .concontent_ca01_title
-                  = f.radio_button :payment_id, 9
-                  = image_tag('conv_04.gif')
-                %dl.concontent_ca01_description
-                  %dd Ｋステーションのある
-                  %dd サークルＫでご利用いただけます。
-              .concontent_ca01
-                .concontent_ca01_title
-                  = f.radio_button :payment_id, 10
-                  = image_tag('conv_05.gif')
-                %dl.concontent_ca01_description
-                  %dd Loppiのあるミニストップで
-                  %dd ご利用いただけます。
-              .concontent_ca01
-                .concontent_ca01_title
-                  = f.radio_button :payment_id, 11
-                  = image_tag('conv_06.gif')
-                %dl.concontent_ca01_description
-                  %dd デイリーヤマザキ全店および
-                  %dd 同系列のヤマザキデイリーストアで
-                  %dd ご利用いただけます。
-              .concontent_ca01
-                .concontent_ca01_title
-                  = f.radio_button :payment_id, 12
-                  = image_tag('conv_07.gif')
-                %dl.concontent_ca01_description
-                  %dd セブンイレブン全店で
-                  %dd ご利用いただけます。
-
-                #linklow.hidedn
-                  =link_to "#" do
-                    .concontent_link_low.hide ローソンでのお支払い方法
-                #linkfam.hidedn
-                  =link_to "#" do
-                    .concontent_link_fam.hide ファミリーマートでのお支払い方法
-                #linksun.hidedn
-                  =link_to "#" do
-                    .concontent_link_sun.hide サンクスでのお支払い方法
-                #linkk.hidedn
-                  =link_to "#" do
-                    .concontent_link_k.hide サークルKでのお支払い方法
-                #linkmini.hidedn
-                  =link_to "#" do
-                    .concontent_link_mini.hide ミニストップでのお支払い方法
-                #linkday.hidedn
-                  =link_to "#" do
-                    .concontent_link_day.hide デイリーヤマザキでのお支払い方法
-                #linksev.hidedn
-                  =link_to "#" do
-                    .concontent_link_sev.hide セブンイレブンでのお支払い方法
-
-            .delibody_content_main_payment_main_blackcat
-              .delibody_content_main_payment_main_blackcat_title
-                = f.radio_button :payment_id, 13
-                = f.label"クロネコ代金後払い"
-              .delibody_content_main_payment_main_blackcat_points
-                %span ※今回のご注文ではご利用できません
-                %span#bkackcat_exclamation
-                  %i.far.fa-exclamation-circle
-              .delibody_content_main_payment_main_blackcat_price
-                %span ¥
-                %span 0
-
-
-      .delibody_content_move
-        .delibody_content_move_content
-          .delibody_content_move_content_list
-            = f.submit "次に進む", class: "delibody_content_move_content_list_button"
-            %dl.delibody_content_move_content_list_price
-              .delibody_content_move_content_list_price_total
-                .delibody_content_move_content_list_price_total_title
-                  %dt 商品合計
-                .delibody_content_move_content_list_price_total_price
-                  %dd
-                    %span ¥
-                    %span#total
-                      = @itemprice
-              %dl.delibody_content_move_content_list_price_postage
-                .delibody_content_move_content_list_price_postage_title
-                  %dt 送料
-                .delibody_content_move_content_list_price_postage_price
-                  %dd
-                    %span ¥
-                    %span#postage 200
-              %dl.delibody_content_move_content_list_price_commission
-                .delibody_content_move_content_list_price_commission_title
-                  %dt 支払い手数料
-                .delibody_content_move_content_list_price_commission_price
-                  %dd
-                    %span ¥
-                    %span#commission 0
-            %dl.delibody_content_move_content_list_total
-              .delibody_content_move_content_list_total_title
-                %dt
-                  %span 合計
-                  %span#tax-notation (税込)
-              .delibody_content_move_content_list_total_price
-                %dd
-                  %span ¥
-                  %span#allprice
-                    = @totalprice
-
-
-  %ul.delibody_content_atention
-    %li.delibody_content_atention_first
-      %span ※
-      =link_to "#" do
-        %span ZOZOCARDとは？
-    %li.delibody_content_atention_second
-      %span ※デビット機能付きカード、カード会社発行のプリペイドカードのご利用はお控えください。詳しくは、
-      =link_to "#" do
-        %span 注意事項
-      %span をご確認ください。
-    %li.delibody_content_atention_third
-      %p ※コンビニを選択された場合、お支払いを確認後に配送方法「指定なし」でのお届けとなります。
+        .payment_sidebar
+          = render partial: "next_btn", locals: {f: f, total_price: current_user.cart.total_price, shipping_cost: 200, fee: 324}
