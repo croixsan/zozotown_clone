@@ -92,9 +92,8 @@
       @include fit_to_center();
 
       &_btn {
-        @include set_btn(25px, 265px);
+        @include set_btn(50px, 265px);
         font-size: 18px;
-        padding: 13px 0;
         margin: 0 auto;
         background-color: #3d6bcb;
         text-align: center;
