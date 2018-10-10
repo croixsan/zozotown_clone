@@ -1,4 +1,4 @@
-= form_for @pre_order, url: orders_registration_path do |f|
+= form_for @pre_order do |f|
   .body
     .inner
       .payment.clearfix
@@ -33,8 +33,8 @@
               %dd
                 %dl.clearfix
                   %dt.table_left
+                    = f.label :deliver_id, delivery.kind
                     = f.radio_button :delivery_id, delivery.id, class: "radio"
-                    = f.label delivery.kind
                   %dd.table_center
                     - case delivery.kind
                     - when "指定なし"
@@ -51,7 +51,7 @@
                       = number_to_currency(delivery.price, unit: "￥", precision: 0)
           %dl.delivery_table.clearfix
             %dt.delivery_title
-              = f.label "お支払い方法"
+              = f.label :payment_id, "お支払い方法"
             = render partial: "payment", collection: @payments, as: "payment", locals: {f: f}
         .payment_sidebar
           = render partial: "next_btn", locals: {f: f, total_price: current_user.cart.total_price, shipping_cost: 200, fee: 324}
