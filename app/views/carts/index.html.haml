@@ -71,7 +71,7 @@
                 -# = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
     .cart-next
       .form
-        %a{ :href => 'http://google.co.jp' }レジへ進む
+        = link_to "レジへ進む", new_pre_order_path
         .postage
           .postage-text
             %i.fas.fa-exclamation-circle

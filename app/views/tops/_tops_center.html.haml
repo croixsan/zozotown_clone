@@ -36,20 +36,22 @@
   %p.more-list.link-list.zozo-item-link
     = link_to "ランキング一覧", "#"
 //-------- チェックしたアイテム ---------//
-%section#top__center__pickup
-  .section-header
-    %h2 チェックしたアイテム
-  %ul#top__center__pickup__contents.clearfix
-    - @checked_items.each do |item|
-      #top__center__pickup__contents__item
-        %li.item
-          - if item.images[0]
-            = render partial: 'item', locals: {item: item, image_size: "small", rank_num: 0, coupon: 0}
-%section#top__center__shops
-  .section-header
-    %h2 チェックしたショップ
-  %ul#top__center__shops__contents.clearfix
-    - @checked_shops.each do |shop|
-      #top__center__pickup__contents__item
-        - if shop.url
-          = render partial: 'shop_image', locals: {shop: shop}
+- if user_signed_in?
+  %section#top__center__pickup
+    .section-header
+      %h2 チェックしたアイテム
+    %ul#top__center__pickup__contents.clearfix
+      - @checked_items.each do |item|
+        #top__center__pickup__contents__item
+          %li.item
+            - if item.images[0]
+              = render partial: 'item', locals: {item: item, image_size: "small", rank_num: 0, coupon: 0}
+- if user_signed_in?
+  %section#top__center__shops
+    .section-header
+      %h2 チェックしたショップ
+    %ul#top__center__shops__contents.clearfix
+      - @checked_shops.each do |shop|
+        #top__center__pickup__contents__item
+          - if shop.url
+            = render partial: 'shop_image', locals: {shop: shop}

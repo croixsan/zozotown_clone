@@ -9,10 +9,13 @@ class TopsController < ApplicationController
     @top_categories = TopCategory.all
     @brands = Brand.order("items_count DESC").limit(10)
     @shops = Shop.order("items_count DESC").limit(10)
-    # チェックしたアイテム
-    @checked_items = get_checked_items
-    # チェックしたショップ
-    @checked_shops = get_checked_shops
+
+    if user_signed_in?
+      # チェックしたアイテム
+      @checked_items = get_checked_items
+      # チェックしたショップ
+      @checked_shops = get_checked_shops
+    end
 
     @rankings = get_ranking_items.slice(0, 23)
 

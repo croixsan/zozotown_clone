@@ -49,7 +49,7 @@
                     %i.far.fa-heart
                     %span 会員でない方でも「お気に入り」が使えるようになりました。
         %li#header__wrapper__right__contents__cart
-          = link_to "#", class: "h-list-btn", id: "cart-btn" do
+          = link_to carts_index_path, class: "h-list-btn", id: "cart-btn" do
             %i.fas.fa-lg.fa-shopping-cart
             %i.fas.fa-circle
               %i.cart-notify
@@ -60,7 +60,7 @@
                 %i.fas.fa-shopping-cart
                 %span カートに商品が1件あります。
                 .look-cart-btn
-                  = link_to "ショッピングカートを見る", "#"
+                  = link_to "ショッピングカートを見る", carts_index_path
 
         %li#header__wrapper__right__contents__menu
           = link_to "#", class: "h-list-btn", id: "menu-btn" do
@@ -71,10 +71,10 @@
                 %li
                   %h3 探す
                 %li
-                  = link_to "カテゴリー一覧", "#"
+                  = link_to "カテゴリー一覧", top_categories_path
                 %li
-                  = link_to "ブランド一覧", "#"
+                  = link_to "ブランド一覧", brands_path
                 %li
-                  = link_to "ショップ一覧", "#"
+                  = link_to "ショップ一覧", shops_path
                 %li
-                  = link_to "ランキング一覧", "#"
+                  = link_to "ランキング一覧", rankings_path
