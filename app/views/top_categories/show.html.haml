@@ -28,4 +28,5 @@
           .result_items_list
             - @items.each_with_index do |item, i|
               - if i < 20 && item.images[0]
-                = render partial: 'tops/item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+                %li.item
+                  = render partial: 'tops/item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
