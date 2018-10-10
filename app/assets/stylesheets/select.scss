@@ -143,3 +143,19 @@
     }
   }
 }
+
+.input_day {
+  display: block;
+  margin: 0 4px 0 0;
+  padding: 10px 6px 9px 8px;
+  width: 200px;
+  border: 1px solid #ccc;
+  float: left;
+}
+.input_hour {
+  display: block;
+  padding: 10px 6px 9px 8px;
+  width: 200px;
+  border: 1px solid #ccc;
+  float: left;
+}
