@@ -54,14 +54,19 @@
           }
         }
 
-        .main-image:hover .imagegrass {
+        .main-image {
           height: $height-main-content;
           width: 500px;
           float: left;
+          display: inline-block;
           position: relative;
 
+          // .top_image {
+          //   overflow: hidden;
+          // }
+
           .image-grass {
-            display: none;
+            // display: none;
             position: absolute;
             top: 50px; /* JSで適切な値を設定する */
             left: 30px; /* JSで適切な値を設定する */
@@ -71,10 +76,18 @@
             height: 172px;
             width: 172px;
           }
+
+          .main-image:hover .image-grass {
+            display: block;
+          }
+        }
+
+        .zoom-area.active {
+          display: block;
         }
 
         .zoom-area {
-          // display: none;
+          display: none;
           position: absolute;
           top: 160px;
           left: 800px;
@@ -83,10 +96,13 @@
           width: 520px;
           overflow: hidden;
           z-index: 2;
-        }
+          background-color: red;
 
-        .zoom-area.active {
-          display: block;
+          .zoom_image {
+            width: 1040px; /* JSで適切な値を設定する */
+            margin-top: -30px; /* JSで適切な値を設定する */
+            margin-left: -60px; /* JSで適切な値を設定する */
+          }
         }
 
         .right-button {
