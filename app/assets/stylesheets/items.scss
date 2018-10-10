@@ -58,6 +58,7 @@
           height: $height-main-content;
           width: 500px;
           float: left;
+          position: relative;
 
           .image-grass {
             position: absolute;
@@ -69,6 +70,19 @@
             height: 172px;
             width: 172px;
           }
+        }
+
+        .zoom-area {
+          // display: none;
+          position: absolute;
+          top: 160px;
+          left: 800px;
+          border: 1px solid #ccc;
+          height: 520px;
+          width: 520px;
+          overflow: hidden;
+          background-color: red;
+          z-index: 2;
         }
 
         .right-button {
