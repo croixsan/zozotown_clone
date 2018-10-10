@@ -58,6 +58,17 @@
           height: $height-main-content;
           width: 500px;
           float: left;
+
+          .image-grass {
+            position: absolute;
+            top: 50px; /* JSで適切な値を設定する */
+            left: 30px; /* JSで適切な値を設定する */
+            z-index: 2;
+            background: #f57716;
+            opacity: 0.3;
+            height: 172px;
+            width: 172px;
+          }
         }
 
         .right-button {
