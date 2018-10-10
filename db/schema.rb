@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181009050138) do
+ActiveRecord::Schema.define(version: 20181010093908) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",        null: false
@@ -62,14 +62,10 @@ ActiveRecord::Schema.define(version: 20181009050138) do
   end
 
   create_table "deliveries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",    null: false
-    t.string   "addless",    null: false
-    t.integer  "post_num",   null: false
-    t.integer  "phone_num",  null: false
-    t.integer  "kind",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "name"
+    t.integer  "price",      null: false
+    t.string   "kind",       null: false
   end
 
   create_table "favorite_brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -141,13 +137,13 @@ ActiveRecord::Schema.define(version: 20181009050138) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "cart_id",       null: false
-    t.integer  "delivery_id",   null: false
     t.datetime "buy_date"
-    t.integer  "card_id",       null: false
     t.integer  "delivery_kind", null: false
     t.string   "delivery_day"
     t.string   "delivery_hour"
     t.integer  "payment_id",    null: false
+    t.integer  "card_id"
+    t.integer  "delivery_id"
   end
 
   create_table "past_carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -164,6 +160,17 @@ ActiveRecord::Schema.define(version: 20181009050138) do
     t.string   "method",                null: false
     t.integer  "price",                 null: false
     t.float    "point_rate", limit: 24, null: false
+  end
+
+  create_table "pre_orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "delivery_id", null: false
+    t.integer  "payment_id",  null: false
+    t.datetime "hope_day"
+    t.integer  "hope_hour"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_pre_orders_on_user_id", using: :btree
   end
 
   create_table "shoppings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -1,0 +1,23 @@
+.next_btn
+  .next_btn_inner
+    = f.submit "次へ進む", class: "next_btn_inner_btn"
+    .price_table
+      %dl.clearfix
+        %dt 商品合計
+        %dd
+          = number_to_currency(total_price, unit: "￥", precision: 0)
+      %dl.clearfix
+        %dt 送料
+        %dd
+          = number_to_currency(shipping_cost, unit: "￥", precision: 0)
+      %dl.clearfix
+        %dt 支払い手数料
+        %dd
+          = number_to_currency(fee, unit: "￥", precision: 0)
+      .total_price
+        %dl.clearfix
+          %dt.total_price_title
+            合計
+            %span (税込)
+          %dd.total_price_price
+            = number_to_currency(total_price + fee + shipping_cost, unit: "￥", precision: 0)

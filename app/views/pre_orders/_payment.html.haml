@@ -1,0 +1,12 @@
+%dd
+  %dl.clearfix
+    %dt.table_left
+      = f.radio_button :payment_id, payment.id, class: "radio"
+      = f.label payment.method
+    %dd.table_center
+      %p
+        = (current_user.cart.total_price * 0.01).round
+        ポイント還元
+    %dd.table_right
+      %p
+        = number_to_currency(payment.price, unit: "￥", precision: 0)

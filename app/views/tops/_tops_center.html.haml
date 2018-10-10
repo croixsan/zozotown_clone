@@ -23,7 +23,8 @@
   .section-header
     %h2 人気アイテムランキング
   %ul#top__center__ranking__contents.clearfix
-    - @rank_items.each_with_index do |item, i|
+    - @rankings.each_with_index do |ranking, i|
+      - item = ranking[0]
       #top__center__ranking__contents__item
         - if i < 3
           = render partial: 'item', locals: {item: item, image_size: "large", rank_num: i+1, coupon: 0}
