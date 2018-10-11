@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   # enum gender: { men: 1, women: 2, other: 3 }
-  has_one :pre_order
+  has_one :pre_order, dependent: :destroy
   has_one :cart, dependent: :destroy
   has_many :checked_items, dependent: :destroy
   has_many :checked_shops
