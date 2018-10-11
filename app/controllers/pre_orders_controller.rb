@@ -7,7 +7,7 @@ class PreOrdersController < ApplicationController
 
   def create
     pre_order = PreOrder.where(user_id: current_user.id).first_or_create.update(pre_order_params)
-    redirect_to orders_path
+    redirect_to new_order_path
   end
 
   private def pre_order_params
