@@ -24,15 +24,7 @@ class OrdersController < ApplicationController
   def create
     pre_order = current_user.pre_order
 
-    # orderの作成
-    order = Order.new
-    order.user_id     = current_user.id
-    order.delivery_id = pre_order.delivery_id
-    order.payment_id  = pre_order.payment_id
-    order.used_point  = 0
-    order.coupon_id   = order_params[:coupon_id]
-    order.order_num   = "#{current_user.id}_#{pre_order.id}"
-    order.save
+    order = current_user.orders.create!(delivery_id: pre_order.delivery_id, payment_id: pre_order.payment_id, used_point: 0, coupon_id: order_params[:coupon_id], order_num: "#{current_user.id}_#{pre_order.id}")
 
     # 中間テーブルにアイテムを登録
     item_nums = current_user.cart.item_nums.group(:number)
