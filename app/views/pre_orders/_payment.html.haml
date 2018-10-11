@@ -2,7 +2,7 @@
   %dl.clearfix
     %dt.table_left
       = f.radio_button :payment_id, payment.id, class: "radio"
-      = f.label payment.method
+      = f.label :payment_id, payment.method
     %dd.table_center
       %p
         = (current_user.cart.total_price * 0.01).round
