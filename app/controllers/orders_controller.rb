@@ -25,18 +25,25 @@ class OrdersController < ApplicationController
     pre_order = current_user.pre_order
 
     # orderの作成
-    @order = Order.create(user_id: current_user.id, delivery_id: pre_order.delivery_id, payment_id: pre_order.payment_id, used_point: 0, coupon_id: order_params[:coupon_id],order_num: "#{pre_order.id}_#{current_user.id}")
+    order = Order.new
+    order.user_id     = current_user.id
+    order.delivery_id = pre_order.delivery_id
+    order.payment_id  = pre_order.payment_id
+    order.used_point  = 0
+    order.coupon_id   = order_params[:coupon_id]
+    order.order_num   = "#{current_user.id}_#{pre_order.id}"
+    order.save
 
     # 中間テーブルにアイテムを登録
-    @item_nums = current_user.cart.item_nums.group(:number)
-    @count = @item_nums.count # 購入したアイテムの個数を算出
-    @item_nums.each do |item_num|
-      @ordered_item = OrderedItem.new
-      @ordered_item.item_id = item_num.item.id
-      @ordered_item.item_num_id = item_num.id
-      @ordered_item.order_id = @order.id
-      @ordered_item.number = @count[item_num.number]
-      @ordered_item.save
+    item_nums = current_user.cart.item_nums.group(:number)
+    count = item_nums.count # 購入したアイテムの個数を算出
+    item_nums.each do |item_num|
+      ordered_item = OrderedItem.new
+      ordered_item.item_id = item_num.item.id
+      ordered_item.item_num_id = item_num.id
+      ordered_item.order_id = order.id
+      ordered_item.number = count[item_num.number]
+      ordered_item.save
     end
     # pre_orderの削除
     pre_order.destroy
