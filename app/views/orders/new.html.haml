@@ -116,56 +116,57 @@
               %p
                 = number_to_currency(@pre_order.delivery.price, unit: "￥", precision: 0)
             %dd.btn-column
-      .o.right-content
-        .o.purchase-area
-          = link_to orders_path do
-            %img.o.purchase-btn{alt: "itemロゴ", height: "70", width: "265", src: "https://zozo.jp/_cart/order/img/btn_accrue.png"}
-        .o.payment-total
-          .o.payment-total-title 商品合計
-          .o.payment-total-num
-            = number_to_currency(@cart.total_price, unit: "￥", precision: 0)
-        .o.point-option
-          .o.point-use-area
-            %p
-              %span
-              %i.far.fa-check-circle
-              %span ZOZOポイントを利用
-            %p.o.point-use-possible
-              ご利用可能ポイント
-              = "#{current_user.point}ポイント"
-          .o.discount-area
-            .o.discount-box
-              %span.goods-title 品代
-              %span.goods-price
-                = number_to_currency(@cart.total_price, unit: "￥", precision: 0)
-            .o.discount-box-point
-              %span.point-title クーポン・ポイント
-              %span.point-price
-                = "-#{@discount_point}pt"
-        .o.payment-option
-          .o.payment-option-box
-            送料
-            %span.payment-option-delivery-date
-              （指定なし：2～4日以内に発送）
-            %span.payment-option-delivery-price
-              = number_to_currency(@pre_order.delivery.price, unit: "￥", precision: 0)
-          .o.payment-comittion
-            支払い手数料
-            %span.o.payment-price
-              = number_to_currency(@pre_order.payment.price, unit: "￥", precision: 0)
-          .o.payment-option-total
-            合計
-            %span.payment-option-total-tax
-              (税込)
-            %span.payment-option-total-price
-              = number_to_currency(@total_price, unit: "￥", precision: 0)
-        .o.attention
-          .o.attention-delivery
-            ※送料は一律¥200です。
-          .o.returned
-            %p
-              ご注文完了前に必ずサイズ・カラー・価格・数量のご確認をお願いいたします。
-            %p
-              一部商品や、商品状態等により注文取り消し・返品をお受けできない場合がございます。
-            -# .o.returnde-about
-            -#   %a{ :href => 'http://google.co.jp' }返品について
+      = form_for @order do |f|
+        .o.right-content
+          .o.purchase-area
+            = f.hidden_field :coupon_id, value: @coupon.id
+            = f.submit "注文を確定する", class: "next_btn_inner_btn"
+          .o.payment-total
+            .o.payment-total-title 商品合計
+            .o.payment-total-num
+              = number_to_currency(@cart.total_price, unit: "￥", precision: 0)
+          .o.point-option
+            .o.point-use-area
+              %p
+                %span
+                %i.far.fa-check-circle
+                %span ZOZOポイントを利用
+              %p.o.point-use-possible
+                ご利用可能ポイント
+                = "#{current_user.point}ポイント"
+            .o.discount-area
+              .o.discount-box
+                %span.goods-title 品代
+                %span.goods-price
+                  = number_to_currency(@cart.total_price, unit: "￥", precision: 0)
+              .o.discount-box-point
+                %span.point-title クーポン・ポイント
+                %span.point-price
+                  = "-#{@discount_point}pt"
+          .o.payment-option
+            .o.payment-option-box
+              送料
+              %span.payment-option-delivery-date
+                （指定なし：2～4日以内に発送）
+              %span.payment-option-delivery-price
+                = number_to_currency(@pre_order.delivery.price, unit: "￥", precision: 0)
+            .o.payment-comittion
+              支払い手数料
+              %span.o.payment-price
+                = number_to_currency(@pre_order.payment.price, unit: "￥", precision: 0)
+            .o.payment-option-total
+              合計
+              %span.payment-option-total-tax
+                (税込)
+              %span.payment-option-total-price
+                = number_to_currency(@total_price, unit: "￥", precision: 0)
+          .o.attention
+            .o.attention-delivery
+              ※送料は一律¥200です。
+            .o.returned
+              %p
+                ご注文完了前に必ずサイズ・カラー・価格・数量のご確認をお願いいたします。
+              %p
+                一部商品や、商品状態等により注文取り消し・返品をお受けできない場合がございます。
+              -# .o.returnde-about
+              -#   %a{ :href => 'http://google.co.jp' }返品について
