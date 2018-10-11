@@ -22,27 +22,33 @@ class OrdersController < ApplicationController
   end
 
   def create
-    pre_order = current_user.pre_order
 
-    order = current_user.orders.create!(delivery_id: pre_order.delivery_id, payment_id: pre_order.payment_id, used_point: 0, coupon_id: order_params[:coupon_id], order_num: "#{current_user.id}_#{pre_order.id}")
+    ActiveRecord::Base.transaction do
+      pre_order = current_user.pre_order
 
-    # 中間テーブルにアイテムを登録
-    item_nums = current_user.cart.item_nums.group(:number)
-    count = item_nums.count # 購入したアイテムの個数を算出
-    item_nums.each do |item_num|
-      ordered_item = OrderedItem.new
-      ordered_item.item_id = item_num.item.id
-      ordered_item.item_num_id = item_num.id
-      ordered_item.order_id = order.id
-      ordered_item.number = count[item_num.number]
-      ordered_item.save
+      order = current_user.orders.create!(delivery_id: pre_order.delivery_id, payment_id: pre_order.payment_id, used_point: 0, coupon_id: order_params[:coupon_id], order_num: "#{current_user.id}_#{pre_order.id}")
+
+      # 中間テーブルにアイテムを登録
+      item_nums = current_user.cart.item_nums.group(:number)
+      count = item_nums.count # 購入したアイテムの個数を算出
+      item_nums.each do |item_num|
+        ordered_item = OrderedItem.new
+        ordered_item.item_id = item_num.item.id
+        ordered_item.item_num_id = item_num.id
+        ordered_item.order_id = order.id
+        ordered_item.number = count[item_num.number]
+        ordered_item.save!
+      end
+
+      # pre_orderの削除
+      pre_order.destroy
+
+      # カート内のアイテムの削除
+      current_user.cart.shoppings.destroy_all!
     end
-    # pre_orderの削除
-    pre_order.destroy
-
-    # カート内のアイテムの削除
-    current_user.cart.shoppings.destroy_all
-
+      redirect_to root_path
+    rescue
+      redirect_to action: :new
   end
 
   private
