@@ -3,6 +3,13 @@ class PreOrdersController < ApplicationController
     @pre_order = PreOrder.new
     @payments = Payment.all
     @deliveries = Delivery.all
+    if current_user.pre_order == nil
+      @shipping_cost = 0
+      @fee = 0
+    else
+      @shipping_cost = current_user.pre_order.delivery.price
+      @fee = current_user.pre_order.payment.price
+    end
   end
 
   def create
