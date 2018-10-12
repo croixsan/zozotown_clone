@@ -66,15 +66,19 @@
           // }
 
           .image-grass {
-            // display: none;
+            display: none;
             position: absolute;
-            top: 50px; /* JSで適切な値を設定する */
-            left: 30px; /* JSで適切な値を設定する */
+            top: 0px; /* JSで適切な値を設定する */
+            left: 0px; /* JSで適切な値を設定する */
             z-index: 2;
             background: #f57716;
             opacity: 0.3;
             height: 172px;
             width: 172px;
+          }
+
+          .image-grass.active {
+            display: block;
           }
 
           .main-image:hover .image-grass {
@@ -87,7 +91,7 @@
         }
 
         .zoom-area {
-          display: none;
+          // display: none;
           position: absolute;
           top: 160px;
           left: 800px;
@@ -99,9 +103,9 @@
           background-color: red;
 
           .zoom_image {
-            width: 1040px; /* JSで適切な値を設定する */
-            margin-top: -30px; /* JSで適切な値を設定する */
-            margin-left: -60px; /* JSで適切な値を設定する */
+            width: 1300px; /* JSで適切な値を設定する */
+            // margin-top: -30px; /* JSで適切な値を設定する */
+            // margin-left: -60px; /* JSで適切な値を設定する */
           }
         }
 
