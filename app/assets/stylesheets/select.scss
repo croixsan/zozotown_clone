@@ -57,6 +57,49 @@
       .table_left {
         width: 150px;
         padding: 10px 0;
+
+        .card_table {
+          display: none;
+          background-color: #f6f6f6;
+          width: 440px;
+
+          &_title {
+            margin-left: 10px;
+            float: left;
+            width: 200px;
+            padding: 14px 0 11px;
+          }
+
+          &_num {
+            float: left;
+            width: 160px;
+            padding: 14px 0 11px;
+          }
+        }
+
+        .select_form {
+          display: none;
+          width: 430px;
+          padding-bottom: 20px;
+          background-color: #f6f6f6;
+
+          select {
+            margin: 15px 20px 0 30px;
+            width: 150px;
+            height: 30px;
+            padding-left: 10px;
+            float: left;
+            display: block;
+            outline: none;
+            text-indent: 0.01px;
+            text-overflow: '';
+            background: none transparent;
+            vertical-align: middle;
+            font-size: inherit;
+            color: inherit;
+            -webkit-appearance: button;
+          }
+        }
       }
 
       .table_center {

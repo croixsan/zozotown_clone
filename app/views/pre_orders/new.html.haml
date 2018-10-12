@@ -33,12 +33,14 @@
               %dd
                 %dl.clearfix
                   %dt.table_left
-                    - select_id = ""
-                    - if delivery.kind == "日時指定"
-                      - select_id = "delivery_date"
                     = f.label :deliver_id, delivery.kind
-                    = f.radio_button :delivery_id, delivery.id, class: "radio delivery_select", id: select_id , "data-id": delivery.id
-                    .input_form.clearfix{id: "select_#{delivery.id}"}
+                    - if delivery.kind == "日時指定"
+                      = f.radio_button :delivery_id, delivery.id, class: "radio", id: "select_date"
+                      .select_form.clearfix
+                        = f.select :hope_day, get_delivery_days
+                        = f.select :hope_hour, get_delivery_hours
+                    - else
+                      = f.radio_button :delivery_id, delivery.id, class: "radio other_date"
 
                   %dd.table_center
                     - case delivery.kind

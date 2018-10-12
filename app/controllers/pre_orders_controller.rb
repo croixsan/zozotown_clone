@@ -11,6 +11,6 @@ class PreOrdersController < ApplicationController
   end
 
   private def pre_order_params
-    params.require(:pre_order).permit(:payment_id, :delivery_id).merge(user_id: current_user.id)
+    params.require(:pre_order).permit(:payment_id, :delivery_id, :hope_day, :hope_hour).merge(user_id: current_user.id)
   end
 end
