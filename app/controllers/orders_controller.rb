@@ -54,7 +54,7 @@ class OrdersController < ApplicationController
 
     end
       redirect_to root_path
-    rescue
+    rescue ActiveRecord::RecordInvalid
       redirect_to action: :new
   end
 
