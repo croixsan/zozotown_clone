@@ -137,10 +137,10 @@ ActiveRecord::Schema.define(version: 20181011060402) do
     t.integer  "user_id",                   null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "delivery_id",               null: false
     t.datetime "delivery_day"
     t.integer  "delivery_hour"
     t.integer  "payment_id",                null: false
-    t.integer  "delivery_id"
     t.integer  "used_point",    default: 0, null: false
     t.integer  "coupon_id",                 null: false
     t.string   "order_num",                 null: false
