@@ -4,15 +4,15 @@
     .price_table
       %dl.clearfix
         %dt 商品合計
-        %dd
+        %dd#item-result
           = number_to_currency(total_price, unit: "￥", precision: 0)
       %dl.clearfix
         %dt 送料
-        %dd
+        %dd#delivery-result
           = number_to_currency(shipping_cost, unit: "￥", precision: 0)
       %dl.clearfix
         %dt 支払い手数料
-        %dd
+        %dd#payment-result
           = number_to_currency(fee, unit: "￥", precision: 0)
       .total_price
         %dl.clearfix

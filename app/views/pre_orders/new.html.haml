@@ -35,12 +35,12 @@
                   %dt.table_left
                     = f.label :deliver_id, delivery.kind
                     - if delivery.kind == "日時指定"
-                      = f.radio_button :delivery_id, delivery.id, class: "radio", id: "select_date"
+                      = f.radio_button :delivery_id, delivery.id, class: "radio", id: "select_date", "data-id": delivery.id
                       .select_form.clearfix
                         = f.select :hope_day, get_delivery_days
                         = f.select :hope_hour, get_delivery_hours
                     - else
-                      = f.radio_button :delivery_id, delivery.id, class: "radio other_date"
+                      = f.radio_button :delivery_id, delivery.id, class: "radio other_date", "data-id": delivery.id
 
                   %dd.table_center
                     - case delivery.kind
@@ -54,11 +54,11 @@
                         - delivery_day = Time.current.since(12.hours)
                         = delivery_day.strftime("%m月%d日")
                   %dd.table_right
-                    %p
+                    %p{class: "delivery-price_#{delivery.id}"}
                       = number_to_currency(delivery.price, unit: "￥", precision: 0)
           %dl.delivery_table.clearfix
             %dt.delivery_title
               = f.label :payment_id, "お支払い方法"
             = render partial: "payment", collection: @payments, as: "payment", locals: {f: f}
         .payment_sidebar
-          = render partial: "next_btn", locals: {f: f, total_price: current_user.cart.total_price, shipping_cost: 200, fee: 324}
+          = render partial: "next_btn", locals: {f: f, total_price: current_user.cart.total_price, shipping_cost: @shipping_cost, fee: @fee}
