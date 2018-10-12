@@ -17,11 +17,7 @@
           // ログイン状態の処理
           - if user_signed_in?
             %a#login-btn
-              / - if current_user.name.empty?
-              /   %span ゲスト
-              / - else
-              /   %span
-              /     = current_user.name
+              
             .popup__login
               .popup__login__inner
                 %ul.popup__login__inner__list
