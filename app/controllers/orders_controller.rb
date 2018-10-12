@@ -1,61 +1,68 @@
 class OrdersController < ApplicationController
   before_action :setup_user
-  def index
-  end
-
-  def select
+  def new
     @order = Order.new
-    @delivery = Delivery.new
-    @card = Card.new
+    @pre_order = current_user.pre_order
+    @cart = current_user.cart
+    @item_nums = current_user.cart.item_nums.group(:number)
+    @counts = @item_nums.count
+    # 商品合計金額、送料、手数料から最終金額を算出
+    @total_price = @cart.total_price + @pre_order.delivery.price + @pre_order.payment.price
 
-    # @addless = Delivery.where(user_id: current_user.id)
-    @itemprice = 5500
-    @totalprice = 5700
+    # 利用可能なクーポンの算出（アイテムに１つでもクーポン対象商品が含まれていれば、クーポン利用可能とする）
+    @coupon_price = 0
+    @cart.items.each do |item|
+      if item.coupon.price > 0
+        @coupon_price = item.coupon.price
+        break
+      end
+    end
+    @coupon = Coupon.find_by(price: @coupon_price)
+    @discount_point = current_user.point + @coupon_price
   end
 
-  def registration
-        binding pry
+  def create
 
-    @delivery = Delivery.create(delivery_params)
-    @order = Order.create(order_params)
-    @card = Card.new(card_params)
-    @card.save
+    ActiveRecord::Base.transaction do
+      pre_order = current_user.pre_order
 
+      order = current_user.orders.create!(delivery_id: pre_order.delivery_id, payment_id: pre_order.payment_id, used_point: 0, coupon_id: order_params[:coupon_id], order_num: "#{current_user.id}_#{pre_order.id}")
 
-    # @order.delivery.build
-    # @card = @order.card.build
-    # @card = Card.new
-    # @card.create(card_params)
-    # @cart = Cart.
+      # 中間テーブルにアイテムを登録
+      item_nums = current_user.cart.item_nums.group(:number)
+      count = item_nums.count # 購入したアイテムの個数を算出
+      item_nums.each do |item_num|
+        ordered_item = OrderedItem.new
+        ordered_item.item_id = item_num.item.id
+        ordered_item.item_num_id = item_num.id
+        ordered_item.order_id = order.id
+        ordered_item.number = count[item_num.number]
+        ordered_item.save!
 
-    # binding.pry
-    # @derivery = Delivery.new
-    # @delivery.create
-    # @orders = Order.new
-    # @orders.create
+        # 在庫の削除
+        stock = item_num.stock.stock
+        if stock > 0
+          item_num.stock.update(stock: stock - 1)
+        end
+      end
 
-    redirect_to orders_select_path
+      # pre_orderの削除
+      pre_order.destroy
+
+      # カート内のアイテムの削除
+      current_user.cart.shoppings.destroy_all
+
+    end
+      redirect_to root_path
+    rescue ActiveRecord::RecordInvalid
+      redirect_to action: :new
   end
 
   private
-
-    def order_params
-      params.require(:order).permit(
-        :delivery_kind,
-        :delivery_day, 
-        :delivery_hour
-        ).merge(cart_id: current_user.cart.id, user_id: current_user.id, delivery_id: @delivery.id)
-    end
-    # :delivery_hour, :cart_id, deliveries_attributes: [:user_id, :addless, :post_num, :kind, :name]
-    # cards_attributes: [:user_id, :name, :number, :limit_year, :limit_month, :security_code, :payment_num]
-    def card_params
-      params.require(:order).permit(:name, :number, :limit_year, :limit_month, :payment_num).merge(user_id: current_user.id, security_code: current_user.id, )
-    end
-   def delivery_params
-      params.require(:order).permit(delivery: [:addless, :post_num, :phone_num, :kind, :name]).merge(user_id: current_user.id)
-    end
-
-    def setup_user
+  def order_params
+    params.require(:order).permit(:coupon_id)
+  end
+  def setup_user
       @user = User.find(current_user.id)
     end
 end

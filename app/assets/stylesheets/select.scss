@@ -57,6 +57,49 @@
       .table_left {
         width: 150px;
         padding: 10px 0;
+
+        .card_table {
+          display: none;
+          background-color: #f6f6f6;
+          width: 440px;
+
+          &_title {
+            margin-left: 10px;
+            float: left;
+            width: 200px;
+            padding: 14px 0 11px;
+          }
+
+          &_num {
+            float: left;
+            width: 160px;
+            padding: 14px 0 11px;
+          }
+        }
+
+        .select_form {
+          display: none;
+          width: 430px;
+          padding-bottom: 20px;
+          background-color: #f6f6f6;
+
+          select {
+            margin: 15px 20px 0 30px;
+            width: 150px;
+            height: 30px;
+            padding-left: 10px;
+            float: left;
+            display: block;
+            outline: none;
+            text-indent: 0.01px;
+            text-overflow: '';
+            background: none transparent;
+            vertical-align: middle;
+            font-size: inherit;
+            color: inherit;
+            -webkit-appearance: button;
+          }
+        }
       }
 
       .table_center {
@@ -76,69 +119,69 @@
 
 .payment_sidebar {
   float: right;
+}
 
-  .next_btn {
-    @include set_size(190px, 305px);
-    background-color: #F6F6F6;
-    padding: 20px 18px 12px;
-    border: 1px solid #EDEDED;
-    border-radius: 6px;
-    position: relative;
-    box-shadow: 1px 0 5px 4px rgba(69, 145, 175, 0.6);
+.next_btn {
+  @include set_size(190px, 305px);
+  background-color: #F6F6F6;
+  padding: 20px 18px 12px;
+  border: 1px solid #EDEDED;
+  border-radius: 6px;
+  position: relative;
+  box-shadow: 1px 0 5px 4px rgba(69, 145, 175, 0.6);
 
-    &_inner {
-      padding: 20px 18px 18px 12px;
-      width: 260px;
-      @include fit_to_center();
+  &_inner {
+    padding: 20px 18px 18px 12px;
+    width: 260px;
+    @include fit_to_center();
 
-      &_btn {
-        @include set_btn(50px, 265px);
-        font-size: 18px;
-        margin: 0 auto;
-        background-color: #3d6bcb;
-        text-align: center;
-        color: $white;
-        border-radius: 2px;
+    &_btn {
+      @include set_btn(50px, 265px);
+      font-size: 18px;
+      margin: 0 auto;
+      background-color: #3d6bcb;
+      text-align: center;
+      color: $white;
+      border-radius: 2px;
+    }
+
+    .price_table {
+      margin-top: 20px;
+
+      dl {
+        margin-bottom: 3px;
       }
 
-      .price_table {
-        margin-top: 20px;
+      dt {
+        display: block;
+        float: left;
+      }
 
-        dl {
-          margin-bottom: 3px;
-        }
+      dd {
+        display: block;
+        float: right;
+      }
+    }
 
-        dt {
-          display: block;
-          float: left;
-        }
+    .total_price {
+      padding-top: 10px;
+      margin-top: 13px;
+      border-top: 1px solid #e4e4e4;
 
-        dd {
-          display: block;
-          float: right;
+      &_title {
+        font-weight: bold;
+        font-size: 16px;
+
+        span {
+          font-size: 10px;
+          font-weight: normal;
         }
       }
 
-      .total_price {
-        padding-top: 10px;
-        margin-top: 13px;
-        border-top: 1px solid #e4e4e4;
-
-        &_title {
-          font-weight: bold;
-          font-size: 16px;
-
-          span {
-            font-size: 10px;
-            font-weight: normal;
-          }
-        }
-
-        &_price {
-          color: red;
-          font-weight: bold;
-          font-size: 16px;
-        }
+      &_price {
+        color: red;
+        font-weight: bold;
+        font-size: 16px;
       }
     }
   }
@@ -152,6 +195,7 @@
   border: 1px solid #ccc;
   float: left;
 }
+
 .input_hour {
   display: block;
   padding: 10px 6px 9px 8px;

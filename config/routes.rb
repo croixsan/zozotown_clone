@@ -11,10 +11,6 @@ Rails.application.routes.draw do
 
   delete 'carts/destroy' => 'carts#destroy'
 
-    get 'order/index' => 'orders#index' #←ネストする
-    get 'orders/select'
-    post 'orders/registration'
-
   resources :rankings, only: :index
 
   get 'searches/index' => 'searches#index'
@@ -29,7 +25,7 @@ Rails.application.routes.draw do
       get :register
     end
   end
-  resources :orders, only: [:index, :create]
+  resources :orders, only: [:index, :new, :create]
   resources :pre_orders, only: [:new, :create]
 
   concern :categories do

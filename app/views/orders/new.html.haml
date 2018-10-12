@@ -1,0 +1,177 @@
+.o.wrapper
+  .inner
+    .payment.clearfix
+      .payment_header
+        .payment_header_content
+          .payment_header_content_logo
+            = image_tag 'zozo-logo-white.png', class: "main_logo"
+          .payment_header_content_title
+            %p お届け先・配送方法・お支払い方法
+        .status_nav
+          = image_tag "https://zozo.jp/_cart/order/img/step_02.gif", class: "status_nav"
+  .o.content
+    .o.main-content
+      .o.left-content
+        .o.address
+          .o.adress-top-content
+            .o.addressee お届け先
+            .o.address-top
+              .o.name
+                %div
+                  %p.o.in-name
+                    %span#selectedName
+                      = current_user.name
+                      様
+                  %p.o.add
+                    住所:
+                  %span#selectedAdd
+                    %p#zipCode
+                      = "〒#{current_user.post_num}"
+                    %span#prefName
+                    %span#address1
+                      = current_user.address
+                    %span#address2
+                  %p.tel
+                    電話:
+                    %span#telNum
+                      = current_user.phone_num
+            .o.change
+              %a.btn-change{ :href => 'http://google.co.jp' } 変更
+          .o.store-locker
+            %p.o.icon
+              %img{alt: "storeロゴ", height: "50", width: "50", src: "https://img4.zozo.jp/pc/_cart/locker_cart/ico_cnv.png"}
+            .store-locker-text
+              %p.txt14
+                24時間いつでも・どこでもお受取り可能
+              %p.txt12
+                店舗・ロッカー受取りなら、ご都合のいい時間・場所で受取り可能です。
+                %span
+                  詳細
+            -# %a.o.btn-store-select{ :href => 'http://google.co.jp' }店舗選択
+        .o.payment-area
+          .o.pay-method 支払い方法
+          .o.credit
+            = @pre_order.payment.method
+            - if @pre_order.payment.method == "クレジットカード"
+              = "******** #{current_user.card_num.match(/\d{3}$/)}"
+          .o.price
+            = number_to_currency(@pre_order.payment.price, unit: "￥", precision: 0)
+          .o.btn-box
+            %a.btn-change{ :href => 'http://google.co.jp' } 変更
+        .o.point-area
+          .o.zozo-point ZOZOポイント:
+          .o.point-description
+            ご利用可能ポイント
+            %span#usablePoint
+              = current_user.point
+            ポイント
+            %span.o.line /
+            今回の還元ポイント:
+            %span#return
+              = (current_user.cart.total_price * 0.01).round
+            ポイント
+        %h2 お届け商品
+        .delivery-item-table
+          %dl.delivery-info.clearfix
+            %dt.title-column お届け日
+            %dd.delivery-column
+              %p
+                = @pre_order.delivery.kind
+            %dd.price-column
+              %p
+                = number_to_currency(@pre_order.payment.price, unit: "￥", precision: 0)
+            %dd.btn-column
+              .o.btn-box
+                = link_to "変更", "#", class: "btn-change"
+          - @item_nums.each_with_index do |item_num, i|
+            %dl.clearfix
+              %dt.title-column
+                - if i == 0
+                  %p 配送方法
+                  %p お届け予定日
+              %dd.image-column
+                = image_tag item_num.item.images[0].url, class: "order-image"
+              %dd.item-column
+                .o.item-detail
+                  %p.ellipsis-name
+                    = item_num.item.shop.name
+                  %p.ellipsis-name
+                    = item_num.item.brand.name
+                  %p.ellipsis-name
+                    = item_num.item.name
+                  %p.ellipsis-name
+                    カラー：
+                    = item_num.stock.color
+                  %p
+                    サイズ：
+                    = item_num.stock.size
+                  %p
+                    数量：
+                    = @counts[item_num.number]
+              %dd.price-column
+                %p
+                  = number_to_currency(item_num.item.price, unit: "￥", precision: 0)
+              %dd.btn-column
+                .o.btn-box
+                  = link_to "変更", "#", class: "btn-change"
+          %dl.delivery-info.clearfix
+            %dt.title-column 送料
+            %dd.delivery-column
+            %dd.price-column
+              %p
+                = number_to_currency(@pre_order.delivery.price, unit: "￥", precision: 0)
+            %dd.btn-column
+      = form_for @order do |f|
+        .o.right-content
+          .o.purchase-area
+            = f.hidden_field :coupon_id, value: @coupon.id
+            = f.submit "注文を確定する", class: "next_btn_inner_btn"
+          .o.payment-total
+            .o.payment-total-title 商品合計
+            .o.payment-total-num
+              = number_to_currency(@cart.total_price, unit: "￥", precision: 0)
+          .o.point-option
+            .o.point-use-area
+              %p
+                %span
+                %i.far.fa-check-circle
+                %span ZOZOポイントを利用
+              %p.o.point-use-possible
+                ご利用可能ポイント
+                = "#{current_user.point}ポイント"
+            .o.discount-area
+              .o.discount-box
+                %span.goods-title 品代
+                %span.goods-price
+                  = number_to_currency(@cart.total_price, unit: "￥", precision: 0)
+              .o.discount-box-point
+                %span.point-title クーポン・ポイント
+                %span.point-price
+                  = "-#{@discount_point}pt"
+          .o.payment-option
+            .o.payment-option-box
+              送料
+              %span.payment-option-delivery-date
+                （指定なし：2～4日以内に発送）
+              %span.payment-option-delivery-price
+                = number_to_currency(@pre_order.delivery.price, unit: "￥", precision: 0)
+            .o.payment-comittion
+              支払い手数料
+              %span.o.payment-price
+                = number_to_currency(@pre_order.payment.price, unit: "￥", precision: 0)
+            .o.payment-option-total
+              合計
+              %span.payment-option-total-tax
+                (税込)
+              %span.payment-option-total-price
+                = number_to_currency(@total_price, unit: "￥", precision: 0)
+          .o.attention
+            .o.attention-delivery
+              ※送料は一律¥200です。
+            .o.returned
+              %p
+                ご注文完了前に必ずサイズ・カラー・価格・数量のご確認をお願いいたします。
+              %p
+                一部商品や、商品状態等により注文取り消し・返品をお受けできない場合がございます。
+              -# .o.returnde-about
+              -#   %a{ :href => 'http://google.co.jp' }返品について

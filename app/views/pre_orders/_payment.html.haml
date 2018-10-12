@@ -1,12 +1,21 @@
 %dd
   %dl.clearfix
     %dt.table_left
-      = f.radio_button :payment_id, payment.id, class: "radio"
-      = f.label payment.method
+      - if payment.method == "クレジットカード"
+        = f.radio_button :payment_id, payment.id, class: "radio", id: "card_payment", "data-id": payment.id
+        = f.label :payment_id, payment.method
+        .card_table.clearfix
+          %p.card_table_title
+            カード番号
+          %p.card_table_num
+            = "******** #{current_user.card_num.match(/\d{3}$/)}"
+      - else
+        = f.radio_button :payment_id, payment.id, required: true, class: "radio other_payment", "data-id": payment.id
+        = f.label :payment_id, payment.method
     %dd.table_center
       %p
         = (current_user.cart.total_price * 0.01).round
         ポイント還元
     %dd.table_right
-      %p
+      %p{class: "payment-price_#{payment.id}"}
         = number_to_currency(payment.price, unit: "￥", precision: 0)
