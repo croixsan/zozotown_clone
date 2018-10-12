@@ -137,13 +137,13 @@ ActiveRecord::Schema.define(version: 20181010093908) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "cart_id",       null: false
+    t.integer  "delivery_id",   null: false
     t.datetime "buy_date"
+    t.integer  "card_id",       null: false
     t.integer  "delivery_kind", null: false
     t.string   "delivery_day"
     t.string   "delivery_hour"
     t.integer  "payment_id",    null: false
-    t.integer  "card_id"
-    t.integer  "delivery_id"
   end
 
   create_table "past_carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
