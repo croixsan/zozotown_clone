@@ -38,13 +38,20 @@ class OrdersController < ApplicationController
         ordered_item.order_id = order.id
         ordered_item.number = count[item_num.number]
         ordered_item.save!
+
+        # 在庫の削除
+        stock = item_num.stock.stock
+        if stock > 0
+          item_num.stock.update(stock: stock - 1)
+        end
       end
 
       # pre_orderの削除
       pre_order.destroy
 
       # カート内のアイテムの削除
-      current_user.cart.shoppings.destroy_all!
+      current_user.cart.shoppings.destroy_all
+
     end
       redirect_to root_path
     rescue
