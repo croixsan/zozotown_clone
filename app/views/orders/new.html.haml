@@ -25,7 +25,8 @@
                   %p.o.add
                     住所:
                   %span#selectedAdd
-                    %p#zipCode 〒2720021
+                    %p#zipCode
+                      = "〒#{current_user.post_num}"
                     %span#prefName
                     %span#address1
                       = current_user.address
@@ -49,8 +50,12 @@
             -# %a.o.btn-store-select{ :href => 'http://google.co.jp' }店舗選択
         .o.payment-area
           .o.pay-method 支払い方法
-          .o.credit クレジットカード ************5208（一括払い）
-          .o.price ¥0
+          .o.credit
+            = @pre_order.payment.method
+            - if @pre_order.payment.method == "クレジットカード"
+              = "******** #{current_user.card_num.match(/\d{3}$/)}"
+          .o.price
+            = number_to_currency(@pre_order.payment.price, unit: "￥", precision: 0)
           .o.btn-box
             %a.btn-change{ :href => 'http://google.co.jp' } 変更
         .o.point-area
