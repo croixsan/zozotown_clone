@@ -15,7 +15,7 @@ default: &default
   pool: 5
   username: root
   password:
-  socket: /temp/mysql.sock
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
@@ -52,6 +52,6 @@ production:
   database: zozotown_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/temp/mysql/mysql.sock
+  socket: /var/tmp/mysql/mysql.sock
 
   
