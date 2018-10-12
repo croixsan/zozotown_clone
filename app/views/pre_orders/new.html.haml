@@ -35,7 +35,7 @@
                   %dt.table_left
                     = f.label :deliver_id, delivery.kind
                     - if delivery.kind == "日時指定"
-                      = f.radio_button :delivery_id, delivery.id, class: "radio", id: "select_date", "data-id": delivery.id
+                      = f.radio_button :delivery_id, delivery.id, required: true, class: "radio", id: "select_date", "data-id": delivery.id
                       .select_form.clearfix
                         = f.select :hope_day, get_delivery_days
                         = f.select :hope_hour, get_delivery_hours
