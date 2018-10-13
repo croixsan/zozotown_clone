@@ -141,7 +141,9 @@
                 %span ZOZOポイントを利用
               %p.o.point-use-possible
                 ご利用可能ポイント
-                = "#{current_user.point}ポイント"
+                %span.current_point
+                  = current_user.point
+                ポイント
                 .point-contents.clearfix
                   = f.text_field :used_point, class: "point_form"
                   .point-btn
