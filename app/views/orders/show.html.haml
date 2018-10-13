@@ -1,0 +1,95 @@
+.body
+  .inner
+    .payment.clearfix
+      .payment_header
+        .payment_header_content
+          .payment_header_content_logo
+            = image_tag 'zozo-logo-white.png', class: "main_logo"
+          .payment_header_content_title.clearfix
+            .finish_status ご注文が完了しました。
+            .back_to_top
+              = link_to "トップページに戻る", root_path
+    .complete
+      .complete_inner.clearfix
+        .complete_contents
+          .complete_title
+            お届け先
+          .complete_element.clearfix
+            .complete_name
+              %p
+                = "#{current_user.name} 様"
+            .complete_user_info
+              %p
+                = "〒#{current_user.post_num}"
+              %p
+                = "住所：#{current_user.address}"
+              %p
+                = "電話：#{current_user.phone_num}"
+        .complete_contents
+          .complete_title
+            お届け商品
+          .delivery-item-table.color_white
+            %dl.delivery-info.clearfix
+              %dt.title-column お支払い方法
+              %dd.delivery-column
+                %p
+                  = @order.payment.method
+                  - if @order.payment.method == "クレジットカード"
+                    = "******** #{current_user.card_num.match(/\d{3}$/)}"
+              %dd.fee-column
+                %p 手数料
+              %dd.c-price-column
+                %p
+                  = number_to_currency(@order.payment.price, unit: "￥", precision: 0)
+            %dl.delivery-info.clearfix
+              %dt.title-column お届け日
+              %dd.delivery-title-column
+                %p
+                  = @order.delivery.kind
+              %dd.delivery-day-column
+                - if @order.delivery.kind == "日時指定"
+                  = "：#{@order.delivery_day.strftime('%m月%d日')}"
+                  = @order.delivery_hour
+              %dd.fee-column
+                %p 送料
+              %dd.c-price-column
+                %p
+                  = number_to_currency(@order.delivery.price, unit: "￥", precision: 0)
+            - @item_nums.each_with_index do |item_num, i|
+              %dl.clearfix
+                %dt.title-column
+                  - if i == 0
+                    %p 配送方法
+                    %p お届け予定日
+                %dd.image-column
+                  = image_tag item_num.item.images[0].url, class: "order-image"
+                %dd.item-column
+                  .o.item-detail
+                    %p.ellipsis-name
+                      = item_num.item.shop.name
+                    %p.ellipsis-name
+                      = item_num.item.brand.name
+                    %p.ellipsis-name
+                      = item_num.item.name
+                    %p.ellipsis-name
+                      カラー：
+                      = item_num.stock.color
+                    %p
+                      サイズ：
+                      = item_num.stock.size
+                    %p
+                      数量：
+                      = @order.ordered_items.find_by(item_num_id: item_num.id).number
+                %dd.fee-column
+                  %p
+                %dd.c-price-column
+                  %p
+                    = number_to_currency(item_num.item.price, unit: "￥", precision: 0)
+            %dl.delivery-info.clearfix
+              %dt.title-column.complete_total_price
+                %p 合計金額
+              %dd.delivery-column
+              %dd.fee-column
+              %dd.c-price-column.complete_total_price
+                %p
+                  = number_to_currency(@order.total_price, unit: "￥", precision: 0)
