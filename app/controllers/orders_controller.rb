@@ -26,7 +26,15 @@ class OrdersController < ApplicationController
     ActiveRecord::Base.transaction do
       pre_order = current_user.pre_order
 
-      order = current_user.orders.create!(delivery_id: pre_order.delivery_id, payment_id: pre_order.payment_id, used_point: 0, coupon_id: order_params[:coupon_id], order_num: "#{current_user.id}_#{pre_order.id}")
+      @order = current_user.orders.create!(
+        delivery_id: pre_order.delivery_id,
+        payment_id: pre_order.payment_id,
+        delivery_day: pre_order.hope_day,
+        delivery_hour: pre_order.hope_hour,
+        used_point: 0,
+        coupon_id: order_params[:coupon_id],
+        order_num: "#{current_user.id}_#{pre_order.id}",
+        total_price: current_user.cart.total_price + pre_order.delivery.price + pre_order.payment.price)
 
       # 中間テーブルにアイテムを登録
       item_nums = current_user.cart.item_nums.group(:number)
@@ -35,7 +43,7 @@ class OrdersController < ApplicationController
         ordered_item = OrderedItem.new
         ordered_item.item_id = item_num.item.id
         ordered_item.item_num_id = item_num.id
-        ordered_item.order_id = order.id
+        ordered_item.order_id = @order.id
         ordered_item.number = count[item_num.number]
         ordered_item.save!
 
@@ -53,9 +61,14 @@ class OrdersController < ApplicationController
       current_user.cart.shoppings.destroy_all
 
     end
-      redirect_to root_path
+      redirect_to order_path(@order)
     rescue ActiveRecord::RecordInvalid
       redirect_to action: :new
+  end
+
+  def show
+    @order = Order.find(params[:id])
+    @item_nums = @order.item_nums
   end
 
   private
