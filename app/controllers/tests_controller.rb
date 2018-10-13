@@ -49,4 +49,9 @@ class TestsController < ApplicationController
     @user.save
     redirect_to user_registration
   end
+
+  def information
+  end
+  def info_addless
+  end
 end

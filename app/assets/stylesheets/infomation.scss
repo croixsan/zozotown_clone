@@ -1,0 +1,160 @@
+.content {
+  height: 100%;
+  width: $width-wall-main;
+  margin: 0 auto;
+  &_head {
+    height: 40px;
+    font-size: 23px;
+    .img {
+      height: 40px;
+      width: 46px;
+    }
+  }
+  &_left {
+    width: $width-content-left;
+    float: left;
+    dl {
+      font-size: 18px;
+    }
+    dd {
+      color: $side-txt;
+    }
+    #info {
+      margin: 23px 0 0 0;
+      padding: 0 0 15px 0;
+      border-bottom: $side-border-bottom;
+    }
+    &_points {
+      @extend #info;
+    }
+    &_history {
+      @extend #info;
+    }
+    &_rely {
+      @extend #info;
+    }
+    &_another {
+      @extend #info;
+    }
+    &_unsubscribe {
+      @extend #info;
+    }
+    &_purchase {
+      border: $side-border-bottom;
+      margin: 10px 0 0 0;
+      padding: 20px 0 20px 15px;
+    }
+  }
+  &_main {
+    float: right;
+    width: 780px;
+    .information {
+      margin: 20px 0 0 0;
+      width: 684px;
+      background-color: $wall-color;
+      border: $main-border-bottom;
+      border-radius: 3px;
+      padding: 36px 48px 40px;
+      dl {
+          height: 40px;
+          width: $width-main-content;
+          font-size: 18px;
+          border-bottom: $main-border-bottom;
+          line-height: 40px;
+        }
+      .basic {
+        border-bottom: $main-border-bottom;
+        clear: both;
+        margin: 5px 0 0 0;
+        dt {
+          font-size: 15px;
+        }
+        .title {
+          width: 175px;
+          color: $title-color;
+          padding: 25px 0;
+          float: left;
+        }
+        .main {
+          width: 454px;
+          padding: 25px 0;
+          float:left;
+        }
+        .chenge {
+          width: 53px;
+          padding: 25px 0;
+          float: right;
+          .btn {
+            height: 23px;
+            width: 53px;
+            text-align: center;
+            color: $click-color;
+            border: $chenge-border-bottom
+          }
+        }
+      }
+      .mail {
+        @extend .basic;
+      }
+      .pass {
+        @extend .basic;
+        #description-pass {
+          font-size: 11px;
+        }
+      }
+    }
+    .delivery {
+      @extend .information;
+      .addless {
+        @extend .basic;
+      }
+      .add {
+        float: right;
+        margin: 5px 0 0 0;
+        color: $click-color;
+      }
+    }
+    .credit {
+      @extend .information;
+      .card {
+        @extend .basic;
+      }
+      .attention {
+        margin:5px 0 0 0;
+        display: inline-block;
+        float: right;
+        p {
+          color: $title-color;
+        }
+      }
+    }
+  }
+}
+
+
+// -----------------info_addless-----------------
+
+.content_main_form {
+  @extend .information;
+  .name {
+    @extend .basic;
+  }
+  .furikana {
+    @extend .basic;
+  }
+  .gender {
+    @extend .basic;
+  }
+  .barth {
+    @extend .basic;
+  }
+  .post_num {
+    @extend .basic;
+  }
+  .kenn {
+    @extend .basic;
+  }
+  .phone_num {
+    @extend .basic;
+  }
+}

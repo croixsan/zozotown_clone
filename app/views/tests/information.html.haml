@@ -1,0 +1,121 @@
+.category_var
+  .inner
+    %ul.nest_list.clearfix
+      %li.nest_path
+        = link_to "ZOZOTOWN", ""
+      %li.nest_icon
+        %i.fas.fa-angle-right
+      %li.nest_item
+        %i.far.fa-user
+        %a 登録情報
+.content
+  .content_head
+    %span
+      / = image_tag("content_head_info.png")
+    %span name
+    %span 様の登録情報
+  .content_left
+    = render "tests/info_sideber"
+
+  .content_main
+    .information.clearfix
+      %dl 会員登録情報
+      .basic.clearfix
+        .title
+          %dt 基本情報
+        .main
+          %dd
+            %span name
+            %span (
+            %span フリガナ
+            %span )
+          %dd 男性
+          %dd
+            %span 1
+            %span 月
+            %span 1
+            %span 日
+          %dd
+            %span 〒
+            %span 123456
+          %dd 東京都千代田区1-1-1
+          %dd
+            %span 電話番号 :
+            %span 09012345678
+        .chenge
+          = link_to "#" do
+            .btn 変更
+      .mail.clearfix
+        .title
+          %dt メールアドレス
+          %dt (ZOZO ID)
+        .main
+          %dd abcdefg@hij.klm
+        .chenge
+          = link_to "#" do
+            .btn 変更
+      .pass.clearfix
+        .title
+          %dt パスワード
+        .main
+          %dd
+            %span *********
+            %span#description-pass ※セキュリティのためパスワードは非表示となっています。
+
+        .chenge
+          = link_to "#" do
+            .btn 変更
+    .delivery.clearfix
+      %dl お届け先の変更追加
+      .addless.clearfix
+        .title
+          %dt 追加お届け先
+        .main
+          %dd
+            %span name
+            %span (
+            %span フリガナ
+            %span )
+          %dd 男性
+          %dd
+            %span 1
+            %span 月
+            %span 1
+            %span 日
+          %dd
+            %span 〒
+            %span 123456
+          %dd 東京都千代田区1-1-1
+          %dd
+            %span 電話番号 :
+            %span 09012345678
+        .chenge
+          = link_to "#" do
+            .btn 変更
+      .add
+        = link_to "#" do
+          お届け先を追加する
+
+    .credit.clearfix
+      %dl クレジットカード情報の変更
+      .card.clearfix
+        .title
+          %dt カード１
+        .main
+          %dd
+            %span カード番号 :
+            %span ************
+            %span 903
+          %dd
+            %span 有効期限 :
+            %span 2019
+            %span /
+            %span 10
+        .chenge
+          = link_to "#" do
+            .btn 変更
+      .attention
+        %p ※ 新規カードの登録は、商品購入時に可能です。
+
+
+

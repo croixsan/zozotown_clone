@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "tops#index"
+  root "tests#info_addless"
+  # root "tops#index"
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }

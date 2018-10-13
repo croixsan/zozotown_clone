@@ -1,0 +1,88 @@
+.category_var
+  .inner
+    %ul.nest_list.clearfix
+      %li.nest_path
+        = link_to "ZOZOTOWN", ""
+      %li.nest_icon
+        %i.fas.fa-angle-right
+      %li.nest_item
+        %i.far.fa-user
+        %a 登録情報の変更
+.content
+  .content_head
+    %span
+      / = image_tag("content_head_info.png")
+    %span name
+    %span 様の登録情報
+  .content_left
+    = render "tests/info_sideber"
+
+  .content_main
+    .content_main_form
+      / = form_for @user do |f| 入れる時下のインデントを１段下げる
+      %dl 基本情報の変更
+      .name.clearfix
+        .title
+          %dt
+            %span お名前
+            %span#have_to 必須
+
+        .main
+          %input.form.name
+          %input.form.name
+      .furikana.clearfix
+        .title
+          %dt
+            %span お名前
+            %span (カナ)
+            %span#have_to 必須
+        .main
+          %input.form.name
+          %input.form.name
+      .gender.clearfix
+        .title
+          %dt
+            %span 性別
+        .main
+          %input.form{:name => "gender", :type => "radio"} 男性
+          %input.form{:name => "gender", :type => "radio"} 女性
+          %input.form{:name => "gender", :type => "radio"} その他
+      .barth.clearfix
+        .title
+          %dt
+            %span 生年月日
+        .main
+          %input.form.name
+          %input.form.name
+      .post_num.clearfix
+        .title
+          %dt
+            %span 郵便番号
+            %span#have_to 必須
+
+        .main
+          %input.form.name
+      .kenn.clearfix
+        .title
+          %dt
+            %span 都道府県
+        .main
+          %input.form.name
+        .title
+          %dt
+            %span 住所1
+        .main
+          %input.form.name
+        .title
+          %dt
+            %span 住所2
+        .main
+          %input.form.name
+      .phone_num.clearfix
+        .title
+          %dt
+            %span 電話番号
+        .main
+          %input.form.name
+
+
