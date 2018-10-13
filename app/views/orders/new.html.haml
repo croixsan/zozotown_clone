@@ -77,6 +77,9 @@
             %dd.delivery-column
               %p
                 = @pre_order.delivery.kind
+                - if @pre_order.delivery.kind == "日時指定"
+                  = "： #{@pre_order.hope_day.strftime('%m月%d日')}"
+                  = @pre_order.hope_hour
             %dd.price-column
               %p
                 = number_to_currency(@pre_order.payment.price, unit: "￥", precision: 0)
