@@ -1,14 +1,10 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_many :ordered_items
+  belongs_to :delivery
+  belongs_to :payment
+  belongs_to :coupon
+  has_many :ordered_items, dependent: :destroy
   has_many :items, through: :ordered_items
-  has_one :delivery
-  has_one :card, inverse_of: :order
-  has_one :cart, inverse_of: :order
-
-  # accepts_nested_attributes_for :delivery
-  # accepts_nested_attributes_for :cards
-
-  enum payment_id: [:nasi,:tuke, :zozo, :credit, :cash, :line, :lowson, :familymart, :sunkus, :circleK, :ministop, :daylyyamazaki, :seveneleven, :kuroneko]
+  has_many :item_nums, through: :ordered_items
+  enum delivery_hour: {"午前中": 1, "14:00〜16:00": 2, "16:00〜18:00": 3, "18:00〜20:00": 4}
 end
-

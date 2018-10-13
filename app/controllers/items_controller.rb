@@ -3,7 +3,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @cart = current_user.cart
+    if user_signed_in?
+      @cart = current_user.cart
+    end
     @item = Item.find(params[:id])
     @shop = @item.shop
     @images = @item.images
@@ -11,7 +13,9 @@ class ItemsController < ApplicationController
     @color_count = @item.images.group(:color).length - 1 # -1: nilを除外
     @stock_count = @item.stocks.length
 
-    # 「チェックしたアイテム」機能
-    current_user.checked_items.where(item_id: @item.id).first_or_create.update(updated_at: Time.current)
+    if user_signed_in?
+      # 「チェックしたアイテム」機能
+      current_user.checked_items.where(item_id: @item.id).first_or_create.update(updated_at: Time.current)
+    end
   end
 end
