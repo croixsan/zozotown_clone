@@ -142,6 +142,7 @@
               %p.o.point-use-possible
                 ご利用可能ポイント
                 = "#{current_user.point}ポイント"
+                = f.text_field :used_point, placeholder: current_user.point, class: "point_form"
             .o.discount-area
               .o.discount-box
                 %span.goods-title 品代
