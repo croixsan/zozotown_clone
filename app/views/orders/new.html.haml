@@ -141,12 +141,14 @@
                 %span ZOZOポイントを利用
               %p.o.point-use-possible
                 ご利用可能ポイント
-                = "#{current_user.point}ポイント"
+                %span.current_point
+                  = current_user.point
+                ポイント
+                .point-contents.clearfix
+                  = f.text_field :used_point, class: "point_form"
+                  .point-btn
+                    ポイントを使う
             .o.discount-area
-              .o.discount-box
-                %span.goods-title 品代
-                %span.goods-price
-                  = number_to_currency(@cart.total_price, unit: "￥", precision: 0)
               .o.discount-box-point
                 %span.point-title クーポン・ポイント
                 %span.point-price

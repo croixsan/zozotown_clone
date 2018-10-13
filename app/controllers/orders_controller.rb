@@ -22,7 +22,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-
     ActiveRecord::Base.transaction do
       pre_order = current_user.pre_order
 
@@ -31,10 +30,10 @@ class OrdersController < ApplicationController
         payment_id: pre_order.payment_id,
         delivery_day: pre_order.hope_day,
         delivery_hour: pre_order.hope_hour,
-        used_point: 0,
+        used_point: order_params[:used_point],
         coupon_id: order_params[:coupon_id],
         order_num: "#{current_user.id}_#{pre_order.id}",
-        total_price: current_user.cart.total_price + pre_order.delivery.price + pre_order.payment.price)
+        total_price: current_user.cart.total_price + pre_order.delivery.price + pre_order.payment.price - order_params[:used_point].to_i)
 
       # 中間テーブルにアイテムを登録
       item_nums = current_user.cart.item_nums.group(:number)
@@ -60,6 +59,10 @@ class OrdersController < ApplicationController
       # カート内のアイテムの削除
       current_user.cart.shoppings.destroy_all
 
+      #ポイントの削除
+      point = current_user.point - order_params[:used_point].to_i
+      current_user.update!(point: point)
+
     end
       redirect_to order_path(@order)
     rescue ActiveRecord::RecordInvalid
@@ -73,7 +76,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:coupon_id)
+    params.require(:order).permit(:coupon_id, :used_point)
   end
   def setup_user
       @user = User.find(current_user.id)
