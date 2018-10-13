@@ -20,12 +20,9 @@ Rails.application.routes.draw do
   get "kid_top"    => "tops#kid"
   get "tests/search" => "tests#search"
 
-  resources :carts, only: [:index, :create, :destroy] do
-    collection do
-      get :register
-    end
+  resources :carts, only: [:index, :create, :destroy, :show] do
   end
-  resources :orders, only: [:index, :new, :create]
+  resources :orders, only: [:index, :new, :create, :show] 
   resources :pre_orders, only: [:new, :create]
 
   concern :categories do

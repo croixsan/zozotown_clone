@@ -1,0 +1,80 @@
+.complete {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  width: 720px;
+
+  &_inner {
+    padding: 20px;
+    margin: 0 auto;
+
+    .complete_contents {
+      margin: 0 0 20px 10px;
+
+      .complete_title {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+    }
+    .complete_element {
+      background-color: $white;
+      width: 645px;
+      border-radius: 10px;
+
+      p {
+        padding-bottom: 5px;
+      }
+      .complete_name {
+        padding: 20px 0 0 20px;
+        float: left;
+      }
+      .complete_user_info {
+        padding: 20px 0;
+        float: left;
+        margin-left: 30px;
+      }
+    }
+  }
+  .complete_total_price {
+    p {
+      font-size: 15px;
+      font-weight: bold;
+    }
+  }
+  .fee-column {
+    padding: 10px 0;
+    width: 80px;
+    text-align: center;
+  }
+  .delivery-title-column {
+    width: 80px;
+    padding: 10px 0;
+  }
+  .delivery-day-column {
+    width: 235px;
+    padding: 10px 0;
+  }
+  .c-price-column {
+    width: 100px;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+}
+.color_white {
+  background-color: $white;
+}
+.finish_status {
+  float: left;
+}
+.back_to_top {
+  float: left;
+  a {
+    height: 33px;
+    display: block;
+    text-decoration: none;
+    font-size: 15px;
+    color: $link-color;
+    line-height: 33px;
+    margin-left: 20px;
+  }
+}
