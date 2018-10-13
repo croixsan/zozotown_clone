@@ -449,7 +449,6 @@
           }
 
           .point-use-area {
-            height: 44px;
             width: 263px;
 
             p {
@@ -457,11 +456,14 @@
             }
 
             .o.point-use-possible {
-              height: 16px;
               width: 239px;
               margin: 3px 0 0 24px;
               padding-bottom: 5px;
               font-size: 12px;
+              .point_form {
+                text-align: right;
+                padding: 3px 5px;
+              }
             }
           }
 
