@@ -13,7 +13,7 @@ article {
 
         &__list {
           li {
-            margin-top: 10px;
+            margin-top: 5px;
           }
         }
       }
@@ -28,7 +28,6 @@ article {
       }
 
       &__favorite {
-        padding: 22px 0 12px;
 
         &__list {
           border-top: solid 1px $top-category-border-color;
@@ -49,7 +48,6 @@ article {
       }
 
       &__shop {
-        padding: 37px 0 12px;
 
         &__list {
           li {
@@ -63,7 +61,7 @@ article {
 
     &__center {
       width: $top-center-width;
-      margin-left: 15px;
+      margin-left: 25px;
       float: left;
 
       &__zozo {
@@ -87,12 +85,6 @@ article {
       &__shops {
         @include top_set_border;
       }
-    }
-
-    &__right {
-      width: $top-right-width;
-      height: 1000px;
-      float: left;
     }
   }
 }
@@ -207,6 +199,12 @@ article {
 .list-title {
   text-decoration: none;
   color: $top-list-font-color;
+  text-overflow: ellipsis;
+  width: 150px;
+  height: 20px;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .section-header {
