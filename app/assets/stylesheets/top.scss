@@ -247,12 +247,13 @@ article {
     .coupon-tag {
       position: absolute;
       right: 0;
-      bottom: 5px;
+      bottom: 50px;
       left: 0;
       line-height: 20px;
       text-overflow: ellipsis;
       text-align: center;
       width: 95px;
+      height: 20px;
 
       .coupon-price {
         span {
@@ -306,7 +307,7 @@ article {
 }
 /*-- coupon style --------------------------------------*/
 .coupon-color-one {
-  background-color: red;
+  background-color: rgba(254,63,81,0.9);
 }
 
 .coupon-color-two {
@@ -314,5 +315,13 @@ article {
 }
 
 .coupon-color-three {
-  background-color: blue;
+  background-color: #00CED1;
+}
+
+.coupon-color-four {
+  background-color: #2C7CFF;
+}
+
+.coupon-color-five {
+  background-color: #8B008B;
 }
