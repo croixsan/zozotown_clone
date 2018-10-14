@@ -21,7 +21,7 @@
           - shops.each do |shop|
             - if shop.items.length > 0
               %dd
-                = link_to "#" do
+                = link_to shop_path(shop) do
                   %span
                     = shop.name
                 %span
