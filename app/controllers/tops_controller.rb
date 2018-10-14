@@ -9,8 +9,8 @@ class TopsController < ApplicationController
     @items = search_items_by_gender(url, items)
 
     @newest_items = @items.order("created_at DESC").includes(:images).limit(9)
-    coupon = Coupon.find_by(price: $coupon_price)
-    @coupon_items = @items.where(coupon_id: coupon.id).order("created_at DESC").includes(:images).limit(9)
+    @coupon = Coupon.find_by(price: $coupon_price)
+    @coupon_items = @items.where(coupon_id: @coupon.id).order("created_at DESC").includes(:images).limit(9)
     @top_categories = TopCategory.all.includes(:sub_categories)
     @brands = Brand.order("items_count DESC").includes(:items).limit(10)
     @shops = Shop.order("items_count DESC").includes(:items).limit(10)

@@ -29,4 +29,4 @@
             - @items.each do |item|
               - if item.images[0]
                 %li.item
-                  = render partial: 'tops/item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: $coupon_price.to_i, shop_image: false}
+                  = render partial: 'tops/item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: @coupon.price, shop_image: false}

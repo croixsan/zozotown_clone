@@ -1,10 +1,10 @@
 class CouponsController < ApplicationController
-  $coupon_price = 0
+  $coupon_price
   $coupon_shops = []
 
   def index
-    coupon = Coupon.find_by(price: $coupon_price)
-    @items = Item.where(coupon_id: coupon.id).includes(:images)
+    @coupon = Coupon.find_by(price: $coupon_price)
+    @items = Item.where(coupon_id: @coupon.id).includes(:images).order("created_at DESC")
     @top_categories = TopCategory.all.includes(:sub_categories)
   end
 
@@ -22,7 +22,7 @@ class CouponsController < ApplicationController
     end
 
     # 「現在のクーポン」の更新
-    $coupon_price = coupon_params[:price]
+    $coupon_price = coupon_params[:price].to_i
 
     # 選択したショップのアイテムをクーポン対象商品に設定
     coupon = Coupon.find_by(price: coupon_params[:price].to_i)
