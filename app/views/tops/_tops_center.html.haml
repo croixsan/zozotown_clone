@@ -1,10 +1,16 @@
 %section#top__center__zozo
+  .section-header
+    %h2 新着アイテム
   %ul#top__center__zozo__contents.clearfix
-    - @zozo_items.each do |item|
+    - @newest_items.each_with_index do |item, i|
       %li.item
-        = render partial: 'item', locals: {item: item, image_size: "large", rank_num: 0, coupon: 0}
+        - if item.images[0]
+          - if i < 4
+            = render partial: 'item', locals: {item: item, image_size: "large", rank_num: 0, coupon: 0}
+          - else
+            = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 0}
   %p.more-list.link-list
-    = link_to "ZOZOアイテム一覧", "#"
+    = link_to "新着アイテム一覧", "#"
 
 //-------- クーポン対象アイテム ---------//
 %section#top__center__coupon
@@ -12,11 +18,12 @@
     %h2 クーポン対象アイテム
   %ul#top__center__coupon__contents.clearfix
     - @coupon_items.each_with_index do |item, i|
-      %li.item
-        - if i < 3
-          = render partial: 'item', locals: {item: item, image_size: "large", rank_num: 0, coupon: 2000}
-        - else
-          = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 2000}
+      - if item.images[0]
+        %li.item
+          - if i < 4
+            = render partial: 'item', locals: {item: item, image_size: "large", rank_num: 0, coupon: 2000}
+          - else
+            = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 2000}
   %p.more-list.link-list.zozo-item-link
     = link_to "クーポン対象アイテム一覧", "#"
 
@@ -28,11 +35,12 @@
     - @rankings.each_with_index do |ranking, i|
       - item = ranking[0]
       #top__center__ranking__contents__item
-        %li.item
-          - if i < 3
-            = render partial: 'item', locals: {item: item, image_size: "large", rank_num: i+1, coupon: 0}
-          - else
-            = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: i+1, coupon: 0}
+        - if item.images[0]
+          %li.item
+            - if i < 4
+              = render partial: 'item', locals: {item: item, image_size: "large", rank_num: i+1, coupon: 0}
+            - else
+              = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: i+1, coupon: 0}
   %p.more-list.link-list.zozo-item-link
     = link_to "ランキング一覧", "#"
 //-------- チェックしたアイテム ---------//

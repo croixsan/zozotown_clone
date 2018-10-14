@@ -21,7 +21,7 @@
           - brands.each do |brand|
             - if brand.items.length > 0
               %dd
-                = link_to "#" do
+                = link_to brand_path(brand) do
                   %span
                     = brand.name
                 %span

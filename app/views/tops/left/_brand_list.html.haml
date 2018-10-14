@@ -15,4 +15,4 @@
           .rank-num
             = i+1
       - next_path = request.path_info.sub("tops", "") + "brands/#{brand.id}"
-      = link_to brand.name, next_path, class: "list-title link-list"
+      = link_to brand.name, brand_path(brand), class: "list-title link-list"
