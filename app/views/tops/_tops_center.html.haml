@@ -25,7 +25,7 @@
           - else
             = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 2000}
   %p.more-list.link-list.zozo-item-link
-    = link_to "クーポン対象アイテム一覧", "#"
+    = link_to "クーポン対象アイテム一覧", coupons_path
 
 //-------- 人気アイテムランキング ---------//
 %section#top__center__ranking
