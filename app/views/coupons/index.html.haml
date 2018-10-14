@@ -1,28 +1,32 @@
-.category_var
-  .inner
-    %ul.nest_list.clearfix
-      %li.nest_path
-        = link_to "ZOZOTOWN", root_path
-      %li.nest_icon
-        %i.fas.fa-angle-right
-      %li.nest_item
-        %a クーポン設定
+= render partial: "shared/nest/nest_search", locals: {keyword: "クーポン対象アイテム"}
 
-= form_for @coupon do |f|
-  .body
-    .inner
-      %p.current_coupon
-        = "現在のクーポン： ¥ #{$coupon_price}"
-      %p.coupon_notice
-        クーポンの金額設定
-      .coupon_form
-        = f.select :price, get_coupon_prices
-      %p.coupon_notice
-        クーポン対象ショップの選択
-      %ul.coupon-shops.clearfix
-        - @shops.each do |shop|
-          = fields_for :shop do |f|
-            %li
-              = f.check_box :shop_ids, { multiple: true, include_hidden: false }, shop[:id], required: true
-              = f.label :shop_ids, shop.name, value: shop.id
-      = f.submit "クーポンを変更する", class: "next_btn_inner_btn"
+.search_content
+  .inner.clearfix
+    .search_side_bar
+      .search_side_bar_inner
+        %section.search_result_contents
+          = render partial: "search/count", locals: {count: @items.length}
+        .search_side_bar_lists
+          %section.select_lists
+            %h2.select_lists_element 性別
+            = render "search/gender_list"
+          %section.select_lists
+            %h2.select_lists_element 価格タイプ
+            = render "search/price_list"
+          %section.select_lists
+            %h2.head-title.select_lists_element カテゴリー
+            = render partial: "search/top_category_list", collection: @top_categories, as: "top_category"
+          %section.select_lists
+            %h2.select_lists_element カラー
+            = render "search/color_select"
+    %article.search_result
+      = render partial: "search/search_header", locals: {keyword: "クーポン対象商品"}
+      .result_content
+        = render "search/hot_keyword"
+        .result_items.clearfix
+          = render "search/pulldown"
+          .result_items_list
+            - @items.each do |item|
+              - if item.images[0]
+                %li.item
+                  = render partial: 'tops/item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: $coupon_price.to_i, shop_image: false}
