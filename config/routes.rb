@@ -22,8 +22,17 @@ Rails.application.routes.draw do
 
   resources :carts, only: [:index, :create, :destroy, :show] do
   end
-  resources :orders, only: [:index, :new, :create, :show] 
+  resources :orders, only: [:index, :new, :create, :show]
   resources :pre_orders, only: [:new, :create]
+  resources :scrapings, only: [:index] do
+    collection do
+      get :category
+      get :brand
+      get :shop
+      get :delivery
+      get :payment
+    end
+  end
 
   concern :categories do
     resources :top_categories, only: [:index, :show] do
