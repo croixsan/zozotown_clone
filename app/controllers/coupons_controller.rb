@@ -20,6 +20,7 @@ class CouponsController < ApplicationController
         shop.items.update(coupon_id: Coupon.find_by(price: 0).id)
       end
     end
+    $coupon_shops.clear()
 
     # 「現在のクーポン」の更新
     $coupon_price = coupon_params[:price].to_i
@@ -33,7 +34,7 @@ class CouponsController < ApplicationController
       $coupon_shops << shop
     end
 
-    redirect_to coupons_path
+    redirect_to root_path
   end
 
   private
