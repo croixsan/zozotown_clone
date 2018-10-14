@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'searches/index' => 'searches#index'
 
   # -- クーポン機能 --------------------
-  resources :coupons, only: [:index, :create]
+  resources :coupons, only: [:index, :new, :create]
 
   # -- ランキング機能 --------------------
   resources :rankings, only: :index
