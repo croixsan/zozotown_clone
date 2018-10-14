@@ -3,6 +3,12 @@ class CouponsController < ApplicationController
   $coupon_shops = []
 
   def index
+    coupon = Coupon.find_by(price: $coupon_price)
+    @items = Item.where(coupon_id: coupon.id).includes(:images)
+    @top_categories = TopCategory.all.includes(:sub_categories)
+  end
+
+  def new
     @coupon = Coupon.new
     @shops = Shop.where("items_count > ?", 5).includes(:items)
   end
@@ -30,6 +36,7 @@ class CouponsController < ApplicationController
     redirect_to coupons_path
   end
 
+  private
   def coupon_params
       params.require(:coupon).permit(:price).merge(params.require(:shop).permit(shop_ids: []))
   end
