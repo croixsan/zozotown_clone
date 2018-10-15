@@ -10,45 +10,40 @@ Rails.application.routes.draw do
   patch 'users/update_mail'
 
   get 'carts/index' => 'carts#index'
+  post 'carts/create' => 'carts#create'
+  delete 'carts/destroy' => 'carts#destroy'
+
 
   get 'carts/register' => 'carts#register'
 
-  post 'carts/create' => 'carts#create'
-
-  delete 'carts/destroy' => 'carts#destroy'
-
-  resources :rankings, only: :index
-
   get 'searches/index' => 'searches#index'
 
-  get "men_top"    => "tops#men"
-  get "women_top"  => "tops#women"
-  get "kid_top"    => "tops#kid"
-  get "tests/search" => "tests#search"
-
-  get "tests/information" => "tests#information"
-  get "tests/info_addless" => "tests#info_addless"
-  get "tests/info_mail" => "tests#info_mail"
-  get "tests/info_pass" => "tests#info_pass"
-  post "tests/registration" => "tests#registration"
+  # -- クーポン機能 --------------------
+  resources :coupons, only: [:index, :new, :create]
 
 
   resources :carts, only: [:index, :create, :destroy, :show] do
   end
   resources :orders, only: [:index, :new, :create, :show] 
   resources :pre_orders, only: [:new, :create]
+  # -- ランキング機能 --------------------
+  resources :rankings, only: :index
 
-  concern :categories do
-    resources :top_categories, only: [:index, :show] do
-      resources :sub_categories, only: [:index, :show]
+  # -- ショッピング機能 --------------------
+  resources :carts, only: [:index, :create, :destroy, :show] do
+    collection do
+      get :register
     end
   end
-
-  resources :tops, only: [:index]
-  resources :brands, only: [:index, :show], concerns: :categories
-  resources :shops, only: [:index, :show], concerns: :categories do
-    resources :items, only: [:index, :show] do
-      resources :favorites, only: [:create, :destroy]
+  resources :orders, only: [:index, :new, :create, :show]
+  resources :pre_orders, only: [:new, :create]
+  resources :scrapings, only: [:index] do
+    collection do
+      get :category
+      get :brand
+      get :shop
+      get :delivery
+      get :payment
     end
   end
 
@@ -64,8 +59,24 @@ Rails.application.routes.draw do
     end
   end
 
+  # -- カテゴリー --------------------
   resources :top_categories, only: [:index, :show] do
     resources :sub_categories, only: [:index, :show]
+  end
+
+  concern :categories do
+    resources :top_categories, only: [:index, :show] do
+      resources :sub_categories, only: [:index, :show]
+    end
+  end
+
+  # -- Base ------------------------
+  resources :tops, only: [:index]
+  resources :brands, only: [:index, :show], concerns: :categories
+  resources :shops, only: [:index, :show], concerns: :categories do
+    resources :items, only: [:index, :show] do
+      resources :favorites, only: [:create, :destroy]
+    end
   end
 
   scope :mens do

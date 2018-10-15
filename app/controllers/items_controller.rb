@@ -17,5 +17,14 @@ class ItemsController < ApplicationController
       # 「チェックしたアイテム」機能
       current_user.checked_items.where(item_id: @item.id).first_or_create.update(updated_at: Time.current)
     end
+
+    # クーポン機能
+    @coupon = Coupon.first
+    if Coupon.exists?
+      @coupon = Coupon.first
+      @coupon_shops = Coupon.all.includes(:shop).map{|coupon| coupon.shop}
+      @items = @coupon_shops.map{|shop| shop.items}
+      @items = @items.flatten
+    end
   end
 end

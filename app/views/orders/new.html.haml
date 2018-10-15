@@ -35,8 +35,8 @@
                     電話:
                     %span#telNum
                       = current_user.phone_num
-            .o.change
-              %a.btn-change{ :href => 'http://google.co.jp' } 変更
+            -# .o.change
+            -#   %a.btn-change{ :href => 'http://google.co.jp' } 変更
           .o.store-locker
             %p.o.icon
               %img{alt: "storeロゴ", height: "50", width: "50", src: "https://img4.zozo.jp/pc/_cart/locker_cart/ico_cnv.png"}
@@ -56,8 +56,8 @@
               -# = "******** #{current_user.card_num.match(/\d{3}$/)}"
           .o.price
             = number_to_currency(@pre_order.payment.price, unit: "￥", precision: 0)
-          .o.btn-box
-            %a.btn-change{ :href => 'http://google.co.jp' } 変更
+          -# .o.btn-box
+          -#   %a.btn-change{ :href => 'http://google.co.jp' } 変更
         .o.point-area
           .o.zozo-point ZOZOポイント:
           .o.point-description
@@ -82,10 +82,10 @@
                   = @pre_order.hope_hour
             %dd.price-column
               %p
-                = number_to_currency(@pre_order.payment.price, unit: "￥", precision: 0)
+                = number_to_currency(@pre_order.delivery.price, unit: "￥", precision: 0)
             %dd.btn-column
-              .o.btn-box
-                = link_to "変更", "#", class: "btn-change"
+              -# .o.btn-box
+              -#   = link_to "変更", "#", class: "btn-change"
           - @item_nums.each_with_index do |item_num, i|
             %dl.clearfix
               %dt.title-column
@@ -115,19 +115,15 @@
                 %p
                   = number_to_currency(item_num.item.price, unit: "￥", precision: 0)
               %dd.btn-column
-                .o.btn-box
-                  = link_to "変更", "#", class: "btn-change"
-          %dl.delivery-info.clearfix
-            %dt.title-column 送料
-            %dd.delivery-column
-            %dd.price-column
-              %p
-                = number_to_currency(@pre_order.delivery.price, unit: "￥", precision: 0)
-            %dd.btn-column
+                -# .o.btn-box
+                -#   = link_to "変更", "#", class: "btn-change"
       = form_for @order do |f|
         .o.right-content
           .o.purchase-area
-            = f.hidden_field :coupon_id, value: @coupon.id
+            - if @coupon
+              = f.hidden_field :coupon, value: @coupon.price
+            - else
+              = f.hidden_field :coupon, value: 0
             = f.submit "注文を確定する", class: "next_btn_inner_btn"
           .o.payment-total
             .o.payment-total-title 商品合計
@@ -141,16 +137,30 @@
                 %span ZOZOポイントを利用
               %p.o.point-use-possible
                 ご利用可能ポイント
-                = "#{current_user.point}ポイント"
+                %span.current_point
+                  = current_user.point
+                ポイント
+                .point-contents.clearfix
+                  = f.text_field :used_point, class: "point_form"
+                  .point-btn
+                    ポイントを使う
             .o.discount-area
-              .o.discount-box
-                %span.goods-title 品代
-                %span.goods-price
-                  = number_to_currency(@cart.total_price, unit: "￥", precision: 0)
               .o.discount-box-point
-                %span.point-title クーポン・ポイント
-                %span.point-price
-                  = "-#{@discount_point}pt"
+                .discount_point
+                  %span.point-title ポイント
+                  %span.point-price
+                    %a -
+                    %a.point_price
+                      0
+                    %a
+                      pt
+                - if @coupon
+                  .discount_coupon
+                    %span.point-title クーポン
+                    %span.coupon-price
+                      %a -
+                      %a.coupon_price
+                        = number_to_currency(@coupon.price, unit: "￥", precision: 0)
           .o.payment-option
             .o.payment-option-box
               送料

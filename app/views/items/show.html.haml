@@ -1,3 +1,5 @@
+- if Coupon.exists?
+  = render partial: "tops/coupon_header", locals: {coupon_price: @coupon.price, shops: @coupon_shops}
 .wrapper
   .headNavi
     .center
@@ -36,6 +38,13 @@
                   = render partial: 'tops/item',  locals: {item: item, image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
 
     .right-content
+      - if @item.shop.coupon
+        = link_to coupons_path, class: "coupon_box" do
+          %p
+            = number_to_currency(@coupon.price, unit: "￥", precision: 0)
+            クーポン対象商品
+            %span
+              すべての対象商品
       .item-intro
         .namelist
           .shop-brand

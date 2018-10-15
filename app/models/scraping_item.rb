@@ -201,7 +201,6 @@ class ScrapingItem
 
     item.top_category_id = to.id
     item.sub_category_id = su.id
-    item.coupon_id = co.id
     item.brand_id = br.id
     item.shop_id = sh.id
     item.save

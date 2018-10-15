@@ -9,7 +9,7 @@ module Search
       elsif url.include?("kids")
         return items.where("(gender = ?) OR (gender = ?)", 3, 4)
       else
-        return @items
+        return items
       end
     end
 

@@ -449,7 +449,6 @@
           }
 
           .point-use-area {
-            height: 44px;
             width: 263px;
 
             p {
@@ -457,7 +456,6 @@
             }
 
             .o.point-use-possible {
-              height: 16px;
               width: 239px;
               margin: 3px 0 0 24px;
               padding-bottom: 5px;
@@ -466,7 +464,6 @@
           }
 
           .o.discount-area {
-            height: 46px;
             width: 251px;
             margin-top: 10px;
             padding: 6px 0 5px 12px;
@@ -488,14 +485,29 @@
 
             .o.discount-box-point {
               margin-top: 5px;
-              height: 18px;
               width: 251px;
+
+              .discount_coupon {
+                display: block;
+                width: 250px;
+                height: 20px;
+              }
+
+              .discount_point {
+                display: block;
+                width: 250px;
+                height: 20px;
+              }
 
               .point-title {
                 float: left;
               }
 
               .point-price {
+                float: right;
+                color: red;
+              }
+              .coupon-price {
                 float: right;
                 color: red;
               }
@@ -676,4 +688,25 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.point-contents {
+  margin-top: 3px;
+  .point_form {
+    display: block;
+    width: 80px;
+    text-align: right;
+    margin-left: 25px;
+    padding: 3px 5px;
+    float: left;
+  }
+  .point-btn {
+    font-size: 10px;
+    background-color: $link-color;
+    text-align: center;
+    border-radius: 3px;
+    color: $white;
+    float: left;
+    margin-left: 10px;
+    @include set_btn(30px, 85px);
+  }
 }

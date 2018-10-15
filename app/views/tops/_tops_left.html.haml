@@ -18,10 +18,10 @@
   %h2.head-title ブランド
   = render partial: "/tops/left/brand_list", locals: {brands: @brands}
   %p.more-list.link-list
-    = link_to "ブランド一覧", "#"
+    = link_to "ブランド一覧", brands_path
 //--------- ショップリスト--------------
 %section#top__left__shop.clearfix.select_lists
   %h2.head-title ショップ
   = render partial: "/tops/left/shop_list", locals: {shops: @shops}
   %p.more-list.link-list
-    = link_to "ショップ一覧",
+    = link_to "ショップ一覧", shops_path
