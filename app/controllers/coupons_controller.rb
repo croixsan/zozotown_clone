@@ -1,10 +1,13 @@
 class CouponsController < ApplicationController
-  $coupon_price
-  $coupon_shops = []
-
   def index
-    @coupon = Coupon.find_by(price: $coupon_price)
-    @items = Item.where(coupon_id: @coupon.id).includes(:images).order("created_at DESC")
+    @coupon = Coupon.first
+    # クーポン機能
+    if Coupon.exists?
+      @coupon = Coupon.first
+      @coupon_shops = Coupon.all.includes(:shop).map{|coupon| coupon.shop}
+      @items = @coupon_shops.map{|shop| shop.items}
+      @items = @items.flatten
+    end
     @top_categories = TopCategory.all.includes(:sub_categories)
   end
 
@@ -14,24 +17,12 @@ class CouponsController < ApplicationController
   end
 
   def create
-    # 現在のクーポン対象ショップのアイテムを0に設定
-    if $coupon_shops
-      $coupon_shops.each do |shop|
-        shop.items.update(coupon_id: Coupon.find_by(price: 0).id)
-      end
-    end
-    $coupon_shops.clear()
+    # 現在のクーポン情報方を削除
+    Coupon.delete_all
 
-    # 「現在のクーポン」の更新
-    $coupon_price = coupon_params[:price].to_i
-
-    # 選択したショップのアイテムをクーポン対象商品に設定
-    coupon = Coupon.find_by(price: coupon_params[:price].to_i)
-    shop_ids = coupon_params[:shop_ids]
-    shop_ids.each do |shop_id|
-      shop = Shop.find(shop_id)
-      shop.items.update(coupon_id: coupon.id)
-      $coupon_shops << shop
+    # クーポン対象となるショップを登録
+    coupon_params[:shop_ids].each do |shop_id|
+      Coupon.create(shop_id: shop_id.to_i, price: coupon_params[:price].to_i)
     end
 
     redirect_to root_path
