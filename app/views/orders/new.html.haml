@@ -120,7 +120,10 @@
       = form_for @order do |f|
         .o.right-content
           .o.purchase-area
-            = f.hidden_field :coupon_id, value: @coupon.id
+            - if @coupon
+              = f.hidden_field :coupon, value: @coupon.price
+            - else
+              = f.hidden_field :coupon, value: 0
             = f.submit "注文を確定する", class: "next_btn_inner_btn"
           .o.payment-total
             .o.payment-total-title 商品合計
@@ -151,12 +154,13 @@
                       0
                     %a
                       pt
-                .discount_coupon
-                  %span.point-title クーポン
-                  %span.coupon-price
-                    %a -
-                    %a.coupon_price
-                      = number_to_currency(@coupon.price, unit: "￥", precision: 0)
+                - if @coupon
+                  .discount_coupon
+                    %span.point-title クーポン
+                    %span.coupon-price
+                      %a -
+                      %a.coupon_price
+                        = number_to_currency(@coupon.price, unit: "￥", precision: 0)
           .o.payment-option
             .o.payment-option-box
               送料
