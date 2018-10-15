@@ -1,0 +1,34 @@
+.coupon_form {
+  padding-bottom: 30px;
+  select {
+    width: 260px;
+    height: 40px;
+    padding-left: 10px;
+    display: block;
+    outline: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    background: none transparent;
+    vertical-align: middle;
+    font-size: inherit;
+    color: inherit;
+    -webkit-appearance: button;
+  }
+}
+.current_coupon {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.coupon-shops {
+  li {
+    margin-bottom: 20px;
+    width: 300px;
+    float: left;
+  }
+}
+
+.coupon_notice {
+  margin-bottom: 10px;
+  font-size: 15px;
+}

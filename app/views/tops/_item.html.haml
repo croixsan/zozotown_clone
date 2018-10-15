@@ -7,14 +7,14 @@
       - if rank_num > 0
         = render partial: "tops/center/ranking", locals: {rank_num: rank_num}
       - if coupon > 0
-        = render partial: "tops/center/coupon", locals: {coupon: coupon}
+        = render partial: "tops/center/coupon", locals: {coupon: @coupon.price}
   - when "middle"
     = link_to shop_item_path(item.shop.id, item.id) do
       = image_tag img_url, class: "image-size-middle"
       - if rank_num > 0
         = render partial: "tops/center/ranking", locals: {rank_num: rank_num}
       - if coupon > 0
-        = render partial: "tops/center/coupon", locals: {coupon: coupon}
+        = render partial: "tops/center/coupon", locals: {coupon: @coupon.price}
   - when "small"
     = link_to shop_item_path(item.shop.id, item.id) do
       = image_tag img_url, class: "image-size-small"

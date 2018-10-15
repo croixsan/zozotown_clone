@@ -1,0 +1,28 @@
+.category_var
+  .inner
+    %ul.nest_list.clearfix
+      %li.nest_path
+        = link_to "ZOZOTOWN", root_path
+      %li.nest_icon
+        %i.fas.fa-angle-right
+      %li.nest_item
+        %a クーポン設定
+
+= form_for @coupon do |f|
+  .body
+    .inner
+      %p.current_coupon
+        = "現在のクーポン： ¥ #{$coupon_price}"
+      %p.coupon_notice
+        クーポンの金額設定
+      .coupon_form
+        = f.select :price, get_coupon_prices
+      %p.coupon_notice
+        クーポン対象ショップの選択
+      %ul.coupon-shops.clearfix
+        - @shops.each do |shop|
+          = fields_for :shop do |f|
+            %li
+              = f.check_box :shop_ids, { multiple: true, include_hidden: false }, shop[:id], required: true
+              = f.label :shop_ids, shop.name, value: shop.id
+      = f.submit "クーポンを変更する", class: "next_btn_inner_btn"

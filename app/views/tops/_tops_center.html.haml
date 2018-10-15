@@ -13,19 +13,19 @@
     = link_to "新着アイテム一覧", "#"
 
 //-------- クーポン対象アイテム ---------//
-%section#top__center__coupon
-  .section-header
-    %h2 クーポン対象アイテム
-  %ul#top__center__coupon__contents.clearfix
-    - @coupon_items.each_with_index do |item, i|
-      - if item.images[0]
-        %li.item
-          - if i < 4
-            = render partial: 'item', locals: {item: item, image_size: "large", rank_num: 0, coupon: 2000}
-          - else
-            = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 2000}
+-# %section#top__center__coupon
+-#   .section-header
+-#     %h2 クーポン対象アイテム
+-#   %ul#top__center__coupon__contents.clearfix
+-#     - @coupon_items.each_with_index do |item, i|
+-#       - if item.images[0]
+-#         %li.item
+-#           - if i < 4
+-#             = render partial: 'item', locals: {item: item, image_size: "large", rank_num: 0, coupon: $coupon_price.to_i}
+-#           - else
+-#             = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: $coupon_price.to_i}
   %p.more-list.link-list.zozo-item-link
-    = link_to "クーポン対象アイテム一覧", "#"
+    = link_to "クーポン対象アイテム一覧", coupons_path
 
 //-------- 人気アイテムランキング ---------//
 %section#top__center__ranking
