@@ -485,14 +485,29 @@
 
             .o.discount-box-point {
               margin-top: 5px;
-              height: 18px;
               width: 251px;
+
+              .discount_coupon {
+                display: block;
+                width: 250px;
+                height: 20px;
+              }
+
+              .discount_point {
+                display: block;
+                width: 250px;
+                height: 20px;
+              }
 
               .point-title {
                 float: left;
               }
 
               .point-price {
+                float: right;
+                color: red;
+              }
+              .coupon-price {
                 float: right;
                 color: red;
               }

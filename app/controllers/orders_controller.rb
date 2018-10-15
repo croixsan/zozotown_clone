@@ -10,21 +10,22 @@ class OrdersController < ApplicationController
     @total_price = @cart.total_price + @pre_order.delivery.price + @pre_order.payment.price
 
     # 利用可能なクーポンの算出（アイテムに１つでもクーポン対象商品が含まれていれば、クーポン利用可能とする）
-    @coupon_price = 0
     @cart.items.each do |item|
-      if item.coupon.price > 0
-        @coupon_price = item.coupon.price
-        break
+      if @coupon = item.shop.coupon
+        break;
       end
     end
-    @coupon = Coupon.find_by(price: @coupon_price)
-    @discount_point = current_user.point + @coupon_price
+    @discount_point = current_user.point
+    if @coupon
+      @discount_point += @coupon.price
+      @total_price -= @coupon.price
+    end
   end
 
   def create
     ActiveRecord::Base.transaction do
       pre_order = current_user.pre_order
-
+      coupon = Coupon.find(order_params[:coupon_id].to_i)
       @order = current_user.orders.create!(
         delivery_id: pre_order.delivery_id,
         payment_id: pre_order.payment_id,
@@ -33,8 +34,7 @@ class OrdersController < ApplicationController
         used_point: order_params[:used_point],
         coupon_id: order_params[:coupon_id],
         order_num: "#{current_user.id}_#{pre_order.id}",
-        total_price: current_user.cart.total_price + pre_order.delivery.price + pre_order.payment.price - order_params[:used_point].to_i)
-
+        total_price: current_user.cart.total_price + pre_order.delivery.price + pre_order.payment.price - order_params[:used_point].to_i - coupon.price)
       # 中間テーブルにアイテムを登録
       item_nums = current_user.cart.item_nums.group(:number)
       count = item_nums.count # 購入したアイテムの個数を算出
