@@ -150,6 +150,16 @@
       width: 380px;
       float: right;
 
+      .coupon_box {
+        width: 395px;
+        height: 35px;
+        line-height: 35px;
+        color: $white;
+        margin-bottom: 10px;
+        text-align: center;
+        display: block;
+      }
+
       .item-intro {
         height: 250px;
         width: $width-show-right;

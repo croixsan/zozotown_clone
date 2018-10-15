@@ -5,7 +5,7 @@
         %p.coupon_today_text 本日限定
     .coupon_price
       %p.coupon_price_text
-        = number_to_currency(@coupon.price, unit: "￥", precision: 0)
+        = number_to_currency(coupon_price, unit: "￥", precision: 0)
     .coupon_info
       .coupon_info_contents
         %p

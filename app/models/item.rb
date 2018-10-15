@@ -3,7 +3,6 @@ class Item < ApplicationRecord
   belongs_to :brand, counter_cache: :items_count
   belongs_to :top_category
   belongs_to :sub_category
-  belongs_to :coupon
 
   has_many :stocks, dependent: :destroy
   has_many :images, dependent: :destroy

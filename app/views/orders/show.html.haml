@@ -85,6 +85,15 @@
                 %dd.c-price-column
                   %p
                     = number_to_currency(item_num.item.price, unit: "￥", precision: 0)
+            - if @order.coupon
+              %dl.delivery-info.clearfix
+                %dt.title-column ご利用クーポン
+                %dd.delivery-title-column
+                %dd.delivery-day-column
+                %dd.fee-column
+                %dd.c-price-column
+                  %p.color_red
+                    = number_to_currency(@order.coupon, unit: "￥", precision: 0)
             %dl.delivery-info.clearfix
               %dt.title-column ご利用ポイント
               %dd.delivery-title-column
