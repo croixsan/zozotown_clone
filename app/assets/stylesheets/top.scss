@@ -67,7 +67,6 @@ article {
       &__zozo {
         @include top_set_border;
         width: 100%;
-        margin-top: 25px;
       }
 
       &__coupon {
@@ -219,7 +218,7 @@ article {
 }
 
 .more-list {
-  margin-top: 15px;
+  margin-top: 5px;
   text-align: right;
 
   a {
