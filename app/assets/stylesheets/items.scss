@@ -53,6 +53,10 @@
             float: left;
           }
         }
+        .fas {
+          color: #808080;
+          cursor: pointer;
+        }
 
         .main-image {
           height: $height-main-content;
@@ -595,9 +599,15 @@
 .top_image {
   width: 500px;
   height: 600px;
+  cursor: pointer;
 }
 
 .sub_image {
   width: 35px;
   height: 42px;
+  cursor: pointer;
+}
+
+.selected_image {
+  border: solid 3px #878787;
 }
