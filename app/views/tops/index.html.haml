@@ -1,4 +1,5 @@
-= render partial: "coupon_header", locals: {coupon: @coupon, shops: @coupon_shops}
+- if @coupon
+  = render partial: "coupon_header", locals: {coupon: @coupon, shops: @coupon_shops}
 = render "shared/header"
 = render "shared/content_header"
 %article
