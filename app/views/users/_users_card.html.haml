@@ -1,0 +1,15 @@
+.content_main_form
+  = form_for @user, url: users_update_card_url do |f|
+    .head
+      %dl クレジットカード情報の変更
+    .mail.clearfix
+      .title
+        %dt カード番号
+      .main
+        = f.text_field :card_num,, maxlength: "16" class: "form"
+      .title
+        %dt セキュリティーコード
+      .main
+        = f.text_field :security_code, maxlength: "3", class: "form"
+    .send.clearfix
+      = f.submit "更新する", class: "send_btn", id: "card_btn"

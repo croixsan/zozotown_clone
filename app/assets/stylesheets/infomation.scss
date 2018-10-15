@@ -55,13 +55,19 @@
       border: $main-border-bottom;
       border-radius: 3px;
       padding: 36px 48px 40px;
-      dl {
-          height: 40px;
-          width: $width-main-content;
-          font-size: 18px;
-          border-bottom: $main-border-bottom;
-          line-height: 40px;
+      .head {
+        border-bottom: $main-border-bottom;
+        height: 50px;
+        width: $width-main-content;
+        padding: 0 0 10px 0;
+        dl {
+            font-size: 22px;
+          }
+        dd {
+          font-size: 12px;
+          color: $title-color;
         }
+      }
       .basic {
         border-bottom: $main-border-bottom;
         clear: both;
@@ -103,7 +109,7 @@
         }
       }
     }
-    .delivery {
+    #delivery {
       @extend .information;
       .addless {
         @extend .basic;
@@ -114,7 +120,7 @@
         color: $click-color;
       }
     }
-    .credit {
+    #credit {
       @extend .information;
       .card {
         @extend .basic;
@@ -131,30 +137,99 @@
   }
 }
 
+.hide {
+  display: none;
+}
+.hidden {
+  display: none;
+}
 
-// -----------------info_addless-----------------
 
+// -----------------user_addless,user_mail,user_pass,user_card-----------------
+// -------address------
 .content_main_form {
   @extend .information;
   .name {
     @extend .basic;
-  }
-  .furikana {
-    @extend .basic;
+    .form {
+      height: 40px;
+      width: 250px;
+      border: $main-border-bottom;
+      margin: 5px 0;
+    }
   }
   .gender {
-    @extend .basic;
+    @extend .name;
+    font-size: 18px;
   }
   .barth {
-    @extend .basic;
+    @extend .name;
+    .birth_label {
+      display: inline-block;
+      float: left;
+      margin: 25px 0 0 0;
+    }
+    select {
+      margin: 15px 20px 0 30px;
+      width: 80px;
+      height: 30px;
+      padding-left: 10px;
+      float: left;
+      display: block;
+      outline: none;
+      text-indent: 0.01px;
+      text-overflow: '';
+      background: none transparent;
+      vertical-align: middle;
+      font-size: inherit;
+      color: inherit;
+      -webkit-appearance: button;
+    }
   }
   .post_num {
-    @extend .basic;
+    @extend .name;
   }
-  .kenn {
-    @extend .basic;
+  .address {
+    @extend .name;
   }
   .phone_num {
-    @extend .basic;
+    @extend .name;
   }
+// -----mail-----
+  .mail {
+    @extend .name;
+  }
+// -----pass-----
+  .pass {
+    @extend .name;
+  }
+// -----card-----
+  .card_num {
+    @extend .name;
+  }
+  .code {
+    @extend .name;
+  }
+// -----send_btn-----
+  .send {
+    height: 93px;
+    @extend .name;
+    .send_btn {
+      background-color: #2490D0;
+      height: 40px;
+      width: 170px;
+      color: $white;
+      font-size: 16px;
+      margin: 20px 250px;
+    }
+  }
+}
+
+#have_to {
+  margin: 0 0 0 8px;
+  font-size: 12px;
+  display: inline-block;
+  border-radius: 3px;
+  color: #3c3c3c;
+  background-color: #c8c8c8;
 }

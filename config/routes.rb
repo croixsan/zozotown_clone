@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  root "tests#info_addless"
-  # root "tops#index"
+  root "tops#index"
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
+  get 'users/index'
+  get 'users/edit'
+  patch 'users/update'
+  patch 'users/update_card'
+  patch 'users/update_mail'
+
   get 'carts/index' => 'carts#index'
 
   get 'carts/register' => 'carts#register'
@@ -20,6 +25,13 @@ Rails.application.routes.draw do
   get "women_top"  => "tops#women"
   get "kid_top"    => "tops#kid"
   get "tests/search" => "tests#search"
+
+  get "tests/information" => "tests#information"
+  get "tests/info_addless" => "tests#info_addless"
+  get "tests/info_mail" => "tests#info_mail"
+  get "tests/info_pass" => "tests#info_pass"
+  post "tests/registration" => "tests#registration"
+
 
   resources :carts, only: [:index, :create, :destroy, :show] do
   end

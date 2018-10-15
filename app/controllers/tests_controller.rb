@@ -51,7 +51,22 @@ class TestsController < ApplicationController
   end
 
   def information
+    @user = User.find(current_user.id)
   end
   def info_addless
+    @user = User.find(current_user.id)
+  end
+
+  def info_mail
+    @user = User.find(current_user.id)
+  end
+
+  def info_pass
+    @user = User.find(current_user.id)
+  end
+
+  def registration
+    user = User.find(current_user.id)
+    user.update
   end
 end
