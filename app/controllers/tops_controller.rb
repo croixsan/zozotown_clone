@@ -12,9 +12,15 @@ class TopsController < ApplicationController
     if $coupon_price == nil
       $coupon_price = 1000
     end
-    # @coupon = Coupon.find_by(price: $coupon_price)
-    # @coupon_items = @items.where(coupon_id: @coupon.id).order("created_at DESC").includes(:images).limit(9)
-    # @coupon_shops = $coupon_shops
+
+    # クーポン機能
+    if Coupon.exists?
+      @coupon = Coupon.first
+      @coupon_shops = Coupon.all.includes(:shop).map{|coupon| coupon.shop}
+      @coupon_items = @coupon_shops.map{|shop| shop.items}
+      @coupon_items = @coupon_items.flatten.slice(0, 8)
+    end
+
     @top_categories = TopCategory.all.includes(:sub_categories)
     @brands = Brand.order("items_count DESC").includes(:items).limit(10)
     @shops = Shop.order("items_count DESC").includes(:items).limit(10)
