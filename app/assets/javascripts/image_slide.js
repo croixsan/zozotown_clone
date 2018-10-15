@@ -9,9 +9,8 @@ $(function(){
 
   $(".right-angle").on("click", function(){
     current_id = Number($(".top_image").attr("id"))
-    length = $(".sub-image-content li").length
 
-    if (current_id < length - 1){
+    if (current_id < $(".sub-image-content li").length - 1){
       next_id = current_id + 1;
     }else {
       next_id = 0
@@ -23,12 +22,11 @@ $(function(){
 
   $(".left-angle").on("click", function(){
     current_id = Number($(".top_image").attr("id"))
-    length = $(".sub-image-content li").length
 
     if (current_id > 0){
       next_id = current_id - 1;
     }else {
-      next_id = length - 1
+      next_id = $(".sub-image-content li").length - 1
     }
     next_src = $("#" + String(next_id)).attr("src")
     $(".main-image").empty();
