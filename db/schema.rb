@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181015050042) do
+ActiveRecord::Schema.define(version: 20181015101435) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",        null: false
@@ -113,7 +113,6 @@ ActiveRecord::Schema.define(version: 20181015050042) do
     t.text     "description",          limit: 65535
     t.integer  "top_category_id",                                null: false
     t.integer  "sub_category_id",                                null: false
-    t.integer  "coupon_id",                                      null: false
     t.integer  "brand_id",                                       null: false
     t.integer  "shop_id",                                        null: false
     t.datetime "created_at",                                     null: false
@@ -143,9 +142,9 @@ ActiveRecord::Schema.define(version: 20181015050042) do
     t.integer  "delivery_hour"
     t.integer  "payment_id",                null: false
     t.integer  "used_point",    default: 0, null: false
-    t.integer  "coupon_id",                 null: false
     t.string   "order_num",                 null: false
     t.integer  "total_price",   default: 0, null: false
+    t.integer  "coupon"
   end
 
   create_table "past_carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
