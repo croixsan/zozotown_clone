@@ -26,6 +26,8 @@ class TopsController < ApplicationController
     @shops = Shop.order("items_count DESC").includes(:items).limit(10)
 
     if user_signed_in?
+      @cart = current_user.cart
+      @cart_length = @cart.item_nums.length
       # チェックしたアイテム
       @checked_items = get_checked_items.slice(0, 18)
       # チェックしたショップ

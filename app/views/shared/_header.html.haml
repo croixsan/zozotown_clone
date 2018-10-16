@@ -49,18 +49,29 @@
                     %i.far.fa-heart
                     %span 会員でない方でも「お気に入り」が使えるようになりました。
         %li#header__wrapper__right__contents__cart
-          = link_to carts_index_path, class: "h-list-btn", id: "cart-btn" do
-            %i.fas.fa-lg.fa-shopping-cart
-            %i.fas.fa-circle
-              %i.cart-notify
-                1
-          .popup__cart
-            .popup__cart__inner
-              .popup__cart__inner__contents
-                %i.fas.fa-shopping-cart
-                %span カートに商品が1件あります。
-                .look-cart-btn
-                  = link_to "ショッピングカートを見る", carts_index_path
+          - if user_signed_in?
+            = link_to carts_index_path, class: "h-list-btn", id: "cart-btn" do
+              %i.fas.fa-lg.fa-shopping-cart
+              - if @cart.item_nums && @cart_length > 0
+                %i.fas.fa-circle
+                  %i.cart-notify
+                    = @cart_length
+            .popup__cart
+              .popup__cart__inner
+                .popup__cart__inner__contents
+                  %i.fas.fa-shopping-cart
+                  - if @cart_length > 0
+                    %span
+                      = "カートに商品が#{@cart_length}件あります。"
+                    .look-cart-btn
+                      = link_to "ショッピングカートを見る", carts_index_path
+                  - else
+                    %span
+                      カートに商品がありません。
+          - else
+            = link_to user_session_path, class: "h-list-btn", id: "cart-btn" do
+              %i.fas.fa-lg.fa-shopping-cart
+
 
         %li#header__wrapper__right__contents__menu
           = link_to "#", class: "h-list-btn", id: "menu-btn" do
