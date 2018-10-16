@@ -22,32 +22,27 @@
               - else
                 %span
                   = current_user.name
-            .popup__login
-              .popup__login__inner
-                %ul.popup__login__inner__list
-                  %li
-                    = link_to "登録情報", "#"
-                  %li
-                    = link_to "注文履歴・発送状況", "#"
-                  %li
-                    = link_to "ログアウト", destroy_user_session_path, method: :delete
+            .popup.clearfix
+              .popup__login
+                .popup__login__inner
+                  %ul.popup__login__inner__list
+                    %li
+                      = link_to "登録情報", "#"
+                    %li
+                      = link_to "注文履歴・発送状況", "#"
+                    %li
+                      = link_to "ログアウト", destroy_user_session_path, method: :delete
             // ログアウト状態の処理
           - else
             = link_to new_user_session_path , id: "login-btn" do
               %span ログイン
         %li#header__wrapper__right__contents__favorite
-          = link_to favorites_path, class: "h-list-btn", id: "favorite-btn" do
-            %i.far.fa-lg.fa-heart
-            %i.fas.fa-comment.fa-2x
-              %i.fav-notify
-                New
-          = if @is_login == true
-            .popup.clearfix
-              .popup__favorite
-                .popup__favorite__inner
-                  .popup__favorite__inner__contents
-                    %i.far.fa-heart
-                    %span 会員でない方でも「お気に入り」が使えるようになりました。
+          - if user_signed_in?
+            = link_to favorites_path, class: "h-list-btn", id: "favorite-btn" do
+              %i.far.fa-lg.fa-heart
+          - else
+            = link_to user_session_path, class: "h-list-btn", id: "favorite-btn" do
+              %i.far.fa-lg.fa-heart
         %li#header__wrapper__right__contents__cart
           - if user_signed_in?
             = link_to carts_index_path, class: "h-list-btn", id: "cart-btn" do
@@ -56,18 +51,19 @@
                 %i.fas.fa-circle
                   %i.cart-notify
                     = @cart_length
-            .popup__cart
-              .popup__cart__inner
-                .popup__cart__inner__contents
-                  %i.fas.fa-shopping-cart
-                  - if @cart_length > 0
-                    %span
-                      = "カートに商品が#{@cart_length}件あります。"
-                    .look-cart-btn
-                      = link_to "ショッピングカートを見る", carts_index_path
-                  - else
-                    %span
-                      カートに商品がありません。
+            .popup.clearfix
+              .popup__cart
+                .popup__cart__inner
+                  .popup__cart__inner__contents
+                    %i.fas.fa-shopping-cart
+                    - if @cart_length > 0
+                      %span
+                        = "カートに商品が#{@cart_length}件あります。"
+                      .look-cart-btn
+                        = link_to "ショッピングカートを見る", carts_index_path
+                    - else
+                      %span
+                        カートに商品がありません。
           - else
             = link_to user_session_path, class: "h-list-btn", id: "cart-btn" do
               %i.fas.fa-lg.fa-shopping-cart
@@ -76,16 +72,17 @@
         %li#header__wrapper__right__contents__menu
           = link_to "#", class: "h-list-btn", id: "menu-btn" do
             %i.fas.fa-lg.fa-bars
-          .popup__menu
-            .popup__menu__inner
-              %ul.popup__menu__inner__list
-                %li
-                  %h3 探す
-                %li
-                  = link_to "カテゴリー一覧", top_categories_path
-                %li
-                  = link_to "ブランド一覧", brands_path
-                %li
-                  = link_to "ショップ一覧", shops_path
-                %li
-                  = link_to "ランキング一覧", rankings_path
+          .popup.clearfix
+            .popup__menu
+              .popup__menu__inner
+                %ul.popup__menu__inner__list
+                  %li
+                    %h3 探す
+                  %li
+                    = link_to "カテゴリー一覧", top_categories_path
+                  %li
+                    = link_to "ブランド一覧", brands_path
+                  %li
+                    = link_to "ショップ一覧", shops_path
+                  %li
+                    = link_to "ランキング一覧", rankings_path

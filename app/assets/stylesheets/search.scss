@@ -216,7 +216,9 @@
       bottom: 0;
       right: 0;
       z-index: 5;
-      @include create_popup(50px, 185px);
+      @include create_popup();
+      height: 50px;
+      width: 185px;
       visibility: hidden;
 
       ul {
