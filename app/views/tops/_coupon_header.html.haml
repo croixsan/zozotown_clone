@@ -1,0 +1,17 @@
+.coupon_header
+  .inner.clearfix
+    .coupon_limit
+      .coupon_today
+        %p.coupon_today_text 本日限定
+    .coupon_price
+      %p.coupon_price_text
+        = number_to_currency(coupon_price, unit: "￥", precision: 0)
+    .coupon_info
+      .coupon_info_contents
+        %p
+          - shops.each do |shop|
+            = "#{shop.name}, "
+        %p
+          = "#{shops.length}ショップで1回ずつ使えるスペシャルクーポンがあります"
+    .coupon_index
+      = link_to "対象商品はこちら", coupons_path, class: "coupon_btn"

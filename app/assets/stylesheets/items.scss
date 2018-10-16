@@ -53,6 +53,10 @@
             float: left;
           }
         }
+        .fas {
+          color: #808080;
+          cursor: pointer;
+        }
 
         .main-image {
           height: $height-main-content;
@@ -187,6 +191,16 @@
     .right-content {
       width: 380px;
       float: right;
+
+      .coupon_box {
+        width: 395px;
+        height: 35px;
+        line-height: 35px;
+        color: $white;
+        margin-bottom: 10px;
+        text-align: center;
+        display: block;
+      }
 
       .item-intro {
         height: 250px;
@@ -623,9 +637,15 @@
 .top_image {
   width: 500px;
   height: 600px;
+  cursor: pointer;
 }
 
 .sub_image {
   width: 35px;
   height: 42px;
+  cursor: pointer;
+}
+
+.selected_image {
+  border: solid 3px #878787;
 }

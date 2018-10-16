@@ -1,39 +1,46 @@
 - img_url = item.images[0].url
-%li.item
-  .item__images
-    - case image_size
-    - when "large"
-      = link_to shop_item_path(item.shop.id, item.id) do
-        = image_tag img_url, class: "image-size-large"
-        - if rank_num > 0
-          = render partial: "tops/center/ranking", locals: {rank_num: rank_num}
-        - if coupon > 0
-          = render partial: "tops/center/coupon", locals: {coupon: coupon}
-    - when "middle"
-      = link_to shop_item_path(item.shop.id, item.id) do
-        = image_tag img_url, class: "image-size-middle"
-        - if rank_num > 0
-          = render partial: "tops/center/ranking", locals: {rank_num: rank_num}
-        - if coupon > 0
-          = render partial: "tops/center/coupon", locals: {coupon: coupon}
-    - when "small"
-      = link_to shop_item_path(item.shop.id, item.id) do
-        = image_tag img_url, class: "image-size-small"
+.item__images
+  - case image_size
+  - when "large"
+    = link_to shop_item_path(item.shop.id, item.id) do
+      = image_tag img_url, class: "image-size-large"
+      - if rank_num > 0
+        = render partial: "tops/center/ranking", locals: {rank_num: rank_num}
+      - if coupon > 0
+        = render partial: "tops/center/coupon", locals: {coupon: @coupon.price}
+  - when "middle"
+    = link_to shop_item_path(item.shop.id, item.id) do
+      = image_tag img_url, class: "image-size-middle"
+      - if rank_num > 0
+        = render partial: "tops/center/ranking", locals: {rank_num: rank_num}
+      - if coupon > 0
+        = render partial: "tops/center/coupon", locals: {coupon: @coupon.price}
+  - when "small"
+    = link_to shop_item_path(item.shop.id, item.id) do
+      = image_tag img_url, class: "image-size-small"
+  - when "super-large"
+    = link_to shop_item_path(item.shop.id, item.id) do
+      = image_tag img_url, class: "image-size-super-large"
+      = render partial: "tops/center/ranking", locals: {rank_num: rank_num}
+  - when "high-large"
+    = link_to shop_item_path(item.shop.id, item.id) do
+      = image_tag img_url, class: "image-size-high-large"
+      = render partial: "tops/center/ranking", locals: {rank_num: rank_num}
 
   .item__info
-    - if image_size == "large" || image_size == "middle"
-      .item__info__brand
-        - if item.shop.name.length > 10
-          - item.shop.name = item.shop.name.slice(0..10) + "..."
-        = link_to item.shop.name, shop_path(item.shop)
-      .item__info__price.price-block-large.clearfix
-        .item__info__price__num.price-font-large
-          = "¥" + number_with_delimiter(item.price).to_s
-        .item__info__price__tax
-          税込
-    - else
-      .item__info__price.price-block-small.clearfix
-        .item__info__price__num.price-font-small
-          = "¥" + item.price.to_s
-        .item__info__price__tax
-          税込
+  - if image_size == "large" || image_size == "middle" || image_size == "super-large"
+    .item__info__brand
+      - if item.shop.name.length > 10
+        - item.shop.name = item.shop.name.slice(0..10) + "..."
+      = link_to item.shop.name, shop_path(item.shop)
+    .item__info__price.price-block-large.clearfix
+      .item__info__price__num.price-font-large
+        = "¥" + number_with_delimiter(item.price).to_s
+      .item__info__price__tax
+        税込
+  - else
+    .item__info__price.price-block-small.clearfix
+      .item__info__price__num.price-font-small
+        = "¥" + item.price.to_s
+      .item__info__price__tax
+        税込

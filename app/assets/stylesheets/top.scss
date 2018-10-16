@@ -13,7 +13,7 @@ article {
 
         &__list {
           li {
-            margin-top: 10px;
+            margin-top: 5px;
           }
         }
       }
@@ -28,7 +28,6 @@ article {
       }
 
       &__favorite {
-        padding: 22px 0 12px;
 
         &__list {
           border-top: solid 1px $top-category-border-color;
@@ -49,7 +48,6 @@ article {
       }
 
       &__shop {
-        padding: 37px 0 12px;
 
         &__list {
           li {
@@ -63,13 +61,12 @@ article {
 
     &__center {
       width: $top-center-width;
-      margin-left: 15px;
+      margin-left: 25px;
       float: left;
 
       &__zozo {
         @include top_set_border;
         width: 100%;
-        margin-top: 25px;
       }
 
       &__coupon {
@@ -87,12 +84,6 @@ article {
       &__shops {
         @include top_set_border;
       }
-    }
-
-    &__right {
-      width: $top-right-width;
-      height: 1000px;
-      float: left;
     }
   }
 }
@@ -183,6 +174,16 @@ article {
   width: $small-image-width;
 }
 
+.image-size-super-large {
+  height: 370px;
+  width: 310px;
+}
+
+.image-size-high-large {
+  height: 260px;
+  width: 215px;
+}
+
 .shop-image {
   width: 150px;
   height: 50px;
@@ -197,6 +198,12 @@ article {
 .list-title {
   text-decoration: none;
   color: $top-list-font-color;
+  text-overflow: ellipsis;
+  width: 150px;
+  height: 20px;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .section-header {
@@ -211,7 +218,7 @@ article {
 }
 
 .more-list {
-  margin-top: 15px;
+  margin-top: 5px;
   text-align: right;
 
   a {
@@ -239,12 +246,13 @@ article {
     .coupon-tag {
       position: absolute;
       right: 0;
-      bottom: 5px;
+      bottom: 50px;
       left: 0;
       line-height: 20px;
       text-overflow: ellipsis;
       text-align: center;
       width: 95px;
+      height: 20px;
 
       .coupon-price {
         span {
@@ -298,7 +306,7 @@ article {
 }
 /*-- coupon style --------------------------------------*/
 .coupon-color-one {
-  background-color: red;
+  background-color: rgba(254,63,81,0.9);
 }
 
 .coupon-color-two {
@@ -306,5 +314,13 @@ article {
 }
 
 .coupon-color-three {
-  background-color: blue;
+  background-color: #00CED1;
+}
+
+.coupon-color-four {
+  background-color: #2C7CFF;
+}
+
+.coupon-color-five {
+  background-color: #8B008B;
 }

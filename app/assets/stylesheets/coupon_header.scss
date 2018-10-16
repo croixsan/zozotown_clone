@@ -1,0 +1,86 @@
+.coupon_header {
+  height: 60px;
+
+  .coupon_limit {
+    width: 110px;
+    float: left;
+    position: relative;
+
+    .coupon_today {
+      font-weight: bold;
+      font-size: 13px;
+      text-align: center;
+      background-color: $white;
+      border-radius: 15%;
+      height: 60px;
+      margin: 0 auto;
+      position: relative;
+
+      p {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        height: 20px;
+        color: $white;
+        border-radius: 3px;
+        padding: 3px 0;
+        width: 80px;
+      }
+    }
+  }
+
+  .coupon_price {
+    height: 60px;
+    float: left;
+
+    p {
+      color: $white;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 48px;
+      display: inline-block;
+      margin: -8px 0 0 20px;
+    }
+  }
+
+  .coupon_info {
+    width: 480px;
+    float: left;
+    color: $white;
+    text-align: center;
+
+    &_contents {
+      padding: 10px;
+      p {
+        font-size: 12px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: normal;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .coupon_index {
+    width: 180px;
+    height: 60px;
+    float: left;
+    position: relative;
+
+    .coupon_btn {
+      @include set_btn(35px, 200px);
+      @include fit_to_center();
+      background-color: $white;
+      text-align: center;
+      border-radius: 3px;
+      font-size: 12px;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+}

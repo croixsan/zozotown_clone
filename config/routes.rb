@@ -4,39 +4,35 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
   get 'carts/index' => 'carts#index'
+  post 'carts/create' => 'carts#create'
+  delete 'carts/destroy' => 'carts#destroy'
+
 
   get 'carts/register' => 'carts#register'
 
-  post 'carts/create' => 'carts#create'
-
-  delete 'carts/destroy' => 'carts#destroy'
-
-    get 'order/index' => 'orders#index' #←ネストする
-    get 'orders/select'
-    post 'orders/registration'
-
-  get 'rankings/index' => 'rankings#index'
-
-  get 'rankings/index' => 'rankings#index'
-
   get 'searches/index' => 'searches#index'
 
-  get "men_top"    => "tops#men"
-  get "women_top"  => "tops#women"
-  get "kid_top"    => "tops#kid"
-  get "tests/search" => "tests#search"
+  # -- クーポン機能 --------------------
+  resources :coupons, only: [:index, :new, :create]
 
-  concern :categories do
-    resources :top_categories, only: [:index, :show] do
-      resources :sub_categories, only: [:index, :show]
+  # -- ランキング機能 --------------------
+  resources :rankings, only: :index
+
+  # -- ショッピング機能 --------------------
+  resources :carts, only: [:index, :create, :destroy, :show] do
+    collection do
+      get :register
     end
   end
-
-  resources :tops, only: [:index]
-  resources :brands, only: [:index, :show], concerns: :categories
-  resources :shops, only: [:index, :show], concerns: :categories do
-    resources :items, only: [:index, :show] do
-      resources :favorites, only: [:create, :destroy]
+  resources :orders, only: [:index, :new, :create, :show]
+  resources :pre_orders, only: [:new, :create]
+  resources :scrapings, only: [:index] do
+    collection do
+      get :category
+      get :brand
+      get :shop
+      get :delivery
+      get :payment
     end
   end
 
@@ -52,8 +48,24 @@ Rails.application.routes.draw do
     end
   end
 
+  # -- カテゴリー --------------------
   resources :top_categories, only: [:index, :show] do
     resources :sub_categories, only: [:index, :show]
+  end
+
+  concern :categories do
+    resources :top_categories, only: [:index, :show] do
+      resources :sub_categories, only: [:index, :show]
+    end
+  end
+
+  # -- Base ------------------------
+  resources :tops, only: [:index]
+  resources :brands, only: [:index, :show], concerns: :categories
+  resources :shops, only: [:index, :show], concerns: :categories do
+    resources :items, only: [:index, :show] do
+      resources :favorites, only: [:create, :destroy]
+    end
   end
 
   scope :mens do
@@ -89,4 +101,3 @@ Rails.application.routes.draw do
     end
   end
 end
-

@@ -1,3 +1,5 @@
+- if Coupon.exists?
+  = render partial: "tops/coupon_header", locals: {coupon_price: @coupon.price, shops: @coupon_shops}
 .wrapper
   .headNavi
     .center
@@ -13,19 +15,19 @@
       .main-image-content
         .left-button
           .button-left
-            <
+            %i.fas.fa-angle-left.fa-2x.left-angle
         .main-image
-          = image_tag @images[0].url, class: "top_image", alt: "商品画像"
+          = image_tag @images[0].url, class: "top_image", alt: "商品画像", id: 0
           .image-grass
         .zoom-area
           = image_tag @images[0].url, class: "zoom_image", alt: "商品画像"
         .right-button
           .button-right
-            >
-      .sub-image-content.clearfix
-        - @images.each do |image|
-          .sub-image-content-mini
-            = image_tag image.url, class: "sub_image", alt: "商品画像"
+            %i.fas.fa-angle-right.fa-2x.right-angle
+      %ul.sub-image-content.clearfix
+        - @images.each_with_index do |image, i|
+          %li.sub-image-content-mini
+            = image_tag image.url, class: "sub_image", alt: "商品画像", id: i
             %p
               = image.color
 
@@ -35,9 +37,17 @@
           #top__center__pickup__contents__item
             - @related_items.each_with_index do |item, i|
               - if item.images[0] && i < 8
-                = render partial: 'tops/item',  locals: {item: item, image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+                %li.item
+                  = render partial: 'tops/item',  locals: {item: item, image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
 
     .right-content
+      - if @item.shop.coupon
+        = link_to coupons_path, class: "coupon_box" do
+          %p
+            = number_to_currency(@coupon.price, unit: "￥", precision: 0)
+            クーポン対象商品
+            %span
+              すべての対象商品
       .item-intro
         .namelist
           .shop-brand
@@ -72,7 +82,7 @@
         %ul
           - img_index = 0
           - @item.stocks.each_with_index do |stock, i|
-            %li
+            %li.clearfix
               .item
                 - if  i %  (@stock_count / @color_count) == 0
                   = image_tag @item.images[img_index].url, class: "sub_image"
@@ -89,12 +99,13 @@
                     = "#{stock.size} / 在庫なし"
                 %p.size_info
                   = "#{stock.size}サイズ相当"
-              .cart-box.clearfix
-                = link_to carts_create_path(item_id: @item.id, cart_id: @cart.id, item_num_id: @item.item_nums[i].id), method: :post, class: "cart_btn clearfix" do
-                  %i.fas.fa-shopping-cart
-                  %p カートへ入れる
-                .favorite
-                  = render partial: "favorites/favorite_icon", locals: {item: @item, shop: @shop, item_num_id: stock.item_num.id}
+              - if user_signed_in?
+                .cart-box.clearfix
+                  = link_to carts_create_path(item_id: @item.id, cart_id: @cart.id, item_num_id: @item.item_nums[i].id), method: :post, class: "cart_btn clearfix" do
+                    %i.fas.fa-shopping-cart
+                    %p カートへ入れる
+                  .favorite
+                    = render partial: "favorites/favorite_icon", locals: {item: @item, shop: @shop, item_num_id: stock.item_num.id}
       .condition-tab
         .left-tab
           %a{ :href => 'http://google.co.jp' }アイテム説明

@@ -1,3 +1,7 @@
+- if Coupon.exists?
+  = render partial: "coupon_header", locals: {coupon_price: @coupon.price, shops: @coupon_shops}
+= render "shared/header"
+= render "shared/content_header"
 %article
   #top.clearfix
     //-------- Leftページ ---------//
@@ -6,5 +10,3 @@
     //-------- センターページ ---------//
     #top__center
       = render "tops_center"
-    //-------- Rightページ ---------//
-    #top__right

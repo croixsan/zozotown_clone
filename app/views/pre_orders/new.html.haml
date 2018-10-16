@@ -1,0 +1,64 @@
+= form_for @pre_order do |f|
+  .body
+    .inner
+      .payment.clearfix
+        .payment_header
+          .payment_header_content
+            .payment_header_content_logo
+              = image_tag 'zozo-logo-white.png', class: "main_logo"
+            .payment_header_content_title
+              %p お届け先・配送方法・お支払い方法
+          .status_nav
+            = image_tag 'zozo-write.png', class: "status_nav"
+        .payment_inner
+          .regist_address
+            %dl.delivery_table.clearfix
+              %dt.address_title
+                お届け先
+              %dd.user_info
+                %p
+                  = current_user.name
+                %p 〒232-0014
+                %p
+                  = "住所： #{current_user.address}"
+                %a 電話番号:
+                %a
+                  = current_user.phone_num
+          %dl.delivery_table.clearfix
+            %dt.delivery_title
+              = f.label "配送方法"
+              %p
+              = f.label "お届け予定日"
+            - @deliveries.each_with_index do |delivery, i|
+              %dd
+                %dl.clearfix
+                  %dt.table_left
+                    = f.label :deliver_id, delivery.kind
+                    - if delivery.kind == "日時指定"
+                      = f.radio_button :delivery_id, delivery.id, required: true, class: "radio", id: "select_date", "data-id": delivery.id
+                      .select_form.clearfix
+                        = f.select :hope_day, get_delivery_days
+                        = f.select :hope_hour, get_delivery_hours
+                    - else
+                      = f.radio_button :delivery_id, delivery.id, class: "radio other_date", "data-id": delivery.id
+
+                  %dd.table_center
+                    - case delivery.kind
+                    - when "指定なし"
+                      %p 2～4日以内に発送
+                    - when "日時指定"
+                      %p 希望日時を選択してください
+                    - when "即日配送"
+                      %a 最短
+                      %a
+                        - delivery_day = Time.current.since(12.hours)
+                        = delivery_day.strftime("%m月%d日")
+                  %dd.table_right
+                    %p{class: "delivery-price_#{delivery.id}"}
+                      = number_to_currency(delivery.price, unit: "￥", precision: 0)
+          %dl.delivery_table.clearfix
+            %dt.delivery_title
+              = f.label :payment_id, "お支払い方法"
+            = render partial: "payment", collection: @payments, as: "payment", locals: {f: f}
+        .payment_sidebar
+          = render partial: "next_btn", locals: {f: f, total_price: current_user.cart.total_price, shipping_cost: @shipping_cost, fee: @fee}

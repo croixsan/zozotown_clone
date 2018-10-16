@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181009033906) do
+ActiveRecord::Schema.define(version: 20181015101435) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",        null: false
@@ -59,17 +59,14 @@ ActiveRecord::Schema.define(version: 20181009033906) do
     t.integer  "price",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "shop_id",    null: false
   end
 
   create_table "deliveries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",    null: false
-    t.string   "addless",    null: false
-    t.integer  "post_num",   null: false
-    t.integer  "phone_num",  null: false
-    t.integer  "kind",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "name"
+    t.integer  "price",      null: false
+    t.string   "kind",       null: false
   end
 
   create_table "favorite_brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -84,6 +81,7 @@ ActiveRecord::Schema.define(version: 20181009033906) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "item_num_id", null: false
+    t.integer  "item_id",     null: false
   end
 
   create_table "favorite_shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -109,17 +107,20 @@ ActiveRecord::Schema.define(version: 20181009033906) do
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                          null: false
-    t.integer  "price",                         null: false
-    t.integer  "gender",                        null: false
-    t.text     "description",     limit: 65535
-    t.integer  "top_category_id",               null: false
-    t.integer  "sub_category_id",               null: false
-    t.integer  "coupon_id",                     null: false
-    t.integer  "brand_id",                      null: false
-    t.integer  "shop_id",                       null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "name",                                           null: false
+    t.integer  "price",                                          null: false
+    t.integer  "gender",                                         null: false
+    t.text     "description",          limit: 65535
+    t.integer  "top_category_id",                                null: false
+    t.integer  "sub_category_id",                                null: false
+    t.integer  "brand_id",                                       null: false
+    t.integer  "shop_id",                                        null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.integer  "favorite_items_count",               default: 0
+    t.integer  "checked_items_count",                default: 0
+    t.integer  "shoppings_count",                    default: 0
+    t.integer  "ordered_items_count",                default: 0
     t.index ["name"], name: "index_items_on_name", using: :btree
   end
 
@@ -129,20 +130,21 @@ ActiveRecord::Schema.define(version: 20181009033906) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "item_num_id", null: false
+    t.integer  "number",      null: false
   end
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",       null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "cart_id",       null: false
-    t.datetime "buy_date"
-    t.integer  "card_id",       null: false
-    t.integer  "delivery_id",   null: false
-    t.integer  "delivery_kind", null: false
-    t.string   "delivery_day"
-    t.string   "delivery_hour"
-    t.integer  "payment_id",    null: false
+    t.integer  "user_id",                   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "delivery_id",               null: false
+    t.datetime "delivery_day"
+    t.integer  "delivery_hour"
+    t.integer  "payment_id",                null: false
+    t.integer  "used_point",    default: 0, null: false
+    t.string   "order_num",                 null: false
+    t.integer  "total_price",   default: 0, null: false
+    t.integer  "coupon"
   end
 
   create_table "past_carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -159,6 +161,17 @@ ActiveRecord::Schema.define(version: 20181009033906) do
     t.string   "method",                null: false
     t.integer  "price",                 null: false
     t.float    "point_rate", limit: 24, null: false
+  end
+
+  create_table "pre_orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "delivery_id", null: false
+    t.integer  "payment_id",  null: false
+    t.datetime "hope_day"
+    t.integer  "hope_hour"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_pre_orders_on_user_id", using: :btree
   end
 
   create_table "shoppings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -217,7 +230,7 @@ ActiveRecord::Schema.define(version: 20181009033906) do
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                   default: "", null: false
     t.integer  "gender",                              null: false
-    t.integer  "post_num",                            null: false
+    t.string   "post_num",                            null: false
     t.string   "address"
     t.string   "phone_num"
     t.string   "email",                  default: "", null: false
@@ -231,6 +244,8 @@ ActiveRecord::Schema.define(version: 20181009033906) do
     t.integer  "birth_year",                          null: false
     t.integer  "birth_month",                         null: false
     t.integer  "birth_day",                           null: false
+    t.string   "card_num"
+    t.integer  "security_code"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
