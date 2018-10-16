@@ -4,6 +4,8 @@
 %ul.category_list
   %li
     - next_path = request.path_info + "/top_categories/#{top_category.id}"
+    - if next_path.include?("items")
+      - next_path = next_path.sub("items/", "")
     = link_to top_category.name, next_path, class: "list-title category-btn"
     .angle-icon
       %i.fas.fa-angle-right

@@ -12,28 +12,7 @@
       %h1
         %i.fas.fa-chess-king
         人気アイテムランキング
-      .r.main-tab
-        %div.r.current
-          %a{ :href => 'http://google.co.jp' } すべて
-        %div
-          %a{ :href => 'http://google.co.jp' } メンズ
-        %div
-          %a{ :href => 'http://google.co.jp' } レディース
-        %div
-          %a{ :href => 'http://google.co.jp' } キッズ
-        .r.other-ranking
-          ギフトアイテムのランキングを見る
-    .r.brand-choice
-      .r.brand-label
-        %a{ :href => 'http://google.co.jp' } ブランド選択
-      .r.category-list-area
-        %span.r.border
-          |
-        %span.r.category-list
-          %span
-            すべてのカテゴリー
-          %span
-            ^
+      = render "shared/gender_tab"
     %ul
       - @rankings.each_with_index do |ranking, i|
         - item = ranking[0]
