@@ -69,7 +69,6 @@
               .text
                 %p
                   %b ツケ払いできます
-                  -# %a{ :href => 'http://google.co.jp' }詳細
                 %p
                   %a お支払いは
                   %b
@@ -102,12 +101,20 @@
                   - else
                     = "#{stock.size} / 在庫なし"
             %dd.i-btn-column
-              - if user_signed_in?
-                .cart-box.clearfix
-                  - if stock.stock > 0
-                    = render partial: "items/cart_btn", locals: {item_id: @item.id, cart_id: @cart.id, item_num_id: @item.item_nums[i].id, keyword: "カートへ入れる"}
+              .cart-box.clearfix
+                - if stock.stock > 0
+                  - if user_signed_in?
+                    = link_to carts_create_path(item_id: @item.id, cart_id: @cart.id, item_num_id: @item.item_nums[i].id), method: :post, class: "cart_btn clearfix" do
+                      %i.fas.fa-shopping-cart
+                      %p
+                        カートへ入れる
                   - else
-                    %a.sold_out 完売しました
+                    = link_to user_session_path, class: "cart_btn clearfix" do
+                      %i.fas.fa-shopping-cart
+                      %p
+                        カートへ入れる
+                - else
+                  %a.sold_out 完売しました
 
             %dd.i-favorite-column
               .favorite
