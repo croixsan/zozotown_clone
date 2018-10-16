@@ -18,6 +18,9 @@
             %i.fas.fa-angle-left.fa-2x.left-angle
         .main-image
           = image_tag @images[0].url, class: "top_image", alt: "商品画像", id: 0
+          .image-grass
+        .zoom-area
+          = image_tag @images[0].url, class: "zoom_image", alt: "商品画像"
         .right-button
           .button-right
             %i.fas.fa-angle-right.fa-2x.right-angle
