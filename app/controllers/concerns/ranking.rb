@@ -1,9 +1,14 @@
 module Ranking
+  include Search
   extend ActiveSupport::Concern
   included do
     def get_ranking_items
       # 規定日数以上閲覧されていないものと閲覧数が０のものは足切りする
       @items = Item.where("(checked_items_count > ?) and (created_at > ?)", 0, 7.days.ago)
+
+      # itemの絞り込み
+      url = request.path_info
+      @items = search_items_by_gender(url, @items)
 
       # 閲覧数の重み付け...0.1pt
       # お気に入り登録数の重み付け...2pt

@@ -77,6 +77,7 @@ Rails.application.routes.draw do
     resources :top_categories, only: [:index, :show] do
       resources :sub_categories, only: [:index, :show]
     end
+    resources :rankings, only: :index
   end
 
   scope :ladies do
@@ -88,6 +89,7 @@ Rails.application.routes.draw do
     resources :top_categories, only: [:index, :show] do
       resources :sub_categories, only: [:index, :show]
     end
+    resources :rankings, only: :index
   end
 
   scope :kids do
@@ -99,5 +101,6 @@ Rails.application.routes.draw do
     resources :top_categories, only: [:index, :show] do
       resources :sub_categories, only: [:index, :show]
     end
+    resources :rankings, only: :index
   end
 end
