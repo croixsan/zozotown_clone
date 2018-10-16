@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'carts/register' => 'carts#register'
 
   get 'searches/index' => 'searches#index'
+  get 'searches/show' => 'searches#show'
 
   # -- クーポン機能 --------------------
   resources :coupons, only: [:index, :new, :create]
