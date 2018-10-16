@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :check_up_on
   before_action :setup_user
 
   def index
@@ -41,4 +41,11 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
   end
 
+  def check_up_on
+    render_404 unless user_signed_in?
+  end
+
+  def render_404
+    render template: 'users/error_404', status: 404, layout: 'application', content_type: 'text/html'
+  end
 end

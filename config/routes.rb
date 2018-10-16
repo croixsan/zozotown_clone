@@ -22,9 +22,8 @@ Rails.application.routes.draw do
   resources :coupons, only: [:index, :new, :create]
 
 
-  resources :carts, only: [:index, :create, :destroy, :show] do
-  end
-  resources :orders, only: [:index, :new, :create, :show] 
+  resources :carts, only: [:index, :create, :destroy, :show]
+  resources :orders, only: [:index, :new, :create, :show]
   resources :pre_orders, only: [:new, :create]
   # -- ランキング機能 --------------------
   resources :rankings, only: :index
