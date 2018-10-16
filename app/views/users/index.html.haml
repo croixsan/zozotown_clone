@@ -65,38 +65,6 @@
         .chenge
           .btn
             = link_to "変更", users_edit_path(id: :pass), method: :get
-    / 機能追加時に使用
-    / #delivery.clearfix
-    /   .head
-    /     %dl お届け先情報
-    /   .addless.clearfix
-    /     .title
-    /       %dt お届け先
-    /     .main
-    /       %dd
-    /         = current_user.name
-    /       %dd
-    /         = current_user.gender
-    /       %dd
-    /         = "#{current_user.birth_year}年#{current_user.birth_month}月#{current_user.birth_day}日"
-    /       %dd
-    /         %span 〒
-    /         %span 123456
-    /       %dd 東京都千代田区1-1-1
-    /       %dd
-    /         = "電話番号 :#{current_user.phone_num}"
-    /     .chenge
-    /       .btn
-    /         = link_to "変更", users_edit_path(id: :basic), method: :get
-    /     .add
-    /       = link_to "お届け先を追加する", users_edit_path(id: :mail), method: :get
-    / #delivery.none.hide.clearfix
-    /   .head
-    /     %dl お届け先の変更追加
-    /   .addless.clearfix
-    /     %dd 追加したお届け先はありません。
-    /     = link_to "#" do
-    /       %dd お届け先を追加する
 
     #credit.clearfix
       .head
@@ -106,25 +74,24 @@
           %dt カード１
         .main
           %dd
-            - s = current_user.card_num
-            - n = "*"
-            -number = s.length - 4
-            = "カード番号 : #{n * number}#{s[-4]}#{s[-3]}#{s[-2]}#{s[-1]}"
-          %dd
-            = "有効期限 : #{Time.now.year + 4}/#{Time.now.month - 3}"
+            -if current_user.card_num.empty?
+              = "追加したクレジットカード情報がありません"
+              = link_to users_edit_path(id: :card), method: :get do
+                %dd クレジットカード情報を追加する
+            - else
+              - s = current_user.card_num
+              - n = "*"
+              - number = s.length - 4
+              = "カード番号 : #{n * number}#{s[-4]}#{s[-3]}#{s[-2]}#{s[-1]}\n有効期限 : #{Time.now.year + 4}/#{Time.now.month - 3}"
         .chenge
           .btn
-            = link_to "変更", users_edit_path(id: :card), method: :get
+            -if current_user.card_num.empty?
+              = link_to "追加", users_edit_path(id: :card), method: :get
+            - else
+              = link_to "変更", users_edit_path(id: :card), method: :get
       .attention
         %p ※ 新規カードの登録は、商品購入時に可能です。
 
-    #credit.none.hide.clearfix
-      .head
-        %dl クレジットカード情報の変更
-      .card.clearfix
-        %dd 追加したクレジットカード情報はありません。
-        = link_to "#" do
-          %dd クレジットカード情報を追加する
 
 
 
