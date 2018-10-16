@@ -68,8 +68,8 @@
 
         .image-grass {
           display: none;
-          z-index: 2;
-          background: white;
+          position: absolute;
+          background: orange;
           opacity: 0.3;
           height: 200px;
           width: 200px;
