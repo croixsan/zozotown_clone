@@ -63,44 +63,48 @@ Rails.application.routes.draw do
   resources :tops, only: [:index]
   resources :brands, only: [:index, :show], concerns: :categories
   resources :shops, only: [:index, :show], concerns: :categories do
-    resources :items, only: [:index, :show] do
+    resources :items, only: [:show] do
       resources :favorites, only: [:create, :destroy]
     end
   end
+  resources :items, only: [:index]
 
   scope :mens do
     resources :tops, only: [:index]
     resources :brands, only: [:index, :show], concerns: :categories
     resources :shops, only: [:index, :show], concerns: :categories do
-      resources :items, only: [:index, :show]
+      resources :items, only: [:show]
     end
     resources :top_categories, only: [:index, :show] do
       resources :sub_categories, only: [:index, :show]
     end
     resources :rankings, only: :index
+    resources :items, only: [:index]
   end
 
   scope :ladies do
     resources :tops, only: [:index]
     resources :brands, only: [:index, :show], concerns: :categories
     resources :shops, only: [:index, :show], concerns: :categories do
-      resources :items, only: [:index, :show]
+      resources :items, only: [:show]
     end
     resources :top_categories, only: [:index, :show] do
       resources :sub_categories, only: [:index, :show]
     end
     resources :rankings, only: :index
+    resources :items, only: [:index]
   end
 
   scope :kids do
     resources :tops, only: [:index]
     resources :brands, only: [:index, :show], concerns: :categories
     resources :shops, only: [:index, :show], concerns: :categories do
-      resources :items, only: [:index, :show]
+      resources :items, only: [:show]
     end
     resources :top_categories, only: [:index, :show] do
       resources :sub_categories, only: [:index, :show]
     end
     resources :rankings, only: :index
+    resources :items, only: [:index]
   end
 end

@@ -10,7 +10,7 @@
           - else
             = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 0}
   %p.more-list.link-list
-    = link_to "新着アイテム一覧", "#"
+    = link_to "新着アイテム一覧", items_path
 
 //-------- クーポン対象アイテム ---------//
 - if Coupon.exists?

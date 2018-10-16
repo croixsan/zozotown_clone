@@ -1,5 +1,12 @@
 class ItemsController < ApplicationController
+  include Search
   def index
+    now = Time.current
+    @items = Item.where("created_at > ?", now - 7.days).order("created_at DESC").includes([:images, :shop, :brand])
+    # itemの絞り込み
+    url = request.path_info
+    @items = search_items_by_gender(url, @items)
+    @top_categories = TopCategory.all.includes(:sub_categories)
   end
 
   def show
