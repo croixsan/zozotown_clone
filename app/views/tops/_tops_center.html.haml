@@ -43,7 +43,7 @@
             - else
               = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: i+1, coupon: 0}
   %p.more-list.link-list.zozo-item-link
-    = link_to "ランキング一覧", "#"
+    = link_to "ランキング一覧", rankings_path
 //-------- チェックしたアイテム ---------//
 - if user_signed_in?
   %section#top__center__pickup
