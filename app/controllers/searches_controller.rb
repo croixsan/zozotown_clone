@@ -15,6 +15,9 @@ class SearchesController < ApplicationController
   end
 
   def show
+    @top_category = TopCategory.find(51)
+    @items = Item.all
+    @sub_categories = SubCategory.all
   end
 
 end
