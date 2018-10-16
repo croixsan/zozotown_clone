@@ -247,3 +247,17 @@
     text-align: center;
   }
 }
+
+.notification {
+  .notice {
+    background-color: $wall-color;
+    color: $black;
+    text-align: center;
+  }
+
+  .alert {
+    background-color: $crimson;
+    color: $white;
+    text-align: center;
+  }
+}

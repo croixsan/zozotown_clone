@@ -9,18 +9,30 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(address_params)
-    redirect_to users_index_path
+
+    if @user.update(address_params)
+      redirect_to users_index_path, notice: '基本情報を更新しました。'
+    else
+      redirect_to users_index_path, notice: '更新に失敗しました。'
+    end
   end
 
   def update_card
-    @user.update(card_params)
-    redirect_to users_index_path
+
+    if @user.update(card_params)
+      redirect_to users_index_path, notice: 'カード情報を更新しました。'
+    else
+      redirect_to users_index_path, notice: '更新に失敗しました。'
+    end
   end
 
   def update_mail
-    @user.update(mail_params)
-    redirect_to users_index_path
+
+    if @user.update(mail_params)
+      redirect_to users_index_path, notice: 'メールアドレスを更新しました。'
+    else
+      redirect_to users_index_path, notice: '更新に失敗しました。'
+    end
   end
 
   private

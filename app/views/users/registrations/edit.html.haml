@@ -28,5 +28,4 @@
     - elsif params[:id] == "card"
       = render "users/users_card"
     -else
-      %h2 このリンクは無効です
-      = link_to "登録一覧へ戻る", users_index_path
+      = render "users/users_pass"
