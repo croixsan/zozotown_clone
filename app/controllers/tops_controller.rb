@@ -18,7 +18,7 @@ class TopsController < ApplicationController
       @coupon = Coupon.first
       @coupon_shops = Coupon.all.includes(:shop).map{|coupon| coupon.shop}
       @coupon_items = @coupon_shops.map{|shop| shop.items}
-      @coupon_items = @coupon_items.flatten.slice(0, 8)
+      @coupon_items = @coupon_items.flatten.slice(0, 9)
     end
 
     @top_categories = TopCategory.all.includes(:sub_categories)
