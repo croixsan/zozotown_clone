@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   include Search
+  include Checked
   def index
     now = Time.current
     @items = Item.where("created_at > ?", now - 7.days).order("created_at DESC").includes([:images, :shop, :brand])
@@ -23,6 +24,7 @@ class ItemsController < ApplicationController
     if user_signed_in?
       # 「チェックしたアイテム」機能
       current_user.checked_items.where(item_id: @item.id).first_or_create.update(updated_at: Time.current)
+      @checked_items = get_checked_items.slice(0, 8)
     end
 
     # クーポン機能
