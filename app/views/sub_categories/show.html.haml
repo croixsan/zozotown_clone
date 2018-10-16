@@ -11,9 +11,6 @@
             %h2.select_lists_element 性別
             = render "search/gender_list"
           %section.select_lists
-            %h2.select_lists_element 価格タイプ
-            = render "search/price_list"
-          %section.select_lists
             %h2.head-title.select_lists_element カテゴリー
             = render partial: "search/sub_category_list", locals: {top_category: @top_category, sub_categories: @sub_categories}
           %section.select_lists
