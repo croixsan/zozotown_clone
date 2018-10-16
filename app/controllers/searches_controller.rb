@@ -12,7 +12,6 @@ class SearchesController < ApplicationController
       format.html
       format.json
     end
-    # redirect_to :controller => 'tops', :action => 'index'
   end
 
 end

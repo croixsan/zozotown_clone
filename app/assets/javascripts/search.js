@@ -30,7 +30,7 @@ var search_list = $("#header__wrapper__left__search__incremental__area");
       });
     })
     .fail(function() {
-      alert('映画検索に失敗しました');
+      alert('検索に失敗しました');
     })
   });
 });
