@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   include Checked
   include SavedCart
+  before_action :authenticate_user!
 
   def index
     @cart = current_user.cart
