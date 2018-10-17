@@ -23,7 +23,7 @@ class CartsController < ApplicationController
 
     # 「以前カートに入れたアイテム」機能
     current_user.past_carts.where(item_num_id: params[:item_num_id]).first_or_create.update(updated_at: Time.current)
-    
+
     redirect_to controller: 'carts', action: 'index'
   end
 
@@ -45,7 +45,7 @@ class CartsController < ApplicationController
 
   private
   def cart_params
-    params.permit(:item_id, :cart_id, :item_num_id)
+    params.permit(:item_id, :item_num_id).merge(cart_id: current_user.cart.id)
   end
 
   def get_total_price(items)
