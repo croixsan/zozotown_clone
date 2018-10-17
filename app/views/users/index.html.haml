@@ -1,0 +1,102 @@
+= render 'layouts/notifications'
+.category_var
+  .inner
+    %ul.nest_list.clearfix
+      %li.nest_path
+        = link_to "ZOZOTOWN", root_path
+      %li.nest_icon
+        %i.fas.fa-angle-right
+      %li.nest_item
+        %i.far.fa-user
+        %a 登録情報
+.content
+  .content_head
+    %span
+      %i.far.fa-user
+    %span
+      = "#{current_user.email}様の登録情報"
+  .content_left
+    = render "users/users_sideber"
+
+  .content_main
+    .information.clearfix
+      .head
+        %dl 会員登録情報
+      .basic.clearfix
+        .title
+          %dt 基本情報
+          %dd お届け先情報
+        .main
+          %dd
+            = current_user.name
+          %dd
+            = if current_user.gender == 1
+              - gender = "男性"
+            - elsif current_user.gender == 2
+              - gender = "女性"
+            - else
+              - gender = "その他"
+          %dd
+            = "#{current_user.birth_year}年#{current_user.birth_month}月#{current_user.birth_day}日"
+          %dd
+            = "〒#{current_user.post_num}"
+          %dd
+            = "#{current_user.address}"
+          %dd
+            = "電話番号 :#{current_user.phone_num}"
+        .chenge
+          .btn
+            = link_to "変更", edit_user_path(id: current_user.id, title: :basic), method: :get
+      .mail.clearfix
+        .title
+          %dt メールアドレス
+          %dt (ZOZO ID)
+        .main
+          %dd
+            = current_user.email
+        .chenge
+          .btn
+            = link_to "変更", edit_user_path(id: current_user.id, title: :mail), method: :get
+      .pass.clearfix
+        .title
+          %dt パスワード
+        .main
+          %dd
+            %span
+              = "************"
+            %span#description-pass ※セキュリティのためパスワードは非表示となっています。
+
+        .chenge
+          .btn
+            = link_to "変更", edit_user_registration_path, method: :get
+
+    #credit.clearfix
+      .head
+        %dl クレジットカード情報の変更
+      .card.clearfix
+        .title
+          %dt カード１
+        .main
+          %dd
+            -if current_user.card_num.blank?
+              = "追加したクレジットカード情報がありません"
+              = link_to edit_user_path(id: current_user.id, title: :new_card), method: :get do
+                %dd クレジットカード情報を追加する
+            - else
+              - s = current_user.card_num
+              - n = "*"
+              - number = s.length - 4
+              = "カード番号 : #{n * number}#{s[-4]}#{s[-3]}#{s[-2]}#{s[-1]}\n有効期限 : #{Time.now.year + 4}/#{Time.now.month - 3}"
+        .chenge
+          .btn
+            -if current_user.card_num.blank?
+              = link_to "追加", edit_user_path(id: current_user.id, title: :new_card), method: :get
+            - else
+              = link_to "変更", edit_user_path(id: current_user.id, title: :card), method: :get
+      .attention
+        %p ※ 新規カードの登録は、商品購入時に可能です。
+
+
+
+
+

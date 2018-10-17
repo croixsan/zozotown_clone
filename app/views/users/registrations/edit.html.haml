@@ -1,36 +1,42 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+.category_var
+  .inner
+    %ul.nest_list.clearfix
+      %li.nest_path
+        = link_to "ZOZOTOWN", root_path
+      %li.nest_icon
+        %i.fas.fa-angle-right
+      %li.nest_item
+        %i.far.fa-user
+        %a 登録情報の変更
+.content
+  .content_head
+    %span
+      %i.far.fa-user
+    %span
+      = current_user.email
+    %span 様の登録情報
+  .content_left
+    = render "users/users_sideber"
+
+  .content_main
+    .content_main_form
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = devise_error_messages!
+        .head
+          %dl パスワードの変更
+        .pass.clearfix
+          .title
+            %dt
+              %span 現在のパスワード
+          .main
+            = f.password_field :current_password, minlength: "8", maxlength: "12", autocomplete: "current-password", class: "form"
+        .pass.clearfix
+          .title
+            %dt
+              %span 新しいパスワード
+          .main
+            = f.password_field :password, minlength: "8", maxlength: "12", autocomplete: "new-password",placeholder: "半角英数混合8~12文字", class: "form"
+            = f.password_field :password_confirmation, minlength: "8", maxlength: "12", autocomplete: "new-password",placeholder: "確認のためもう一度入力してください", class: "form"
+        .send.clearfix
+          = f.submit "更新する", class: "send_btn"
+          
