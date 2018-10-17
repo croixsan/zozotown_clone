@@ -29,12 +29,10 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    if params[:id]
-      shoppings = Shopping.where(item_id: params[:id])
-      shoppings.destroy_all
-    elsif params[:item_id]
-      shopping = Shopping.find_by(item_id: params[:item_id])
-      shopping.destroy
+    if params[:delete] == "delete_all"
+      current_user.cart.shoppings.where(item_num_id: params[:item_num_id].to_i).destroy_all
+    else
+      current_user.cart.shoppings.find_by(item_num_id: params[:item_num_id].to_i).destroy
     end
     redirect_to :controller => 'carts', :action => 'index'
   end

@@ -33,7 +33,6 @@
       width: $width-carts-index-leftcontent;
 
       .c.items-content {
-        border-top: $border-gray;
         margin-top: 10px;
 
         .items {
@@ -80,6 +79,7 @@
             .number-box {
               position: absolute;
               right: 0;
+
               .number {
                 height: 18px;
                 width: 18px;
@@ -122,6 +122,24 @@
         }
       }
 
+      .nothing_in_cart {
+        font-size: 15px;
+        color: #808080;
+        text-align: right;
+        padding: 50px 0 35px;
+      }
+
+      .continue-btn {
+        @include set_btn(30px, 260px);
+        padding: 11px 0 8px;
+        background-color: $main-blue-color;
+        text-align: center;
+        color: white;
+        border-radius: 4px;
+        margin-bottom: 50px;
+        margin-left: 360px;
+      }
+
       .total {
         width: $width-carts-index-leftcontent;
         margin: 15px 0;
@@ -147,7 +165,7 @@
         background-color: rgb(240, 240, 240);
         padding: 10px 18px;
         text-align: right;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
 
         span {
           color: red;
@@ -249,8 +267,8 @@
 }
 
 .cart-in-item {
-  border-bottom: $border-gray;
-  margin-top: 15px;
+  border-top: $border-gray;
+  padding-top: 20px;
   clear: both;
 
   .cart-btn {
