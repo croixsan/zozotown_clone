@@ -189,13 +189,19 @@
         padding-top: 30px;
         width: 250px;
         @include fit_to_center();
+        text-align: center;
 
-        a {
+        .cart-btn {
           @include set_btn(40px, 250px);
           background-color: $main-blue-color;
           text-align: center;
           color: white;
           font-size: 18px;
+        }
+
+        .continue-link {
+          text-decoration: none;
+          color: $link-color
         }
 
         .postage {

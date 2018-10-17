@@ -62,23 +62,23 @@
     - if @cart.items.length > 0
       .cart-next
         .form
-          = link_to "レジへ進む", new_pre_order_path
+          = link_to "レジへ進む", new_pre_order_path, class: "cart-btn"
           .postage
             .postage-text
               %i.fas.fa-exclamation-circle
               .text
                 %p 送料は一律200円になりました。
-          .continuation ショッピングを続ける
+          = link_to "ショッピングを続ける", root_path, class: "continue-link"
     .cart-in-item
       %h2 以前カートに入れたアイテム
       %ul#top__center__pickup__contents.clearfix
         - @past_item_nums.each do |item_num|
           #top__center__pickup__contents__item
-            - if item_num.item.images[0]
+            - if item_num.item.images[0] && item_num.stock.stock > 0
               %li.item.cart-item
                 = render partial: 'tops/item', locals: {item: item_num.item, image_size: "middle", rank_num: 0, coupon: 0}
                 .cart-btn
-                  = link_to "カートに入れる", carts_create_path(@cart)
+                  = link_to "カートに入れる", carts_path(@cart, item_id: item_num.item.id, item_num_id: item_num.id), method: :post
     .cart-in-item
       %h2 チェックしたアイテム
       %ul#top__center__pickup__contents.clearfix
