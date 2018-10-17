@@ -1,4 +1,5 @@
 .wrapper
+  = render 'layouts/notifications'
   .header
     %i.fas.fa-shopping-cart
     %h1
@@ -27,7 +28,8 @@
                   %p
                     サイズ：
                     = item_num.stock.size
-                  .red-text 返品・交換対象外
+                  %p.red-text
+                    = "残り#{item_num.stock.stock}点"
               - if item_num.stock.stock > 0
                 %dd.cart_price_column
                   .price.red-text
@@ -40,8 +42,9 @@
                           = link_to "ー", cart_path(@cart, item_id: item_num.item.id, item_num_id: item_num.id), method: :delete
                       .number
                         = @count[item_num.number]
-                      .right-btn.btn
-                        = link_to "＋", carts_path(@cart, item_id: item_num.item.id, item_num_id: item_num.id), method: :post
+                      - if  item_num.stock.stock - @count[item_num.number] - 1 >= 0
+                        .right-btn.btn
+                          = link_to "＋", carts_path(@cart, item_id: item_num.item.id, item_num_id: item_num.id), method: :post
                 %dd.cart_delete_column
                   .delete-box
                     = link_to "削除", cart_path(@cart, item_num_id: item_num.id, delete: "delete_all"), method: :delete
@@ -74,21 +77,23 @@
               .text
                 %p 送料は一律200円になりました。
           = link_to "ショッピングを続ける", root_path, class: "continue-link"
-    .cart-in-item
-      %h2 以前カートに入れたアイテム
-      %ul#top__center__pickup__contents.clearfix
-        - @past_item_nums.each do |item_num|
-          #top__center__pickup__contents__item
-            - if item_num.item.images[0] && item_num.stock.stock > 0
-              %li.item.cart-item
-                = render partial: 'tops/item', locals: {item: item_num.item, image_size: "middle", rank_num: 0, coupon: 0}
-                .cart-btn
-                  = link_to "カートに入れる", carts_path(@cart, item_id: item_num.item.id, item_num_id: item_num.id), method: :post
-    .cart-in-item
-      %h2 チェックしたアイテム
-      %ul#top__center__pickup__contents.clearfix
-        - @checked_items.each do |item|
-          #top__center__pickup__contents__item
-            - if item.images[0]
-              %li.item.cart-item
-                = render partial: 'tops/item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 0}
+    - if @past_item_nums
+      .cart-in-item
+        %h2 以前カートに入れたアイテム
+        %ul#top__center__pickup__contents.clearfix
+          - @past_item_nums.each do |item_num|
+            #top__center__pickup__contents__item
+              - if item_num.item.images[0] && item_num.stock.stock > 0
+                %li.item.cart-item
+                  = render partial: 'tops/item', locals: {item: item_num.item, image_size: "middle", rank_num: 0, coupon: 0}
+                  .cart-btn
+                    = link_to "カートに入れる", carts_path(@cart, item_id: item_num.item.id, item_num_id: item_num.id), method: :post
+    - if @checked_items
+      .cart-in-item
+        %h2 チェックしたアイテム
+        %ul#top__center__pickup__contents.clearfix
+          - @checked_items.each do |item|
+            #top__center__pickup__contents__item
+              - if item.images[0]
+                %li.item.cart-item
+                  = render partial: 'tops/item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 0}
