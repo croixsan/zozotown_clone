@@ -65,6 +65,9 @@ class OrdersController < ApplicationController
       point = current_user.point - order_params[:used_point].to_i
       current_user.update!(point: point)
 
+      # 以前カートに入れたアイテムから削除
+      current_user.past_carts.where(item_num_id: item_nums.ids).destroy_all
+
     end
       redirect_to order_path(@order)
     rescue ActiveRecord::RecordInvalid
