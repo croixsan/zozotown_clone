@@ -264,6 +264,25 @@
     .price_column {
       width: 150px;
     }
+    .sold_out_column {
+      margin-left: 20px;
+      width: 220px;
+    }
+    .item-sold-out {
+      text-align: center;
+      opacity: 0.7;
+      font-size: 15px;
+      background-color: #f0f0f0;
+      border-radius: 2px;
+      padding: 50px 0;
+      a {
+        display: inline-block;
+        text-decoration: none;
+        color: $link-color;
+        padding-top: 5px;
+        font-size: 13px;
+      }
+    }
   }
 }
 

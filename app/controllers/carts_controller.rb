@@ -10,7 +10,7 @@ class CartsController < ApplicationController
     @item_nums = @cart.item_nums.group(:number)
     @count = @item_nums.count
     # カート内の合計金額を算出
-    @total_price = get_total_price(@items)
+    @total_price = get_total_price(@item_nums)
     @cart.update(total_price: @total_price)
     # チェックしたアイテム
     @checked_items = get_checked_items.slice(0, 8)
@@ -47,10 +47,12 @@ class CartsController < ApplicationController
     params.permit(:item_id, :item_num_id).merge(cart_id: current_user.cart.id)
   end
 
-  def get_total_price(items)
+  def get_total_price(item_nums)
     total_price = 0
-    items.each do |item|
-      total_price += item.price
+    item_nums.each do |item_num|
+      if item_num.stock.stock > 0
+        total_price += item_num.item.price
+      end
     end
     return total_price
   end

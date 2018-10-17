@@ -9,7 +9,7 @@
       .c.items-content.clearfix
         - if @cart.items.length > 0
           - @item_nums.each do |item_num|
-            %dl.items.clearfix
+            %dl.items.clearfix{id: item_num.number}
               %dt.cart_image_column
                 = link_to shop_item_path(item_num.item.shop, item_num.item) do
                   = image_tag item_num.item.images[0].url, class: "cart-image"
@@ -28,22 +28,27 @@
                     サイズ：
                     = item_num.stock.size
                   .red-text 返品・交換対象外
-              %dd.cart_price_column
-                .price.red-text
-                  = number_to_currency(item_num.item.price, :unit => "￥", :precision => 0)
-              %dd.cart_stock_column
-                .number-area
-                  .number-box
-                    - if @count[item_num.number] > 1
-                      .left-btn.btn
-                        = link_to "ー", cart_path(@cart, item_id: item_num.item.id, item_num_id: item_num.id), method: :delete
-                    .number
-                      = @count[item_num.number]
-                    .right-btn.btn
-                      = link_to "＋", carts_path(@cart, item_id: item_num.item.id, item_num_id: item_num.id), method: :post
-              %dd.cart_delete_column
-                .delete-box
-                  = link_to "削除", cart_path(@cart, item_num_id: item_num.id, delete: "delete_all"), method: :delete
+              - if item_num.stock.stock > 0
+                %dd.cart_price_column
+                  .price.red-text
+                    = number_to_currency(item_num.item.price, :unit => "￥", :precision => 0)
+                %dd.cart_stock_column
+                  .number-area
+                    .number-box
+                      - if @count[item_num.number] > 1
+                        .left-btn.btn
+                          = link_to "ー", cart_path(@cart, item_id: item_num.item.id, item_num_id: item_num.id), method: :delete
+                      .number
+                        = @count[item_num.number]
+                      .right-btn.btn
+                        = link_to "＋", carts_path(@cart, item_id: item_num.item.id, item_num_id: item_num.id), method: :post
+                %dd.cart_delete_column
+                  .delete-box
+                    = link_to "削除", cart_path(@cart, item_num_id: item_num.id, delete: "delete_all"), method: :delete
+              - else
+                %dd.sold_out_column.item-sold-out
+                  %p 完売しました。
+                  = link_to "カートから削除する", cart_path(@cart, item_num_id: item_num.id, delete: "delete_all"), method: :delete, class: "hover-link"
           %dl.clearfix
             %dt.cart_total_column.title_column
               %p 商品合計
