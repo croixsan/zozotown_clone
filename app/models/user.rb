@@ -14,9 +14,8 @@ class User < ApplicationRecord
   has_many :orders
   has_many :past_carts, dependent: :destroy
 
-  validates :email, presence: true
-  validates :email, uniqueness: true
-  validates :post_num, length: { maximum: 7 }
+  validates :email, presence: true, uniqueness: true
+  validates :post_num, length: { maximum: 7 }, numericality: {only_integer: true}
   validates :phone_num, length: { maximum: 11 }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

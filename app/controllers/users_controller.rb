@@ -1,37 +1,36 @@
 class UsersController < ApplicationController
-  before_action :check_up_on
-  before_action :setup_user
-
+  before_action :check_up_on, only: [:index, :edit, :update]
+  before_action :check_update, only: [:update_card, :update_mail]
+  include UsersHelper
   def index
   end
 
   def edit
+    @current = User.find(current_user.id)
+    @user = User.find(current_user.id)
   end
 
   def update
-
     if @user.update(address_params)
-      redirect_to users_index_path, notice: '基本情報を更新しました。'
+      redirect_to users_path(id: current_user.id), notice: '基本情報を更新しました。'
     else
-      redirect_to users_index_path, notice: '更新に失敗しました。'
+      redirect_to users_path(id: current_user.id), notice: '更新に失敗しました。'
     end
   end
 
   def update_card
-
     if @user.update(card_params)
-      redirect_to users_index_path, notice: 'カード情報を更新しました。'
+      redirect_to users_path(id: current_user.id), notice: 'カード情報を更新しました。'
     else
-      redirect_to users_index_path, notice: '更新に失敗しました。'
+      redirect_to users_path(id: current_user.id), notice: '更新に失敗しました。'
     end
   end
 
   def update_mail
-
     if @user.update(mail_params)
-      redirect_to users_index_path, notice: 'メールアドレスを更新しました。'
+      redirect_to users_path(id: current_user.id), notice: 'メールアドレスを更新しました。'
     else
-      redirect_to users_index_path, notice: '更新に失敗しました。'
+      redirect_to users_path(id: current_user.id), notice: '更新に失敗しました。'
     end
   end
 
@@ -49,15 +48,18 @@ class UsersController < ApplicationController
     params.require(:user).permit(:card_num, :security_code)
   end
 
-  def setup_user
-    @user = User.find(current_user.id)
-  end
-
   def check_up_on
-    render_404 unless user_signed_in?
+    redirect_to new_user_session_path unless user_signed_in?
+    @user = User.find(params[:id])
+    if current_user != @user
+      redirect_to root_path
+    end
   end
-
-  def render_404
-    render template: 'users/error_404', status: 404, layout: 'application', content_type: 'text/html'
+  def check_update
+    redirect_to new_user_session_path unless user_signed_in?
+    @user = User.find(params[:user][:id])
+    if current_user != @user
+      redirect_to root_path
+    end
   end
 end

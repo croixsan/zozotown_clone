@@ -2,12 +2,14 @@ Rails.application.routes.draw do
   root "tops#index"
   devise_for :users, controllers: {
     registrations: 'users/registrations',
+    passwords: 'users/passwords'
   }
-  get 'users/index'
-  get 'users/edit'
-  patch 'users/update'
-  patch 'users/update_card'
-  patch 'users/update_mail'
+ resources :users, only: [:index, :edit, :update] do
+    collection do
+      patch :update_card
+      patch :update_mail
+    end
+  end
 
   get 'carts/index' => 'carts#index'
   post 'carts/create' => 'carts#create'
@@ -22,8 +24,9 @@ Rails.application.routes.draw do
   resources :coupons, only: [:index, :new, :create]
 
 
-  resources :carts, only: [:index, :create, :destroy, :show]
-  resources :orders, only: [:index, :new, :create, :show]
+  resources :carts, only: [:index, :create, :destroy, :show] do
+  end
+  resources :orders, only: [:index, :new, :create, :show] 
   resources :pre_orders, only: [:new, :create]
   # -- ランキング機能 --------------------
   resources :rankings, only: :index
@@ -110,4 +113,9 @@ Rails.application.routes.draw do
       resources :sub_categories, only: [:index, :show]
     end
   end
+
+  # get '*path', controller: 'application', action: 'render_404'
+
+  # application_contorollerのコメントアウトも外す。
+
 end

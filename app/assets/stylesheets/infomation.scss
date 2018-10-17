@@ -5,9 +5,8 @@
   &_head {
     height: 40px;
     font-size: 23px;
-    .img {
-      height: 40px;
-      width: 46px;
+    .fa-user {
+      @include set_status_icon;
     }
   }
   &_left {

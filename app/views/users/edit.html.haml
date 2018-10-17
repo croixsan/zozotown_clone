@@ -1,0 +1,34 @@
+.category_var
+  .inner
+    %ul.nest_list.clearfix
+      %li.nest_path
+        = link_to "ZOZOTOWN", root_path
+      %li.nest_icon
+        %i.fas.fa-angle-right
+      %li.nest_item
+        %i.far.fa-user
+        %a 登録情報の変更
+.content
+  .content_head
+    %span
+      %i.far.fa-user
+    %span
+      = current_user.email
+    %span 様の登録情報
+  .content_left
+    = render "users/users_sideber"
+
+  .content_main
+    = user_form_method
+    / - if params[:title] == "basic"
+    /   = render "users/users_address"
+    / - elsif params[:title] == "mail"
+    /   = render "users/users_mail"
+    / - elsif params[:title] == "card"
+    /   = render "users/users_card"
+    / - elsif params[:title] == "new_card"
+    /   = render "users/users_card"
+    / - elsif params[:title] == "pass"
+    /   = render "users/users_pass"
+    / -else
+    /   - redirect_to users_path(id: current_user.id)

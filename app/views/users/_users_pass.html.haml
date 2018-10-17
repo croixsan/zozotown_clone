@@ -8,13 +8,13 @@
         %dt
           %span 現在のパスワード
       .main
-        = f.password_field :current_password, autocomplete: "current-password", class: "form"
+        = f.password_field :current_password, minlength: "8", maxlength: "12", autocomplete: "current-password", class: "form"
     .pass.clearfix
       .title
         %dt
           %span 新しいパスワード
       .main
-        = f.password_field :password, maxlength: "12", autocomplete: "new-password",placeholder: "半角英数混合8~12文字", class: "form"
-        = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "確認のためもう一度入力してください", class: "form"
+        = f.password_field :password, minlength: "8", maxlength: "12", autocomplete: "new-password",placeholder: "半角英数混合8~12文字", class: "form"
+        = f.password_field :password_confirmation, minlength: "8", maxlength: "12", autocomplete: "new-password",placeholder: "確認のためもう一度入力してください", class: "form"
     .send.clearfix
-      = f.submit "更新する", class: "send_btn", id: "pass_btn"
+      = f.submit "更新する", class: "send_btn"

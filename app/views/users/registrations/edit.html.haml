@@ -11,7 +11,7 @@
 .content
   .content_head
     %span
-      / = image_tag("content_head_info.png")
+      %i.far.fa-user
     %span
       = current_user.email
     %span 様の登録情報
@@ -19,13 +19,24 @@
     = render "users/users_sideber"
 
   .content_main
-    - if params[:id] == "basic"
-      = render "users/users_address"
-    - elsif params[:id] == "mail"
-      = render "users/users_mail"
-    - elsif params[:id] == "pass"
-      = render "users/users_pass"
-    - elsif params[:id] == "card"
-      = render "users/users_card"
-    -else
-      = render "users/users_pass"
+    .content_main_form
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = devise_error_messages!
+        .head
+          %dl パスワードの変更
+        .pass.clearfix
+          .title
+            %dt
+              %span 現在のパスワード
+          .main
+            = f.password_field :current_password, minlength: "8", maxlength: "12", autocomplete: "current-password", class: "form"
+        .pass.clearfix
+          .title
+            %dt
+              %span 新しいパスワード
+          .main
+            = f.password_field :password, minlength: "8", maxlength: "12", autocomplete: "new-password",placeholder: "半角英数混合8~12文字", class: "form"
+            = f.password_field :password_confirmation, minlength: "8", maxlength: "12", autocomplete: "new-password",placeholder: "確認のためもう一度入力してください", class: "form"
+        .send.clearfix
+          = f.submit "更新する", class: "send_btn"
+          
