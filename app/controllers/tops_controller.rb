@@ -18,7 +18,7 @@ class TopsController < ApplicationController
       @coupon = Coupon.first
       @coupon_shops = Coupon.all.includes(:shop).map{|coupon| coupon.shop}
       @coupon_items = @coupon_shops.map{|shop| shop.items}
-      @coupon_items = @coupon_items.flatten.slice(0, 8)
+      @coupon_items = @coupon_items.flatten.slice(0, 9)
     end
 
     @top_categories = TopCategory.all.includes(:sub_categories)
@@ -26,6 +26,8 @@ class TopsController < ApplicationController
     @shops = Shop.order("items_count DESC").includes(:items).limit(10)
 
     if user_signed_in?
+      @cart = current_user.cart
+      @cart_length = @cart.item_nums.length
       # チェックしたアイテム
       @checked_items = get_checked_items.slice(0, 18)
       # チェックしたショップ

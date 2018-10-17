@@ -1,30 +1,25 @@
 - if Coupon.exists?
   = render partial: "tops/coupon_header", locals: {coupon_price: @coupon.price, shops: @coupon_shops}
 .wrapper
-  .headNavi
-    .center
-      .linktag
-        %ul
-          = link_to "ZOZOTOWN", root_path
-          >
-        %ul
-          %a
-            = @item.brand.name
+  = render partial: "shared/nest/nest_search", locals: {keyword: @item.brand.name}
   .main-content
     .left-content
       .main-image-content
         .left-button
           .button-left
-            <
+            %i.fas.fa-angle-left.fa-2x.left-angle
         .main-image
-          = image_tag @images[0].url, class: "top_image", alt: "商品画像"
+          = image_tag @images[0].url, class: "top_image", alt: "商品画像", id: 0
+          .image-grass
+        .zoom-area
+          = image_tag @images[0].url, class: "zoom_image", alt: "商品画像"
         .right-button
           .button-right
-            >
-      .sub-image-content.clearfix
-        - @images.each do |image|
-          .sub-image-content-mini
-            = image_tag image.url, class: "sub_image", alt: "商品画像"
+            %i.fas.fa-angle-right.fa-2x.right-angle
+      %ul.sub-image-content.clearfix
+        - @images.each_with_index do |image, i|
+          %li.sub-image-content-mini
+            = image_tag image.url, class: "sub_image", alt: "商品画像", id: i
             %p
               = image.color
 
@@ -36,6 +31,15 @@
               - if item.images[0] && i < 8
                 %li.item
                   = render partial: 'tops/item',  locals: {item: item, image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+      - if user_signed_in? && @checked_items
+        .item-content
+          %h3 チェックしたアイテム
+          %ul#top__center__pickup__contents.clearfix
+            - @checked_items.each do |item|
+              #top__center__pickup__contents__item
+                %li.item
+                  - if item.images[0]
+                    = render partial: 'tops/item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 0}
 
     .right-content
       - if @item.shop.coupon
@@ -56,16 +60,15 @@
         %h1
           = @item.name
         .proper
-          .price-content
+          .price-content.clearfix
             .price
               = number_to_currency(@item.price, unit: "￥", precision: 0)
               .tax
-                税別
+                税込
             .late-pay
               .text
                 %p
                   %b ツケ払いできます
-                  -# %a{ :href => 'http://google.co.jp' }詳細
                 %p
                   %a お支払いは
                   %b
@@ -74,18 +77,21 @@
           .point-fav
             %p.fas.fa-database
               = "#{(@item.price * 0.01).round}ポイント還元（ZOZOCARD：#{(@item.price * 0.01 * 2).round}ポイント還元）"
-            %p.far.fa-heart お気に入りアイテム登録数：6304人
-      .cart-area.clearfix
-        %ul
-          - img_index = 0
-          - @item.stocks.each_with_index do |stock, i|
-            %li.clearfix
-              .item
-                - if  i %  (@stock_count / @color_count) == 0
-                  = image_tag @item.images[img_index].url, class: "sub_image"
-                  %p
-                    = @item.images[img_index].color
-                  - img_index += 1
+            %p.far.fa-heart
+              お気に入りアイテム登録数：
+              = @item.favorite_items_count
+              人
+      .cart-area
+        - img_index = 0
+        - @item.stocks.each_with_index do |stock, i|
+          %dl.clearfix
+            %dt.i-image-column
+              - if  i %  (@stock_count / @color_count) == 0
+                = image_tag @item.images[img_index].url, class: "sub_image"
+                %p
+                  = @item.images[img_index].color
+                - img_index += 1
+            %dd.i-stock-column
               .stock
                 %p.stock_info
                   - if stock.stock > 0
@@ -94,122 +100,28 @@
                     = "#{stock.size} / 予約可能"
                   - else
                     = "#{stock.size} / 在庫なし"
-                %p.size_info
-                  = "#{stock.size}サイズ相当"
-              - if user_signed_in?
-                .cart-box.clearfix
-                  = link_to carts_create_path(item_id: @item.id, cart_id: @cart.id, item_num_id: @item.item_nums[i].id), method: :post, class: "cart_btn clearfix" do
-                    %i.fas.fa-shopping-cart
-                    %p カートへ入れる
-                  .favorite
-                    = render partial: "favorites/favorite_icon", locals: {item: @item, shop: @shop, item_num_id: stock.item_num.id}
+            %dd.i-btn-column
+              .cart-box.clearfix
+                - if stock.stock > 0
+                  - if user_signed_in?
+                    = link_to carts_create_path(item_id: @item.id, cart_id: @cart.id, item_num_id: @item.item_nums[i].id), method: :post, class: "cart_btn clearfix" do
+                      %i.fas.fa-shopping-cart
+                      %p
+                        カートへ入れる
+                  - else
+                    = link_to user_session_path, class: "cart_btn clearfix" do
+                      %i.fas.fa-shopping-cart
+                      %p
+                        カートへ入れる
+                - else
+                  %a.sold_out 完売しました
+
+            %dd.i-favorite-column
+              .favorite
+                = render partial: "favorites/favorite_icon", locals: {item: @item, shop: @shop, item_num_id: stock.item_num.id}
       .condition-tab
         .left-tab
-          %a{ :href => 'http://google.co.jp' }アイテム説明
-        .right-tab
-          .right-tab-mini
-            %a{ :href => 'http://google.co.jp' }サイズ詳細
+          %a アイテム説明
       .text-area
-        = @item.description
-      .action-nav
-        %a{ :href => 'http://google.co.jp' }主な特徴を見る
-      .item-info
-        .text-box
-          .text
-            %dt 性別タイプ
-            %span :
-            %dd
-              %a{ :href => 'http://google.co.jp' }メンズ
-          .text
-            %dt カテゴリ
-            %span :
-            %dd
-              %a{ :href => 'http://google.co.jp' }パンツ
-          .text
-            %dt 素材
-            %span :
-            %dd コット
-          .text
-            %dt 送料
-            %span :
-            %dd 購入金額に関わらず一律200円
-          .text
-            %dt 送料
-            %span :
-            %dd ラッピング不可
-          .text
-            %dt お問い合わせ番号
-            %span :
-            %dd 31652941（ZOZO）
-      .detail-link
-        %a{ :href => 'http://google.co.jp' }返品の詳細
-        %span :
-        %a{ :href => 'http://google.co.jp' }ポイントの詳細
-      .icons
-        %i.far.fa-envelope
-        %i.fab.fa-twitter
-        %i.fab.fa-facebook
-        %i.fab.fa-google
-      %p このブランド「ZOZO」はお好きですか？
-      .brand-box
-        %i.far.fa-heart
-        %p このブランドをお気に入りに登録
-    .row-content
-      .recommend
-        %p このアイテムを見ている人は、こんなアイテムも見ています
-        .items
-          %ul#top__center__pickup__contents.clearfix
-            - 15.times.each do |i|
-              #top__center__pickup__contents__item
-                -# = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
-      .recommend
-        %p このアイテムを見ている人にオススメ
-        .items
-          %ul#top__center__pickup__contents.clearfix
-            - 15.times.each do |i|
-              #top__center__pickup__contents__item
-                -# = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
-
-      .recommend
-        %p 人気のデニムパンツランキング
-        .items
-          %ul#top__center__pickup__contents.clearfix
-            - 15.times.each do |i|
-              #top__center__pickup__contents__item
-                -# = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
-
-      .recommend
-        %p 最近チェックしたアイテム
-        .items
-          %ul#top__center__pickup__contents.clearfix
-            - 15.times.each do |i|
-              #top__center__pickup__contents__item
-                -# = render partial: 'tops/item', locals: {image_size: "small", rank_num: 0, coupon: 0, shop_image: false}
-
-      .keyword
-        %p このアイテムのキーワード
-        %ul
-          %a{ :href => 'http://google.co.jp' }フルレングス
-          %a{ :href => 'http://google.co.jp' }無地
-          %a{ :href => 'http://google.co.jp' }スタンダード
-          %a{ :href => 'http://google.co.jp' }ストレート
-          %a{ :href => 'http://google.co.jp' }ヴィンテージ
-          %a{ :href => 'http://google.co.jp' }レギュラー
-
-      .other
-        %p 他のショップのデニムパンツを見る
-        .shops
-          %a{ :href => 'http://google.co.jp' }ALLSAINTS
-          %a{ :href => 'http://google.co.jp' }SOPH.
-          %a{ :href => 'http://google.co.jp' }SOPH.GRAMICCI / WILDTHINGS
-          %a{ :href => 'http://google.co.jp' }CALVIN KLEIN
-          %a{ :href => 'http://google.co.jp' }anlio
-          %a{ :href => 'http://google.co.jp' }S size ONWARD（小さいサイズ）
-          %a{ :href => 'http://google.co.jp' }Eimee Law ＆ WASH
-          %a{ :href => 'http://google.co.jp' }eYe COMME des GARCONS JUNYA
-
-
-      .other
-        %p ZOZOTOWN（ゾゾタウン）のご紹介
-        .text-box
-          ZOZOTOWNはZOZO（ゾゾ）のデニムパンツなど、人気ブランドのアイテムを多数取り揃えるファッション通販サイトです。デニムパンツなど、6879ブランドの最新アイテムをオンラインでご購入いただけます。
+        %p
+          = @item.description

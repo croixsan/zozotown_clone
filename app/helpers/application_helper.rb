@@ -39,4 +39,15 @@ module ApplicationHelper
     end
   end
 
+  def get_next_path
+    case controller.controller_name
+    when "brands"
+      return brands_path
+    when "shops"
+      return shops_path
+    when "top_categories"
+      return top_categories_path
+    end
+  end
+
 end
