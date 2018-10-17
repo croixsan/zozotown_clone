@@ -64,7 +64,7 @@
           %p.nothing_in_cart
             カートに商品は入っていません。
           = link_to "ショッピングを続ける", root_path, class: "continue-btn"
-    - if @cart.items.length > 0
+    - if @cart.items.length > 0 && @cart.total_price > 0
       .cart-next
         .form
           = link_to "レジへ進む", new_pre_order_path, class: "cart-btn"
