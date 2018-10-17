@@ -14,11 +14,12 @@ $(function(){
   }
 
   $(".sub_image").on("click", function(){
+    var current_id = Number($(".top_image").attr("id"))
     image_src = $(this).attr("src");
-    $(".main-image").empty();
-    $(".main-image").append(`<img src=${image_src} class='top_image'>`);
-    $(".sub_image").removeClass("selected_image")
-    $(this).addClass("selected_image");
+    replaceTopImage(current_id, image_src) //トップ画像を切り替える
+    replaceZoomImage(current_id, image_src) //拡大画像エリアを切り替える
+    $(".sub_image").removeClass("selected_image") // 現在のサブイメージの枠線を外す
+    $(this).addClass("selected_image"); // 次のサブイメージを枠線で囲う
   })
 
   $(".right-angle").on("click", function(){
@@ -30,7 +31,6 @@ $(function(){
       var next_id = 0
     }
     var next_src = $("#" + String(next_id)).attr("src")
-
     addBorder(next_id) // サブイメージを枠線で囲う
     replaceTopImage(next_id, next_src) //トップ画像を切り替える
     replaceZoomImage(next_id, next_src); //拡大画像エリアを切り替える
@@ -45,7 +45,6 @@ $(function(){
       next_id = $(".sub-image-content li").length - 1
     }
     next_src = $("#" + String(next_id)).attr("src")
-
     addBorder(next_id) // サブイメージを枠線で囲う
     replaceTopImage(next_id, next_src) //トップ画像を切り替える
     replaceZoomImage(next_id, next_src); //拡大画像エリアを切り替える

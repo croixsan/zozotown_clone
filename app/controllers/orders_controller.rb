@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :setup_user
+  before_action :authenticate_user!
+
   def new
     @order = Order.new
     @pre_order = current_user.pre_order
@@ -40,18 +41,17 @@ class OrdersController < ApplicationController
       item_nums = current_user.cart.item_nums.group(:number)
       count = item_nums.count # 購入したアイテムの個数を算出
       item_nums.each do |item_num|
+        if item_num.stock.stock <= 0
+          redirect_to carts_path, notice: "アイテムが完売しました"
+        end
         ordered_item = OrderedItem.new
         ordered_item.item_id = item_num.item.id
         ordered_item.item_num_id = item_num.id
         ordered_item.order_id = @order.id
         ordered_item.number = count[item_num.number]
         ordered_item.save!
-
-        # 在庫の削除
-        stock = item_num.stock.stock
-        if stock > 0
-          item_num.stock.update(stock: stock - 1)
-        end
+        # 在庫のupdate
+        item_num.stock.update(stock: item_num.stock.stock - 1)
       end
 
       # pre_orderの削除
@@ -63,6 +63,9 @@ class OrdersController < ApplicationController
       #ポイントの削除
       point = current_user.point - order_params[:used_point].to_i
       current_user.update!(point: point)
+
+      # 以前カートに入れたアイテムから削除
+      current_user.past_carts.where(item_num_id: item_nums.ids).destroy_all
 
     end
       redirect_to order_path(@order)
@@ -79,7 +82,4 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:coupon, :used_point)
   end
-  def setup_user
-      @user = User.find(current_user.id)
-    end
 end

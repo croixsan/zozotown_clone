@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   include Checked
   include SavedCart
+  before_action :authenticate_user!
 
   def index
     @cart = current_user.cart
@@ -9,10 +10,10 @@ class CartsController < ApplicationController
     @item_nums = @cart.item_nums.group(:number)
     @count = @item_nums.count
     # カート内の合計金額を算出
-    @total_price = get_total_price(@items)
+    @total_price = get_total_price(@item_nums)
     @cart.update(total_price: @total_price)
     # チェックしたアイテム
-    @checked_items = get_checked_items
+    @checked_items = get_checked_items.slice(0, 8)
 
     # 「以前カートに入れたアイテム」機能
     @past_item_nums = get_past_item_nums
@@ -23,17 +24,15 @@ class CartsController < ApplicationController
 
     # 「以前カートに入れたアイテム」機能
     current_user.past_carts.where(item_num_id: params[:item_num_id]).first_or_create.update(updated_at: Time.current)
-    
+
     redirect_to controller: 'carts', action: 'index'
   end
 
   def destroy
-    if params[:id]
-      shoppings = Shopping.where(item_id: params[:id])
-      shoppings.destroy_all
-    elsif params[:item_id]
-      shopping = Shopping.find_by(item_id: params[:item_id])
-      shopping.destroy
+    if params[:delete] == "delete_all"
+      current_user.cart.shoppings.where(item_num_id: params[:item_num_id].to_i).destroy_all
+    else
+      current_user.cart.shoppings.find_by(item_num_id: params[:item_num_id].to_i).destroy
     end
     redirect_to :controller => 'carts', :action => 'index'
   end
@@ -45,13 +44,15 @@ class CartsController < ApplicationController
 
   private
   def cart_params
-    params.permit(:item_id, :cart_id, :item_num_id)
+    params.permit(:item_id, :item_num_id).merge(cart_id: current_user.cart.id)
   end
 
-  def get_total_price(items)
+  def get_total_price(item_nums)
     total_price = 0
-    items.each do |item|
-      total_price += item.price
+    item_nums.each do |item_num|
+      if item_num.stock.stock > 0
+        total_price += item_num.item.price
+      end
     end
     return total_price
   end

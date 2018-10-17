@@ -22,15 +22,16 @@
               - else
                 %span
                   = current_user.name
-            .popup__login
-              .popup__login__inner
-                %ul.popup__login__inner__list
-                  %li
-                    = link_to "登録情報", users_path(id: current_user.id), method: :get
-                  %li
-                    = link_to "注文履歴・発送状況", "#"
-                  %li
-                    = link_to "ログアウト", destroy_user_session_path, method: :delete
+            .popup.clearfix
+              .popup__login
+                .popup__login__inner
+                  %ul.popup__login__inner__list
+                    %li
+                      = link_to "登録情報", users_path(id: current_user.id), method: :get
+                    %li
+                      = link_to "注文履歴・発送状況", "#"
+                    %li
+                      = link_to "ログアウト", destroy_user_session_path, method: :delete
             // ログアウト状態の処理
           - else
             = link_to new_user_session_path , id: "login-btn" do

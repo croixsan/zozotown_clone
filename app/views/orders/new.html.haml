@@ -87,36 +87,37 @@
               -# .o.btn-box
               -#   = link_to "変更", "#", class: "btn-change"
           - @item_nums.each_with_index do |item_num, i|
-            %dl.clearfix
-              %dt.title-column
-                - if i == 0
-                  %p 配送方法
-                  %p お届け予定日
-              %dd.image-column
-                = image_tag item_num.item.images[0].url, class: "order-image"
-              %dd.item-column
-                .o.item-detail
-                  %p.ellipsis-name
-                    = item_num.item.shop.name
-                  %p.ellipsis-name
-                    = item_num.item.brand.name
-                  %p.ellipsis-name
-                    = item_num.item.name
-                  %p.ellipsis-name
-                    カラー：
-                    = item_num.stock.color
+            - if item_num.stock.stock > 0
+              %dl.clearfix
+                %dt.title-column
+                  - if i == 0
+                    %p 配送方法
+                    %p お届け予定日
+                %dd.image-column
+                  = image_tag item_num.item.images[0].url, class: "order-image"
+                %dd.item-column
+                  .o.item-detail
+                    %p.ellipsis-name
+                      = item_num.item.shop.name
+                    %p.ellipsis-name
+                      = item_num.item.brand.name
+                    %p.ellipsis-name
+                      = item_num.item.name
+                    %p.ellipsis-name
+                      カラー：
+                      = item_num.stock.color
+                    %p
+                      サイズ：
+                      = item_num.stock.size
+                    %p
+                      数量：
+                      = @counts[item_num.number]
+                %dd.price-column
                   %p
-                    サイズ：
-                    = item_num.stock.size
-                  %p
-                    数量：
-                    = @counts[item_num.number]
-              %dd.price-column
-                %p
-                  = number_to_currency(item_num.item.price, unit: "￥", precision: 0)
-              %dd.btn-column
-                -# .o.btn-box
-                -#   = link_to "変更", "#", class: "btn-change"
+                    = number_to_currency(item_num.item.price, unit: "￥", precision: 0)
+                %dd.btn-column
+                  -# .o.btn-box
+                  -#   = link_to "変更", "#", class: "btn-change"
       = form_for @order do |f|
         .o.right-content
           .o.purchase-area

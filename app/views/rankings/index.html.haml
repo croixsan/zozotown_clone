@@ -17,8 +17,10 @@
       - @rankings.each_with_index do |ranking, i|
         - item = ranking[0]
         - if i < 3
-          %li.item
-            = render partial: 'tops/item', locals: {item: item, image_size: "super-large", rank_num: i + 1, coupon: 0}
+          - if item.images[0]
+            %li.item
+              = render partial: 'tops/item', locals: {item: item, image_size: "super-large", rank_num: i + 1, coupon: 0}
         - else
-          %li.item.sub_ranking
-            = render partial: 'tops/item', locals: {item: item, image_size: "high-large", rank_num: i + 1, coupon: 0}
+          - if item.images[0]
+            %li.item.sub_ranking
+              = render partial: 'tops/item', locals: {item: item, image_size: "high-large", rank_num: i + 1, coupon: 0}

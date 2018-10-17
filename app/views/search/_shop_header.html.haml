@@ -4,5 +4,6 @@
   .brand_title
     %h1.brand_name
       = shop.name
-    .favorite_link
-      = render partial: "favorites/favorite_shop_icon", locals: {shop: shop}
+    - if user_signed_in?
+      .favorite_link
+        = render partial: "favorites/favorite_shop_icon", locals: {shop: shop}

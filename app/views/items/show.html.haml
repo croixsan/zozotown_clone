@@ -104,15 +104,19 @@
               .cart-box.clearfix
                 - if stock.stock > 0
                   - if user_signed_in?
-                    = link_to carts_create_path(item_id: @item.id, cart_id: @cart.id, item_num_id: @item.item_nums[i].id), method: :post, class: "cart_btn clearfix" do
+                    = link_to carts_create_path(item_id: @item.id, item_num_id: @item.item_nums[i].id), method: :post, class: "cart_btn clearfix" do
                       %i.fas.fa-shopping-cart
                       %p
                         カートへ入れる
                   - else
-                    = link_to user_session_path, class: "cart_btn clearfix" do
+                    = link_to carts_create_path(item_id: @item.id, item_num_id: @item.item_nums[i].id), method: :post, class: "cart_btn clearfix" do
                       %i.fas.fa-shopping-cart
                       %p
                         カートへ入れる
+                    -# = link_to user_session_path, class: "cart_btn clearfix" do
+                    -#   %i.fas.fa-shopping-cart
+                    -#   %p
+                    -#     カートへ入れる
                 - else
                   %a.sold_out 完売しました
 
