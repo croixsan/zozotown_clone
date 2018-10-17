@@ -39,7 +39,7 @@
         .items {
           width: $width-carts-index-leftcontent;
           margin-top: 13px;
-          padding-top: 30px;
+          padding-top: 20px;
 
           dt {
             float: left;
@@ -75,28 +75,33 @@
           .cart_stock_column {
             width: 95px;
             padding-top: 50px;
+            position: relative;
 
-            .number {
-              height: 18px;
-              width: 18px;
-              border: $border-gray;
-              border-radius: 2px;
-              padding: 5px 1px 5px 9px;
-              float: left;
-            }
+            .number-box {
+              position: absolute;
+              right: 0;
+              .number {
+                height: 18px;
+                width: 18px;
+                border: $border-gray;
+                border-radius: 2px;
+                padding: 5px 1px 5px 9px;
+                float: left;
+              }
 
-            .btn {
-              height: 28px;
-              line-height: 28px;
-              width: 24px;
-              float: left;
-              border-top: $border-gray;
-              border-bottom: $border-gray;
-              border-radius: 2px;
-              text-align: center;
+              .btn {
+                height: 28px;
+                line-height: 28px;
+                width: 24px;
+                float: left;
+                border-top: $border-gray;
+                border-bottom: $border-gray;
+                border-radius: 2px;
+                text-align: center;
 
-              a {
-                text-decoration: none;
+                a {
+                  text-decoration: none;
+                }
               }
             }
 
@@ -176,7 +181,6 @@
         }
 
         .postage {
-          height: 60px;
           width: 250px;
           background-color: rgb(230, 230, 230);
           margin: 20px 0;
@@ -184,12 +188,13 @@
 
           .postage-text {
             height: 40px;
-            margin: 8px 0 10px 5px;
+            margin: 10px 0 10px 5px;
 
             i {
               font-size: 30px;
               color: $main-blue-color;
               float: left;
+              margin-left: 10px;
             }
 
             .text {
@@ -197,6 +202,7 @@
               margin-left: 5px;
 
               p {
+                padding-top: 5px;
                 font-size: 11px;
                 float: left;
               }
