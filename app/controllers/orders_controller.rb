@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :setup_user
+  before_action :authenticate_user!
+
   def new
     @order = Order.new
     @pre_order = current_user.pre_order
@@ -79,7 +80,4 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:coupon, :used_point)
   end
-  def setup_user
-      @user = User.find(current_user.id)
-    end
 end
