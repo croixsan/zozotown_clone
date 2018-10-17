@@ -13,7 +13,7 @@ class CartsController < ApplicationController
     @total_price = get_total_price(@items)
     @cart.update(total_price: @total_price)
     # チェックしたアイテム
-    @checked_items = get_checked_items
+    @checked_items = get_checked_items.slice(0, 8)
 
     # 「以前カートに入れたアイテム」機能
     @past_item_nums = get_past_item_nums
