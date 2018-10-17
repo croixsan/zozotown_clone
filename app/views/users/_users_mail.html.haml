@@ -1,0 +1,16 @@
+.content_main_form
+  = form_for @user, url: update_mail_users_url do |f|
+    .head
+      %dl メールアドレスの変更
+      %dd 変更するメールアドレスを入力し、確認メールを送信してください。
+    .mail.clearfix
+      .title
+        %dt
+          %span メールアドレス
+      .main
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "例：zozo@zozotown.jp", class: "form"
+    .send.clearfix
+      = f.hidden_field :id, value: current_user.id
+      = f.submit "更新する", class: "send_btn"
+
+
