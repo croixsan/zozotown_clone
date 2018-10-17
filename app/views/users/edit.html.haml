@@ -20,15 +20,3 @@
 
   .content_main
     = user_form_method
-    / - if params[:title] == "basic"
-    /   = render "users/users_address"
-    / - elsif params[:title] == "mail"
-    /   = render "users/users_mail"
-    / - elsif params[:title] == "card"
-    /   = render "users/users_card"
-    / - elsif params[:title] == "new_card"
-    /   = render "users/users_card"
-    / - elsif params[:title] == "pass"
-    /   = render "users/users_pass"
-    / -else
-    /   - redirect_to users_path(id: current_user.id)

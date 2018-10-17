@@ -8,7 +8,7 @@
         %dt
           %span メールアドレス
       .main
-        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "*****@****.***", class: "form"
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "例：zozo@zozotown.jp", class: "form"
     .send.clearfix
       = f.hidden_field :id, value: current_user.id
       = f.submit "更新する", class: "send_btn"

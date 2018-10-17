@@ -39,7 +39,7 @@
         - birth_day = [[]]
         - (1..31).each do |day|
           - birth_day << [day, day]
-        = f.select :birth_day, birth_month, class: "select"
+        = f.select :birth_day, birth_day, class: "select"
         = f.label :birth_day, "日", class: "birth_label"
     .post_num.clearfix
       .title

@@ -55,7 +55,7 @@
                       - birth_day = [[]]
                       - (1..31).each do |day|
                         - birth_day << [day, day]
-                      = f.select :birth_day, birth_month, class: "select"
+                      = f.select :birth_day, birth_day, class: "select"
                       = f.label :birth_day, "日", class: "birth_label"
                 %tr
                   %th.form_title
@@ -63,7 +63,7 @@
                     %span 必須
                   %td.clearfix
                     .post_form
-                      = f.text_field :post_num, placeholder: "例：2617116", class: "post_num_form"
+                      = f.text_field :post_num, maxlength: "7", placeholder: "例：2617116", class: "post_num_form"
                       %p ※　数字7ケタ、ハイフンなし
                 %tr
                   %th.form_title
@@ -82,7 +82,7 @@
                   %td.clearfix
                     .post_form
                       -# = f.label :password
-                      = f.password_field :password, autocomplete: "new-password", class: "password_form"
+                      = f.password_field :password, minlength: "8", maxlength: "12", autocomplete: "new-password", class: "password_form"
                       %p ※ ZOZO IDに含まれない英数字混合 8～12 文字
             .agreement
               =link_to "#" do

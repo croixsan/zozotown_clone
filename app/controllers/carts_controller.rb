@@ -40,7 +40,7 @@ class CartsController < ApplicationController
 
   def register
     Cart.create(user_id: current_user.id, total_price: 0)
-    redirect_to :root
+    redirect_to users_path(id: current_user.id), notice: "ユーザー登録をしました。\n基本情報の登録をお願いします。"
   end
 
   private
