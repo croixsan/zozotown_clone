@@ -1,4 +1,7 @@
 class FavoritesController < ApplicationController
+  include SetCoupon
+  include SetCart
+  before_action :set_cart, :set_coupon, only: [:index]
   before_action :set_render_parameter, only: [:create, :destroy]
   before_action :authenticate_user!
 

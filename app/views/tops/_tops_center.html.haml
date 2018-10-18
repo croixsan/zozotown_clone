@@ -45,7 +45,7 @@
   %p.more-list.link-list.zozo-item-link
     = link_to "ランキング一覧", rankings_path
 //-------- チェックしたアイテム ---------//
-- if user_signed_in?
+- if user_signed_in? && @checked_items
   %section#top__center__pickup
     .section-header
       %h2 チェックしたアイテム
@@ -55,7 +55,7 @@
           %li.item
             - if item.images[0]
               = render partial: 'item', locals: {item: item, image_size: "small", rank_num: 0, coupon: 0}
-- if user_signed_in?
+- if user_signed_in? && @checked_shops
   %section#top__center__shops
     .section-header
       %h2 チェックしたショップ

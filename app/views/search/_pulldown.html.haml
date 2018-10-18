@@ -1,20 +1,6 @@
 %ul.guide_list.clearfix
   %li.nallow_list
     .pulldown
-      .pulldown_parent{id: "reserve-btn"}
-        = link_to "#" do
-          在庫商品＋予約商品
-          %i.fas.fa-angle-down.fa-lg
-      .pulldown_child{id: "reserve-pulldown"}
-        %ul
-          %li.stock_and_reserve
-            = link_to "在庫商品＋予約商品", "#"
-          %li.stock.selected
-            = link_to "在庫商品", "#"
-          %li.reserve
-            = link_to "予約商品", "#"
-  %li.nallow_list
-    .pulldown
       .pulldown_parent{id: "stock-btn"}
         = link_to "#" do
           在庫あり

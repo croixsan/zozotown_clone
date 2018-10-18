@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
   include Search
   include Checked
+  include SetCoupon
+  include SetCart
+  before_action :set_coupon, :set_cart
+
   def index
     now = Time.current
     @items = Item.where("created_at > ?", now - 7.days).order("created_at DESC").includes([:images, :shop, :brand])
@@ -28,7 +32,6 @@ class ItemsController < ApplicationController
     end
 
     # クーポン機能
-    @coupon = Coupon.first
     if Coupon.exists?
       @coupon = Coupon.first
       @coupon_shops = Coupon.all.includes(:shop).map{|coupon| coupon.shop}
