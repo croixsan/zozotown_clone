@@ -1,0 +1,67 @@
+.content_main_form
+  = form_for @user, url: user_url do |f|
+    .head
+      %dl 基本情報の変更
+    .name.clearfix
+      .title
+        %dt
+          %span お名前
+          %span#have_to 必須
+
+      .main
+        = f.text_field :name, placeholder: "ZOZO太郎", class: "form", id: "address_btn"
+    .gender.clearfix
+      .title
+        %dt
+          %span 性別
+      .main
+        = f.radio_button :gender, 1, class: "radio"
+        = f.label "男性", class: "gender_label"
+        = f.radio_button :gender, 2, class: "radio"
+        = f.label "女性", class: "gender_label"
+        = f.radio_button :gender, 3, class: "radio"
+        = f.label "その他", class: "gender_label"
+    .barth.clearfix
+      .title
+        %dt
+          %span 生年月日
+      .main
+        - birth_year = [[]]
+        - (1900..Date.today.year).each do |year|
+          - birth_year << [year, year]
+        = f.select :birth_year, birth_year, class: "select"
+        = f.label :birth_year, "年", class: "birth_label"
+        - birth_month = [[]]
+        - (1..12).each do |month|
+          - birth_month << [month, month]
+        = f.select :birth_month, birth_month, class: "select"
+        = f.label :birth_month, "月", class: "birth_label"
+        - birth_day = [[]]
+        - (1..31).each do |day|
+          - birth_day << [day, day]
+        = f.select :birth_day, birth_day, class: "select"
+        = f.label :birth_day, "日", class: "birth_label"
+    .post_num.clearfix
+      .title
+        %dt
+          %span 郵便番号
+          %span#have_to 必須
+
+      .main
+        = f.text_field :post_num, maxlength: "7", placeholder: "例：2617116(ハイフン無し)", class: "form"
+    .address.clearfix
+      .title
+        %dt
+          %span 住所
+      .main
+        = f.text_field :address, placeholder: "〇〇県〇〇市〇〇町1-1-1", class: "form"
+    .phone_num.clearfix
+      .title
+        %dt
+          %span 電話番号
+      .main
+        = f.text_field :phone_num, maxlength: "11", placeholder: "〇〇〇〇〇〇〇〇〇〇〇(ハイフン無し)", class: "form"
+    .send.clearfix
+      = f.submit "更新する", class: "send_btn"
+
+

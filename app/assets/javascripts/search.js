@@ -3,13 +3,12 @@ $(function() {
 var search_list = $("#header__wrapper__left__search__incremental__area");
 
   function appendProduct(search) {
-    var html = `<div id= "header__wrapper__left__search__incremental">
+    var html = `<div id= "header__wrapper__left__search__incremental" class="search_result">
                    <ul>
                      <li>
-                       <form method="get" name="form1" action="/searches/show">
-                         <input type="hidden" name="keyword" value="${ search.name }">
-                           <a href="/searches/show" class = "incremental-btn">${ search.name }</button>
-                       </form>
+                       <a href="/searches/result?keyword=${search.name}">
+                         ${ search.name }
+                       </a>
                      </li>
                    </ul>
                  </div>`
@@ -28,10 +27,10 @@ var search_list = $("#header__wrapper__left__search__incremental__area");
       $("#header__wrapper__left__search__incremental__area").empty();
       searches.forEach(function(search){
         appendProduct(search);
+        if(input == ""){
+          search_list.empty();
+        }
       });
-    })
-    .fail(function() {
-      alert('検索に失敗しました');
     })
   });
 });

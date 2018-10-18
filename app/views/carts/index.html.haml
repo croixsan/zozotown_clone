@@ -1,4 +1,8 @@
+- if Coupon.exists?
+  = render partial: "shared/coupon_header", locals: {coupon_price: @coupon.price, shops: @coupon_shops}
+= render "shared/header"
 .wrapper
+  = render 'layouts/notifications'
   .header
     %i.fas.fa-shopping-cart
     %h1
@@ -6,94 +10,93 @@
     %img{alt: "広告", src: "http://zozo.jp/_cart/order/img/step_01.gif"}
   .main-content
     .left-content
-      %img{alt: "商品イメージ", src: "https://img4.zozo.jp/pc/zozoomake/201809/omake_pc_cart_men.jpg"}
-        .c.items-content
+      .c.items-content.clearfix
+        - if @cart.items.length > 0
           - @item_nums.each do |item_num|
-            .items
-              %a{ :href => 'http://google.co.jp' }
-                / shopsのコントローラが整い次第、商品詳細ページへのリンクをつける
-                %img{alt: "商品イメージ", height: "150", width: "125", src: "#{item_num.item.images[0].url}"}
-              .name
-                %p
-                  = item_num.item.shop.name
-                %p
-                  = item_num.item.brand.name
-                %p
-                  = item_num.item.name
-                %p
-                  カラー：
-                  = item_num.stock.color
-                %p
-                  サイズ：
-                  =item_num.stock.size
-                .red-text 返品・交換対象外
-              .price
-                = number_to_currency(item_num.item.price, :unit => "￥", :precision => 0)
-              .number-area
-                .number-box
-                  .btn
-                    = link_to "ー", carts_destroy_path(@items, params: {item_id: item_num.item.id}), method: :delete
-                  .number
-                    = @count[item_num.number]
-                  .btn
-                    = link_to "＋", carts_create_path(@items, params: {item_id: item_num.item.id, cart_id: @cart.id, item_num_id: item_num.id}), method: :get
-              .delete-box
-                = link_to "削除", carts_destroy_path(@items, params: {id: item_num.item.id}), method: :delete
-        .total
-          .total-right
-            %p 商品合計
-            .price
+            %dl.items.clearfix{id: item_num.number}
+              %dt.cart_image_column
+                = link_to shop_item_path(item_num.item.shop, item_num.item) do
+                  = image_tag item_num.item.images[0].url, class: "cart-image"
+              %dd.cart_info_column
+                .name
+                  %p
+                    = item_num.item.shop.name
+                  %p
+                    = item_num.item.brand.name
+                  %p
+                    = item_num.item.name
+                  %p
+                    カラー：
+                    = item_num.stock.color
+                  %p
+                    サイズ：
+                    = item_num.stock.size
+                  %p.red-text
+                    = "残り#{item_num.stock.stock}点"
+              - if item_num.stock.stock > 0
+                %dd.cart_price_column
+                  .price.red-text
+                    = number_to_currency(item_num.item.price, :unit => "￥", :precision => 0)
+                %dd.cart_stock_column
+                  .number-area
+                    .number-box
+                      - if @count[item_num.number] > 1
+                        .left-btn.btn
+                          = link_to "ー", cart_path(@cart, item_id: item_num.item.id, item_num_id: item_num.id), method: :delete
+                      .number
+                        = @count[item_num.number]
+                      - if  item_num.stock.stock - @count[item_num.number] - 1 >= 0
+                        .right-btn.btn
+                          = link_to "＋", carts_path(@cart, item_id: item_num.item.id, item_num_id: item_num.id), method: :post
+                %dd.cart_delete_column
+                  .delete-box
+                    = link_to "削除", cart_path(@cart, item_num_id: item_num.id, delete: "delete_all"), method: :delete
+              - else
+                %dd.sold_out_column.item-sold-out
+                  %p 完売しました。
+                  = link_to "カートから削除する", cart_path(@cart, item_num_id: item_num.id, delete: "delete_all"), method: :delete, class: "hover-link"
+          %dl.clearfix
+            %dt.cart_total_column.title_column
+              %p 商品合計
+            %dd.cart_total_column.price_column.red-text
               = number_to_currency(@total_price, unit: "￥", precision: 0)
-        .payment
-          %p
+          .payment
             %b ツケ払いできます。
             お支払いは
-            %span 11月28日
+            %span
+              = (Time.current + 2.month).strftime("%m月%d日")
             でOK
-            %a{ :href => 'http://google.co.jp' }詳細
-        .cart-in-item
-          %h2 以前カートに入れたアイテム
-          = render partial: "cart_item", collection: @past_item_nums, as: "item_num"
-
-        .item-content
-          %h3 チェックしたアイテム
-          %ul#top__center__pickup__contents.clearfix
-            - @checked_items.each do |item|
-              #top__center__pickup__contents__item
-                - if item.images[0]
-                  %li.item
-                    = render partial: 'tops/item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 0}
-        .item-ranking
-          %h3 人気アイテムランキング
-          %ul#top__center__pickup__contents.clearfix
-            - 15.times.each do |i|
-              #top__center__pickup__contents__item
-                -# = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
-    .cart-next
-      .form
-        = link_to "レジへ進む", new_pre_order_path
-        .postage
-          .postage-text
-            %i.fas.fa-exclamation-circle
-            .text
-              %p 送料は一律200円になりました。
-              .more 詳細はこちら
-        .rapping
-          .rapping-text
-            %i.far.fa-check-circle
-            .text-box
-              %span ラッピングをご希望の方はこちらにチェックしてください
-              %span.tax (有料)
-              %span
-                詳細
-            %img{alt: "商品イメージ", height: "50", width: "70", src: "http://img4.zozo.jp/giftwrapping/pc/cart_giftgray.png"}
-        .continuation ショッピングを続ける
-
-    .row-content
-      .recommend
-        %p カートに入れたアイテムからのお知らせ
-        .items
-          %ul#top__center__pickup__contents.clearfix
-            - 15.times.each do |i|
-              #top__center__pickup__contents__item
-                -# = render partial: 'tops/item', locals: {image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
+        - else
+          %p.nothing_in_cart
+            カートに商品は入っていません。
+          = link_to "ショッピングを続ける", root_path, class: "continue-btn"
+    - if @cart.items.length > 0 && @cart.total_price > 0
+      .cart-next
+        .form
+          = link_to "レジへ進む", new_pre_order_path, class: "cart-btn"
+          .postage
+            .postage-text
+              %i.fas.fa-exclamation-circle
+              .text
+                %p 送料は一律200円になりました。
+          = link_to "ショッピングを続ける", root_path, class: "continue-link"
+    - if @past_item_nums
+      .cart-in-item
+        %h2 以前カートに入れたアイテム
+        %ul#top__center__pickup__contents.clearfix
+          - @past_item_nums.each do |item_num|
+            #top__center__pickup__contents__item
+              - if item_num.item.images[0] && item_num.stock.stock > 0
+                %li.item.cart-item
+                  = render partial: 'tops/item', locals: {item: item_num.item, image_size: "middle", rank_num: 0, coupon: 0}
+                  .cart-btn
+                    = link_to "カートに入れる", carts_path(@cart, item_id: item_num.item.id, item_num_id: item_num.id), method: :post
+    - if @checked_items
+      .cart-in-item
+        %h2 チェックしたアイテム
+        %ul#top__center__pickup__contents.clearfix
+          - @checked_items.each do |item|
+            #top__center__pickup__contents__item
+              - if item.images[0]
+                %li.item.cart-item
+                  = render partial: 'tops/item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 0}

@@ -1,3 +1,6 @@
+- if Coupon.exists?
+  = render partial: "shared/coupon_header", locals: {coupon_price: @coupon.price, shops: @coupon_shops}
+= render "shared/header"
 .r.wrapper
   .r.header
     %ul
@@ -12,34 +15,15 @@
       %h1
         %i.fas.fa-chess-king
         人気アイテムランキング
-      .r.main-tab
-        %div.r.current
-          %a{ :href => 'http://google.co.jp' } すべて
-        %div
-          %a{ :href => 'http://google.co.jp' } メンズ
-        %div
-          %a{ :href => 'http://google.co.jp' } レディース
-        %div
-          %a{ :href => 'http://google.co.jp' } キッズ
-        .r.other-ranking
-          ギフトアイテムのランキングを見る
-    .r.brand-choice
-      .r.brand-label
-        %a{ :href => 'http://google.co.jp' } ブランド選択
-      .r.category-list-area
-        %span.r.border
-          |
-        %span.r.category-list
-          %span
-            すべてのカテゴリー
-          %span
-            ^
+      = render "shared/gender_tab"
     %ul
       - @rankings.each_with_index do |ranking, i|
         - item = ranking[0]
         - if i < 3
-          %li.item
-            = render partial: 'tops/item', locals: {item: item, image_size: "super-large", rank_num: i + 1, coupon: 0}
+          - if item.images[0]
+            %li.item
+              = render partial: 'tops/item', locals: {item: item, image_size: "super-large", rank_num: i + 1, coupon: 0}
         - else
-          %li.item.sub_ranking
-            = render partial: 'tops/item', locals: {item: item, image_size: "high-large", rank_num: i + 1, coupon: 0}
+          - if item.images[0]
+            %li.item.sub_ranking
+              = render partial: 'tops/item', locals: {item: item, image_size: "high-large", rank_num: i + 1, coupon: 0}

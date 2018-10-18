@@ -1,3 +1,6 @@
+- if Coupon.exists?
+  = render partial: "shared/coupon_header", locals: {coupon_price: @coupon.price, shops: @coupon_shops}
+= render "shared/header"
 = render partial: "shared/nest/nest_search", locals: {keyword: "カテゴリーから探す"}
 
 .status_title
@@ -17,10 +20,12 @@
     - @top_categories.each do |top_category|
       %section.thumbnail_list
         %h2.hover-link{id: "link-#{top_category.id}"}
-          = link_to top_category.name, top_category_path(top_category)
+          - next_path = request.path_info + "/#{top_category.id}"
+          = link_to top_category.name, next_path
         %ul.clearfix
           - top_category.sub_categories.each do |sub_category|
             %li
-              = link_to top_category_sub_category_path(top_category, sub_category) do
+              - next_path = request.path_info + "/#{top_category.id}/sub_categories/#{sub_category.id}"
+              = link_to next_path do
                 = image_tag sub_category.image
                 = link_to sub_category.name, top_category_sub_category_path(top_category, sub_category)

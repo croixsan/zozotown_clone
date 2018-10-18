@@ -53,6 +53,7 @@
             float: left;
           }
         }
+
         .fas {
           color: #808080;
           cursor: pointer;
@@ -145,7 +146,7 @@
 
         h3 {
           font-size: 18px;
-          padding-top: 25px;
+          padding: 25px 0 10px;
         }
 
         .item-content-mini {
@@ -203,60 +204,52 @@
       }
 
       .item-intro {
-        height: 250px;
         width: $width-show-right;
 
         .namelist {
-          height: 40px;
           width: $width-show-right;
 
           .shop-brand {
-            height: 20px;
             width: $width-show-right;
             color: #2d2d2d;
 
             a {
               color: #646464;
               font-size: 13px;
+              text-decoration: none;
             }
           }
         }
 
         h1 {
-          height: 56px;
           width: $width-show-right;
           margin-top: 14px;
           font-size: 18px;
         }
 
         .proper {
-          height: 50px;
-          width: 100%;
-          margin-top: 10px;
-          position: relative;
+          margin: 10px 0;
 
           .price-content {
             .price {
-              position: absolute;
-              bottom: 0;
               font-size: 34px;
-              line-height: 38px;
+              line-height: 50px;
               float: left;
 
               .tax {
-                height: 100%;
                 color: #808080;
                 font-size: 12px;
                 float: right;
+                padding: 5px 0 0 5px;
               }
             }
 
             .late-pay {
-              height: 30px;
-              width: 130px;
+              width: 135px;
               background-color: #EEEEEE;
-              margin: 0 -20px 0 165px;
               padding: 10px;
+              float: left;
+              margin-left: 20px;
 
               .text {
                 height: 30px;
@@ -270,82 +263,87 @@
         }
 
         .point-fav {
-          height: 45px;
-          widows: $width-show-right;
           margin-top: 12px;
 
           p {
             color: black;
-            float: left;
             font-size: 13px;
-            font-style: normal;
-            margin: 5px 0 0;
+            margin-bottom: 10px;
           }
         }
       }
 
       .cart-area {
-
-        li {
+        dd {
           border-top: $border-gray;
-          border-bottom: $border-gray;
         }
-        .item {
-          width: 60px;
-          height: 60px;
-          padding: 10px 0;
-          float: left;
 
-          img {
-            margin: 0 15px;
-          }
+        .i-image-column {
+          float: left;
+          width: 63px;
+          height: 80px;
 
           p {
             font-size: 10px;
-            text-align: center;
           }
         }
 
-        .stock {
-          width: 80px;
+        .i-stock-column {
           float: left;
-          margin: 15px 15px 0 0;
+          width: 100px;
 
-          .stock_info {
-            font-size: 12px;
-          }
+          .stock {
+            margin: 30px 0;
 
-          .size_info {
-            font-size: 10px;
-            color: #808080;
+            .stock_info {
+              font-size: 12px;
+            }
+
+            .size_info {
+              font-size: 10px;
+              color: #808080;
+            }
           }
         }
-        .cart-box {
-          .cart_btn {
-            background-color: #555;
-            @include set_btn(35px, 165px);
-            color: $white;
-            position: relative;
-            float: left;
-            border-radius: 4px;
-            margin: 15px 10px 0 0;
 
-            .fa-shopping-cart {
-              float: left;
-              display: block;
-              margin: 8px 10px 0;
-              font-size: 18px;
-            }
+        .i-btn-column {
+          float: left;
+          width: 165px;
+          color: #808080;
 
-            p {
+          .cart-box {
+            padding: 22px 0;
+
+            .cart_btn {
+              background-color: #555;
+              @include set_btn(35px, 165px);
+              color: $white;
+              position: relative;
               float: left;
-              font-size: 15px;
+              border-radius: 4px;
+
+              .fa-shopping-cart {
+                text-align: center;
+                float: left;
+                display: block;
+                margin: 8px 10px 0;
+                font-size: 18px;
+              }
+
+              p {
+                float: left;
+                font-size: 15px;
+              }
             }
           }
+        }
+
+        .i-favorite-column {
+          width: 36px;
+          float: right;
 
           .favorite {
-            margin: 15px 0;
-            float: left;
+            margin: 28px 10px 25px;
 
             &_icon {
               text-decoration: none;
@@ -361,13 +359,15 @@
               .fa-heart {
                 display: block;
                 font-size: 25px;
-                margin: 5px 0 0 10px;
               }
             }
           }
         }
-      }
 
+        .i-btn-column {
+          text-align: center;
+        }
+      }
       .condition-tab {
         height: 60px;
         width: $width-show-right;

@@ -216,7 +216,9 @@
       bottom: 0;
       right: 0;
       z-index: 5;
-      @include create_popup(50px, 185px);
+      @include create_popup();
+      height: 50px;
+      width: 185px;
       visibility: hidden;
 
       ul {
@@ -343,4 +345,19 @@
 
 .selected {
   background: #e6e6e6;
+}
+
+.search_result {
+  a {
+    color: #646464;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+#header__wrapper__left__search__incremental:hover{
+  background-color: #dcdcdc;
+  transition: background-color .3s;
+  cursor: pointer;
 }

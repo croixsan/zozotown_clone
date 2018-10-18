@@ -1,0 +1,275 @@
+.content {
+  height: 100%;
+  width: $width-wall-main;
+  margin: 0 auto;
+  &_head {
+    height: 40px;
+    font-size: 23px;
+    .fa-user {
+      @include set_status_icon;
+    }
+  }
+  &_left {
+    width: $width-content-left;
+    float: left;
+    dl {
+      font-size: 18px;
+    }
+    dd {
+      color: $side-txt;
+    }
+    #info {
+      margin: 23px 0 0 0;
+      padding: 0 0 15px 0;
+      border-bottom: $side-border-bottom;
+    }
+    &_points {
+      @extend #info;
+    }
+    &_history {
+      @extend #info;
+    }
+    &_rely {
+      @extend #info;
+    }
+    &_another {
+      @extend #info;
+    }
+    &_unsubscribe {
+      @extend #info;
+    }
+    &_purchase {
+      border: $side-border-bottom;
+      margin: 10px 0 0 0;
+      padding: 20px 0 20px 15px;
+    }
+  }
+  &_main {
+    float: right;
+    width: 780px;
+    .information {
+      margin: 20px 0 0 0;
+      width: 684px;
+      background-color: $wall-color;
+      border: $main-border-bottom;
+      border-radius: 3px;
+      padding: 36px 48px 40px;
+      .head {
+        border-bottom: $main-border-bottom;
+        height: 50px;
+        width: $width-main-content;
+        padding: 0 0 10px 0;
+        dl {
+            font-size: 22px;
+          }
+        dd {
+          font-size: 12px;
+          color: $title-color;
+        }
+      }
+      .basic {
+        border-bottom: $main-border-bottom;
+        clear: both;
+        margin: 5px 0 0 0;
+        dt {
+          font-size: 15px;
+        }
+        .title {
+          width: 175px;
+          color: $title-color;
+          padding: 25px 0;
+          float: left;
+        }
+        .main {
+          width: 454px;
+          padding: 25px 0;
+          float:left;
+        }
+        .chenge {
+          width: 53px;
+          padding: 25px 0;
+          float: right;
+          .btn {
+            height: 23px;
+            width: 53px;
+            text-align: center;
+            color: $click-color;
+            border: $chenge-border-bottom
+          }
+        }
+      }
+      .mail {
+        @extend .basic;
+      }
+      .pass {
+        @extend .basic;
+        #description-pass {
+          font-size: 11px;
+        }
+      }
+    }
+    #delivery {
+      @extend .information;
+      .addless {
+        @extend .basic;
+      }
+      .add {
+        float: right;
+        margin: 5px 0 0 0;
+        color: $click-color;
+      }
+    }
+    #credit {
+      @extend .information;
+      .card {
+        @extend .basic;
+      }
+      .attention {
+        margin:5px 0 0 0;
+        display: inline-block;
+        float: right;
+        p {
+          color: $title-color;
+        }
+      }
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+.hidden {
+  display: none;
+}
+
+
+// -----------------user_addless,user_mail,user_pass,user_card-----------------
+// -------address------
+.content_main_form {
+  @extend .information;
+  .name {
+    @extend .basic;
+    .form {
+      height: 40px;
+      width: 250px;
+      border: $main-border-bottom;
+      margin: 5px 0;
+    }
+  }
+  .gender {
+    @extend .name;
+    font-size: 18px;
+  }
+  .barth {
+    @extend .name;
+    .birth_label {
+      display: inline-block;
+      float: left;
+      margin: 25px 0 0 0;
+    }
+    select {
+      margin: 15px 20px 0 30px;
+      width: 80px;
+      height: 30px;
+      padding-left: 10px;
+      float: left;
+      display: block;
+      outline: none;
+      text-indent: 0.01px;
+      text-overflow: '';
+      background: none transparent;
+      vertical-align: middle;
+      font-size: inherit;
+      color: inherit;
+      -webkit-appearance: button;
+    }
+  }
+  .post_num {
+    @extend .name;
+  }
+  .address {
+    @extend .name;
+  }
+  .phone_num {
+    @extend .name;
+  }
+// -----mail-----
+  .mail {
+    @extend .name;
+  }
+// -----pass-----
+  .pass {
+    @extend .name;
+  }
+// -----card-----
+  .card_num {
+    @extend .name;
+  }
+  .code {
+    @extend .name;
+  }
+// -----send_btn-----
+  .send {
+    height: 93px;
+    @extend .name;
+    .send_btn {
+      background-color: #2490D0;
+      height: 40px;
+      width: 170px;
+      color: $white;
+      font-size: 16px;
+      margin: 20px 250px;
+    }
+  }
+}
+
+#have_to {
+  margin: 0 0 0 8px;
+  font-size: 12px;
+  display: inline-block;
+  border-radius: 3px;
+  color: #3c3c3c;
+  background-color: #c8c8c8;
+}
+
+#error {
+  height: 100vh;
+  width: 100vw;
+  background-color: $wall-color;
+  .main {
+    font-size: 30px;
+    text-align: center;
+  }
+  .link {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+.notification {
+  .notice {
+    background-color: $click-color;
+    color: $white;
+    text-align: center;
+    font-size :20px;
+  }
+
+  .alert {
+    background-color: $crimson;
+    color: $white;
+    text-align: center;
+    font-size :20px;
+  }
+}
+
+.link_cart {
+  float:right;
+  background-color: $wall-color;
+  border: $main-border-bottom;
+  border-radius: 3px;
+  color: black;
+  text-align: center;
+  font-size :20px;
+  width: 200px;
+}

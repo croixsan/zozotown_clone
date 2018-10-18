@@ -43,13 +43,10 @@
   color: $color;
 }
 
-@mixin create_popup($height, $width) {
-  height: $height;
-  width: $width;
+@mixin create_popup() {
   box-shadow: 0 0 5px rgba(77,77,77,0.2);
   border-radius: 0 0 4px 4px;
   background-color: $white;
-
 }
 
 @mixin create_category_popup{

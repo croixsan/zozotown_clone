@@ -1,10 +1,17 @@
 class FavoritesController < ApplicationController
+  include SetCoupon
+  include SetCart
+  before_action :set_cart, :set_coupon, only: [:index]
   before_action :set_render_parameter, only: [:create, :destroy]
+  before_action :authenticate_user!
 
   def index
     @favorite_items = current_user.favorite_items
     @favorite_brands = current_user.favorite_brands
     @favorite_shops = current_user.favorite_shops
+    @items = FavoriteItem.where(user_id: current_user.id).length
+    @brands = FavoriteBrand.where(user_id: current_user.id).length
+    @shops = FavoriteShop.where(user_id: current_user.id).length
   end
 
   def create

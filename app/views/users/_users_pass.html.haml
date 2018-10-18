@@ -1,0 +1,20 @@
+.content_main_form
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = devise_error_messages!
+    .head
+      %dl パスワードの変更
+    .pass.clearfix
+      .title
+        %dt
+          %span 現在のパスワード
+      .main
+        = f.password_field :current_password, minlength: "8", maxlength: "12", autocomplete: "current-password", class: "form"
+    .pass.clearfix
+      .title
+        %dt
+          %span 新しいパスワード
+      .main
+        = f.password_field :password, minlength: "8", maxlength: "12", autocomplete: "new-password",placeholder: "半角英数混合8~12文字", class: "form"
+        = f.password_field :password_confirmation, minlength: "8", maxlength: "12", autocomplete: "new-password",placeholder: "確認のためもう一度入力してください", class: "form"
+    .send.clearfix
+      = f.submit "更新する", class: "send_btn"

@@ -1,0 +1,27 @@
+.content_main_form
+  = form_for @user, url: update_card_users_url do |f|
+    .head
+      %dl
+        - if params[:title] == "card"
+          = "クレジットカード情報の変更"
+        - elsif params[:title] == "new_card"
+          = "クレジットカード情報の追加"
+        - else
+          = "クレジットカード情報の追加"
+    .mail.clearfix
+      .title
+        %dt カード番号
+      .main
+        = f.text_field :card_num, maxlength: "16", class: "form"
+      .title
+        %dt セキュリティーコード
+      .main
+        = f.text_field :security_code, maxlength: "3", class: "form"
+    .send.clearfix
+      = f.hidden_field :id, value: current_user.id
+      - if params[:title] == "card"
+        = f.submit "更新する", class: "send_btn"
+      - elsif params[:title] == "new_card"
+        = f.submit "追加する", class: "send_btn"
+      - else
+        = f.submit "追加する", class: "send_btn"

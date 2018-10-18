@@ -1,5 +1,17 @@
 class ItemsController < ApplicationController
+  include Search
+  include Checked
+  include SetCoupon
+  include SetCart
+  before_action :set_coupon, :set_cart
+
   def index
+    now = Time.current
+    @items = Item.where("created_at > ?", now - 7.days).order("created_at DESC").includes([:images, :shop, :brand])
+    # itemの絞り込み
+    url = request.path_info
+    @items = search_items_by_gender(url, @items)
+    @top_categories = TopCategory.all.includes(:sub_categories)
   end
 
   def show
@@ -16,10 +28,10 @@ class ItemsController < ApplicationController
     if user_signed_in?
       # 「チェックしたアイテム」機能
       current_user.checked_items.where(item_id: @item.id).first_or_create.update(updated_at: Time.current)
+      @checked_items = get_checked_items.slice(0, 8)
     end
 
     # クーポン機能
-    @coupon = Coupon.first
     if Coupon.exists?
       @coupon = Coupon.first
       @coupon_shops = Coupon.all.includes(:shop).map{|coupon| coupon.shop}

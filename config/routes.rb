@@ -2,7 +2,15 @@ Rails.application.routes.draw do
   root "tops#index"
   devise_for :users, controllers: {
     registrations: 'users/registrations',
+    passwords: 'users/passwords'
   }
+ resources :users, only: [:index, :edit, :update] do
+    collection do
+      patch :update_card
+      patch :update_mail
+    end
+  end
+
   get 'carts/index' => 'carts#index'
   post 'carts/create' => 'carts#create'
   delete 'carts/destroy' => 'carts#destroy'
@@ -16,6 +24,18 @@ Rails.application.routes.draw do
   # -- クーポン機能 --------------------
   resources :coupons, only: [:index, :new, :create]
 
+  # -- 検索機能 --------------------
+  resources :searches, only: [:index] do
+    collection do
+      get :result
+    end
+  end
+
+
+  resources :carts, only: [:index, :create, :destroy, :show] do
+  end
+  resources :orders, only: [:index, :new, :create, :show]
+  resources :pre_orders, only: [:new, :create]
   # -- ランキング機能 --------------------
   resources :rankings, only: :index
 
@@ -64,41 +84,53 @@ Rails.application.routes.draw do
   resources :tops, only: [:index]
   resources :brands, only: [:index, :show], concerns: :categories
   resources :shops, only: [:index, :show], concerns: :categories do
-    resources :items, only: [:index, :show] do
+    resources :items, only: [:show] do
       resources :favorites, only: [:create, :destroy]
     end
   end
+  resources :items, only: [:index]
 
   scope :mens do
     resources :tops, only: [:index]
     resources :brands, only: [:index, :show], concerns: :categories
     resources :shops, only: [:index, :show], concerns: :categories do
-      resources :items, only: [:index, :show]
+      resources :items, only: [:show]
     end
     resources :top_categories, only: [:index, :show] do
       resources :sub_categories, only: [:index, :show]
     end
+    resources :rankings, only: :index
+    resources :items, only: [:index]
   end
 
   scope :ladies do
     resources :tops, only: [:index]
     resources :brands, only: [:index, :show], concerns: :categories
     resources :shops, only: [:index, :show], concerns: :categories do
-      resources :items, only: [:index, :show]
+      resources :items, only: [:show]
     end
     resources :top_categories, only: [:index, :show] do
       resources :sub_categories, only: [:index, :show]
     end
+    resources :rankings, only: :index
+    resources :items, only: [:index]
   end
 
   scope :kids do
     resources :tops, only: [:index]
     resources :brands, only: [:index, :show], concerns: :categories
     resources :shops, only: [:index, :show], concerns: :categories do
-      resources :items, only: [:index, :show]
+      resources :items, only: [:show]
     end
     resources :top_categories, only: [:index, :show] do
       resources :sub_categories, only: [:index, :show]
     end
+    resources :rankings, only: :index
+    resources :items, only: [:index]
   end
+
+  # get '*path', controller: 'application', action: 'render_404'
+
+  # application_contorollerのコメントアウトも外す。
+
 end

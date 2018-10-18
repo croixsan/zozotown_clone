@@ -1,3 +1,6 @@
+- if Coupon.exists?
+  = render partial: "shared/coupon_header", locals: {coupon_price: @coupon.price, shops: @coupon_shops}
+= render "shared/header"
 .favorite_body
   .category_var
     .inner
@@ -15,16 +18,16 @@
           %span.main_body_name_icon
             %i.far.fa-heart.fa-2x.fa-sky
           %span
-            = current_user.name
+            = current_user.email
           %span 様のお気に入り
       %ul.tab
         %li#js-item.select アイテム
-        %li#js-bland ブランド
+        %li#js-brand ブランド
         %li#js-shop ショップ
 
       #js-item-content.content.hide
-        %ul#menu.main_body_guide
-          %li.main_body_guide_item.clearfix
+        %ul#menu.main_body_guide.clearfix
+          %li.main_body_guide_item
             %h2
               %span アイテム :
               %span#item-length{'data-id': @items}
@@ -55,7 +58,7 @@
                 = link_to "#" do
                   .shop zozo
           %li.main_body_guide_check
-            %checkbox 販売終了を除く
+            %input{type: :checkbox} 販売終了を除く
         %ul.main_body_list
           - @favorite_items.each do |favorite_item|
             %li
@@ -71,11 +74,11 @@
         %h1.noitem-1 お気に入りアイテムの登録はありません
         %h3.noitem-2 気になるアイテムを登録しよう
 
-      #js-bland-content.content.hide
+      #js-brand-content.content.hide
         %h1.content_number.clarfix
           %span ブランド :
-          %span#bland-length{'data-id': @blands}
-            = @blands
+          %span#brand-length{'data-id': @brands}
+            = @brands
           %span 件
         .content_body.clarfix
           .content_body_list
@@ -86,11 +89,11 @@
                     = favorite_brand.brand.name
 
 
-      #js-bland-none-content.content.hide
+      #js-brand-none-content.content.hide
         .icon
           %i.far.fa-heart.fa-5x.fa-glay
-        %h1.nobland-1 お気に入りブランドの登録はありません
-        %h3.nobland-2 気になるブランドを登録しよう
+        %h1.nobrand-1 お気に入りブランドの登録はありません
+        %h3.nobrand-2 気になるブランドを登録しよう
 
 
       #js-shop-content.content.hide

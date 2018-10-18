@@ -1,8 +1,11 @@
+- if Coupon.exists?
+  = render partial: "shared/coupon_header", locals: {coupon_price: @coupon.price, shops: @coupon_shops}
+= render "shared/header"
 .category_var
   .inner
     %ul.nest_list.clearfix
       %li.nest_path
-        = link_to "ZOZOTOWN", ""
+        = link_to "ZOZOTOWN", root_path
       %li.nest_icon
         %i.fas.fa-angle-right
       %li.nest_item
@@ -21,7 +24,8 @@
           - shops.each do |shop|
             - if shop.items.length > 0
               %dd
-                = link_to shop_path(shop) do
+                - next_path = request.path_info + "/#{shop.id}"
+                = link_to next_path do
                   %span
                     = shop.name
                 %span
