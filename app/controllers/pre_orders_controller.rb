@@ -24,8 +24,8 @@ class PreOrdersController < ApplicationController
   end
 
   def confirm_user_parameter
-    if current_user.name == nil || current_user.phone_num == nil || current_user.address == nil || current_user.card_num == nil
-      redirect_to users_path(id: current_user.id), notice: "ユーザー情報を入力してください"
+    if current_user.name.blank? || current_user.phone_num.blank? || current_user.address.blank? || current_user.card_num.blank?
+      redirect_to users_path(id: current_user.id, title: "From_order"), alert: "ユーザー情報を入力してください"
     end
   end
 end

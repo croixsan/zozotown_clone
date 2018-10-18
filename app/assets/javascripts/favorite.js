@@ -14,7 +14,7 @@ $(function() {
     $('.tab li').click(function() {
         var tabName = $(this).attr('id')
         var itemNumber = $('#item-length').data('id');
-        var blandNumber = $('#bland-length').data('id');
+        var brandNumber = $('#brand-length').data('id');
         var shopNumber = $('#shop-length').data('id');
         $('.tab li').removeClass('select');
         $(this).addClass('select');
@@ -23,9 +23,9 @@ $(function() {
             console.log("js-item")
             tabName = 'js-item-none'
         }
-        else if(tabName == 'js-bland' && blandNumber == 0) {
-            console.log("js-bland")
-            tabName = 'js-bland-none'
+        else if(tabName == 'js-brand' && brandNumber == 0) {
+            console.log("js-brand")
+            tabName = 'js-brand-none'
         }
         else if(tabName == 'js-shop' && shopNumber == 0) {
             tabName = 'js-shop-none'
