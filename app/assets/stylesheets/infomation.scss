@@ -259,5 +259,17 @@
     background-color: $crimson;
     color: $white;
     text-align: center;
+    font-size :20px;
   }
+}
+
+.link_cart {
+  float:right;
+  background-color: $wall-color;
+  border: $main-border-bottom;
+  border-radius: 3px;
+  color: black;
+  text-align: center;
+  font-size :20px;
+  width: 200px;
 }

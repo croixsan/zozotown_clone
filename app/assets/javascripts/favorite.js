@@ -7,20 +7,6 @@ $(function(){
         else {
             $("#js-item-content").css('display','block')
         }
-        var blandNumber = $('#bland-length').data('id')
-        if(blandNumber == 0) {
-            $("#js-bland-none-content").css('display','block')
-        }
-        else {
-            $("#js-bland-content").css('display','block')
-        }
-        var shopNumber = $('#shop-length').data('id')
-        if(shopNumber == 0) {
-            $("#js-shop-none-content").css('display','block')
-        }
-        else {
-            $("#js-shop-content").css('display','block')
-        }
     }
 })
 
@@ -28,7 +14,7 @@ $(function() {
     $('.tab li').click(function() {
         var tabName = $(this).attr('id')
         var itemNumber = $('#item-length').data('id');
-        var blandNumber = $('#bland-length').data('id');
+        var brandNumber = $('#brand-length').data('id');
         var shopNumber = $('#shop-length').data('id');
         $('.tab li').removeClass('select');
         $(this).addClass('select');
@@ -37,9 +23,9 @@ $(function() {
             console.log("js-item")
             tabName = 'js-item-none'
         }
-        else if(tabName == 'js-bland' && blandNumber == 0) {
-            console.log("js-bland")
-            tabName = 'js-bland-none'
+        else if(tabName == 'js-brand' && brandNumber == 0) {
+            console.log("js-brand")
+            tabName = 'js-brand-none'
         }
         else if(tabName == 'js-shop' && shopNumber == 0) {
             tabName = 'js-shop-none'

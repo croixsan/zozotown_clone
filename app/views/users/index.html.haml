@@ -1,4 +1,9 @@
-= render 'layouts/notifications'
+- if @linkcart == 3
+  = render 'layouts/notifications'
+  = link_to carts_index_path do
+    .link_cart カートに戻る
+- else
+  = render 'layouts/notifications'
 .category_var
   .inner
     %ul.nest_list.clearfix

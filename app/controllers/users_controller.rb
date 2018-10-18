@@ -2,7 +2,21 @@ class UsersController < ApplicationController
   before_action :check_up_on, only: [:index, :edit, :update]
   before_action :check_update, only: [:update_card, :update_mail]
   include UsersHelper
+  @@link = ""
+  @@order = ""
   def index
+    if params[:title] == "From_order"
+      @@order = 1
+    else
+      @@order = 0
+    end
+    if @@link == 2
+      @linkcart = 3
+      @@link = 0
+      @@order = 1
+    else
+      @linkcart = 0
+    end
   end
 
   def edit
@@ -11,26 +25,29 @@ class UsersController < ApplicationController
   end
 
   def update
+    @@link = 2 if @@order == 1
     if @user.update(address_params)
       redirect_to users_path(id: current_user.id), notice: '基本情報を更新しました。'
     else
-      redirect_to users_path(id: current_user.id), notice: '更新に失敗しました。'
+      redirect_to users_path(id: current_user.id), alert: '更新に失敗しました。'
     end
   end
 
   def update_card
+    @@link = 2 if @@order == 1
     if @user.update(card_params)
       redirect_to users_path(id: current_user.id), notice: 'カード情報を更新しました。'
     else
-      redirect_to users_path(id: current_user.id), notice: '更新に失敗しました。'
+      redirect_to users_path(id: current_user.id), alert: '更新に失敗しました。'
     end
   end
 
   def update_mail
+    @@link = 2 if @@order == 1
     if @user.update(mail_params)
       redirect_to users_path(id: current_user.id), notice: 'メールアドレスを更新しました。'
     else
-      redirect_to users_path(id: current_user.id), notice: '更新に失敗しました。'
+      redirect_to users_path(id: current_user.id), alert: '更新に失敗しました。'
     end
   end
 
