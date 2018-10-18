@@ -1,5 +1,8 @@
 class SubCategoriesController < ApplicationController
   include Search
+  include SetCoupon
+  before_action :set_coupon
+  
   def show
     @sub_category = SubCategory.find(params[:id])
     @top_category = @sub_category.top_category
@@ -15,6 +18,12 @@ class SubCategoriesController < ApplicationController
     # 色によるアイテムの絞り込み
     if params[:color]
       @items = search_items_by_color(@items, params[:color])
+    end
+
+    # クーポン機能
+    if Coupon.exists?
+      @coupon = Coupon.first
+      @coupon_shops = Coupon.all.includes(:shop).map{|coupon| coupon.shop}
     end
   end
 end
