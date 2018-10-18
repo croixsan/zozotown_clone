@@ -7,6 +7,20 @@ $(function(){
         else {
             $("#js-item-content").css('display','block')
         }
+        var blandNumber = $('#bland-length').data('id')
+        if(blandNumber == 0) {
+            $("#js-bland-none-content").css('display','block')
+        }
+        else {
+            $("#js-bland-content").css('display','block')
+        }
+        var shopNumber = $('#shop-length').data('id')
+        if(shopNumber == 0) {
+            $("#js-shop-none-content").css('display','block')
+        }
+        else {
+            $("#js-shop-content").css('display','block')
+        }
     }
 })
 

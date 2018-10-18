@@ -5,6 +5,9 @@ class FavoritesController < ApplicationController
     @favorite_items = current_user.favorite_items
     @favorite_brands = current_user.favorite_brands
     @favorite_shops = current_user.favorite_shops
+    @items = FavoriteItem.where(user_id: current_user.id).length
+    @brands = FavoriteBrand.where(user_id: current_user.id).length
+    @shops = FavoriteShop.where(user_id: current_user.id).length
   end
 
   def create

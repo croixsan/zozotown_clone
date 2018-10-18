@@ -249,9 +249,10 @@
 
 .notification {
   .notice {
-    background-color: $wall-color;
-    color: $black;
+    background-color: $click-color;
+    color: $white;
     text-align: center;
+    font-size :20px;
   }
 
   .alert {
