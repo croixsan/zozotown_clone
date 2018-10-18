@@ -39,6 +39,7 @@
             @include set_size(28px, $header-search-field-width);
             @include fit_to_center;
             border: 0;
+            padding-left: 10px;
           }
         }
 

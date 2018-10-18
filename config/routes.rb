@@ -23,6 +23,13 @@ Rails.application.routes.draw do
   # -- クーポン機能 --------------------
   resources :coupons, only: [:index, :new, :create]
 
+  # -- 検索機能 --------------------
+  resources :searches, only: [:index] do
+    collection do
+      get :result
+    end
+  end
+
 
   resources :carts, only: [:index, :create, :destroy, :show] do
   end

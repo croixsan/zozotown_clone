@@ -3,10 +3,10 @@ $(function() {
 var search_list = $("#header__wrapper__left__search__incremental__area");
 
   function appendProduct(search) {
-    var html = `<div id= "header__wrapper__left__search__incremental">
+    var html = `<div id= "header__wrapper__left__search__incremental" class="search_result">
                    <ul>
                      <li>
-                       <a>
+                       <a href="/searches/result?keyword=${search.name}">
                          ${ search.name }
                        </a>
                      </li>
@@ -27,10 +27,10 @@ var search_list = $("#header__wrapper__left__search__incremental__area");
       $("#header__wrapper__left__search__incremental__area").empty();
       searches.forEach(function(search){
         appendProduct(search);
+        if(input == ""){
+          search_list.empty();
+        }
       });
-    })
-    .fail(function() {
-      alert('映画検索に失敗しました');
     })
   });
 });

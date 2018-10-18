@@ -1,4 +1,7 @@
 class SearchesController < ApplicationController
+  include SetCoupon
+  include SetCart
+  before_action :set_coupon, :set_cart
 
   def index
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%").order('id').limit(3)
@@ -15,4 +18,27 @@ class SearchesController < ApplicationController
     # redirect_to :controller => 'tops', :action => 'index'
   end
 
+  def result
+    @top_categories = TopCategory.all
+    @keyword = params[:keyword]
+    if items = Item.where("name Like(?)", "%#{@keyword}%").includes(:images)
+      @items = items
+    end
+
+    if brand = Brand.find_by(name: @keyword)
+      @items = brand.items
+    end
+
+    if shop = Shop.find_by(name: @keyword)
+      @items = shop.items
+    end
+
+    if top_category = TopCategory.find_by(name: @keyword)
+      @items = top_category.items
+    end
+
+    if sub_category = SubCategory.find_by(name: @keyword)
+      @items = sub_category.items
+    end
+  end
 end
