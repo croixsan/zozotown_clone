@@ -1,3 +1,6 @@
+- if Coupon.exists?
+  = render partial: "shared/coupon_header", locals: {coupon_price: @coupon.price, shops: @coupon_shops}
+= render "shared/header"
 .r.wrapper
   .r.header
     %ul

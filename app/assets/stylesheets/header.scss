@@ -1,4 +1,7 @@
 #header {
+  width: 100%;
+  position: fixed;
+  z-index: 20;
   background-color: $header-color;
 
   &__wrapper {
@@ -96,7 +99,7 @@
         }
 
         &__favorite {
-          @include set_size(55px, 50px);
+          @include set_size(50px, 50px);
           float: left;
           position: relative;
 
@@ -117,7 +120,7 @@
         }
 
         &__cart {
-          @include set_size(55px, 50px);
+          @include set_size(50px, 50px);
           float: left;
           position: relative;
 
@@ -140,7 +143,7 @@
 
         &__menu {
           float: left;
-          @include set_size(55px, 50px);
+          @include set_size(50px, 50px);
           position: relative;
         }
       }
@@ -291,6 +294,9 @@
       }
     }
   }
+}
+#header_brank {
+  height: $header-height;
 }
 
 .fa-search {

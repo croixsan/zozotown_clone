@@ -1,4 +1,7 @@
 class CouponsController < ApplicationController
+  include SetCart
+  before_action :set_cart
+
   def index
     @coupon = Coupon.first
     # クーポン機能

@@ -1,3 +1,6 @@
+- if Coupon.exists?
+  = render partial: "shared/coupon_header", locals: {coupon_price: @coupon.price, shops: @coupon_shops}
+= render "shared/header"
 = render partial: "shared/nest/nest_search", locals: {keyword: "新着アイテム"}
 
 .search_content

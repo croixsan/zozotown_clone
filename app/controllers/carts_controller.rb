@@ -1,6 +1,10 @@
 class CartsController < ApplicationController
   include Checked
   include SavedCart
+  include SetCart
+  include SetCoupon
+  before_action :set_coupon
+  before_action :set_cart, except: :register
   before_action :authenticate_user!
 
   def index

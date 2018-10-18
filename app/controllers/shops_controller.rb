@@ -1,5 +1,9 @@
 class ShopsController < ApplicationController
   include Search
+  include SetCoupon
+  include SetCart
+  before_action :set_coupon, :set_cart
+
   def index
     @shops = []
     # アルファベットで始まるショップの検索
@@ -25,6 +29,12 @@ class ShopsController < ApplicationController
     # 色によるアイテムの絞り込み
     if params[:color]
       @items = search_items_by_color(@items, params[:color])
+    end
+
+    # クーポン機能
+    if Coupon.exists?
+      @coupon = Coupon.first
+      @coupon_shops = Coupon.all.includes(:shop).map{|coupon| coupon.shop}
     end
   end
 end
