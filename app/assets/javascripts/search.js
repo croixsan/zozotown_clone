@@ -8,7 +8,7 @@ var search_list = $("#header__wrapper__left__search__incremental__area");
                      <li>
                        <form method="get" name="form1" action="/searches/show">
                          <input type="hidden" name="keyword" value="${ search.name }">
-                           <button href="/searches/show" class = "incremental-btn">${ search.name }</button>
+                           <a href="/searches/show" class = "incremental-btn">${ search.name }</button>
                        </form>
                      </li>
                    </ul>
