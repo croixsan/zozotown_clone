@@ -1,6 +1,9 @@
 class CartsController < ApplicationController
   include Checked
   include SavedCart
+  include SetCart
+  include SetCoupon
+  before_action :set_coupon, :set_cart
   before_action :authenticate_user!
 
   def index

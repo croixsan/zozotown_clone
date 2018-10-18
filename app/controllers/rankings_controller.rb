@@ -1,7 +1,8 @@
 class RankingsController < ApplicationController
   include Ranking
   include SetCoupon
-  before_action :set_coupon
+  include SetCart
+  before_action :set_coupon, :set_cart
 
   def index
     @rankings = get_ranking_items.slice(0, 100)

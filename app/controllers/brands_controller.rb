@@ -1,7 +1,8 @@
 class BrandsController < ApplicationController
   include Search
   include SetCoupon
-  before_action :set_coupon
+  include SetCart
+  before_action :set_coupon, :set_cart
 
   def index
     @brands = []

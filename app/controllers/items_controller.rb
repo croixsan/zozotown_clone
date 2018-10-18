@@ -2,7 +2,8 @@ class ItemsController < ApplicationController
   include Search
   include Checked
   include SetCoupon
-  before_action :set_coupon
+  include SetCart
+  before_action :set_coupon, :set_cart
 
   def index
     now = Time.current

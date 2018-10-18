@@ -2,6 +2,8 @@ class TopsController < ApplicationController
   include Checked
   include Ranking
   include Search
+  include SetCart
+  before_action :set_cart
 
   def index
     items = Item.all
@@ -9,9 +11,6 @@ class TopsController < ApplicationController
     @items = search_items_by_gender(url, items)
 
     @newest_items = @items.order("created_at DESC").includes(:images).limit(9)
-    if $coupon_price == nil
-      $coupon_price = 1000
-    end
 
     # クーポン機能
     if Coupon.exists?
@@ -35,7 +34,6 @@ class TopsController < ApplicationController
     end
 
     @rankings = get_ranking_items.slice(0, 9)
-
   end
 
   def men

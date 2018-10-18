@@ -1,8 +1,9 @@
 class SubCategoriesController < ApplicationController
   include Search
   include SetCoupon
-  before_action :set_coupon
-  
+  include SetCart
+  before_action :set_coupon, :set_cart
+
   def show
     @sub_category = SubCategory.find(params[:id])
     @top_category = @sub_category.top_category
