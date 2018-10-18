@@ -15,7 +15,12 @@ class SearchesController < ApplicationController
       format.html
       format.json
     end
-    # redirect_to :controller => 'tops', :action => 'index'
+  end
+
+  def show
+    @top_category = TopCategory.find(51)
+    @items = Item.all
+    @sub_categories = SubCategory.all
   end
 
   def result
