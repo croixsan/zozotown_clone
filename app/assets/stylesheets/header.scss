@@ -157,9 +157,8 @@
         &__login {
           float: left;
           width: 180px;
-          box-shadow: 0 0 5px rgba(77,77,77,0.2);
-          border-radius: 0 0 4px 4px;
-          background-color: $white;
+          @include create_popup();
+          position: absolute;
 
           &__inner {
             padding: 20px;

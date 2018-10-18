@@ -26,5 +26,15 @@ module Search
       end
       return items
     end
+
+    def search_items_by_color(items, color)
+      color_items = []
+      items.each do |item|
+        if item.stocks.where("color LIKE(?)", "%#{color}%").length > 0
+          color_items << item
+        end
+      end
+      items = color_items
+    end
   end
 end

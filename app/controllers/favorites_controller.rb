@@ -1,5 +1,6 @@
 class FavoritesController < ApplicationController
   before_action :set_render_parameter, only: [:create, :destroy]
+  before_action :authenticate_user!
 
   def index
     @favorite_items = current_user.favorite_items
