@@ -1,0 +1,32 @@
+- if Coupon.exists?
+  = render partial: "shared/coupon_header", locals: {coupon_price: @coupon.price, shops: @coupon_shops}
+= render "shared/header"
+= render partial: "shared/nest/nest_search", locals: {keyword: "検索結果"}
+
+.search_content
+  .inner.clearfix
+    .search_side_bar
+      .search_side_bar_inner
+        %section.search_result_contents
+          = render partial: "search/count", locals: {count: @items.length}
+        .search_side_bar_lists
+          %section.select_lists
+            %h2.select_lists_element 性別
+            = render "search/gender_list"
+          %section.select_lists
+            %h2.head-title.select_lists_element カテゴリー
+            = render partial: "search/top_category_list", collection: @top_categories, as: "top_category"
+          -# %section.select_lists
+          -#   %h2.select_lists_element カラー
+          -#   = render "search/color_select"
+    %article.search_result
+      = render partial: "search/search_header", locals: {keyword: @keyword}
+      .result_content
+        -# = render "search/hot_keyword"
+        .result_items.clearfix
+          = render "search/pulldown"
+          .result_items_list
+            - @items.each do |item|
+              - if item.images[0]
+                %li.item
+                  = render partial: 'tops/item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: 0, shop_image: false}
