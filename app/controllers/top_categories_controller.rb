@@ -15,5 +15,10 @@ class TopCategoriesController < ApplicationController
     @items = search_items_by_gender(url, @items)
     @items = search_items_by_brand(url, @items)
     @items = search_items_by_shop(url, @items)
+
+    # 色によるアイテムの絞り込み
+    if params[:color]
+      @items = search_items_by_color(@items, params[:color])
+    end
   end
 end
