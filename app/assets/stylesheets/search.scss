@@ -346,3 +346,18 @@
 .selected {
   background: #e6e6e6;
 }
+
+.search_result {
+  a {
+    color: #646464;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+#header__wrapper__left__search__incremental:hover{
+  background-color: #dcdcdc;
+  transition: background-color .3s;
+  cursor: pointer;
+}
