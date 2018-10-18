@@ -16,5 +16,10 @@ class BrandsController < ApplicationController
     # itemの絞り込み
     url = request.path_info
     @items = search_items_by_gender(url, @items)
+
+    # 色によるアイテムの絞り込み
+    if params[:color]
+      @items = search_items_by_color(@items, params[:color])
+    end
   end
 end
