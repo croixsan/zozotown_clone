@@ -4,8 +4,7 @@
       .payment.clearfix
         .payment_header
           .payment_header_content
-            .payment_header_content_logo
-              = image_tag 'zozo-logo-white.png', class: "main_logo"
+            = render "shared/payment_header"
             .payment_header_content_title
               %p お届け先・配送方法・お支払い方法
           .status_nav
