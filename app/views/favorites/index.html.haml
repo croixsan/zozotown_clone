@@ -33,32 +33,32 @@
               %span#item-length{'data-id': @items}
                 = @items
               %span 件
-          %li.main_body_guide_shop
-            全てのショップ
-            %ul.child
-              %li
-                = link_to "#" do
-                  .shop 全てのショップ
-                = link_to "#" do
-                  .shop ZOZO
-          %li.main_body_guide_category
-            全てのカテゴリ
-            %ul.child
-              %li
-                = link_to "#" do
-                  .shop 全てのカテゴリ
-                = link_to "#" do
-                  .shop zozo
-          %li.main_body_guide_others
-            全て
-            %ul.child
-              %li
-                = link_to "#" do
-                  .shop 全て
-                = link_to "#" do
-                  .shop zozo
-          %li.main_body_guide_check
-            %input{type: :checkbox} 販売終了を除く
+          / %li.main_body_guide_shop
+          /   全てのショップ
+          /   %ul.child
+          /     %li
+          /       = link_to "#" do
+          /         .shop 全てのショップ
+          /       = link_to "#" do
+          /         .shop ZOZO
+          / %li.main_body_guide_category
+          /   全てのカテゴリ
+          /   %ul.child
+          /     %li
+          /       = link_to "#" do
+          /         .shop 全てのカテゴリ
+          /       = link_to "#" do
+          /         .shop zozo
+          / %li.main_body_guide_others
+          /   全て
+          /   %ul.child
+          /     %li
+          /       = link_to "#" do
+          /         .shop 全て
+          /       = link_to "#" do
+          /         .shop zozo
+          / %li.main_body_guide_check
+          /   %input{type: :checkbox} 販売終了を除く
         %ul.main_body_list
           - @favorite_items.each do |favorite_item|
             %li

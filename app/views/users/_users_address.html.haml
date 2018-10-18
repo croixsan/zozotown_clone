@@ -27,7 +27,9 @@
           %span 生年月日
       .main
         - birth_year = [[]]
-        - (1900..Date.today.year).each do |year|
+        - limit = (1900..Date.today.year)
+        - insert = limit.sort.reverse
+        - insert.each do |year|
           - birth_year << [year, year]
         = f.select :birth_year, birth_year, class: "select"
         = f.label :birth_year, "年", class: "birth_label"
