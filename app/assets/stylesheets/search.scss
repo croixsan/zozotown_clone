@@ -360,6 +360,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    word-break: break-all;
+    outline: none;
+    display: block;
   }
 }
 #header__wrapper__left__search__incremental:hover{
