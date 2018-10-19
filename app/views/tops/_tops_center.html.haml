@@ -22,9 +22,9 @@
         - if item.images[0]
           %li.item
             - if i < 4
-              = render partial: 'item', locals: {item: item, image_size: "large", rank_num: 0, coupon: $coupon_price.to_i}
+              = render partial: 'item', locals: {item: item, image_size: "large", rank_num: 0, coupon: @coupon.price}
             - else
-              = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: $coupon_price.to_i}
+              = render partial: 'item', locals: {item: item, image_size: "middle", rank_num: 0, coupon: @coupon.price}
     %p.more-list.link-list.zozo-item-link
       = link_to "クーポン対象アイテム一覧", coupons_path
 

@@ -30,11 +30,17 @@
             line-height: 1.1;
             font-family: helvetica;
             font-size: 35px;
-
-            span {
-              font-size: 13px;
-            }
+            float: left;
+            position: relative;
           }
+          span {
+            font-size: 13px;
+            float:left;
+            position: absolute;
+            bottom: 15px;
+            right: 80px;
+          }
+
         }
       }
 

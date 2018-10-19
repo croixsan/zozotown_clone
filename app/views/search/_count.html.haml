@@ -1,6 +1,6 @@
 %i.fas.fa-caret-right.fa-2x
-.search_result_num
+.search_result_num.clearfix
   %h2 対象商品
-  .result_count
-    = count
-    %span 件
+  .result_count{"data-num": count}
+    0
+  %span.result_count_text 件

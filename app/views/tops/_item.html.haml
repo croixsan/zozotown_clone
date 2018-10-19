@@ -3,28 +3,28 @@
   - case image_size
   - when "large"
     = link_to shop_item_path(item.shop.id, item.id) do
-      = image_tag img_url, class: "image-size-large"
+      = image_tag img_url, class: "image-size-large hover-image"
       - if rank_num > 0
         = render partial: "tops/center/ranking", locals: {rank_num: rank_num}
       - if coupon > 0
         = render partial: "tops/center/coupon", locals: {coupon: @coupon.price}
   - when "middle"
     = link_to shop_item_path(item.shop.id, item.id) do
-      = image_tag img_url, class: "image-size-middle"
+      = image_tag img_url, class: "image-size-middle hover-image"
       - if rank_num > 0
         = render partial: "tops/center/ranking", locals: {rank_num: rank_num}
       - if coupon > 0
         = render partial: "tops/center/coupon", locals: {coupon: @coupon.price}
   - when "small"
     = link_to shop_item_path(item.shop.id, item.id) do
-      = image_tag img_url, class: "image-size-small"
+      = image_tag img_url, class: "image-size-small hover-image"
   - when "super-large"
     = link_to shop_item_path(item.shop.id, item.id) do
-      = image_tag img_url, class: "image-size-super-large"
+      = image_tag img_url, class: "image-size-super-large hover-image"
       = render partial: "tops/center/ranking", locals: {rank_num: rank_num}
   - when "high-large"
     = link_to shop_item_path(item.shop.id, item.id) do
-      = image_tag img_url, class: "image-size-high-large"
+      = image_tag img_url, class: "image-size-high-large hover-image"
       = render partial: "tops/center/ranking", locals: {rank_num: rank_num}
 
   .item__info
