@@ -20,6 +20,8 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 
+  # validates :card, length: { in: 16..17 }, on: :update
+
   # VALID_PASS_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/i
   # validates :password, length: { in: 8..12 }, format: { with: VALID_PASS_REGEX}, if: :password_form?
 
