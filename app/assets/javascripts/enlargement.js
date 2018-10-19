@@ -1,27 +1,53 @@
 $(function() {
-  $(".main-image").on("mousemove", function(e){
+
+  var scale = 500 / 200;
+
+  $(".top_image").on('load', function(){
+    var image_left = $('.top_image').outerWidth();
+    var image_top = $('.top_image').outerHeight();
+    var grass_left = $('.image-grass').outerWidth();
+    var grass_top = $('.image-grass').outerHeight();
+    xmax = image_left - grass_left;
+    ymax = image_top - grass_top;
+  });
+
+  $(".main-image").on("mouseenter", function(){
+    var zoom_image = $('.top_image').outerWidth();
+    zoom_image_size = zoom_image * scale;
+
+    $('.zoom_image').width(zoom_image_size);
     $(".zoom-area").addClass('active');
-
-    var size_left = e.pageX - 360;
-    var size_top = e.pageY - 260;
-    // if (size_left < 300 && 0 < size_left && 0 < size_top && size_top < 400){
-      $(".image-grass").addClass('active');
-      var left = size_left + 'px';
-      var top = size_top + 'px';
-      $(".image-grass").css("left", left);
-      $(".image-grass").css("top", top);
-    // }
-
-
-    var unleft = "-" + ((e.pageX - 260) * 2 ) + 'px';
-    var untop = "-" + ((e.pageY - 160) * 2 ) + 'px';
-    $( ".zoom_image" ).css( "margin-top" , untop );
-    $( ".zoom_image" ).css( "margin-left" , unleft );
-
   });
 
   $(".main-image").on("mouseleave", function(){
     $(".zoom-area").removeClass('active');
-    $(".image-grass").removeClass('active');
+  });
+
+
+  $(".main-image").on("mousemove", function(e){
+    var image_offset = $('.main-image').offset();
+    var left = (e.pageX - image_offset.left - 100)  ;
+    var top = (e.pageY - image_offset.top - 100 ) ;
+
+    if(left > xmax){
+      left = xmax;
+    }
+    if(top > ymax){
+      top = ymax;
+    }
+    if(left < 0){
+      left = 0;
+    }
+    if(top < 0){
+      top = 0;
+    }
+
+    $(".image-grass").css("left", left);
+    $(".image-grass").css("top", top);
+
+    var unleft = "-" + ( left * scale ) + 'px';
+    var untop = "-" + ( top * scale ) + 'px';
+    $( ".zoom_image" ).css( "margin-left" , unleft );
+    $( ".zoom_image" ).css( "margin-top" , untop );
   });
 });

@@ -66,18 +66,20 @@
           display: inline-block;
           position: relative;
 
-          .image-grass.active {
-            display: block;
+          .image-grass {
+            display: none;
+            position: absolute;
+            background: white;
+            opacity: 0.3;
+            height: 200px;
+            width: 200px;
           }
+
+
         }
 
-        .image-grass {
-          display: none;
-          position: absolute;
-          background: orange;
-          opacity: 0.3;
-          height: 200px;
-          width: 200px;
+        .main-image:hover .image-grass {
+          display: block;
         }
 
         .zoom-area.active {
@@ -90,17 +92,10 @@
           top: 160px;
           left: 800px;
           border: 1px solid #ccc;
-          height: 600px;
+          height: 500px;
           width: 500px;
           overflow: hidden;
           z-index: 2;
-
-          .zoom_image {
-            width: 1500px; /* JSで適切な値を設定する */
-            height: 1800px;
-            // margin-top: -30px; /* JSで適切な値を設定する */
-            // margin-left: -60px; /* JSで適切な値を設定する */
-          }
         }
 
         .right-button {
