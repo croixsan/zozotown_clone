@@ -40,23 +40,15 @@
                   %th.form_title 生年月日
                   %td.clearfix
                     %label.birth_form
-                      - birth_year = [[]]
-                      - limit = (1900..Date.today.year)
-                      - insert = limit.sort.reverse
-                      - insert.each do |year|
-                        - birth_year << [year, year]
+                      - birth_year
                       = f.select :birth_year, birth_year, class: "select"
                       = f.label :birth_year, "年", class: "birth_label"
                     %label.birth_form
-                      - birth_month = [[]]
-                      - (1..12).each do |month|
-                        - birth_month << [month, month]
+                      - birth_month
                       = f.select :birth_month, birth_month, class: "select"
                       = f.label :birth_month, "月", class: "birth_label"
                     %label.birth_form
-                      - birth_day = [[]]
-                      - (1..31).each do |day|
-                        - birth_day << [day, day]
+                      - birth_day
                       = f.select :birth_day, birth_day, class: "select"
                       = f.label :birth_day, "日", class: "birth_label"
                 %tr
@@ -66,7 +58,7 @@
                   %td.clearfix
                     .post_form
                       = f.text_field :post_num, maxlength: "7", placeholder: "例：2617116", class: "post_num_form"
-                      %p ※　数字7ケタ、ハイフンなし
+                      %p ※ 数字7ケタ、ハイフンなし
                 %tr
                   %th.form_title
                     %p メールアドレス
@@ -76,7 +68,7 @@
                     .post_form
                       -# = f.label :email
                       = f.email_field :email, autocomplete: "email", placeholder: "例：zozo@zozotown.jp", class: "email_form"
-                      %p ※　メールアドレスがZOZO IDとなります
+                      %p ※ メールアドレスがZOZO IDとなります
                 %tr
                   %th.form_title
                     パスワード

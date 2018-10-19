@@ -14,10 +14,16 @@ class User < ApplicationRecord
   has_many :orders
   has_many :past_carts, dependent: :destroy
 
-  validates :email, presence: true, uniqueness: true
-  validates :post_num, length: { maximum: 7 }, numericality: {only_integer: true}
-  validates :phone_num, length: { maximum: 11 }
+  validates :post_num, length: { is: 7 }, numericality: {only_integer: true}
+  validates :phone_num, length: { in: 10..11 }, on: :update
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+
+  # VALID_PASS_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/i
+  # validates :password, length: { in: 8..12 }, format: { with: VALID_PASS_REGEX}, if: :password_form?
+
+  # def password_form?
+  #   params[:title] == "password"
+  # end
 end
