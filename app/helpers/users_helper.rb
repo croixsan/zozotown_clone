@@ -14,4 +14,27 @@ module UsersHelper
       redirect_to users_path(id: current_user.id)
     end
   end
+
+  def birth_year
+    birth_year = [[]]
+    limit = (1900..Date.today.year)
+    insert = limit.sort.reverse
+    insert.each do |year|
+      birth_year << [year, year]
+    end
+  end
+
+  def birth_month
+    birth_month = [[]]
+    (1..12).each do |month|
+      birth_month << [month, month]
+    end
+  end
+
+  def birth_day
+    birth_day = [[]]
+    (1..31).each do |day|
+      birth_day << [day, day]
+    end
+  end
 end

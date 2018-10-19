@@ -26,21 +26,13 @@
         %dt
           %span 生年月日
       .main
-        - birth_year = [[]]
-        - limit = (1900..Date.today.year)
-        - insert = limit.sort.reverse
-        - insert.each do |year|
-          - birth_year << [year, year]
+        - birth_year
         = f.select :birth_year, birth_year, class: "select"
         = f.label :birth_year, "年", class: "birth_label"
-        - birth_month = [[]]
-        - (1..12).each do |month|
-          - birth_month << [month, month]
+        - birth_month
         = f.select :birth_month, birth_month, class: "select"
         = f.label :birth_month, "月", class: "birth_label"
-        - birth_day = [[]]
-        - (1..31).each do |day|
-          - birth_day << [day, day]
+        - birth_day
         = f.select :birth_day, birth_day, class: "select"
         = f.label :birth_day, "日", class: "birth_label"
     .post_num.clearfix
@@ -62,7 +54,7 @@
         %dt
           %span 電話番号
       .main
-        = f.text_field :phone_num, maxlength: "11", placeholder: "〇〇〇〇〇〇〇〇〇〇〇(ハイフン無し)", class: "form"
+        = f.text_field :phone_num, maxlength: "11", placeholder: "09012345678(ハイフン無し)", class: "form"
     .send.clearfix
       = f.submit "更新する", class: "send_btn"
 
