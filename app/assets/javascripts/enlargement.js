@@ -5,7 +5,6 @@ $(function() {
     var size_left = e.pageX - 360;
     var size_top = e.pageY - 260;
     // if (size_left < 300 && 0 < size_left && 0 < size_top && size_top < 400){
-      $(".image-grass").addClass('active');
       var left = size_left + 'px';
       var top = size_top + 'px';
       $(".image-grass").css("left", left);
