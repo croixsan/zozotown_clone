@@ -16,7 +16,7 @@
             %dl.items.clearfix{id: item_num.number}
               %dt.cart_image_column
                 = link_to shop_item_path(item_num.item.shop, item_num.item) do
-                  = image_tag item_num.item.images[0].url, class: "cart-image"
+                  = image_tag item_num.item.images[0].url, class: "cart-image hover-image"
               %dd.cart_info_column
                 .name
                   %p
