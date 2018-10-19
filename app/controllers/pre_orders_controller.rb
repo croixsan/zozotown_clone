@@ -1,8 +1,8 @@
 class PreOrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :confirm_user_parameter, only: :new
-  before_action :confirm_item_stock, only: :new
   def new
+    confirm_item_stock
     @pre_order = PreOrder.new
     @payments = Payment.all
     @deliveries = Delivery.all

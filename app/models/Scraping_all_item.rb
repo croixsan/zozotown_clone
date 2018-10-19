@@ -10,6 +10,7 @@ class ScrapingAllItem
       shop_name = page.search("#breadCrumb a")[1].inner_text
       shop = Shop.where(name: shop_name).first_or_initialize
       shop.url = "http:" + logo_url
+      shop.gender = 0
       shop.save
     end
 
